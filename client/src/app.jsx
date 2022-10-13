@@ -1,9 +1,12 @@
+/* eslint-disable import/extensions */
 import React from 'react';
+import ProductsOverview from './overview/productsOverview.jsx';
 
-const App = () => {
+function App() {
   return (
     <div className="App">
       Hello World
+      <ProductsOverview />
     </div>
   );
 }
