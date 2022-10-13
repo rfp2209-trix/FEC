@@ -1,1 +1,1 @@
-module.exports.getAllProductsOverview = require('./productsOverview.js');
+exports.productsOverview = require('./productsOverview.js');
