@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
-const routes = require('./router.js');
+const router = require('./router.js');
 const app = express();
+require('dotenv').config()
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -14,7 +15,7 @@ const logger = (req, res, next) => {
   next();
 };
 
-app.use('/fec', routes);
+app.use('/fec', router);
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(logger);
 

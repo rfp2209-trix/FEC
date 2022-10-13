@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controllers = require('./controllers');
 
-// example * router.get('/overview', controllers.getAll);
+router.get('/overview', controllers.productsOverview.getProductsOverview);
 
 /*
 additional routes

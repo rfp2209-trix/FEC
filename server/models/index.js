@@ -1,0 +1,1 @@
+module.exports.getAllProductsOverview = require('./productsOverview.js');
