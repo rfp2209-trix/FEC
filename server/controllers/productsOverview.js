@@ -9,11 +9,10 @@ module.exports = {
     const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${productId}`;
 
     const config = {
-      params: {
-
+      params:{
       },
       headers: {
-        Authorization: process.env.API_TOKEN,
+        Authorization: process.env.AUTH_TOKEN,
       },
     };
 
