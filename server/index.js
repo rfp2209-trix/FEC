@@ -3,7 +3,7 @@ const path = require('path');
 const router = require('./router');
 
 const app = express();
-require('dotenv').config()
+require('dotenv').config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,8 +19,7 @@ app.use(logger);
 app.use('/fec', router);
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-
-app.listen(process.env.PORT || 3000, (err, success) => {
+app.listen(process.env.PORT || 3000, (err) => {
   if (err) {
     console.log(err);
   } else {
