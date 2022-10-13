@@ -1,3 +1,3 @@
 // imports and exports various controllers
-exports.QAControls = require('/server/controllers/questionsControl');
+exports.QAControls = require('./questionsControl.js');
 exports.productsOverview = require('./productsOverview.js');

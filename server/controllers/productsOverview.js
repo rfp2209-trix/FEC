@@ -1,6 +1,5 @@
 require('dotenv').config();
 const axios = require('axios');
-const models = require('../models');
 require('dotenv').config();
 
 module.exports = {
