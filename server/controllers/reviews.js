@@ -24,6 +24,15 @@ module.exports = {
         console.log(err);
         res.sendStatus(500);
       });
+  },
+
+  postReview: (req, res) => {
+  },
+
+  addHelpful: (req, res) => {
+  },
+
+  reportReview: (req, res) => {
   }
 };
 
