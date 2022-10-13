@@ -15,16 +15,16 @@ const logger = (req, res, next) => {
   }
   next();
 };
-
+app.use(logger);
 app.use('/fec', router);
 app.use(express.static(path.join(__dirname, '../client/dist')));
-app.use(logger);
+
 
 app.listen(process.env.PORT || 3000, (err, success) => {
   if (err) {
     console.log(err);
   } else {
     console.log(`server listening on ${process.env.PORT || 3000}`);
-    console.log(success);
+    console.log('successfully connected');
   }
 });
