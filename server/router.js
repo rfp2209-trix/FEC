@@ -1,16 +1,13 @@
 const router = require('express').Router();
 const controllers = require('./controllers');
 
-/*
-additional routes
-*/
-
+// PRODUCT OVERVIEW ROUTE
 router.get('/overview', controllers.productsOverview.getProductsOverview);
 
 // QA ROUTE
-// router.get('/questions', controllers.questionsControl.get);
+router.get('/questions/:productID', controllers.QAControls.get);
 
-// '/reviews' endpoint
+// REVIEwS ROUTES
 router.get('/reviews/meta', controllers.reviews.getMeta);
 router.get('/reviews', controllers.reviews.getReviews);
 router.post('/reviews', controllers.reviews.postReview);
