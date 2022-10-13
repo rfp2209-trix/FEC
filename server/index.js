@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
-const routes = require('./router');
-const dotenv = require('dotenv');
+const router = require('./router');
 
 const app = express();
+require('dotenv').config()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,16 +15,16 @@ const logger = (req, res, next) => {
   }
   next();
 };
-
-app.use('/fec', routes);
-app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(logger);
+app.use('/fec', router);
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
 
 app.listen(process.env.PORT || 3000, (err, success) => {
   if (err) {
     console.log(err);
   } else {
     console.log(`server listening on ${process.env.PORT || 3000}`);
-    console.log(success);
+    console.log('successfully connected');
   }
 });
