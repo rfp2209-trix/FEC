@@ -20,7 +20,7 @@ app.use('/fec', router);
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 
-app.listen(process.env.PORT || 3000, (err, success) => {
+app.listen(process.env.PORT || 3000, (err) => {
   if (err) {
     console.log(err);
   } else {
