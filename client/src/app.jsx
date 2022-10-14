@@ -9,11 +9,6 @@ import {ProductContext, Context} from './Context.js';
 function App() {
 
 
-  const GlobalState = useContext(ProductContext)
-
-
-
-
   return (
 
       <div className="App">

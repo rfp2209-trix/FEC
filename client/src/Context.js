@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext, createContext} from 'react';
 import axios from 'axios';
 
-export const ProductContext = createContext();
+const ProductContext = createContext();
 
-export function Context(props) {
+export function Context({ children }) {
   const [product, setProduct] = useState([]);
   const product_id = 40344
 
@@ -14,8 +14,21 @@ export function Context(props) {
       })
   }, []);
 
-  return <ProductContext.Provider value={[product, setProduct]} {...props}>{props.children}</ProductContext.Provider>
+  const value = {
+
+  }
+
+
+  // const value = {
+  //   ...product,
+  //   getSomething,
+
+  // }
+
+  return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
 
 }
+
+
 
 

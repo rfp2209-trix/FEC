@@ -4,8 +4,7 @@ import {ProductContext} from '../Context.js'
 
 export default function ProductInformation() {
 
-  const GlobalState = useContext(ProductContext)
-  // console.log('global state', GlobalState)
+
 
   return (
     <div>
