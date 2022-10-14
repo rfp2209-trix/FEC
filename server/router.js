@@ -34,8 +34,6 @@ router.get('/averageReview/:product_id', controllers.relatedComparison.getAverag
 
 // QA ROUTES
 router.get('/questions/:productID', controllers.QAControls.get);
-// RATINGS AND REVIEWS ROUTES
-
 /*
   *
   *
@@ -48,7 +46,7 @@ router.get('/questions/:productID', controllers.QAControls.get);
   *
   *
 */
-// REVIEwS ROUTES
+// RATINGS AND REVIEWS ROUTES
 router.get('/reviews/meta', controllers.reviews.getMeta);
 router.get('/reviews', controllers.reviews.getReviews);
 router.post('/reviews', controllers.reviews.postReview);
