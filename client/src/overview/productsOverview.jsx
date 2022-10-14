@@ -8,7 +8,7 @@ export default function ProductsOverview() {
   return (
 
     <div>
-      <h1>Products Overview</h1>
+      <h1 id="products-overview">Products Overview</h1>
       <ProductInformation />
       <ImageGallery />
       <StyleSelector />
