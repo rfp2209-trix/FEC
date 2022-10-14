@@ -51,7 +51,6 @@ module.exports = {
         }
         average /= count;
         res.status(200).json(average);
-        // for (var i = 0; i < reviewsMeta.data)
       });
   },
 
