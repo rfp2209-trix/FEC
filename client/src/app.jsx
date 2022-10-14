@@ -5,7 +5,7 @@ import ProductsOverview from './overview/productsOverview.jsx';
 function App() {
   return (
     <div className="App">
-      Hello World
+      <h1>Hello World</h1>
       <ProductsOverview />
     </div>
   );
