@@ -1,5 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
+const path = require('path');
 
 const headers = { Authorization: process.env.AUTH_TOKEN };
 
@@ -43,9 +44,27 @@ module.exports = {
   },
 
   addHelpful: (req, res) => {
+    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE + req.url}`, {}, { headers })
+      .then(() => {
+        console.log('succuess');
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        console.log(err)
+        res.sendStatus(500);
+      });
   },
 
   reportReview: (req, res) => {
+    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE + req.url}`, {}, { headers })
+      .then(() => {
+        console.log('succuess');
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        console.log(err)
+        res.sendStatus(500);
+      });
   }
 };
 

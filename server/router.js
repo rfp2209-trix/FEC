@@ -4,9 +4,39 @@ const controllers = require('./controllers');
 // PRODUCT OVERVIEW ROUTE
 router.get('/overview', controllers.productsOverview.getProductsOverview);
 
+/*
+  *
+  *
+  *
+  *
+  *     Product Overview Routes here
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+*/
+
 // QA ROUTE
 router.get('/questions/:productID', controllers.QAControls.get);
-
+/*
+  *
+  *
+  *    QA Routes here
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+*/
 // REVIEwS ROUTES
 router.get('/reviews/meta', controllers.reviews.getMeta);
 router.get('/reviews', controllers.reviews.getReviews);
