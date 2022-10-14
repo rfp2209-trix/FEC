@@ -32,7 +32,6 @@ export function Context({ children }) {
       }
     }
     handleGetAllProductsInfo(40344);
-
   }
 
   const values = {
@@ -41,8 +40,6 @@ export function Context({ children }) {
     setState,
     getNewProduct
   }
-
-
 
   return <ProductContext.Provider value={values}>{children}</ProductContext.Provider>
 
