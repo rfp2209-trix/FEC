@@ -1,5 +1,7 @@
-import React from 'react';
+/* eslint-disable import/extensions */
+import React, {useContext, useState, useEffect} from 'react';
 import ProductsOverview from './overview/productsOverview.jsx';
+
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 
