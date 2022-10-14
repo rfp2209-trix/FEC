@@ -5,7 +5,7 @@ const headers = { Authorization: process.env.AUTH_TOKEN };
 
 module.exports = {
   getMeta: (req, res) => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/reviews/meta?product_id=${req.query.product_id}`, { headers })
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/reviews/meta`, { headers, params: req.query })
       .then((apiResponse) => {
         res.status(200).json(apiResponse.data);
       })
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   getReviews: (req, res) => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/reviews?product_id=${req.query.product_id}`, { headers })
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/reviews`, { headers, params: req.query })
       .then((apiResponse) => {
         res.status(200).json(apiResponse.data);
       })
@@ -27,6 +27,19 @@ module.exports = {
   },
 
   postReview: (req, res) => {
+    axios({
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/reviews`,
+      headers,
+      method: 'post',
+      data: req.body
+    })
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
   },
 
   addHelpful: (req, res) => {
