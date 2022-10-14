@@ -3,7 +3,7 @@ const axios = require('axios');
 
 module.exports = {
   getProduct(req, res) {
-
+    console.log('req received')
     const { product_id } = req.params;
     const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${product_id}`;
 
@@ -73,7 +73,7 @@ module.exports = {
 
     axios.post(URL, queryData, config)
       .then((cartContents) => {
-        res.status(201).json(cartContents.data);
+        res.status(201).send()
       })
       .catch((err) => {
         console.log(err);
