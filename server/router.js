@@ -4,6 +4,25 @@ const controllers = require('./controllers');
 // PRODUCT OVERVIEW ROUTES
 router.get('/overview', controllers.productsOverview.getProductsOverview);
 
+/*
+  *
+  *
+  *
+  *
+  *     Product Overview Routes here
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+  *
+*/
+
 // RELATED AND COMPARISON ROUTES
 router.get('/related/:product_id', controllers.relatedComparison.getRelatedItems);
 
@@ -15,11 +34,23 @@ router.get('/averageReview/:product_id', controllers.relatedComparison.getAverag
 
 // QA ROUTES
 router.get('/questions/:productID', controllers.QAControls.get);
-
-// RATINGS AND REVIEWS ROUTES
-
 /*
-additional routes
+  *
+  *
+  *    QA Routes here
+  *
+  *
+  *
+  *
+  *
+  *
+  *
 */
+// RATINGS AND REVIEWS ROUTES
+router.get('/reviews/meta', controllers.reviews.getMeta);
+router.get('/reviews', controllers.reviews.getReviews);
+router.post('/reviews', controllers.reviews.postReview);
+router.put('/reviews/:review_id/helpful', controllers.reviews.addHelpful);
+router.put('/reviews/:review_id/report', controllers.reviews.reportReview);
 
 module.exports = router;
