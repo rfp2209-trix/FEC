@@ -1,28 +1,86 @@
 require('dotenv').config();
 const axios = require('axios');
-require('dotenv').config();
 
 module.exports = {
-  getProductsOverview(req, res) {
-    // const queryParam = (req.query) ? `?${req.query}` : '';
-    const productId = 40345;
-    const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${productId}`;
+  getProduct(req, res) {
+
+    const { product_id } = req.params;
+    const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${product_id}`;
 
     const config = {
-      params:{
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
       },
+    };
+    axios.get(URL, config)
+      .then((product) => {
+        res.status(200).json(product.data);
+      });
+  },
+
+  getStyles(req, res) {
+    //getter for styles based upon a provided product_id/styles
+    const { product_id } = req.params;
+
+    const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${product_id}/styles`;
+
+    const config = {
       headers: {
         Authorization: process.env.AUTH_TOKEN,
       },
     };
 
     axios.get(URL, config)
-      .then((response) => {
-        res.status(200).json(response.data);
+      .then((styles) => {
+        res.status(200).json(styles.data);
       })
       .catch((err) => {
         console.log(err);
         res.sendStatus(500);
       });
   },
+
+  getCart(req, res) {
+    const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/cart`;
+
+    const config = {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    };
+
+    axios.get(URL, config)
+      .then((cartContents) => {
+        res.status(200).json(cartContents.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  },
+
+  addToCart(req, res) {
+    console.log('body', req.body)
+    const queryData = req.body
+
+    const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/cart`;
+
+    const config = {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    };
+
+    axios.post(URL, queryData, config)
+      .then((cartContents) => {
+        res.status(201).json(cartContents.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(501)
+      });
+
+  }
+
+
 };
