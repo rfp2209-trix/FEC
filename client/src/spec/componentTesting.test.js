@@ -11,7 +11,7 @@ describe('App tests', () => {
   it('should contain hello world in a header', () => {
   render(<App />);
       const heading = screen.getByText("Hello World");
-      expect(heading).toBeInTheDocument()
+      expect(heading).toBeInTheDocument();
   });
 });
 
