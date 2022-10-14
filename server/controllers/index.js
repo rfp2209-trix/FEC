@@ -2,3 +2,4 @@
 exports.QAControls = require('./questionsControl');
 exports.productsOverview = require('./productsOverview');
 exports.reviews = require('./reviews');
+exports.relatedComparison = require('./relatedComparison');
