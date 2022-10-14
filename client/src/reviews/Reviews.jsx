@@ -1,11 +1,13 @@
 import React from 'react';
-import ReviewsMeta from './ReviewsMeta';
-import ReviewsList from './ReviewsList'
+import ReviewsMeta from './ReviewsMeta.jsx';
+import ReviewsList from './ReviewsList.jsx';
 
-const Reviews = function() {
+function Reviews() {
   return (
-    <ReviewsMeta />
-    <ReviewsList />
+    <div>
+      <ReviewsMeta />
+      <ReviewsList />
+    </div>
   );
 }
 

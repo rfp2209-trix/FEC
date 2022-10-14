@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductsOverview from './overview/productsOverview.jsx';
-import Reviews from './reviews/Reviews'
-
+import Reviews from './reviews/Reviews.jsx';
+import WriteReview from './reviews/WriteReview.jsx';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <h1>Hello World</h1>
       <ProductsOverview />
       <Reviews />
+      <WriteReview />
     </div>
   );
 }
