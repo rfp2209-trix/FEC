@@ -1,18 +1,26 @@
 /* eslint-disable import/extensions */
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
+import axios from 'axios';
 import ProductsOverview from './overview/productsOverview.jsx';
-import ProductProvider from './Context.js';
+import {ProductContext, Context} from './Context.js';
 
 
 
 function App() {
+
+
+  const GlobalState = useContext(ProductContext)
+
+
+
+
   return (
-    <ProductProvider>
+
       <div className="App">
         <h1>Hello World</h1>
         <ProductsOverview />
       </div>
-    </ProductProvider>
+
 
   );
 }
