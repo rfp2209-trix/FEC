@@ -14,6 +14,10 @@ module.exports = {
     axios.get(URL, config)
       .then((result) => {
         res.status(200).json(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
       });
   },
 
@@ -28,6 +32,10 @@ module.exports = {
     axios.get(URL, config)
       .then((productInfo) => {
         res.status(200).json(productInfo.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
       });
   },
 
@@ -51,7 +59,10 @@ module.exports = {
         }
         average /= count;
         res.status(200).json(average);
-        // for (var i = 0; i < reviewsMeta.data)
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
       });
   },
 
@@ -66,6 +77,10 @@ module.exports = {
     axios.get(URL, config)
       .then((productImages) => {
         res.status(200).json(productImages.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
       });
   },
 // COOKIES TO SAVE OUTFIT LIST PER USER??? local storage ~~~~
