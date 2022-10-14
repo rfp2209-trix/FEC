@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import React from 'react';
 import ProductsOverview from './overview/productsOverview.jsx';
 
