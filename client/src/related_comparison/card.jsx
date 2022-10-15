@@ -5,11 +5,27 @@ export default function Card({
 }) {
   return (
     <aside>
-      {imgs ? <img src={imgs.results[0].photos[0].thumbnail_url} width="350" height="350" alt={alt} /> : null}
-      <h2>{category}</h2>
-      <small>{name}</small>
-      <p>{price}</p>
-      <p>{rating}</p>
+      {imgs ? <img src={imgs.results[0].photos[0].thumbnail_url} alt={alt} /> : null}
+      <h2>
+        category:
+        {' '}
+        {category}
+      </h2>
+      <small>
+        name:
+        {' '}
+        {name}
+      </small>
+      <p>
+        price:
+        {' '}
+        {price}
+      </p>
+      <p>
+        rating:
+        {' '}
+        {rating}
+      </p>
     </aside>
   );
 }

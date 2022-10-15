@@ -27,22 +27,22 @@ module.exports = {
         Promise.all(allAxiosReq)
           .then((responses) => {
             responses.forEach((item) => {
-              if (typeof (item.data) === 'number') {
+              if (typeof (item.data) === 'number' || typeof (item.data) === 'string') {
                 relatedProductRatings.push(item.data);
               }
               if (item.data.product_id !== undefined) {
                 productStyleInfo.push(item.data);
-              } else {
+              } else if (item.data.id !== undefined) {
+                console.log('here', item.data)
                 relatedProductInfo.push(item.data);
               }
             });
-            console.log(relatedProductRatings)
-            console.log(relatedProductInfo)
             //workign here
             for (let i = 0; i < relatedProductInfo.length; i += 1) {
               relatedProductInfo[i].averageRating = relatedProductRatings[i];
               relatedProductInfo[i].styles = productStyleInfo[i];
             }
+            console.log('rel', relatedProductInfo)
             res.status(200).json(relatedProductInfo);
           })
           .catch((err) => {
