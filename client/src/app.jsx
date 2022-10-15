@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import ProductsOverview from './overview/productsOverview.jsx';
 import Reviews from './reviews/Reviews.jsx';
