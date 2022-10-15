@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductInformation from './productInformation.jsx';
-import ImageGallery from './imageGallery.jsx';
-import StyleSelector from './styleSelector.jsx';
-import Cart from './cart.jsx';
+import ProductInformation from '../productInformation/productInformation.jsx';
+import ImageGallery from '../imageGallery/imageGallery.jsx';
+import StyleSelector from '../styleSelector/styleSelector.jsx';
+import Cart from '../cart/cart.jsx';
 
 export default function ProductsOverview() {
   return (

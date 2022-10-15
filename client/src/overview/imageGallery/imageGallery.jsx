@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
-import { useProductsContext } from '../Context.jsx';
+import { useProductsContext } from '../../Context.jsx';
 import ImageGalleryThumbnails from './imageGallery_thumbnails.jsx';
 
 export default function ImageGallery() {
