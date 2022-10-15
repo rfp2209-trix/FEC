@@ -4,6 +4,10 @@ const axios = require('axios');
 
 module.exports = {
   getRelatedItems: (req, res) => {
+    const relatedProductInfo = [];
+    let relatedProductIDs;
+    const relatedProductRatings = [];
+    const productStyleInfo = [];
     const { product_id } = req.params;
     const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${product_id}/related`;
     const config = {
@@ -13,11 +17,38 @@ module.exports = {
     };
     axios.get(URL, config)
       .then((result) => {
-        res.status(200).json(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.sendStatus(500);
+        relatedProductIDs = result.data.slice();
+        const allAxiosReq = [];
+        relatedProductIDs.forEach((item) => {
+          allAxiosReq[allAxiosReq.length] = axios.get(`http://localhost:3000/FEC/productinfo/${item}`);
+          allAxiosReq[allAxiosReq.length] = axios.get(`http://localhost:3000/FEC/averagereview/${item}`);
+          allAxiosReq[allAxiosReq.length] = axios.get(`http://localhost:3000/FEC/productinfo/${item}/styles`);
+        });
+        Promise.all(allAxiosReq)
+          .then((responses) => {
+            responses.forEach((item) => {
+              if (typeof (item.data) === 'number') {
+                relatedProductRatings.push(item.data);
+              }
+              if (item.data.product_id !== undefined) {
+                productStyleInfo.push(item.data);
+              } else {
+                relatedProductInfo.push(item.data);
+              }
+            });
+            console.log(relatedProductRatings)
+            console.log(relatedProductInfo)
+            //workign here
+            for (let i = 0; i < relatedProductInfo.length; i += 1) {
+              relatedProductInfo[i].averageRating = relatedProductRatings[i];
+              relatedProductInfo[i].styles = productStyleInfo[i];
+            }
+            res.status(200).json(relatedProductInfo);
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
       });
   },
 
@@ -83,5 +114,5 @@ module.exports = {
         res.sendStatus(500);
       });
   },
-// COOKIES TO SAVE OUTFIT LIST PER USER??? local storage ~~~~
+  // COOKIES TO SAVE OUTFIT LIST PER USER??? local storage ~~~~
 };
