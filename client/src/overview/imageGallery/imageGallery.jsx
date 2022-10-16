@@ -20,11 +20,12 @@ export default function ImageGallery() {
   }
 
   return (
-
     <Styled.ThumbnailContainer>
-      {photos.map((photo, index) => {
-        return <ImageGalleryThumbnails key={index} image={photo.thumbnail_url} />;
-      })}
+      <Styled.ThumbnailDetailScroll>
+        {photos.map((photo, index) => {
+          return <ImageGalleryThumbnails key={index} image={photo.thumbnail_url} />;
+        })}
+      </Styled.ThumbnailDetailScroll>
     </Styled.ThumbnailContainer>
   );
 }

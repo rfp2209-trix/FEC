@@ -4,12 +4,8 @@ import * as Styled from './imageGallery_thumbnails.styles.js';
 
 export default function ImageGalleryThumbnails({ image }) {
   return (
-    <Styled.ThumbnailContainer>
-      <div>
-
-        <img src={image} width="80" alt="should be a pic here :(" />
-
-      </div>
-    </Styled.ThumbnailContainer>
+    <div>
+      <img src={image} width="80" alt="should be a pic here :(" />
+    </div>
   );
 }

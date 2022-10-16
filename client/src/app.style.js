@@ -4,17 +4,24 @@ import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 
 export const Container = styled.section`
-  display: flex;
-  flex-direction:column;
+
   height: 100%;
+  margin: 40px;
+  border-style: solid;
+  border-color: lightgrey;
+  border-radius: 12px;
+
 `;
 
 export const Header = styled.header`
- flex: none;
- top: 0;
- position: fixed;
- background: lightgrey;
- width: 100vw;
+
+  top: 0;
+  position: fixed;
+  background: lightgrey;
+  width: 100vw;
+
+
+
 `;
 
 export const ContentContainer = styled.section`
