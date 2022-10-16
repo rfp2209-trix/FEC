@@ -9,11 +9,19 @@ import * as Styled from './app.style.js';
 function App() {
   return (
     <Styled.Container>
+      <Styled.Header>
+        <h2>Header Goes Here</h2>
+      </Styled.Header>
       <Styled.ContentContainer>
         <Styled.OverviewContainer />
         <Styled.ReviewsContainer />
         <Styled.WriteReviewContainer />
       </Styled.ContentContainer>
+      <Styled.Footer>
+        <h2>
+          Footer Goes Here
+        </h2>
+      </Styled.Footer>
     </Styled.Container>
   );
 }

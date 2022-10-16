@@ -4,7 +4,6 @@ import { useProductsContext } from '../../Context.jsx';
 export default function ProductInformation() {
   const { category, name, slogan } = useProductsContext();
 
-
   return (
     <div>
       <h1>Product Information</h1>

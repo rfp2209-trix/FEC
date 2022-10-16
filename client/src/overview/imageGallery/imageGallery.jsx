@@ -2,8 +2,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { useProductsContext } from '../../Context.jsx';
-import * as Styled from './imageGallery.styles';
 import ImageGalleryThumbnails from './imageGallery_thumbnails.jsx';
+import * as Styled from './imageGallery_thumbnails.styles';
 
 export default function ImageGallery() {
   const [loading, setLoading] = useState(true);
@@ -20,12 +20,11 @@ export default function ImageGallery() {
   }
 
   return (
-    <Styled.ImageGalleryContent>
-      <div>
-        {photos.map((photo, index) => {
-          return <ImageGalleryThumbnails key={index} image={photo.thumbnail_url} />;
-        })}
-      </div>
-    </Styled.ImageGalleryContent>
+
+    <Styled.ThumbnailContainer>
+      {photos.map((photo, index) => {
+        return <ImageGalleryThumbnails key={index} image={photo.thumbnail_url} />;
+      })}
+    </Styled.ThumbnailContainer>
   );
 }
