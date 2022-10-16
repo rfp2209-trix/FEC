@@ -1,16 +1,20 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import Reviews from './reviews/Reviews.jsx';
-import WriteReview from './reviews/WriteReview.jsx';
+import * as Styled from './app.style.js';
+
+// import your react component to app.styles.js
+// follow the convention for creating styled.components
+// import your styled component here
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <ProductsOverview />
-      <Reviews />
-      <WriteReview />
-    </div>
+    <Styled.Container>
+      <Styled.ContentContainer>
+        <Styled.OverviewContainer />
+        <Styled.ReviewsContainer />
+        <Styled.WriteReviewContainer />
+      </Styled.ContentContainer>
+    </Styled.Container>
   );
 }
 
