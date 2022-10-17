@@ -38,7 +38,7 @@ export function Context({ children }) {
           reviewsMeta,
           reviews,
           avgReview,
-          totalReviews
+          totalReviews,
         };
 
         console.log(tempState);
