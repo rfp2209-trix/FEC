@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useProductsContext } from '../../Context.jsx';
 import ImageGalleryThumbnails from './imageGallery_thumbnails.jsx';
 import * as Styled from './imageGallery_thumbnails.styles';
+import { ThumbnailContainer } from './imageGallery.styles.js';
 
 export default function ImageGallery() {
   const [loading, setLoading] = useState(true);
@@ -20,12 +21,12 @@ export default function ImageGallery() {
   }
 
   return (
-    <Styled.ThumbnailContainer>
+    <ThumbnailContainer>
       <Styled.ThumbnailDetailScroll>
         {photos.map((photo, index) => {
           return <ImageGalleryThumbnails key={index} image={photo.thumbnail_url} />;
         })}
       </Styled.ThumbnailDetailScroll>
-    </Styled.ThumbnailContainer>
+    </ThumbnailContainer>
   );
 }

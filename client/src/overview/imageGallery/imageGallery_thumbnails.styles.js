@@ -7,13 +7,16 @@ export const ThumbnailDetailScroll = styled.section`
   // flex: 0 0 100%;
   scroll-snap-align: start;
   // overflow-y: scroll;
-
 `;
 
-export const ThumbnailContainer = styled.div`
+export const ThumbsDetail = styled.div`
   display: flex;
-  flex-direction: column;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 300px;
+`;
+
+export const ThumbImage = styled.img`
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-style: solid;
+  border-color: white;
 `;
