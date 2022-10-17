@@ -21,3 +21,7 @@ export const ImageContainer = styled.section`
   flex-direction: row;
 
 `;
+
+export const ProductActivityContainer = styled.section`
+  display: flex;
+`;
