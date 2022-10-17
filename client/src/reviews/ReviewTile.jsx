@@ -2,11 +2,11 @@ import React from 'react';
 import { useProductsContext } from '../Context.jsx';
 
 function ReviewTile() {
-  const { loading, results } = useProductsContext();
+  const { loading, reviews } = useProductsContext();
   if (loading) {
     return <div />;
   }
-  const reviewComponents = results.map((indvReview) => (
+  const reviewComponents = reviews.results.map((indvReview) => (
     <li key={indvReview.review_id}>
       <div>{indvReview.rating}</div>
       <div>{indvReview.date}</div>

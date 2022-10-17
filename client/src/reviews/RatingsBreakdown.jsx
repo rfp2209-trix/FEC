@@ -21,18 +21,18 @@ function RatingSummary() {
 }
 
 function StarsBreakdown() {
-  const { ratings, recommended, totalReviews, loading } = useProductsContext();
+  const { reviewsMeta, totalReviews, loading } = useProductsContext();
   if (loading) {
     return <div />;
   }
-  const ratingsComponents = Object.entries(ratings).reverse().map((resultArray) => (
+  const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) => (
     <li key={resultArray[0]}>
       {resultArray[0]}
       &nbsp;stars (insert bar here showing relative amount of reviews)
       {resultArray[1]}
     </li>
   ));
-  const percentRecomended = (recommended.true / totalReviews) * 100;
+  const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
   return (
     <div>
       {percentRecomended.toFixed(0)}
