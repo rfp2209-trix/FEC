@@ -5,7 +5,7 @@ export const ThumbnailDetailScroll = styled.section`
   display: flex;
   flex-direction: column;
   // flex: 0 0 100%;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   // overflow-y: scroll;
 `;
 
