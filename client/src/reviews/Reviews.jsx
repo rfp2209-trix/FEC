@@ -5,6 +5,7 @@ import ReviewsList from './ReviewsList.jsx';
 function Reviews() {
   return (
     <div>
+      <h2>RATINGS & REVIEWS</h2>
       <ReviewsMeta />
       <ReviewsList />
     </div>
