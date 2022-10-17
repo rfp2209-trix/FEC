@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from './card.jsx';
 
 export default function RelatedProductListEntry({
   name, category, price, rating, imgs,

@@ -85,15 +85,6 @@ export const QuestionsContainer = styled.section`
   background: white;
 `;
 
-export const RelatedProductsContainer = styled.section`
-
-  width: 100vw;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-`;
-
 export const Footer = styled.footer`
  flex:none;
  bottom: 0;
