@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useProductsContext } from '../../Context.jsx';
 import ImageGalleryThumbnails from './imageGallery_thumbnails.jsx';
 import * as Styled from './imageGallery_thumbnails.styles';
-import { ThumbnailContainer, ImageMainContainer } from './imageGallery.styles.js';
+import { ThumbnailContainer } from './imageGallery.styles.js';
 
 export default function ImageGallery() {
   const { results, loading } = useProductsContext();

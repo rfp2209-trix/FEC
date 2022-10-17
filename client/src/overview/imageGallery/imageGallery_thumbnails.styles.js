@@ -7,6 +7,7 @@ export const ThumbnailDetailScroll = styled.section`
   // flex: 0 0 100%;
   // scroll-snap-align: start;
   // overflow-y: scroll;
+  justify-content: center;
 `;
 
 export const ThumbsDetail = styled.div`
@@ -19,4 +20,5 @@ export const ThumbImage = styled.img`
   height: auto;
   border-style: solid;
   border-color: white;
+  object-fit: contain;
 `;

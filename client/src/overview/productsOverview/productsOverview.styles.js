@@ -15,7 +15,7 @@ width: 100%;
 `;
 
 export const ImageContainer = styled.section`
-  top: 20px;
+  padding-top: 20px;
   background-color: blue;
   display: flex;
   flex-direction: row;

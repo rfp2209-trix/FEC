@@ -8,10 +8,10 @@ export const ImageMainContainer = styled(ImageGalleryMain)`
 
 export const ThumbnailContainer = styled.div`
 
-  // display: flex;
+  display: flex;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 400px;
+  height: 800px;
   ::-webkit-scrollbar {
     width: 0;
     background: transparent;
@@ -20,6 +20,7 @@ export const ThumbnailContainer = styled.div`
   border-color: grey;
   border-radius: 6px;
   width: 100px;
+  justify-content: flex-end;
 
 
 `;

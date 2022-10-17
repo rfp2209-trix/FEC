@@ -23,13 +23,12 @@ export const Header = styled.header`
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
-  scroll-margin-top: 50px;
+
   width: 100%;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   background: white;
-  flex: 3;
+
 `;
 
 // export const SectionBreakOne = styled.div`
