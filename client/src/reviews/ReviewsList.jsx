@@ -1,16 +1,25 @@
 import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
+import { useProductsContext } from '../Context.jsx';
 // cometnt
 function ReviewsList() {
+  const { totalReviews, loading } = useProductsContext();
+
+  if (loading) {
+    return (
+      <div />
+    );
+  }
   return (
     <div>
       <div>
-        amount of reviews and a sort drop down
+        {totalReviews}
+        &nbsp;reviews, sorted by (insert dropdown here)
       </div>
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
       <ReviewTile />
-      <button type="button">MORE REVIEWS</button>
+      {totalReviews > 2 && <button type="button">MORE REVIEWS</button>}
       <button type="button">ADD REVIEW</button>
       <div>
         REMOVE ME!

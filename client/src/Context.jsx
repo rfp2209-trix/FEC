@@ -3,6 +3,7 @@ import React, {
   useState, useEffect, useContext, createContext,
 } from 'react';
 import axios from 'axios';
+import { sumArray, avgStarValue } from '../helpers.js';
 
 const ProductContext = createContext();
 
@@ -20,10 +21,27 @@ export function Context({ children }) {
 
     async function handleGetAllProductsInfo() {
       try {
-        const productsInfo = await axios.get(`/fec/product/${product_id}`);
-        const styleDetails = await axios.get(`/fec/product/styles/${product_id}`);
+        const productsInfoGet = await axios.get(`/fec/product/${product_id}`);
+        const styleDetailsGet = await axios.get(`/fec/product/styles/${product_id}`);
+        const reviewsMetaGet = await axios.get(`/fec/reviews/meta?product_id=${product_id}`);
+        const reviewsGet = await axios.get(`/fec/reviews?product_id=${product_id}&count=2`);
+        const productsInfo = productsInfoGet.data;
+        const styleDetails = styleDetailsGet.data;
+        const reviewsMeta = reviewsMetaGet.data;
+        const reviews = reviewsGet.data;
+        const totalReviews = sumArray(Object.values(reviewsMeta.ratings));
+        const avgReview = avgStarValue(reviewsMeta.ratings).toFixed(1);
         // let nextGet = ...
-        tempState = { ...productsInfo.data, ...styleDetails.data };
+        tempState = {
+          productsInfo,
+          styleDetails,
+          reviewsMeta,
+          reviews,
+          avgReview,
+          totalReviews
+        };
+
+        console.log(tempState);
         setState(tempState);
         setLoading(false);
       } catch (err) {
