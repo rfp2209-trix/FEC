@@ -4,12 +4,9 @@ import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 
 export const Container = styled.section`
-
+  display: flex;
   height: 100%;
-  margin: 40px;
-  border-style: solid;
-  border-color: lightgrey;
-  border-radius: 12px;
+  margin: 10px;
 
 `;
 
@@ -19,6 +16,7 @@ export const Header = styled.header`
   position: fixed;
   background: lightgrey;
   width: 100vw;
+  padding: 10px;
 
 
 
@@ -27,13 +25,17 @@ export const Header = styled.header`
 export const ContentContainer = styled.section`
   display: flex;
   flex-direction: column;
+  border-style: solid;
+  border-color: lightgrey;
+  border-radius: 12px;
   height: 100%
   background: white;
+  padding: 20px;
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
 
-  width: 100vw;
+  // width: 100vw;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -83,4 +85,5 @@ export const Footer = styled.footer`
  position: fixed;
  background: lightgrey;
  width: 100vw;
+ padding: 10px;
 `;
