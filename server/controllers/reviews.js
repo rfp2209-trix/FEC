@@ -1,6 +1,5 @@
 require('dotenv').config();
 const axios = require('axios');
-const path = require('path');
 
 const headers = { Authorization: process.env.AUTH_TOKEN };
 
@@ -50,7 +49,7 @@ module.exports = {
         res.sendStatus(204);
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         res.sendStatus(500);
       });
   },
@@ -62,7 +61,7 @@ module.exports = {
         res.sendStatus(204);
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         res.sendStatus(500);
       });
   }

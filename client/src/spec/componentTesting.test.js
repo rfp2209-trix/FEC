@@ -9,9 +9,14 @@ import App from '../app.jsx';
 
 describe('App tests', () => {
   it('should contain hello world in a header', () => {
-  render(<App />);
-      const heading = screen.getByText("Hello World");
-      expect(heading).toBeInTheDocument();
+    render(<App />);
+    const heading = screen.getByText('Hello World');
+    expect(heading).toBeInTheDocument();
+  });
+
+  it('should contain ratings and reviews in a header', () => {
+    render(<app />);
+    const heading = screen.getByText('RATINGS & REVIEWS');
+    expect(heading).toBeInTheDocument();
   });
 });
-
