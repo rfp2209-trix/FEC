@@ -1,8 +1,6 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, {
-  useState,
-  useEffect,
-  useContext,
-  createContext
+  useState, useEffect, useContext, createContext,
 } from 'react';
 import axios from 'axios';
 
@@ -14,21 +12,18 @@ export function Context({ children }) {
 
   const product_id = 40344;
 
-  useEffect(() => {
-    getNewProduct(product_id);
-  }, []);
-
-  const getNewProduct = (product_id) => {
+  const getNewProduct = () => {
     // set the loading date to true for each call
     setLoading(true);
     // temporary state to hold various API call as they return
     let tempState = {};
 
-    async function handleGetAllProductsInfo(product_id) {
+    async function handleGetAllProductsInfo() {
       try {
-        let productsInfo = await axios.get(`/fec/product/${product_id}`);
+        const productsInfo = await axios.get(`/fec/product/${product_id}`);
+        const styleDetails = await axios.get(`/fec/product/styles/${product_id}`);
         // let nextGet = ...
-        tempState = { ...productsInfo.data };
+        tempState = { ...productsInfo.data, ...styleDetails.data };
         setState(tempState);
         setLoading(false);
       } catch (err) {
@@ -39,12 +34,17 @@ export function Context({ children }) {
     handleGetAllProductsInfo(40344);
   };
 
+  useEffect(() => {
+    getNewProduct(product_id);
+  }, []);
+
   const values = {
     ...state,
     state,
     setState,
-    getNewProduct
-  }
+    getNewProduct,
+    loading,
+  };
 
   return <ProductContext.Provider value={values}>{children}</ProductContext.Provider>;
 }
