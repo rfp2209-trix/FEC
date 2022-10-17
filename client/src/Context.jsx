@@ -43,6 +43,7 @@ export function Context({ children }) {
     state,
     setState,
     getNewProduct,
+    loading,
   };
 
   return <ProductContext.Provider value={values}>{children}</ProductContext.Provider>;

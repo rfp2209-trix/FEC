@@ -1,9 +1,8 @@
 import React from 'react';
-import { useProductsContext } from '../Context.jsx';
+import { useProductsContext } from '../../Context.jsx';
 
 export default function ProductInformation() {
   const { category, name, slogan } = useProductsContext();
-
 
   return (
     <div>
