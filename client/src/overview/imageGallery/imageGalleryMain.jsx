@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
 import { useProductsContext } from '../../Context.jsx';
 

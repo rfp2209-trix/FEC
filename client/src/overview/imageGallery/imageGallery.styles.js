@@ -1,10 +1,14 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import ImageGalleryMain from './imageGalleryMain.jsx'
+import ImageGalleryMain from './imageGalleryMain.jsx';
+
+export const ImageMainContainer = styled(ImageGalleryMain)`
+  height: 400px;
+`;
 
 export const ThumbnailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+
+  // display: flex;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 400px;
@@ -16,11 +20,6 @@ export const ThumbnailContainer = styled.div`
   border-color: grey;
   border-radius: 6px;
   width: 100px;
-  // align-items: center;
-  // justify-content: center;
 
-`;
 
-export const ImageMainContainer = styled(ImageGalleryMain)`
-  display: block;
 `;

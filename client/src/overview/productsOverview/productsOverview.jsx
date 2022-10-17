@@ -3,17 +3,21 @@ import ProductInformation from '../productInformation/productInformation.jsx';
 import StyleSelector from '../styleSelector/styleSelector.jsx';
 import Cart from '../cart/cart.jsx';
 import * as Styled from './productsOverview.styles';
-import ImageGallery from '../imageGallery/imageGallery.jsx'
+import ImageGalleryThumbnailScroll from '../imageGallery/imageGallery_thumbnailScroll.jsx';
+import ImageGalleryMain from '../imageGallery/imageGalleryMain.jsx';
 
 export default function ProductsOverview() {
   return (
     <Styled.OverviewContent>
-      <div>
+      <Styled.OverviewColumns>
+        <Styled.ImageContainer>
+          <ImageGalleryThumbnailScroll />
+          <ImageGalleryMain />
+        </Styled.ImageContainer>
         <ProductInformation />
-        <ImageGallery />
         <StyleSelector />
         <Cart />
-      </div>
+      </Styled.OverviewColumns>
     </Styled.OverviewContent>
   );
 }

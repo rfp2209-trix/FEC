@@ -13,8 +13,6 @@ export default function ImageGallery() {
 
   return (
     <div>
-      <ImageMainContainer>
-      </ImageMainContainer>
       <ThumbnailContainer>
         <Styled.ThumbnailDetailScroll>
           {!loading && photos.map((photo, index) => {
@@ -23,6 +21,5 @@ export default function ImageGallery() {
         </Styled.ThumbnailDetailScroll>
       </ThumbnailContainer>
     </div>
-
   );
 }

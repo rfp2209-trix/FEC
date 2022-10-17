@@ -6,8 +6,9 @@ import WriteReview from './reviews/WriteReview.jsx';
 export const Container = styled.section`
   display: flex;
   height: 100%;
-  margin: 10px;
-
+  flex-direction: column;
+  // flex-wrap: wrap;
+  width:100%;
 `;
 
 export const Header = styled.header`
@@ -18,38 +19,30 @@ export const Header = styled.header`
   width: 100vw;
   padding: 10px;
 
-
-
-`;
-
-export const ContentContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
-  border-color: lightgrey;
-  border-radius: 12px;
-  height: 100%
-  background: white;
-  padding: 20px;
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
-
-  // width: 100vw;
+  width: 100%;
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background: white;
-
+  flex: 3;
 `;
+
+// export const SectionBreakOne = styled.div`
+//   flex-basis: 100%
+//   height: 0;
+// `;
 
 export const ReviewsContainer = styled(Reviews)`
 
   width: 100vw;
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background: white;
+  flex: 1;
 `;
 
 export const WriteReviewContainer = styled(WriteReview)`
@@ -59,6 +52,7 @@ export const WriteReviewContainer = styled(WriteReview)`
   display: flex;
   flex-direction: row;
   background: white;
+  flex: 1;
 `;
 
 export const QuestionsContainer = styled.section`
@@ -75,7 +69,7 @@ export const RelatedProductsContainer = styled.section`
   width: 100vw;
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background: white;
 `;
 

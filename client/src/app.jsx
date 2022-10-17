@@ -12,11 +12,10 @@ function App() {
       <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header>
-      <Styled.ContentContainer>
-        <Styled.OverviewContainer />
-        <Styled.ReviewsContainer />
-        <Styled.WriteReviewContainer />
-      </Styled.ContentContainer>
+      <Styled.OverviewContainer />
+      {/* <Styled.SectionBreakOne /> */}
+      <Styled.ReviewsContainer />
+      <Styled.WriteReviewContainer />
       <Styled.Footer>
         <h2>
           Footer Goes Here

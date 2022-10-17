@@ -2,8 +2,24 @@
 import styled from 'styled-components';
 
 export const OverviewContent = styled.section`
+  position: relative;
+  top: 70px;
+  margin: 15px;
+  background-color: red;
+`;
+
+export const OverviewColumns = styled.section`
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+width: 100%;
+`;
+
+export const ImageContainer = styled.section`
+  top: 20px;
+  background-color: blue;
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  background: white;
+
 `;

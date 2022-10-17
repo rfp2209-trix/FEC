@@ -10,7 +10,7 @@ export const ThumbnailDetailScroll = styled.section`
 `;
 
 export const ThumbsDetail = styled.div`
-  display: flex;
+  // display: flex;
 `;
 
 export const ThumbImage = styled.img`
