@@ -14,9 +14,11 @@ export default function ProductsOverview() {
           <ImageGalleryThumbnailScroll />
           <ImageGalleryMain />
         </Styled.ImageContainer>
-        <ProductInformation />
-        <StyleSelector />
-        <Cart />
+        <Styled.ProductActivityContainer>
+          <ProductInformation />
+          <StyleSelector />
+          <Cart />
+        </Styled.ProductActivityContainer>
       </Styled.OverviewColumns>
     </Styled.OverviewContent>
   );
