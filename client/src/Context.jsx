@@ -3,6 +3,7 @@ import React, {
   useState, useEffect, useContext, createContext,
 } from 'react';
 import axios from 'axios';
+import { sumArray, avgStarValue } from '../helpers.js';
 
 const ProductContext = createContext();
 
@@ -22,8 +23,21 @@ export function Context({ children }) {
       try {
         const productsInfo = await axios.get(`/fec/product/${product_id}`);
         const styleDetails = await axios.get(`/fec/product/styles/${product_id}`);
+        const reviewsMeta = await axios.get(`/fec/reviews/meta?product_id=${product_id}`);
+        const reviews = await axios.get(`/fec/reviews?product_id=${product_id}&count=2`);
+        const totalReviews = sumArray(Object.values(reviewsMeta.data.ratings));
+        const avgReview = avgStarValue(reviewsMeta.data.ratings).toFixed(1);
         // let nextGet = ...
-        tempState = { ...productsInfo.data, ...styleDetails.data };
+        tempState = {
+          ...productsInfo.data,
+          ...styleDetails.data,
+          ...reviewsMeta.data,
+          ...reviews.data,
+          avgReview,
+          totalReviews
+        };
+
+        console.log(tempState);
         setState(tempState);
         setLoading(false);
       } catch (err) {

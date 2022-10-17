@@ -9,18 +9,18 @@ import * as Styled from './app.style.js';
 function App() {
   return (
     <Styled.Container>
-      <Styled.Header>
+      {/* <Styled.Header>
         <h2>Header Goes Here</h2>
-      </Styled.Header>
-      <Styled.OverviewContainer />
+      </Styled.Header> */}
+      {/* <Styled.OverviewContainer /> */}
       {/* <Styled.SectionBreakOne /> */}
       <Styled.ReviewsContainer />
       <Styled.WriteReviewContainer />
-      <Styled.Footer>
+      {/* <Styled.Footer>
         <h2>
           Footer Goes Here
         </h2>
-      </Styled.Footer>
+      </Styled.Footer> */}
     </Styled.Container>
   );
 }
