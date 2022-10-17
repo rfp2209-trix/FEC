@@ -2,9 +2,7 @@
 import styled from 'styled-components';
 
 export const OverviewContent = styled.section`
-  position: relative;
-  top: 70px;
-  margin: 15px;
+  padding-top: 80px;
   background-color: red;
 `;
 

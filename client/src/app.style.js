@@ -18,10 +18,12 @@ export const Header = styled.header`
   background: lightgrey;
   width: 100vw;
   padding: 10px;
+  height: 80px;
 
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
+  scroll-margin-top: 50px;
   width: 100%;
   padding: 20px;
   display: flex;
