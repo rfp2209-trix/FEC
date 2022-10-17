@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import ProductsOverview from './overview/productsOverview/productsOverview.jsx';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
+import RelatedProductList from './related_comparison/relatedProductList.jsx';
+import OutfitList from './related_comparison/outfitList.jsx';
 
 export const Container = styled.section`
   display: flex;
@@ -35,6 +37,24 @@ export const OverviewContainer = styled(ProductsOverview)`
 //   flex-basis: 100%
 //   height: 0;
 // `;
+
+export const RelatedProductListContainer = styled(RelatedProductList)`
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+
+`;
+
+export const OutfitListContainer = styled(OutfitList)`
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+
+`;
 
 export const ReviewsContainer = styled(Reviews)`
 

@@ -3,11 +3,29 @@ require('dotenv').config();
 const axios = require('axios');
 
 module.exports = {
+  getAllInfo: (req, res) => {
+    const allReqs = [];
+    const { product_id } = req.params;
+    let allInfo = {};
+    allReqs.push(
+      axios.get(`http://localhost:3000/FEC/productinfo/${product_id}`),
+      axios.get(`http://localhost:3000/FEC/averagereview/${product_id}`),
+      axios.get(`http://localhost:3000/FEC/productinfo/${product_id}/styles`),
+    );
+    Promise.all(allReqs)
+      .then((allReqsResponse) => {
+        allInfo = Object.assign(
+          allReqsResponse[0].data,
+          allReqsResponse[1].data,
+          allReqsResponse[2].data,
+        );
+        res.status(200).json(allInfo);
+      });
+  },
+
   getRelatedItems: (req, res) => {
     const relatedProductInfo = [];
-    let relatedProductIDs;
-    const relatedProductRatings = [];
-    const productStyleInfo = [];
+    const AxiosReq = [];
     const { product_id } = req.params;
     const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${product_id}/related`;
     const config = {
@@ -17,38 +35,21 @@ module.exports = {
     };
     axios.get(URL, config)
       .then((result) => {
-        relatedProductIDs = result.data.slice();
-        const allAxiosReq = [];
-        relatedProductIDs.forEach((item) => {
-          allAxiosReq[allAxiosReq.length] = axios.get(`http://localhost:3000/FEC/productinfo/${item}`);
-          allAxiosReq[allAxiosReq.length] = axios.get(`http://localhost:3000/FEC/averagereview/${item}`);
-          allAxiosReq[allAxiosReq.length] = axios.get(`http://localhost:3000/FEC/productinfo/${item}/styles`);
-        });
-        Promise.all(allAxiosReq)
-          .then((responses) => {
-            responses.forEach((item) => {
-              if (typeof (item.data) === 'number' || typeof (item.data) === 'string') {
-                relatedProductRatings.push(item.data);
-              }
-              if (item.data.product_id !== undefined) {
-                productStyleInfo.push(item.data);
-              } else if (item.data.id !== undefined) {
-                console.log('here', item.data)
-                relatedProductInfo.push(item.data);
-              }
-            });
-            //workign here
-            for (let i = 0; i < relatedProductInfo.length; i += 1) {
-              relatedProductInfo[i].averageRating = relatedProductRatings[i];
-              relatedProductInfo[i].styles = productStyleInfo[i];
+        const relatedProductIDs = result.data.slice();
+        for (let i = 0; i < relatedProductIDs.length; i += 1) {
+          AxiosReq.push(axios.get(`http://localhost:3000/FEC/productinfo/${relatedProductIDs[i]}/getallinfo`));
+        }
+        Promise.all(AxiosReq)
+          .then((AxiosRes) => {
+            for (let i = 0; i < AxiosRes.length; i += 1) {
+              relatedProductInfo.push(AxiosRes[i].data);
             }
-            console.log('rel', relatedProductInfo)
             res.status(200).json(relatedProductInfo);
-          })
-          .catch((err) => {
-            console.log(err);
-            res.sendStatus(500);
           });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
       });
   },
 
@@ -80,6 +81,7 @@ module.exports = {
     };
     axios.get(URL, config)
       .then((reviewsMeta) => {
+        const result = {};
         let average = 0;
         let count = 0;
         for (let i = 1; i <= 5; i += 1) {
@@ -89,7 +91,9 @@ module.exports = {
           }
         }
         average /= count;
-        res.status(200).json(average);
+        average = average.toFixed(2);
+        result.averageRating = average;
+        res.status(200).json(result);
       })
       .catch((err) => {
         console.log(err);

@@ -20,10 +20,12 @@ export function Context({ children }) {
 
     async function handleGetAllProductsInfo() {
       try {
-        const productsInfo = await axios.get(`/fec/product/${product_id}`);
-        const styleDetails = await axios.get(`/fec/product/styles/${product_id}`);
-        // let nextGet = ...
-        tempState = { ...productsInfo.data, ...styleDetails.data };
+        const [productsInfo, styleDetails, relatedProductsInfo] = await Promise.all([
+          axios.get(`/fec/product/${product_id}`),
+          axios.get(`/fec/product/styles/${product_id}`),
+          axios.get(`/fec/related/${product_id}`),
+        ]);
+        tempState = { ...productsInfo.data, ...styleDetails.data, ...[relatedProductsInfo.data] };
         setState(tempState);
         setLoading(false);
       } catch (err) {

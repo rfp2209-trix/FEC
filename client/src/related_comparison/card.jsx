@@ -3,9 +3,10 @@ import React from 'react';
 export default function Card({
   imgs, category, name, price, rating, alt,
 }) {
+  console.log('imgs', imgs)
   return (
     <aside>
-      {imgs ? <img src={imgs.results[0].photos[0].thumbnail_url} alt={alt} /> : null}
+      {imgs ? <img src={imgs[0].photos[0].thumbnail_url} alt={alt} /> : null}
       <h2>
         category:
         {' '}

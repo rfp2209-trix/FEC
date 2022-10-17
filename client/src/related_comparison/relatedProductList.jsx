@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import RelatedProductListEntry from './relatedProductListEntry.jsx';
+import { useProductsContext } from '../Context.jsx';
 
 export default function RelatedProductList() {
-  const [productData, setProductData] = useState([]);
+  const relatedProducts = useProductsContext();
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/fec/related/40366')
-      .then((relatedProductData) => {
-        setProductData(relatedProductData.data);
-      })
-      .catch((err) => {
-        console.log('err', err);
-      });
-  }, []);
-  console.log(productData);
   return (
-    productData
-      ? productData.map((currProduct) => (
+    relatedProducts[0]
+      ? relatedProducts[0].map((currProduct) => (
         <RelatedProductListEntry
           name={currProduct.name}
           category={currProduct.category}
           price={currProduct.default_price}
           rating={currProduct.averageRating}
-          imgs={currProduct.styles}
+          imgs={currProduct.results}
         />
       ))
       : null
