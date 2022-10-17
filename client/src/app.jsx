@@ -2,6 +2,7 @@ import React from 'react';
 import ProductsOverview from './overview/productsOverview.jsx';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
+import QA from './questionsAnswers/qa.jsx';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <ProductsOverview />
       <Reviews />
       <WriteReview />
+      <QA />
     </div>
   );
 }
