@@ -36,14 +36,15 @@ router.get('/productinfo/:product_id/styles', controllers.relatedComparison.getP
 router.get('/averageReview/:product_id', controllers.relatedComparison.getAverageReviewRating);
 
 // QA ROUTES
-router.get('/questions/:productID', controllers.QAControls.get);
+router.get('/questions/:productID', controllers.QAControls.getQuestions);
+router.get('/answers/:questionID', controllers.QAControls.getAnswers);
+router.post('/ask', controllers.QAControls.ask); // PRODUCT ID GOES IN BODY
+router.post('/answer/:questionID', controllers.QAControls.answer);
+router.put('/question/helpful/:questionID', controllers.QAControls.helpfulQuestion);
+router.put('/question/report/:questionID', controllers.QAControls.reportQuestion);
+router.put('/answer/helpful/:answerID', controllers.QAControls.helpfulAnswer);
+router.put('/answer/report/:answerID', controllers.QAControls.reportAnswer);
 /*
-  *
-  *
-  *    QA Routes here
-  *
-  *
-  *
   *
   *
   *
