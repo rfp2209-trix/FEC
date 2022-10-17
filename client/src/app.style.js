@@ -4,26 +4,29 @@ import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 
 export const Container = styled.section`
+  left: 0;
   display: flex;
   height: 100%;
   flex-direction: column;
   // flex-wrap: wrap;
   width:100%;
+  font-family: 'Roboto Condensed', sans-serif;
 `;
 
 export const Header = styled.header`
-
+  padding-left: 20px;
   top: 0;
+  left: 0;
   position: fixed;
   background: lightgrey;
   width: 100vw;
-  padding: 10px;
-  height: 80px;
+  padding-top: 10px;
+  height: 90px;
 
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
-
+  left:0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -76,6 +79,7 @@ export const RelatedProductsContainer = styled.section`
 
 export const Footer = styled.footer`
  flex:none;
+ left: 0;
  bottom: 0;
  position: fixed;
  background: lightgrey;
