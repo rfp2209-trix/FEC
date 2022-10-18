@@ -7,33 +7,12 @@ router.get('/product/styles/:product_id', controllers.productsOverview.getStyles
 router.get('/cart', controllers.productsOverview.getCart);
 router.post('/cart', controllers.productsOverview.addToCart);
 
-/*
-  *
-  *
-  *
-  *
-  *     Product Overview Routes here
-  *
-  *
-  *
-  *
-  *
-  *
-  *
-  *
-  *
-  *
-  *
-*/
-
 // RELATED AND COMPARISON ROUTES
 router.get('/related/:product_id', controllers.relatedComparison.getRelatedItems);
-
 router.get('/productinfo/:product_id', controllers.relatedComparison.getProductInfo);
-
 router.get('/productinfo/:product_id/styles', controllers.relatedComparison.getProductStyle);
-
 router.get('/averageReview/:product_id', controllers.relatedComparison.getAverageReviewRating);
+router.get('/productinfo/:product_id/getallinfo', controllers.relatedComparison.getAllInfo);
 
 // QA ROUTES
 router.get('/questions/:productID', controllers.QAControls.getQuestions);
@@ -44,12 +23,7 @@ router.put('/question/helpful/:questionID', controllers.QAControls.helpfulQuesti
 router.put('/question/report/:questionID', controllers.QAControls.reportQuestion);
 router.put('/answer/helpful/:answerID', controllers.QAControls.helpfulAnswer);
 router.put('/answer/report/:answerID', controllers.QAControls.reportAnswer);
-/*
-  *
-  *
-  *
-  *
-*/
+
 // RATINGS AND REVIEWS ROUTES
 router.get('/reviews/meta', controllers.reviews.getMeta);
 router.get('/reviews', controllers.reviews.getReviews);

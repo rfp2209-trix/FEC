@@ -2,16 +2,18 @@
 import styled from 'styled-components';
 
 export const ThumbnailDetailScroll = styled.section`
+
   display: flex;
   flex-direction: column;
-  // flex: 0 0 100%;
-  // scroll-snap-align: start;
-  // overflow-y: scroll;
-  justify-content: center;
+  // justify-content: flex-end;
+  background-color: orange;
+
 `;
 
 export const ThumbsDetail = styled.div`
   // display: flex;
+  background-color: olive;
+
 `;
 
 export const ThumbImage = styled.img`
@@ -21,4 +23,5 @@ export const ThumbImage = styled.img`
   border-style: solid;
   border-color: white;
   object-fit: contain;
+  background-color: turquoise;
 `;
