@@ -14,6 +14,8 @@ function App() {
       </Styled.Header> */}
       {/* <Styled.OverviewContainer /> */}
       {/* <Styled.SectionBreakOne /> */}
+      <Styled.RelatedProductListContainer />
+      {/* <Styled.OutfitListContainer /> */}
       <Styled.ReviewsContainer />
       <Styled.WriteReviewContainer />
       {/* <Styled.Footer>
