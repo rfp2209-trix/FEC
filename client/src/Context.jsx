@@ -12,7 +12,7 @@ export function Context({ children }) {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const product_id = 40346;
+  const product_id = 40348;
 
   const getNewProduct = () => {
     // set the loading date to true for each call
