@@ -15,7 +15,7 @@ describe('App tests', () => {
   });
 
   it('should contain ratings and reviews in a header', () => {
-    render(<app />);
+    render(<App />);
     const heading = screen.getByText('RATINGS & REVIEWS');
     expect(heading).toBeInTheDocument();
   });
