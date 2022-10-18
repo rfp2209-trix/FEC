@@ -1,23 +1,26 @@
 /* eslint-disable import/extensions */
-import React from 'react';
+import React, { useState } from 'react';
 import * as Styled from './app.style.js';
+import Reviews from './reviews/Reviews.jsx';
+import WriteReview from './reviews/WriteReview.jsx';
 
 // import your react component to app.styles.js
 // follow the convention for creating styled.components
 // import your styled component here
 
 function App() {
+  const [addForm, setAddForm] = useState('none');
   return (
-    <Styled.Container>
+    <Styled.Container onClick={() => setAddForm('none')}>
       <Styled.Header>
-        <h2>Atlier</h2>
+        <h2>Header Goes Here</h2>
       </Styled.Header>
       <Styled.OverviewContainer />
-      {/* <Styled.SectionBreakOne /> */}
-      <Styled.RelatedProductListContainer />
-      {/* <Styled.OutfitListContainer /> */}
-      <Styled.ReviewsContainer />
-      <Styled.WriteReviewContainer />
+      <Styled.SectionBreakOne />
+      <Reviews setAddForm={setAddForm} />
+      {addForm === 'new review' && (
+      <WriteReview setAddForm={setAddForm} />
+      )}
       <Styled.Footer>
         <h2>
           Footer Goes Here
