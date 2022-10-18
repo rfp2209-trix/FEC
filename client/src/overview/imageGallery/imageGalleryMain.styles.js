@@ -2,6 +2,13 @@
 import styled from 'styled-components';
 
 export const MainImage = styled.section`
+
+@media only screen and (max-width: 601px) {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  transition: all .7s;
+}
  height: 750px;
  width: 750px;
 

@@ -2,12 +2,22 @@
 import styled from 'styled-components';
 
 export const OverviewContent = styled.section`
+
+  @media only screen and (max-width: 601px){
+    display: flex;
+    flex-direction: column;
+  }
   margin-top: 90px;
-  background-color: red;
+  background-color: honeydew;
   width: 100vw;
 `;
 
 export const OverviewColumns = styled.section`
+@media only screen and (max-width: 601px){
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 
 display: flex;
 flex-direction: row;
@@ -19,7 +29,7 @@ export const ImageContainer = styled.section`
   // padding-top: 12px;
   background-color: honeydew;
   display: flex;
-  margin; 0 -5px;
+
   // flex-direction: row;
   // flex: 2;
 
