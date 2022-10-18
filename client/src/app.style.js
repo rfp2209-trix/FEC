@@ -4,6 +4,7 @@ import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 import RelatedProductList from './related_comparison/relatedProductList.jsx';
 import OutfitList from './related_comparison/outfitList.jsx';
+import QA from './questionsAnswers/qa.jsx';
 
 export const Container = styled.section`
   display: flex;
@@ -76,7 +77,7 @@ export const WriteReviewContainer = styled(WriteReview)`
   flex: 1;
 `;
 
-export const QuestionsContainer = styled.section`
+export const QuestionsContainer = styled(QA)`
 
   width: 100vw;
   padding: 20px;

@@ -18,6 +18,7 @@ function App() {
       {/* <Styled.OutfitListContainer /> */}
       <Styled.ReviewsContainer />
       <Styled.WriteReviewContainer />
+      <Styled.QuestionsContainer />
       {/* <Styled.Footer>
         <h2>
           Footer Goes Here
