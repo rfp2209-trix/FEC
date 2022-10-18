@@ -46,7 +46,7 @@ export const OverviewContainer = styled(ProductsOverview)`
 //   flex: 1;
 // `;
 
-export const WriteReviewContainer = styled(WriteReview)`
+export const WriteReviewContainer = styled.div`
 
   width: 100vw;
   padding: 20px;

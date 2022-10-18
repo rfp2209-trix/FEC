@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
+import WriteReview from './reviews/WriteReview.jsx';
 
 // import your react component to app.styles.js
 // follow the convention for creating styled.components
@@ -10,14 +11,16 @@ import Reviews from './reviews/Reviews.jsx';
 function App() {
   const [addForm, setAddForm] = useState('none');
   return (
-    <Styled.Container>
+    <Styled.Container onClick={() => setAddForm('none')}>
       {/* <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header> */}
       {/* <Styled.OverviewContainer /> */}
       {/* <Styled.SectionBreakOne /> */}
       <Reviews setAddForm={setAddForm} />
-      <Styled.WriteReviewContainer />
+      {addForm === 'new review' && (
+      <WriteReview setAddForm={setAddForm} />
+      )}
       {/* <Styled.Footer>
         <h2>
           Footer Goes Here

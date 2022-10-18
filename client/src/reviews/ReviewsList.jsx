@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 
-function ReviewsList() {
+function ReviewsList({ setAddForm }) {
   const { reviews, totalReviews, setState, state, loading } = useProductsContext();
 
   if (loading) {
@@ -62,7 +62,15 @@ function ReviewsList() {
           MORE REVIEWS
         </button>
       )}
-      <button type="button">ADD REVIEW</button>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          setAddForm('new review');
+        }}
+      >
+        ADD REVIEW
+      </button>
       <div>
         REMOVE ME!
         <div>When the add review button is clicked</div>

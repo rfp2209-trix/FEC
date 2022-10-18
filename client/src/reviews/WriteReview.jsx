@@ -1,8 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 
-function WriteReview() {
+function WriteReview({ setAddForm }) {
   return (
-    <form>
+    <WriteReviewContainer
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <div>
         User Rating
         <label htmlFor="write_one_star">
@@ -47,10 +52,28 @@ function WriteReview() {
         <div> For privacy reasons, do not use your full name or email address </div>
         <div>Email: </div>
         <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" />
-        <input type="submit" value="Submit Review" />
+        <input
+          type="submit"
+          value="Submit Review"
+          onClick={(e) => {
+            e.preventDefault();
+            setAddForm('none');
+          }}
+        />
       </div>
-    </form>
+    </WriteReviewContainer>
   );
 }
 
 export default WriteReview;
+
+const WriteReviewContainer = styled.form`
+
+  width: 60vw;
+  height: 60vh;
+  left: 20%;
+  top: 20%;
+  padding: 20px;
+  background: #FF0000;
+  position: absolute
+`;
