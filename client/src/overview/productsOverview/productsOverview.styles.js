@@ -16,19 +16,19 @@ flex-direction: row;
 
 export const ImageContainer = styled.section`
 
-  padding-top: 12px;
-  background-color: blue;
+  // padding-top: 12px;
+  background-color: honeydew;
   display: flex;
-  flex-direction: row;
-  flex: 1;
-
+  margin; 0 -5px;
+  // flex-direction: row;
+  // flex: 2;
 
 `;
 
 export const ProductActivityContainer = styled.section`
   padding-top: 25px;
   display: flex;
-  background-color: pink;
+  background-color: honeydew;
   flex-direction: column;
   flex:1;
   justify-content: space-between;
@@ -41,5 +41,5 @@ export const AddInformationContainer = styled.section`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background-color: purple;
+  background-color: honeydew;
 `;

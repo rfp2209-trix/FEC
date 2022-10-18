@@ -1,13 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import ImageGalleryMain from './imageGalleryMain.jsx';
-
-export const ImageMainContainer = styled(ImageGalleryMain)`
-  // height: 400px;
-`;
 
 export const ThumbnailContainer = styled.div`
-  margin-top:200px;
+  margin-top: 175px;
+  margin-right: 5px;
   display: flex;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;

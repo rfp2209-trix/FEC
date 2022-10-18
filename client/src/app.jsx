@@ -10,7 +10,7 @@ function App() {
   return (
     <Styled.Container>
       <Styled.Header>
-        <h2>Header Goes Here</h2>
+        <h2>Atlier</h2>
       </Styled.Header>
       <Styled.OverviewContainer />
       {/* <Styled.SectionBreakOne /> */}

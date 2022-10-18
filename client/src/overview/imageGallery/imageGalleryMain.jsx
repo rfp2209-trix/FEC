@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
 import { useProductsContext } from '../../Context.jsx';
-import * as Styled from './imageGalleryMain.styles.js';
+import * as Styled from './imageGalleryMain.styles.js'
 
 export default function ImageGalleryMain() {
   const { productsInfo, styleDetails, state, setState, loading } = useProductsContext();
