@@ -7,6 +7,10 @@ export default function StarRating() {
   const aria = `Rating of this product is ${avgReview} stars out of 5`;
 
   return (
-    <Styled.StarDisplayContainer style={{ '--rating': avgReview }} aria-label={aria} />
+    <Styled.StarDisplayContainer style={{ '--rating': avgReview }} aria-label={aria}>
+      <a href="">Read all reviews</a>
+    </Styled.StarDisplayContainer>
+
+
   );
 }

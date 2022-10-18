@@ -22,4 +22,8 @@ export const StarDisplayContainer = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  > a{
+    font-size: 12pt;
+  }
 `;
