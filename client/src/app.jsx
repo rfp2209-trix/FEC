@@ -25,7 +25,7 @@ function App() {
         <h2>
           Footer Goes Here
         </h2>
-      </Styled.Footer>
+      </Styled.Footer> */}
     </Styled.Container>
   );
 }

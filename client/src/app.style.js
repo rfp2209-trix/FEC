@@ -59,25 +59,25 @@ export const OutfitListContainer = styled(OutfitList)`
 
 `;
 
-export const ReviewsContainer = styled(Reviews)`
+// export const ReviewsContainer = styled(Reviews)`
+
+// //   width: 100vw;
+// //   padding: 20px;
+// //   display: flex;
+// //   flex-direction: column;
+// //   background: white;
+// //   flex: 1;
+// // `;
+
+// export const WriteReviewContainer = styled.div`
 
 //   width: 100vw;
 //   padding: 20px;
 //   display: flex;
-//   flex-direction: column;
+//   flex-direction: row;
 //   background: white;
 //   flex: 1;
 // `;
-
-export const WriteReviewContainer = styled.div`
-
-  width: 100vw;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  background: white;
-  flex: 1;
-`;
 
 export const QuestionsContainer = styled.section`
 
