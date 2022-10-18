@@ -17,20 +17,12 @@ function App() {
       </Styled.Header>
       <Styled.OverviewContainer />
       {/* <Styled.SectionBreakOne /> */}
-<<<<<<< HEAD
       <Styled.RelatedProductListContainer />
       {/* <Styled.OutfitListContainer /> */}
-      <Styled.ReviewsContainer />
-      <Styled.WriteReviewContainer />
       <Styled.QuestionsContainer />
-      {/* <Styled.Footer>
-=======
       <Reviews setAddForm={setAddForm} />
-      {addForm === 'new review' && (
-      <WriteReview setAddForm={setAddForm} />
-      )}
+      {addForm === 'new review' && <WriteReview setAddForm={setAddForm} />}
       <Styled.Footer>
->>>>>>> main
         <h2>
           Footer Goes Here
         </h2>
