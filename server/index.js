@@ -17,6 +17,7 @@ const logger = (req, res, next) => {
 };
 app.use(logger);
 app.use('/fec', router);
+
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.listen(process.env.PORT || 3000, (err) => {
