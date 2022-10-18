@@ -12,7 +12,7 @@ function App() {
   const [addForm, setAddForm] = useState('none');
   return (
     <Styled.Container onClick={() => setAddForm('none')}>
-      {/* <Styled.Header>
+      <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header>
       <Styled.OverviewContainer />
@@ -21,11 +21,11 @@ function App() {
       {addForm === 'new review' && (
       <WriteReview setAddForm={setAddForm} />
       )}
-      {/* <Styled.Footer>
+      <Styled.Footer>
         <h2>
           Footer Goes Here
         </h2>
-      </Styled.Footer> */}
+      </Styled.Footer>
     </Styled.Container>
   );
 }

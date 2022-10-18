@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ProductsOverview from './overview/productsOverview/productsOverview.jsx';
-import Reviews from './reviews/Reviews.jsx';
-import WriteReview from './reviews/WriteReview.jsx';
+// import Reviews from './reviews/Reviews.jsx';
+// import WriteReview from './reviews/WriteReview.jsx';
 import RelatedProductList from './related_comparison/relatedProductList.jsx';
 import OutfitList from './related_comparison/outfitList.jsx';
 
@@ -16,6 +16,7 @@ export const Container = styled.section`
 `;
 
 export const Header = styled.header`
+  display: flex;
   padding-left: 20px;
   top: 0;
   left: 0;
@@ -28,6 +29,7 @@ export const Header = styled.header`
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
+
   left:0;
   width: 100%;
   display: flex;
@@ -89,7 +91,7 @@ export const QuestionsContainer = styled.section`
 `;
 
 export const Footer = styled.footer`
- flex:none;
+ display: flex;
  left: 0;
  bottom: 0;
  position: fixed;

@@ -3,10 +3,16 @@ import styled from 'styled-components';
 
 export const ThumbnailDetailScroll = styled.section`
 
+  @media only screen and (max-width: 601px){
+    display: flex;
+    transition: all .20s;
+
+  }
+
   display: flex;
   flex-direction: column;
   // justify-content: flex-end;
-  background-color: orange;
+  background-color: honeydew;
 
 `;
 
