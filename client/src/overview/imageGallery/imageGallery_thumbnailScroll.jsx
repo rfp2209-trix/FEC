@@ -7,9 +7,10 @@ import * as Styled from './imageGallery_thumbnails.styles';
 import { ThumbnailContainer } from './imageGallery.styles.js';
 
 export default function ImageGalleryThumbnailScroll() {
-  const { results, loading } = useProductsContext();
+  const { productsInfo, styleDetails, loading } = useProductsContext();
+  console.log(useProductsContext());
 
-  const photos = (results) ? results[0].photos : [];
+  const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
   return (
     <div>

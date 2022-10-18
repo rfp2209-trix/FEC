@@ -13,7 +13,7 @@ function App() {
         <h2>Header Goes Here</h2>
       </Styled.Header>
       <Styled.OverviewContainer />
-      <Styled.SectionBreakOne />
+      {/* <Styled.SectionBreakOne /> */}
       <Styled.ReviewsContainer />
       <Styled.WriteReviewContainer />
       <Styled.Footer>
