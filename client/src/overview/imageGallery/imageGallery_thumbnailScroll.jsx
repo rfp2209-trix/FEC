@@ -6,10 +6,11 @@ import ImageGalleryThumbnails from './imageGallery_thumbnails.jsx';
 import * as Styled from './imageGallery_thumbnails.styles';
 import { ThumbnailContainer } from './imageGallery.styles.js';
 
-export default function ImageGallery() {
-  const { results, loading } = useProductsContext();
+export default function ImageGalleryThumbnailScroll() {
+  const { productsInfo, styleDetails, loading } = useProductsContext();
+  console.log(useProductsContext());
 
-  const photos = (results) ? results[0].photos : [];
+  const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
   return (
     <div>
