@@ -17,6 +17,7 @@ function App() {
       </Styled.Header>
       <Styled.OverviewContainer />
       {/* <Styled.SectionBreakOne /> */}
+      <Styled.RelatedProductListContainer />
       <Reviews setAddForm={setAddForm} />
       {addForm === 'new review' && (
       <WriteReview setAddForm={setAddForm} />
