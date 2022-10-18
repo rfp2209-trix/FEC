@@ -4,6 +4,7 @@ import ProductsOverview from './overview/productsOverview/productsOverview.jsx';
 // import WriteReview from './reviews/WriteReview.jsx';
 import RelatedProductList from './related_comparison/relatedProductList.jsx';
 import OutfitList from './related_comparison/outfitList.jsx';
+import QA from './questionsAnswers/qa.jsx';
 
 export const Container = styled.section`
   left: 0;
@@ -81,7 +82,7 @@ export const OutfitListContainer = styled(OutfitList)`
 //   flex: 1;
 // `;
 
-export const QuestionsContainer = styled.section`
+export const QuestionsContainer = styled(QA)`
 
   width: 100vw;
   padding: 20px;
