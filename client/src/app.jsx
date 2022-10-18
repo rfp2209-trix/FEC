@@ -16,7 +16,7 @@ function App() {
         <h2>Header Goes Here</h2>
       </Styled.Header>
       <Styled.OverviewContainer />
-      <Styled.SectionBreakOne />
+      {/* <Styled.SectionBreakOne /> */}
       <Reviews setAddForm={setAddForm} />
       {addForm === 'new review' && (
       <WriteReview setAddForm={setAddForm} />
