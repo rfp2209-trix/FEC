@@ -23,13 +23,15 @@ export function Context({ children }) {
     async function handleGetAllProductsInfo() {
       try {
         const [productsInfoGet, styleDetailsGet,
-          relatedProductsInfoGet, reviewsMetaGet, reviewsGet] = await Promise.all([
+          relatedProductsInfoGet, reviewsMetaGet, reviewsGet, questionsGet] = await Promise.all([
           axios.get(`/fec/product/${product_id}`),
           axios.get(`/fec/product/styles/${product_id}`),
           axios.get(`/fec/related/${product_id}`),
           axios.get(`/fec/reviews/meta?product_id=${product_id}`),
           axios.get(`/fec/reviews?product_id=${product_id}&count=2`),
+          axios.get(`/fec/questions/${product_id}`),
         ]);
+        const questionsData = questionsGet.data;
         const productsInfo = productsInfoGet.data;
         const styleDetails = styleDetailsGet.data;
         const reviewsMeta = reviewsMetaGet.data;

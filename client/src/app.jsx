@@ -19,10 +19,9 @@ function App() {
       <br />
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
+      <Styled.OutfitListContainer />
       <Reviews setAddForm={setAddForm} />
-      {addForm === 'new review' && (
-      <WriteReview setAddForm={setAddForm} />
-      )}
+      {addForm === 'new review' && <WriteReview setAddForm={setAddForm} />}
       <Styled.Footer>
         <h2>
           Footer Goes Here

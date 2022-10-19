@@ -3,7 +3,7 @@ import ProductsOverview from './overview/productsOverview/productsOverview.jsx';
 // import Reviews from './reviews/Reviews.jsx';
 // import WriteReview from './reviews/WriteReview.jsx';
 import RelatedProductList from './related_comparison/RelatedProductList.jsx';
-import OutfitList from './related_comparison/outfitList.jsx';
+import OutfitList from './related_comparison/OutfitList.jsx';
 
 export const Container = styled.section`
   left: 0;
