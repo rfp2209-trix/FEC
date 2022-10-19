@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 // import axios from 'axios';
 import Question from './questions/question.jsx';

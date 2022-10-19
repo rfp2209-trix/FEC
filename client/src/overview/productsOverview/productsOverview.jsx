@@ -19,6 +19,8 @@ export default function ProductsOverview() {
           <ImageGalleryThumbnailScroll />
           <ImageGalleryMain />
         </Styled.ImageContainer>
+        <br style={{ width: '25px' }} />
+
         <Styled.ProductActivityContainer>
           <StarRating />
           <ProductInformation />
