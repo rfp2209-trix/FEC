@@ -3,18 +3,15 @@ import AnswerItem from '../answers/answerItem.jsx';
 import Helpful from './helpfulQuestion.jsx';
 import Report from './reportQuestion.jsx';
 
-function Question(props) {
-  const { data } = props;
-
+function Question() {
   return (
-    <div key={data.question_id}>
-      <b>Q: </b>
-      {data.question_body}
-      <Helpful questionID={data.question_id} helpVotes={data.question_helpfulness} />
-      <Report questionID={data.question_id} />
+    <div>
+      7👍
+      Q: Single Question Component, Raw Question Text Here
+      <Helpful />
+      <Report />
       <br />
-      <b>A: </b>
-      {Object.values(data.answers).map((each) => (<AnswerItem values={each} />))}
+      <AnswerItem />
     </div>
   );
 }

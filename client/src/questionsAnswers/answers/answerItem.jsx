@@ -2,26 +2,22 @@ import React from 'react';
 import Helpful from './helpfulAnswer.jsx';
 import Report from './reportAnswer.jsx';
 
-function AnswerItem({ values }) {
-  console.log('values of answer: ', values);
-  const { helpfulness } = values;
+function AnswerItem() {
+  const seller = true;
   return (
     <div>
       {/* extract thumbs up, extract answer, extract username,
       extract date posted, render dynamically */}
-      {values.body}
+      3👍
+      A: Single Answer Rendered Here via JSX
       <div>
         <small>
-          <b>
-            {values.answerer_name === 'Atelier' ? <span><b>Seller </b></span> : null}
-            {'     '}
-            {values.answerer_name}
-          </b>
-          {'     '}
-          {values.date}
+          {seller ? <span><b>Seller </b></span> : null}
+          User 1337
+          - 10/17/2022 - 3 months ago
         </small>
-        <Helpful answerID={values.id} helpfulness={helpfulness} />
-        <Report answerID={values.id} />
+        <Helpful />
+        <Report />
       </div>
     </div>
   );

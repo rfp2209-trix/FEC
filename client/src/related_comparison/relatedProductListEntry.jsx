@@ -7,7 +7,7 @@ export default function RelatedProductListEntry({
   return (
     <RelatedProductListEntryContainer>
       <aside>
-        {imgs[0].photos[0].url ? <img src={imgs[0].photos[0].url} width="500px" height="500px" alt="product img" />
+        {imgs[0].photos[0].url ? <img src={imgs[0].photos[0].url} width="270x" height="337.5px" alt="product img" />
           : (
             <img
               src="https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png"
@@ -26,12 +26,10 @@ export default function RelatedProductListEntry({
           $
           {price}
         </p>
-        {rating ? (
-          <div className="Stars" style={{ '--rating': rating }} aria-label={rating}>
-            {rating}
-          </div>
-        )
-          : null}
+        <div className="Stars" style={{ '--rating': rating }} aria-label={rating}>
+          {rating}
+          {' '}
+        </div>
       </aside>
     </RelatedProductListEntryContainer>
   );
@@ -39,8 +37,8 @@ export default function RelatedProductListEntry({
 
 const RelatedProductListEntryContainer = styled.div`
 
-  width:350px;
-  height:400px;
+  width:270px;
+  height:500px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

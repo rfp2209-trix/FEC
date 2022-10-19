@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import RelatedProductListEntry from './RelatedProductListEntry.jsx';
+import RelatedProductListEntry from './relatedProductListEntry.jsx';
 import { useProductsContext } from '../Context.jsx';
 
 export default function RelatedProductList() {
