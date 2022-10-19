@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function WriteReview({ setAddForm }) {
+function WriteReview({ setCurrentForm }) {
   return (
     <WriteReviewContainer
       onClick={(e) => {
@@ -41,26 +41,40 @@ function WriteReview({ setAddForm }) {
           <input id="no_recommend" type="radio" name="recommend" value="false" />
           no
         </label>
-        <div> characteristic map, and radio buttons go here</div>
-        <div>Review Summary: </div>
-        <textarea type="text" maxLength="60" placeholder="Example: Best purchase ever!" />
-        <div> Review: </div>
-        <textarea type="text" maxLength="100" minLength="50" placeholder="Why did you like the product or not?" />
-        <div> photo placeholder</div>
-        <div>Username: </div>
-        <input type="text" maxLength="60" placeholder="Example: jackson11!" />
-        <div> For privacy reasons, do not use your full name or email address </div>
-        <div>Email: </div>
-        <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" />
-        <input
-          type="submit"
-          value="Submit Review"
-          onClick={(e) => {
-            e.preventDefault();
-            setAddForm('none');
-          }}
-        />
       </div>
+      <div> characteristic map, and radio buttons go here</div>
+      <label htmlFor="write_summary">
+        Review Summary:
+        <br />
+        <textarea id="write_summary" type="text" maxLength="60" placeholder="Example: Best purchase ever!" />
+      </label>
+      <label htmlFor="write_body">
+        Review:
+        <br />
+        <textarea id="write_body" type="text" maxLength="100" minLength="50" placeholder="Why did you like the product or not?" />
+      </label>
+      <div> photo placeholder</div>
+      <label htmlFor="write_username">
+        Username:
+        <br />
+        <input type="text" maxLength="60" placeholder="Example: jackson11!" />
+      </label>
+      <div> For privacy reasons, do not use your full name or email address </div>
+      <label htmlFor="write_email">
+        Email:
+        <br />
+        <input id="write_email" type="text" maxLength="60" placeholder="Example: jackson11@email.com" />
+      </label>
+      <br />
+      <input
+        type="submit"
+        value="Submit Review"
+        onClick={(e) => {
+          e.preventDefault();
+          console.log();
+          setCurrentForm('none');
+        }}
+      />
     </WriteReviewContainer>
   );
 }

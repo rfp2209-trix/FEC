@@ -9,9 +9,9 @@ import WriteReview from './reviews/WriteReview.jsx';
 // import your styled component here
 
 function App() {
-  const [addForm, setAddForm] = useState('none');
+  const [currentForm, setCurrentForm] = useState('none');
   return (
-    <Styled.Container onClick={() => setAddForm('none')}>
+    <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header>
@@ -21,8 +21,8 @@ function App() {
       <Styled.RelatedProductListContainer />
       {/* <Styled.OutfitListContainer /> */}
       <Styled.QuestionsContainer />
-      <Reviews setAddForm={setAddForm} />
-      {addForm === 'new review' && <WriteReview setAddForm={setAddForm} />}
+      <Reviews setCurrentForm={setCurrentForm} />
+      {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
       <Styled.Footer>
         <h2>
           Footer Goes Here

@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 
-function ReviewsList({ setAddForm }) {
+function ReviewsList({ setCurrentForm }) {
   const { reviews, totalReviews, setState, state, loading } = useProductsContext();
 
   if (loading) {
@@ -66,17 +66,11 @@ function ReviewsList({ setAddForm }) {
         type="button"
         onClick={(e) => {
           e.stopPropagation();
-          setAddForm('new review');
+          setCurrentForm('new review');
         }}
       >
         ADD REVIEW
       </button>
-      <div>
-        REMOVE ME!
-        <div>When the add review button is clicked</div>
-        <div>the whole page needs to locked out</div>
-        <div>and a modal form must be rendered</div>
-      </div>
     </div>
   );
 }

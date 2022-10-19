@@ -5,7 +5,6 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   transform: {
-  // '^.+\\.(t|j)sx?': 'babel-jest'
     '^.+\\.(js|jsx|ts|tsx|mjs)$': 'babel-jest',
   },
   extensionsToTreatAsEsm: ['.jsx'],
