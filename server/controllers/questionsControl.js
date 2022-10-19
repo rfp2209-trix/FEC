@@ -39,6 +39,7 @@ module.exports = {
 
   ask(req, res) {
     const questionDetails = req.body;
+    console.log(req.body);
 
     const askURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions';
 

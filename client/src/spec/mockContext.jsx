@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable max-len */
-import React, {useContext, createContext} from 'react';
+import React, { useContext, createContext } from 'react';
 import {
   productsInfo,
   styleDetails,
