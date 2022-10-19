@@ -1,13 +1,16 @@
 import React from 'react';
 import { useProductsContext } from '../../Context.jsx';
+import * as Styled from './starRating.styles.js';
 
 export default function StarRating() {
-  const { loading, reviewsMeta, avgReview } = useProductsContext();
-  const starsData = (reviewsMeta) ? reviewsMeta.ratings : [];
+  const { loading, avgReview } = useProductsContext();
+  const aria = `Rating of this product is ${avgReview} stars out of 5`;
 
   return (
-    <div>
-      Star Rating here
-    </div>
+    <Styled.StarDisplayContainer style={{ '--rating': avgReview }} aria-label={aria}>
+      <a href="">Read all reviews</a>
+    </Styled.StarDisplayContainer>
+
+
   );
 }
