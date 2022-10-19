@@ -27,9 +27,10 @@ export default function ImageGalleryMain() {
   return (
 
       <Styled.MainImage>
-        <HiMagnifyingGlassPlus className="mag" />
-        <img src={mainPhoto} alt="should be a pic here" />
-      </Styled.MainImage>
 
+        <HiMagnifyingGlassPlus className="mag" />
+        <img src={mainPhoto} className="mainPhoto "alt="should be a pic here" />
+
+      </Styled.MainImage>
   );
 }
