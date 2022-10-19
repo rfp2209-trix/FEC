@@ -11,7 +11,6 @@ export default function ImageGalleryMain() {
   if (!loading && mainPhoto === '') {
     setMainPhoto(photos[0].url);
   }
-
   return (
     <Styled.MainImage>
       <img src={mainPhoto} alt="should be a pic here" />

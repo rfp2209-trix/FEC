@@ -1,7 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 // raw data for mock context
+import { sumArray, avgStarValue } from '../../helpers.js';
 
-export const productInfo = {
+export const productsInfo = {
   id: 40346,
   campus: 'hr-rfp',
   name: 'Morning Joggers',
@@ -23,7 +24,7 @@ export const productInfo = {
   ],
 };
 
-export const productStyles = {
+export const styleDetails = {
 
   product_id: '40346',
   results: [
@@ -384,7 +385,7 @@ export const productStyles = {
   ],
 };
 
-export const related = {
+export const relatedProductsInfo = {
   id: 40348,
   campus: 'hr-rfp',
   name: 'Heir Force Ones',
@@ -929,7 +930,7 @@ export const reviews = {
   ],
 };
 
-export const questions = {
+export const questionsData = {
   product_id: '40346',
   results: [
     {
@@ -1013,3 +1014,6 @@ export const questions = {
     },
   ],
 };
+
+export const totalReviews = sumArray(Object.values(reviewsMeta.ratings));
+export const avgReview = avgStarValue(reviewsMeta.ratings).toFixed(1);
