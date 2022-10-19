@@ -2,7 +2,14 @@
 /* eslint-disable max-len */
 import React, {useContext, createContext} from 'react';
 import {
-  productsInfo, styleDetails, relatedProductsInfo, totalReviews, avgReview, questionsData, reviewsMeta, reviews,
+  productsInfo,
+  styleDetails,
+  relatedProductsInfo,
+  totalReviews,
+  avgReview,
+  questionsData,
+  reviewsMeta,
+  reviews,
 } from './mockContextData';
 
 const mockValues = {
@@ -16,7 +23,7 @@ const mockValues = {
   questionsData,
 };
 
-const MockTestContext = createContext(mockValues);
+export const MockTestContext = createContext(mockValues);
 
 export function MockContext({ children }) {
   return <MockTestContext.Provider value={mockValues}>{children}</MockTestContext.Provider>;
