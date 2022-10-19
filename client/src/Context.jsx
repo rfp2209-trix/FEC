@@ -49,6 +49,8 @@ export function Context({ children }) {
           relatedProductsInfo,
           questionsData,
         };
+
+
         console.log(tempState);
         setState(tempState);
         setLoading(false);

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const StarDisplayContainer = styled.div`
 
-  --star-size: 60px;
+  --star-size: 50px;
   --star-color: rgba(180,180,180);
   --star-background: #fc0;
 

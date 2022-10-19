@@ -1,14 +1,19 @@
 import React from 'react';
 import { useProductsContext } from '../../Context.jsx';
+import * as Styled from './productInformation.styles.js';
 
 export default function ProductInformation() {
-  const { category, name } = useProductsContext();
+  const { productsInfo, loading } = useProductsContext();
+
+  if (loading && !productsInfo) {
+    return <div>Loading</div>;
+  }
 
   return (
-    <div>
-      <h1>Product Information</h1>
-      <h2>{name}</h2>
-      <p>{category}</p>
-    </div>
+
+    <Styled.ProductInformationContainer>
+      <h2>{productsInfo.category}</h2>
+      <h1>{productsInfo.name}</h1>
+    </Styled.ProductInformationContainer>
   );
 }
