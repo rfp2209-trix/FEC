@@ -92,12 +92,12 @@ export const QuestionsContainer = styled(QA)`
   background: white;
 `;
 
-export const Footer = styled.footer`
- display: flex;
- left: 0;
- bottom: 0;
- position: fixed;
- background: lightgrey;
- width: 100vw;
- padding: 10px;
-`;
+// export const Footer = styled.footer`
+//  display: flex;
+//  left: 0;
+//  bottom: 0;
+//  position: fixed;
+//  background: lightgrey;
+//  width: 100vw;
+//  padding: 10px;
+// `;

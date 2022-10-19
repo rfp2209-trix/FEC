@@ -23,11 +23,11 @@ function App() {
       <Styled.QuestionsContainer />
       <Reviews setAddForm={setAddForm} />
       {addForm === 'new review' && <WriteReview setAddForm={setAddForm} />}
-      <Styled.Footer>
+      {/* <Styled.Footer>
         <h2>
           Footer Goes Here
         </h2>
-      </Styled.Footer>
+      </Styled.Footer> */}
     </Styled.Container>
   );
 }
