@@ -12,14 +12,20 @@ export const MainImage = styled.section`
  height: 700px;
  width: 700px;
 
-  > img{
+  .mag {
+    font-size: 60px;
+    color: red;
+    z-index: 20;
+  }
+
+ > img{
     object-fit: cover;
     height: 100%;
     width: 100%;
     object-position: 100% 0px;
     border-radius: 6px;
   }
-  > img:hover {
+ > img:hover {
     height: 150%;
     width: 150%;
     position: relative;
