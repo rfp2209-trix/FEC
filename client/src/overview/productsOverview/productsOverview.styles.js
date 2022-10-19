@@ -38,12 +38,13 @@ export const ImageContainer = styled.section`
 export const ProductActivityContainer = styled.section`
   padding-top: 25px;
   display: flex;
-  background-color: honeydew;
+  background-color: cyan;
   flex-direction: column;
   flex:1;
-  justify-content: space-between;
+  justify-content: flex-start;
   // width: 100vw;
   padding-left: 15px;
+  flex-basis: 100%;
 
 `;
 

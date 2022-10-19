@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const MainImage = styled.section`
 
 position: relative;
+overflow: hidden;
+
 
 @media only screen and (max-width: 601px) {
   height: 300px;
@@ -30,14 +32,9 @@ position: relative;
     width: 100%;
     object-position: 100% 0px;
     border-radius: 6px;
+    transition: all .2s ease-in-out;
   }
-  .mainPhoto:hover {
-    height: 150%;
-    width: 150%;
-    position: relative;
-    z-index: 10;
-    .mag {
-
-    }
+  :hover .mainPhoto {
+    transform: scale(3.0)
   }
 `;

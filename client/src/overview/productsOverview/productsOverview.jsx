@@ -20,7 +20,6 @@ export default function ProductsOverview() {
           <ImageGalleryMain />
         </Styled.ImageContainer>
         <br style={{ width: '25px' }} />
-
         <Styled.ProductActivityContainer>
           <StarRating />
           <ProductInformation />

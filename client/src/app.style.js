@@ -18,6 +18,7 @@ export const Container = styled.section`
 `;
 
 export const Header = styled.header`
+  z-index: 100;
   display: flex;
   padding-left: 20px;
   top: 0;
@@ -32,13 +33,11 @@ export const Header = styled.header`
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
-
   left:0;
   width: 100%;
   display: flex;
   flex-direction: column;
   background: white;
-
 `;
 
 // export const SectionBreakOne = styled.div`
