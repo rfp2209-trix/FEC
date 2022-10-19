@@ -4,6 +4,7 @@ import ProductsOverview from './overview/productsOverview/productsOverview.jsx';
 // import WriteReview from './reviews/WriteReview.jsx';
 import RelatedProductList from './related_comparison/relatedProductList.jsx';
 import OutfitList from './related_comparison/outfitList.jsx';
+import QA from './questionsAnswers/qa.jsx';
 
 export const Container = styled.section`
   left: 0;
@@ -13,6 +14,7 @@ export const Container = styled.section`
   // flex-wrap: wrap;
   width:100%;
   font-family: 'Roboto Condensed', sans-serif;
+  background-color: honeydew;
 `;
 
 export const Header = styled.header`
@@ -24,8 +26,9 @@ export const Header = styled.header`
   background: lightgrey;
   width: 100vw;
   padding-top: 10px;
-  height: 90px;
-
+  height: 50px;
+  border-bottom: solid;
+  border-color: gray;
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
@@ -81,7 +84,7 @@ export const OutfitListContainer = styled(OutfitList)`
 //   flex: 1;
 // `;
 
-export const QuestionsContainer = styled.section`
+export const QuestionsContainer = styled(QA)`
 
   width: 100vw;
   padding: 20px;

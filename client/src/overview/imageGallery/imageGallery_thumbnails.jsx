@@ -6,7 +6,7 @@ export default function ImageGalleryThumbnails({ image }) {
   return (
     <div>
       <Styled.ThumbsDetail />
-      <Styled.ThumbImage src={image} alt="should be a pic here :(" />
+      <Styled.ThumbImage src={image} alt="fashion pic" />
     </div>
   );
 }
