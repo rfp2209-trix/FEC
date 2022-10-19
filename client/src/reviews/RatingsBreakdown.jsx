@@ -1,5 +1,6 @@
 import React from 'react';
 import { useProductsContext } from '../Context.jsx';
+import Stars from './Stars.jsx';
 
 function RatingsBreakdown() {
   return (
@@ -16,7 +17,10 @@ function RatingSummary() {
     return <div />;
   }
   return (
-    <div>{avgReview}</div>
+    <div style={{ '--rating': avgReview, '--star-size': '60px' }}>
+      {avgReview}
+      <Stars />
+    </div>
   );
 }
 
