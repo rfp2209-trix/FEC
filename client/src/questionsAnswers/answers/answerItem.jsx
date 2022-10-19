@@ -3,7 +3,6 @@ import Helpful from './helpfulAnswer.jsx';
 import Report from './reportAnswer.jsx';
 
 function AnswerItem({ values }) {
-  console.log('values of answer: ', values);
   const { helpfulness } = values;
   return (
     <div>
