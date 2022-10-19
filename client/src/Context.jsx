@@ -12,7 +12,7 @@ export function Context({ children }) {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const product_id = 40344;
+  const product_id = 40346;
 
   const getNewProduct = () => {
     // set the loading date to true for each call
@@ -31,7 +31,6 @@ export function Context({ children }) {
           axios.get(`/fec/reviews?product_id=${product_id}&count=2`),
           axios.get(`/fec/questions/${product_id}`),
         ]);
-        const questionsData = questionsGet.data;
         const productsInfo = productsInfoGet.data;
         const styleDetails = styleDetailsGet.data;
         const reviewsMeta = reviewsMetaGet.data;
@@ -39,6 +38,7 @@ export function Context({ children }) {
         const relatedProductsInfo = relatedProductsInfoGet.data;
         const totalReviews = sumArray(Object.values(reviewsMeta.ratings));
         const avgReview = avgStarValue(reviewsMeta.ratings).toFixed(1);
+        const questionsData = questionsGet.data;
         tempState = {
           productsInfo,
           styleDetails,
@@ -47,6 +47,7 @@ export function Context({ children }) {
           avgReview,
           totalReviews,
           relatedProductsInfo,
+          questionsData,
         };
         console.log(tempState);
         setState(tempState);
