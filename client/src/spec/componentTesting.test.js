@@ -41,11 +41,12 @@ describe('Ratings & Reviews tests', () => {
     const heading = screen.getByText('RATINGS & REVIEWS');
     expect(heading).toBeInTheDocument();
   });
-  it('should render an average review', () => {
+  it('should render average review score', () => {
     const mockCopy = { ...mockData };
     mockCopy.avgReview = 3.6;
     render(<MockTestContext.Provider value={mockCopy}><RatingsBreakdown /></MockTestContext.Provider>);
     const avgReview = screen.getByText('3.6');
     expect(avgReview).toBeInTheDocument();
-  })
+  });
+
 });
