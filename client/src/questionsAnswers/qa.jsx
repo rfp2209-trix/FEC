@@ -39,7 +39,12 @@ function QA() {
       <button type="submit" onClick={handleSearch}>Search</button>
 
       <ul>
-        { questionsData.results.map((each) => (<Question data={each} />))}
+        { !moreQuestions ? (
+          questionsData.results.slice(0, 4).map((each) => (<Question data={each} />))
+        ) : (
+          questionsData.results.map((each) => (<Question data={each} />))
+        )}
+
       </ul>
       <button type="submit" onClick={handleMoreQuestions}>
         { moreQuestions ? (<span>Collapse</span>)
