@@ -24,6 +24,5 @@ export function MockContext({ children }) {
 
 export function useMockContext() {
   const context = useContext(MockTestContext);
-  console.log(context);
   return context;
 }

@@ -30,9 +30,9 @@ describe('App tests', () => {
     const text = screen.getByAltText('should be a pic here');
     expect(text).toBeInTheDocument();
   });
-  // it('should contain ratings and reviews in a header', () => {
-  //   render(<App />);
-  //   const heading = screen.getByText('RATINGS & REVIEWS');
-  //   expect(heading).toBeInTheDocument();
-  // });
+  it('should contain ratings and reviews in a header', () => {
+    render(<Reviews />);
+    const heading = screen.getByText('RATINGS & REVIEWS');
+    expect(heading).toBeInTheDocument();
+  });
 });
