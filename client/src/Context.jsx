@@ -46,7 +46,6 @@ export function Context({ children }) {
           totalReviews,
           relatedProductsInfo,
         };
-
         console.log(tempState);
         setState(tempState);
         setLoading(false);

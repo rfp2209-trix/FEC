@@ -16,6 +16,7 @@ function App() {
         <h2>Header Goes Here</h2>
       </Styled.Header>
       <Styled.OverviewContainer />
+      <br />
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
       <Reviews setAddForm={setAddForm} />

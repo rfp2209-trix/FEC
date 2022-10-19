@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 // import axios from 'axios';
 import Question from './questions/question.jsx';
@@ -21,8 +22,7 @@ function QA() {
       <button type="submit" onClick={handleSearch}>Search</button>
 
       <ul>
-        Map all the questions for this product ID through Question component
-        <Question />
+        { questionsData.results.map((each, index) => (<Question data={each} key={index} />))}
       </ul>
       <button type="submit">See More Questions</button>
       <Ask />

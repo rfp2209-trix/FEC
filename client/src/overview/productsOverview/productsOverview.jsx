@@ -3,7 +3,8 @@ import React from 'react';
 import ProductInformation from '../productInformation/productInformation.jsx';
 import StyleSelector from '../styleSelector/styleSelector.jsx';
 import Cart from '../cart/cart.jsx';
-import { StarContainer } from '../starRating/starRating.styles.js';
+// import { StarContainer } from '../starRating/starRating.styles.js';
+import StarRating from '../starRating/starRating.jsx';
 import AddInformation from '../addInformation/addInformation.jsx';
 import * as Styled from './productsOverview.styles';
 import ImageGalleryThumbnailScroll from '../imageGallery/imageGallery_thumbnailScroll.jsx';
@@ -18,8 +19,10 @@ export default function ProductsOverview() {
           <ImageGalleryThumbnailScroll />
           <ImageGalleryMain />
         </Styled.ImageContainer>
+        <br style={{ width: '25px' }} />
+
         <Styled.ProductActivityContainer>
-          <StarContainer />
+          <StarRating />
           <ProductInformation />
           <StyleSelector />
           <Cart />
