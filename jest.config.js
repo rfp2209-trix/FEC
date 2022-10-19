@@ -11,5 +11,3 @@ module.exports = {
   extensionsToTreatAsEsm: ['.jsx'],
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!axios)'],
 };
-
-// '^.+\\.(t|j)sx?': 'babel-jest'

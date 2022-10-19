@@ -14,6 +14,7 @@ export const Container = styled.section`
   // flex-wrap: wrap;
   width:100%;
   font-family: 'Roboto Condensed', sans-serif;
+  background-color: honeydew;
 `;
 
 export const Header = styled.header`
@@ -25,8 +26,9 @@ export const Header = styled.header`
   background: lightgrey;
   width: 100vw;
   padding-top: 10px;
-  height: 90px;
-
+  height: 50px;
+  border-bottom: solid;
+  border-color: gray;
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`
