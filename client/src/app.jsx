@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import { OverviewContext } from './overview/overviewContextWrapper.jsx';
 import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
@@ -15,7 +16,9 @@ function App() {
       <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header>
-      <Styled.OverviewContainer />
+
+        <Styled.OverviewContainer />
+
       <br />
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />

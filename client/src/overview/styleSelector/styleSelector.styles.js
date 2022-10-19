@@ -12,8 +12,7 @@ export const StyleContainerWrapper = styled.section`
     justify-content: center;
 
   }
-`
-
+`;
 export const StyleSelectorContainer = styled.section`
   display: flex;
   flex-direction: row;
