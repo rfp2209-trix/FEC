@@ -9,13 +9,21 @@ export const MainImage = styled.section`
   margin: auto;
   transition: all .7s;
 }
- height: 750px;
- width: 750px;
+ height: 700px;
+ width: 700px;
 
   > img{
     object-fit: cover;
     height: 100%;
     width: 100%;
-    object-position: 100% 25;
+    object-position: 100% 0px;
+    border-radius: 6px;
+  }
+  > img:hover {
+    height: 150%;
+    width: 150%;
+    position: relative;
+    z-index: 10;
+
   }
 `;
