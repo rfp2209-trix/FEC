@@ -1,12 +1,17 @@
 import React from 'react';
-import RelatedProductListEntry from './relatedProductListEntry.jsx';
+import styled from 'styled-components';
+import RelatedProductListEntry from './RelatedProductListEntry.jsx';
 import { useProductsContext } from '../Context.jsx';
 
 export default function RelatedProductList() {
-  const { relatedProductsInfo } = useProductsContext();
+  const { loading, relatedProductsInfo } = useProductsContext();
+  console.log(relatedProductsInfo);
+  if (loading) {
+    return <div />;
+  }
   return (
-    relatedProductsInfo
-      ? relatedProductsInfo.map((currProduct) => (
+    <RelatedProductListContainer>
+      {relatedProductsInfo.map((currProduct) => (
         <RelatedProductListEntry
           name={currProduct.name}
           category={currProduct.category}
@@ -15,7 +20,17 @@ export default function RelatedProductList() {
           imgs={currProduct.results}
           key={currProduct.name}
         />
-      ))
-      : null
+      ))}
+    </RelatedProductListContainer>
   );
 }
+
+const RelatedProductListContainer = styled.div`
+
+width: 100%;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+background: pink;
+
+`;
