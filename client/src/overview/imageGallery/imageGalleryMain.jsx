@@ -33,8 +33,8 @@ export default function ImageGalleryMain() {
   });
 
   useEffect(() => {
-    console.log('Photo index has changed', photoIndex)
-    if (filteredStyles.length > 0 && mainPhoto === '') {
+    if (filteredStyles.length > 0) {
+      console.log('Photo index has changed', photoIndex);
       const photo = filteredStyles[0].photos[photoIndex].url;
       setMainPhoto(photo);
     }
