@@ -15,7 +15,7 @@ function ReviewsList({ setCurrentForm }) {
     <ReviewTile key={review.review_id} review={review} />
   ));
   return (
-    <div>
+    <div id="review_list">
       <label htmlFor="sort_by">
         {totalReviews}
         &nbsp;reviews, sorted by&nbsp;
