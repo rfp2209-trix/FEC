@@ -30,7 +30,7 @@ overflow: hidden;
     object-fit: cover;
     height: 100%;
     width: 100%;
-    object-position: 100% 0px;
+
     border-radius: 6px;
     transition: all .2s ease-in-out;
   }
