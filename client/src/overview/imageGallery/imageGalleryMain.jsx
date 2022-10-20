@@ -1,20 +1,40 @@
 /* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
-
 import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
 import { useProductsContext } from '../../Context.jsx';
+import { useOverviewContext } from '../overviewContextWrapper.jsx';
 import * as Styled from './imageGalleryMain.styles.js';
 
-
 export default function ImageGalleryMain() {
-  const { productsInfo, styleDetails, state, setState, loading } = useProductsContext();
-  const [mainPhoto, setMainPhoto] = useState('');
+  const { styleDetails, loading } = useProductsContext();
+  const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
 
-  const photos = (styleDetails) ? styleDetails.results[0].photos : [];
+  useEffect(() => {
+    if (!loading && styleDetails) {
+      const def_styleID = styleDetails.results[0].style_id;
+      setStyleId(def_styleID);
+    }
+  });
 
-  if (!loading && mainPhoto === '') {
-    setMainPhoto(photos[0].url);
-  }
+  const styles = (!loading && styleDetails) ? styleDetails.results : [];
+  const filteredStyles = styles.filter((style) => style.style_id === styleId);
+  // const photos = (styleDetails) ? styleDetails.results[0].photos : [];
+
+  useEffect(() => {
+    if (filteredStyles.length > 0 && mainPhoto === '') {
+      const photo = filteredStyles[0].photos[0].url;
+      setMainPhoto(photo);
+    }
+  });
+
+  useEffect(() => {
+    if (filteredStyles.length > 0 && mainPhoto === '') {
+      const photo = filteredStyles[0].photos[photoIndex].url;
+      setMainPhoto(photo);
+    }
+  }, [photoIndex]);
+
+
 
   // const handleZoom = () => {
   //   setZoom(!zoom);
@@ -29,11 +49,9 @@ export default function ImageGalleryMain() {
   // };
 
   return (
-
-      <Styled.MainImage>
-        <HiMagnifyingGlassPlus className="mag" />
-        <img src={mainPhoto} className="mainPhoto "alt="should be a pic here" />
-      </Styled.MainImage>
-
+    <Styled.MainImage>
+      <HiMagnifyingGlassPlus className="mag" aria-label="magnifying glass" />
+      <img src={mainPhoto} className="mainPhoto" alt="should be a pic here" />
+    </Styled.MainImage>
   );
 }

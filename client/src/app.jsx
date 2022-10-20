@@ -1,8 +1,10 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import { OverviewContextWrapper } from './overview/overviewContextWrapper.jsx';
 import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
+import QuestionModal from './questionsAnswers/questionForm.jsx';
 
 // import your react component to app.styles.js
 // follow the convention for creating styled.components
@@ -15,19 +17,22 @@ function App() {
       <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header>
-      <Styled.OverviewContainer />
+      <OverviewContextWrapper>
+        <Styled.OverviewContainer />
+      </OverviewContextWrapper>
       <br />
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
       {/* <Styled.OutfitListContainer /> */}
-      <Styled.QuestionsContainer />
+      <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       <Reviews setCurrentForm={setCurrentForm} />
       {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
-      <Styled.Footer>
+      {/* <Styled.Footer>
         <h2>
           Footer Goes Here
         </h2>
-      </Styled.Footer>
+      </Styled.Footer> */}
     </Styled.Container>
   );
 }
