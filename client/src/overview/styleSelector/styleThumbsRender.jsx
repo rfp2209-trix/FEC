@@ -3,7 +3,9 @@ import * as Styled from './styleSelectorThumbs.styles.js';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 
 export default function StyleThumbsRender({ image, id }) {
-  const { setStyleId, setStyleName, setMainPhoto, setSideScroll } = useOverviewContext();
+  const {
+    setStyleId, setStyleName, setMainPhoto, setSideScroll,
+  } = useOverviewContext();
 
   const handleStyleClick = () => {
     setMainPhoto('');

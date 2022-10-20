@@ -25,7 +25,7 @@ export default function ImageGalleryMain() {
       const photo = filteredStyles[0].photos[0].url;
       setMainPhoto(photo);
     }
-});
+}, [styleId]);
 
 
 

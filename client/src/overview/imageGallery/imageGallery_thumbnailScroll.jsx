@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
@@ -12,12 +13,11 @@ export default function ImageGalleryThumbnailScroll() {
   const {
     styleId, setStyleId, sideScroll, setSideScroll,
   } = useOverviewContext();
-
+  const [localStyleId, setLocalStyleId] = useState('');
   useEffect(() => {
     if (!loading && styleDetails) {
       const def_styleID = styleDetails.results[0].style_id;
       setStyleId(def_styleID);
-      console.log('ID', styleId);
     }
   });
 
@@ -27,7 +27,10 @@ export default function ImageGalleryThumbnailScroll() {
   useEffect(() => {
     if (filteredStyles.length > 0 && sideScroll === '') {
       const imageReel = filteredStyles[0].photos;
+      setLocalStyleId(filteredStyles[0].style_id);
       setSideScroll(imageReel);
+      console.log('filtered------>', filteredStyles)
+      console.log('local------->', localStyleId)
     }
   });
 
@@ -38,7 +41,7 @@ export default function ImageGalleryThumbnailScroll() {
       <ThumbnailContainer>
         <Styled.ThumbnailDetailScroll>
           {sideScroll && sideScroll.map((photo, index) => {
-            return <ImageGalleryThumbnails key={index} image={photo.thumbnail_url} />;
+            return <ImageGalleryThumbnails id={localStyleId} key={index} image={photo.thumbnail_url} />;
           })}
         </Styled.ThumbnailDetailScroll>
       </ThumbnailContainer>
