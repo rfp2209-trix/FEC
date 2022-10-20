@@ -104,7 +104,7 @@ eval("\n\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = 
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.RelatedProductListContainer = exports.QuestionsContainer = exports.OverviewContainer = exports.OutfitListContainer = exports.Header = exports.Footer = exports.Container = void 0;\nvar _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\"));\nvar _productsOverview = _interopRequireDefault(__webpack_require__(/*! ./overview/productsOverview/productsOverview.jsx */ \"./client/src/overview/productsOverview/productsOverview.jsx\"));\nvar _RelatedProductList = _interopRequireDefault(__webpack_require__(/*! ./related_comparison/RelatedProductList.jsx */ \"./client/src/related_comparison/RelatedProductList.jsx\"));\nvar _outfitList = _interopRequireDefault(__webpack_require__(/*! ./related_comparison/outfitList.jsx */ \"./client/src/related_comparison/outfitList.jsx\"));\nvar _qa = _interopRequireDefault(__webpack_require__(/*! ./questionsAnswers/qa.jsx */ \"./client/src/questionsAnswers/qa.jsx\"));\nvar _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\nvar Container = _styledComponents[\"default\"].section(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  left: 0;\\n  display: flex;\\n  height: 100%;\\n  flex-direction: column;\\n  // flex-wrap: wrap;\\n  width:100%;\\n  font-family: 'Roboto Condensed', sans-serif;\\n  background-color: honeydew;\\n\"])));\nexports.Container = Container;\nvar Header = _styledComponents[\"default\"].header(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([\"\\n  z-index: 100;\\n  display: flex;\\n  padding-left: 20px;\\n  top: 0;\\n  left: 0;\\n  position: fixed;\\n  background: lightgrey;\\n  width: 100vw;\\n  padding-top: 10px;\\n  height: 50px;\\n  border-bottom: solid;\\n  border-color: gray;\\n\"])));\nexports.Header = Header;\nvar OverviewContainer = (0, _styledComponents[\"default\"])(_productsOverview[\"default\"])(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral([\"\\n  left:0;\\n  width: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  background: white;\\n\"])));\n\n// export const SectionBreakOne = styled.div`\n//   flex-basis: 100%\n//   height: 0;\n// `;\nexports.OverviewContainer = OverviewContainer;\nvar RelatedProductListContainer = (0, _styledComponents[\"default\"])(_RelatedProductList[\"default\"])(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([\"\\n\\n  width: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  background: white;\\n\\n\"])));\nexports.RelatedProductListContainer = RelatedProductListContainer;\nvar OutfitListContainer = (0, _styledComponents[\"default\"])(_outfitList[\"default\"])(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral([\"\\n\\n  width: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  background: white;\\n\\n\"])));\n\n// export const ReviewsContainer = styled(Reviews)`\n\n// //   width: 100vw;\n// //   padding: 20px;\n// //   display: flex;\n// //   flex-direction: column;\n// //   background: white;\n// //   flex: 1;\n// // `;\n\n// export const WriteReviewContainer = styled.div`\n\n//   width: 100vw;\n//   padding: 20px;\n//   display: flex;\n//   flex-direction: row;\n//   background: white;\n//   flex: 1;\n// `;\nexports.OutfitListContainer = OutfitListContainer;\nvar QuestionsContainer = (0, _styledComponents[\"default\"])(_qa[\"default\"])(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral([\"\\n  justify-content: center;\\n  width: 100vw;\\n  padding: 20px;\\n  display: flex;\\n  flex-direction: row;\\n  background: white;\\n  align-items: center;\\n\"])));\nexports.QuestionsContainer = QuestionsContainer;\nvar Footer = _styledComponents[\"default\"].footer(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral([\"\\n display: flex;\\n left: 0;\\n bottom: 0;\\n position: fixed;\\n background: lightgrey;\\n width: 100vw;\\n padding: 10px;\\n\"])));\nexports.Footer = Footer;\n\n//# sourceURL=webpack://fec/./client/src/app.style.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.RelatedProductListContainer = exports.QuestionsContainer = exports.OverviewContainer = exports.OutfitListContainer = exports.Header = exports.Footer = exports.Container = void 0;\nvar _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\"));\nvar _productsOverview = _interopRequireDefault(__webpack_require__(/*! ./overview/productsOverview/productsOverview.jsx */ \"./client/src/overview/productsOverview/productsOverview.jsx\"));\nvar _RelatedProductList = _interopRequireDefault(__webpack_require__(/*! ./related_comparison/RelatedProductList.jsx */ \"./client/src/related_comparison/RelatedProductList.jsx\"));\nvar _outfitList = _interopRequireDefault(__webpack_require__(/*! ./related_comparison/outfitList.jsx */ \"./client/src/related_comparison/outfitList.jsx\"));\nvar _qa = _interopRequireDefault(__webpack_require__(/*! ./questionsAnswers/qa.jsx */ \"./client/src/questionsAnswers/qa.jsx\"));\nvar _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\nvar Container = _styledComponents[\"default\"].section(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  left: 0;\\n  display: flex;\\n  height: 100%;\\n  flex-direction: column;\\n  // flex-wrap: wrap;\\n  width:100%;\\n  font-family: 'Roboto Condensed', sans-serif;\\n  background-color: honeydew;\\n\"])));\nexports.Container = Container;\nvar Header = _styledComponents[\"default\"].header(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([\"\\n  z-index: 100;\\n  display: flex;\\n  padding-left: 20px;\\n  top: 0;\\n  left: 0;\\n  position: fixed;\\n  background: lightgrey;\\n  width: 100vw;\\n  padding-top: 10px;\\n  height: 50px;\\n  border-bottom: solid;\\n  border-color: gray;\\n\"])));\nexports.Header = Header;\nvar OverviewContainer = (0, _styledComponents[\"default\"])(_productsOverview[\"default\"])(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral([\"\\n  left:0;\\n  width: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  background: white;\\n\"])));\n\n// export const SectionBreakOne = styled.div`\n//   flex-basis: 100%\n//   height: 0;\n// `;\nexports.OverviewContainer = OverviewContainer;\nvar RelatedProductListContainer = (0, _styledComponents[\"default\"])(_RelatedProductList[\"default\"])(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([\"\\n\\n  width: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  background: white;\\n\\n\"])));\nexports.RelatedProductListContainer = RelatedProductListContainer;\nvar OutfitListContainer = (0, _styledComponents[\"default\"])(_outfitList[\"default\"])(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral([\"\\n\\n  width: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  background: white;\\n\\n\"])));\n\n// export const ReviewsContainer = styled(Reviews)`\n\n// //   width: 100vw;\n// //   padding: 20px;\n// //   display: flex;\n// //   flex-direction: column;\n// //   background: white;\n// //   flex: 1;\n// // `;\n\n// export const WriteReviewContainer = styled.div`\n\n//   width: 100vw;\n//   padding: 20px;\n//   display: flex;\n//   flex-direction: row;\n//   background: white;\n//   flex: 1;\n// `;\nexports.OutfitListContainer = OutfitListContainer;\nvar QuestionsContainer = (0, _styledComponents[\"default\"])(_qa[\"default\"])(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral([\"\\n\\n  width: 100vw;\\n  padding: 20px;\\n  display: flex;\\n  flex-direction: row;\\n  background: white;\\n\"])));\nexports.QuestionsContainer = QuestionsContainer;\nvar Footer = _styledComponents[\"default\"].footer(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral([\"\\n display: flex;\\n left: 0;\\n bottom: 0;\\n position: fixed;\\n background: lightgrey;\\n width: 100vw;\\n padding: 10px;\\n\"])));\nexports.Footer = Footer;\n\n//# sourceURL=webpack://fec/./client/src/app.style.js?");
 
 /***/ }),
 
@@ -196,6 +196,17 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 
 /***/ }),
 
+/***/ "./client/src/overview/overviewContextWrapper.jsx":
+/*!********************************************************!*\
+  !*** ./client/src/overview/overviewContextWrapper.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.OverviewContextWrapper = OverviewContextWrapper;\nexports.useOverviewContext = useOverviewContext;\nvar _react = _interopRequireWildcard(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nfunction _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== \"function\") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }\nfunction _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== \"object\" && typeof obj !== \"function\") { return { \"default\": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== \"default\" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj[\"default\"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\nfunction _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\nvar OverviewContext = /*#__PURE__*/(0, _react.createContext)();\nfunction OverviewContextWrapper(_ref) {\n  var children = _ref.children;\n  var _useState = (0, _react.useState)(0),\n    _useState2 = _slicedToArray(_useState, 2),\n    styleId = _useState2[0],\n    setStyleId = _useState2[1];\n  var values = {\n    styleId: styleId,\n    setStyleId: setStyleId\n  };\n  return /*#__PURE__*/_react[\"default\"].createElement(OverviewContext.Provider, {\n    value: values\n  }, children);\n}\nfunction useOverviewContext() {\n  var overviewCtx = (0, _react.useContext)(OverviewContext);\n  if (!overviewCtx) {\n    throw new Error('Must use within Overview Container');\n  }\n  return overviewCtx;\n}\n\n//# sourceURL=webpack://fec/./client/src/overview/overviewContextWrapper.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/overview/productInformation/productInformation.jsx":
 /*!***********************************************************************!*\
   !*** ./client/src/overview/productInformation/productInformation.jsx ***!
@@ -269,7 +280,40 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = styleSelector;\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction styleSelector() {\n  return /*#__PURE__*/_react[\"default\"].createElement(\"div\", null, /*#__PURE__*/_react[\"default\"].createElement(\"h3\", null, \"Style Selector\"));\n}\n\n//# sourceURL=webpack://fec/./client/src/overview/styleSelector/styleSelector.jsx?");
+eval("\n\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = styleSelector;\nvar _react = _interopRequireWildcard(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar _styleThumbsRender = _interopRequireDefault(__webpack_require__(/*! ./styleThumbsRender.jsx */ \"./client/src/overview/styleSelector/styleThumbsRender.jsx\"));\nvar Styled = _interopRequireWildcard(__webpack_require__(/*! ./styleSelector.styles.js */ \"./client/src/overview/styleSelector/styleSelector.styles.js\"));\nvar _Context = __webpack_require__(/*! ../../Context.jsx */ \"./client/src/Context.jsx\");\nvar _overviewContextWrapper = __webpack_require__(/*! ../overviewContextWrapper.jsx */ \"./client/src/overview/overviewContextWrapper.jsx\");\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== \"function\") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }\nfunction _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== \"object\" && typeof obj !== \"function\") { return { \"default\": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== \"default\" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj[\"default\"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\nfunction _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\nfunction styleSelector() {\n  var _useState = (0, _react.useState)(''),\n    _useState2 = _slicedToArray(_useState, 2),\n    styleName = _useState2[0],\n    setStyleName = _useState2[1];\n  var _useProductsContext = (0, _Context.useProductsContext)(),\n    styleDetails = _useProductsContext.styleDetails,\n    loading = _useProductsContext.loading;\n  var _useOverviewContext = (0, _overviewContextWrapper.useOverviewContext)(),\n    styleId = _useOverviewContext.styleId,\n    setStyleId = _useOverviewContext.setStyleId;\n  (0, _react.useEffect)(function () {\n    if (!loading && styleDetails) {\n      var def_styleID = styleDetails.results[0].style_id;\n      setStyleId(def_styleID);\n    }\n  });\n  var styles = !loading && styleDetails ? styleDetails.results : [];\n  var filteredStyles = styles.filter(function (style) {\n    return style.style_id === styleId;\n  });\n  if (filteredStyles.length > 0 && styleName === '') {\n    setStyleName(filteredStyles[0].name);\n  }\n  return /*#__PURE__*/_react[\"default\"].createElement(Styled.StyleContainerWrapper, null, /*#__PURE__*/_react[\"default\"].createElement(\"div\", null, /*#__PURE__*/_react[\"default\"].createElement(\"p\", null, \"Style: \\xA0\"), /*#__PURE__*/_react[\"default\"].createElement(\"p\", null, styleName)), /*#__PURE__*/_react[\"default\"].createElement(Styled.StyleSelectorContainer, null, !loading && styleDetails.results.map(function (style) {\n    return /*#__PURE__*/_react[\"default\"].createElement(_styleThumbsRender[\"default\"], {\n      key: style.style_id,\n      image: style.photos[0].thumbnail_url\n    });\n  })));\n}\n\n//# sourceURL=webpack://fec/./client/src/overview/styleSelector/styleSelector.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/overview/styleSelector/styleSelector.styles.js":
+/*!*******************************************************************!*\
+  !*** ./client/src/overview/styleSelector/styleSelector.styles.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.StyleSelectorContainer = exports.StyleContainerWrapper = void 0;\nvar _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\"));\nvar _templateObject, _templateObject2;\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\nvar StyleContainerWrapper = _styledComponents[\"default\"].section(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  display: flex;\\n  flex-direction: column;\\n  > div{\\n    display: flex;\\n    flex-direction: row;\\n    font-size: 18pt;\\n    font-color:#555555\\n    justify-content: center;\\n\\n  }\\n\"])));\nexports.StyleContainerWrapper = StyleContainerWrapper;\nvar StyleSelectorContainer = _styledComponents[\"default\"].section(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([\"\\n  display: flex;\\n  flex-direction: row;\\n  flex-wrap: wrap;\\n\"])));\nexports.StyleSelectorContainer = StyleSelectorContainer;\n\n//# sourceURL=webpack://fec/./client/src/overview/styleSelector/styleSelector.styles.js?");
+
+/***/ }),
+
+/***/ "./client/src/overview/styleSelector/styleSelectorThumbs.styles.js":
+/*!*************************************************************************!*\
+  !*** ./client/src/overview/styleSelector/styleSelectorThumbs.styles.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.ThumbsDetail = exports.ThumbImage = void 0;\nvar _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\"));\nvar _templateObject, _templateObject2;\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\nvar ThumbsDetail = _styledComponents[\"default\"].section(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  width: 100px;\\n  height: 75px;\\n  position: relative;\\n  display: inline-block;\\n  overflow: hidden;\\n  margin-right: 5px;\\n\\n\"])));\nexports.ThumbsDetail = ThumbsDetail;\nvar ThumbImage = _styledComponents[\"default\"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([\"\\n  width: auto;\\n  height: 100%;\\n\"])));\nexports.ThumbImage = ThumbImage;\n\n//# sourceURL=webpack://fec/./client/src/overview/styleSelector/styleSelectorThumbs.styles.js?");
+
+/***/ }),
+
+/***/ "./client/src/overview/styleSelector/styleThumbsRender.jsx":
+/*!*****************************************************************!*\
+  !*** ./client/src/overview/styleSelector/styleThumbsRender.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = StyleThumbsRender;\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar Styled = _interopRequireWildcard(__webpack_require__(/*! ./styleSelectorThumbs.styles.js */ \"./client/src/overview/styleSelector/styleSelectorThumbs.styles.js\"));\nfunction _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== \"function\") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }\nfunction _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== \"object\" && typeof obj !== \"function\") { return { \"default\": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== \"default\" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj[\"default\"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\nfunction StyleThumbsRender(_ref) {\n  var image = _ref.image;\n  return /*#__PURE__*/_react[\"default\"].createElement(Styled.ThumbsDetail, null, /*#__PURE__*/_react[\"default\"].createElement(Styled.ThumbImage, {\n    src: image,\n    alt: \"cool scene\"\n  }));\n}\n\n//# sourceURL=webpack://fec/./client/src/overview/styleSelector/styleThumbsRender.jsx?");
 
 /***/ }),
 
@@ -1133,7 +1177,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -1147,17 +1191,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -1170,7 +1214,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -1182,12 +1226,12 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -1198,7 +1242,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -1207,18 +1251,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./client/index.jsx");
-/******/ 	
+/******/
 /******/ })()
 ;
