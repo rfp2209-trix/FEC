@@ -41,7 +41,7 @@ export default function ImageGalleryThumbnailScroll() {
       <ThumbnailContainer>
         <Styled.ThumbnailDetailScroll>
           {sideScroll && sideScroll.map((photo, index) => {
-            return <ImageGalleryThumbnails id={localStyleId} key={index} image={photo.thumbnail_url} />;
+            return <ImageGalleryThumbnails id={localStyleId} photoIdx={index} key={index} image={photo.thumbnail_url} />;
           })}
         </Styled.ThumbnailDetailScroll>
       </ThumbnailContainer>

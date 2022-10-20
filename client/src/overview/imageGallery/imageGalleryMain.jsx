@@ -7,7 +7,7 @@ import * as Styled from './imageGalleryMain.styles.js';
 
 export default function ImageGalleryMain() {
   const { styleDetails, loading } = useProductsContext();
-  const { styleId, setStyleId, mainPhoto, setMainPhoto } = useOverviewContext();
+  const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
 
   useEffect(() => {
     if (!loading && styleDetails) {
@@ -25,7 +25,14 @@ export default function ImageGalleryMain() {
       const photo = filteredStyles[0].photos[0].url;
       setMainPhoto(photo);
     }
-}, [styleId]);
+  });
+
+  useEffect(() => {
+    if (filteredStyles.length > 0 && mainPhoto === '') {
+      const photo = filteredStyles[0].photos[photoIndex].url;
+      setMainPhoto(photo);
+    }
+  }, [photoIndex]);
 
 
 
