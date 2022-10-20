@@ -4,7 +4,7 @@ import RelatedProductListEntry from './RelatedProductListEntry.jsx';
 import { useProductsContext } from '../Context.jsx';
 
 export default function RelatedProductList() {
-  const { loading, relatedProductsInfo } = useProductsContext();
+  const { loading, relatedProductsInfo, productsInfo } = useProductsContext();
   console.log(relatedProductsInfo);
   if (loading) {
     return <div />;
@@ -22,6 +22,8 @@ export default function RelatedProductList() {
             price={currProduct.default_price}
             rating={currProduct.averageRating}
             imgs={currProduct.results}
+            features={currProduct.features}
+            selectedProductInfo={productsInfo}
             key={currProduct.name}
           />
         ))}
