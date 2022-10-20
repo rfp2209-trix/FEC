@@ -19,7 +19,7 @@ function AnswerItem({ values }) {
             {values.answerer_name}
           </b>
           {'     '}
-          {date(values.date)[1]}
+          {date(values.date)[0]}
         </small>
       </div>
     </div>
