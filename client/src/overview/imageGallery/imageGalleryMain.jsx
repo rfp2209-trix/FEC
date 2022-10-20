@@ -20,10 +20,13 @@ export default function ImageGalleryMain() {
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
   // const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
-  if (filteredStyles.length > 0 && mainPhoto === '') {
-    const photo = filteredStyles[0].photos[0].url;
-    setMainPhoto(photo);
-  }
+  useEffect(() => {
+    if (filteredStyles.length > 0 && mainPhoto === '') {
+      const photo = filteredStyles[0].photos[0].url;
+      setMainPhoto(photo);
+    }
+});
+
 
 
   // const handleZoom = () => {

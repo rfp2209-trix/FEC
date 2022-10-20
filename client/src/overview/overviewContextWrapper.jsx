@@ -8,6 +8,7 @@ export function OverviewContextWrapper({ children }) {
   const [styleId, setStyleId] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainPhoto, setMainPhoto] = useState('');
+  const [sideScroll, setSideScroll] = useState('');
   const values = {
     styleId,
     setStyleId,
@@ -15,6 +16,8 @@ export function OverviewContextWrapper({ children }) {
     setStyleName,
     mainPhoto,
     setMainPhoto,
+    sideScroll,
+    setSideScroll,
   };
 
   return <OverviewContext.Provider value={values}>{children}</OverviewContext.Provider>;

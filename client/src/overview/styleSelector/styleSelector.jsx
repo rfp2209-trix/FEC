@@ -23,9 +23,11 @@ export default function styleSelector() {
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
 
-  if (filteredStyles.length > 0 && styleName === '') {
-    setStyleName(filteredStyles[0].name);
-  }
+  useEffect(() => {
+    if (filteredStyles.length > 0 && styleName === '') {
+      setStyleName(filteredStyles[0].name);
+    }
+  });
 
   return (
     <Styled.StyleContainerWrapper>
