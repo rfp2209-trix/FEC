@@ -18,7 +18,7 @@ function App() {
       <Styled.OverviewContainer />
       <br />
       {/* <Styled.SectionBreakOne /> */}
-      <Styled.RelatedProductListContainer />
+      {/* <Styled.RelatedProductListContainer /> */}
       {/* <Styled.OutfitListContainer /> */}
       <Styled.QuestionsContainer />
       <Reviews setAddForm={setAddForm} />

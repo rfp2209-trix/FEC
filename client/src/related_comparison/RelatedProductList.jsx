@@ -10,18 +10,23 @@ export default function RelatedProductList() {
     return <div />;
   }
   return (
-    <RelatedProductListContainer>
-      {relatedProductsInfo.map((currProduct) => (
-        <RelatedProductListEntry
-          name={currProduct.name}
-          category={currProduct.category}
-          price={currProduct.default_price}
-          rating={currProduct.averageRating}
-          imgs={currProduct.results}
-          key={currProduct.name}
-        />
-      ))}
-    </RelatedProductListContainer>
+    <div>
+      <div style={{ margin: '10px', 'font-size': '20px' }}>
+        Related Products
+      </div>
+      <RelatedProductListContainer>
+        {relatedProductsInfo.map((currProduct) => (
+          <RelatedProductListEntry
+            name={currProduct.name}
+            category={currProduct.category}
+            price={currProduct.default_price}
+            rating={currProduct.averageRating}
+            imgs={currProduct.results}
+            key={currProduct.name}
+          />
+        ))}
+      </RelatedProductListContainer>
+    </div>
   );
 }
 
@@ -31,6 +36,5 @@ width: 100%;
 display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
-background: pink;
 
 `;

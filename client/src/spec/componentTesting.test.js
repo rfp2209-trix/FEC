@@ -14,6 +14,7 @@ import { MockContext, useMockContext, MockTestContext } from './mockContext.jsx'
 import * as Context from '../Context.jsx';
 import * as mockData from './mockContextData.js';
 import ImageGalleryThumbnails from '../overview/imageGallery/imageGallery_thumbnails.jsx';
+import RelatedProductList from '../related_comparison/RelatedProductList.jsx';
 
 console.log(mockData);
 beforeEach(() => {
@@ -48,5 +49,13 @@ describe('Ratings & Reviews tests', () => {
     const avgReview = screen.getByText('3.6');
     expect(avgReview).toBeInTheDocument();
   });
-
+});
+describe('Related & Comparison tests', () => {
+  it('should contain related and comparison in a header', () => {
+    const mockCopy = { ...mockData };
+    mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
+    render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
+    const heading = screen.getByText('Related Products');
+    expect(heading).toBeInTheDocument();
+  });
 });
