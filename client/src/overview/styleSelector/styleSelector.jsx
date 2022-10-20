@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable arrow-body-style */
 import React, { useState, useEffect } from 'react';
@@ -17,6 +18,10 @@ export default function styleSelector() {
       setStyleId(def_styleID);
     }
   });
+
+  // useEffect(() => {
+
+  // }, [styleId])
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
 
@@ -32,7 +37,12 @@ export default function styleSelector() {
       </div>
       <Styled.StyleSelectorContainer>
         {!loading && styleDetails.results.map((style) => {
-          return <StyleThumbsRender key={style.style_id} image={style.photos[0].thumbnail_url} />;
+          return <StyleThumbsRender
+            key={style.style_id}
+            setStyleName={setStyleName}
+            image={style.photos[0].thumbnail_url}
+            id={style.style_id}
+          />;
         })}
       </Styled.StyleSelectorContainer>
     </Styled.StyleContainerWrapper>

@@ -29,11 +29,9 @@ export default function ImageGalleryMain() {
   // };
 
   return (
-
-      <Styled.MainImage>
-        <HiMagnifyingGlassPlus className="mag" />
-        <img src={mainPhoto} className="mainPhoto "alt="should be a pic here" />
-      </Styled.MainImage>
-
+    <Styled.MainImage>
+      <HiMagnifyingGlassPlus className="mag" aria-label="magnifying glass" />
+      <img src={mainPhoto} className="mainPhoto" alt="should be a pic here" />
+    </Styled.MainImage>
   );
 }
