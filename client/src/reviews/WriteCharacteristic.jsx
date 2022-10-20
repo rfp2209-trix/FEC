@@ -12,23 +12,23 @@ function WriteCharacteristic({ char }) {
   };
   return (
     <ListGrid>
-      <GridSpan>
+      <GridSpan justify="start" area="characteristic">
         {char}
         :
       </GridSpan>
-      <GridSpan>
+      <GridSpan justify="start" area="descriptor">
         {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value] : 'none selected'}
       </GridSpan>
       <RadioGrid>
-        <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="0" val="one" />
-        <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="1" val="two" />
-        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="2" val="three" />
-        <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="3" val="four" />
-        <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="4" val="five" />
-        <GridSpan val="start" justify="start">
+        <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="0" area="one" />
+        <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="1" area="two" />
+        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="2" area="three" />
+        <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="3" area="four" />
+        <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="4" area="five" />
+        <GridSpan area="start" justify="start">
           {charMeaning[char][0]}
         </GridSpan>
-        <GridSpan val="end" justify="end">
+        <GridSpan area="end" justify="end">
           {charMeaning[char][4]}
         </GridSpan>
       </RadioGrid>
@@ -40,12 +40,13 @@ export default WriteCharacteristic;
 
 const ListGrid = styled.li`
   display: grid;
-  grid-template-columns: 60px 335px;
-  grid-template-rows: 1fr 1fr:
+  grid-template-columns: 70px 300px;
+  grid-template-rows: auto;
   grid-template-areas:
-    "characteristic nothing"
+    "characteristic descriptor"
     "anotherBlank options";
-  justify-items: start
+  justify-items: start;
+  margin: 0px 0px 10px ;
 `;
 const RadioGrid = styled.div`
   grid-column: 2/3;
@@ -61,11 +62,11 @@ const RadioGrid = styled.div`
 `;
 
 const StyledRadio = styled.input`
-  grid-area: ${(props) => props.val};
+  grid-area: ${(props) => props.area};
 `;
 
 const GridSpan = styled.span`
-  grid-area: ${(props) => props.val};
+  grid-area: ${(props) => props.area};
   justify-self: ${(props) => (props.justify ? props.justify : 'center')};
   white-space: nowrap;
   overflow: visible;

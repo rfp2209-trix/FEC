@@ -61,6 +61,7 @@ function WriteReview({ setCurrentForm }) {
           no
         </label>
       </div>
+      <h3 style={{ margin: '0px' }}>How was the product?</h3>
       <CharacteristicsContainer>
         {Object.keys(characteristics).map((key) => (
           <WriteCharacteristic char={key} key={key} />
@@ -136,5 +137,7 @@ const WriteReviewContainer = styled.form`
 `;
 
 const CharacteristicsContainer = styled.ul`
-  list-style: none
+  list-style-type: none;
+  padding: 0px 0px 0px 20px;
+  margin: 0px;
 `;
