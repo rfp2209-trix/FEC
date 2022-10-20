@@ -57,4 +57,8 @@ describe('Questions & Answers Tests', () => {
     const heading = screen.getByText('Questions & Answers');
     expect(heading).toBeInTheDocument();
   });
+  // it('should display only 2 questions on render', () => {
+  //   render(<MockContext><QA /></MockContext>);
+
+  // })
 });
