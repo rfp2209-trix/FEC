@@ -48,5 +48,4 @@ describe('Ratings & Reviews tests', () => {
     const avgReview = screen.getByText('3.6');
     expect(avgReview).toBeInTheDocument();
   });
-
 });
