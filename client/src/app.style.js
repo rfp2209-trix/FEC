@@ -84,12 +84,13 @@ export const OutfitListContainer = styled(OutfitList)`
 // `;
 
 export const QuestionsContainer = styled(QA)`
-
+  justify-content: center;
   width: 100vw;
   padding: 20px;
   display: flex;
   flex-direction: row;
   background: white;
+  align-items: center;
 `;
 
 export const Footer = styled.footer`
