@@ -47,7 +47,6 @@ function ReviewsList({ setCurrentForm }) {
         <button
           type="button"
           onClick={() => {
-            console.log(reviews.page)
             axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${document.getElementById('select_sort').value.toLowerCase()}&page=${reviews.page ? ((reviews.page / 2) + 2) : 2}`)
               .then((apiResponse) => {
                 reviews.page = apiResponse.data.page;
