@@ -1,19 +1,14 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/prefer-default-export */
 import React, { useState, useContext, createContext } from 'react';
-import { useProductsContext } from '../Context.jsx';
 
 const OverviewContext = createContext();
 
 export function OverviewContextWrapper({ children }) {
-  const { styleDetails, loading } = useProductsContext({});
-  const [styleID, setStyleID] = useState({});
-  const id = (!loading && styleDetails) ? styleDetails.results[0].style_id : 0;
-  if (id) { setStyleID(id); }
-
+  const [styleId, setStyleId] = useState(0);
   const values = {
-    styleID,
-    setStyleID,
+    styleId,
+    setStyleId,
   };
 
   return <OverviewContext.Provider value={values}>{children}</OverviewContext.Provider>;
