@@ -8,9 +8,10 @@ import { useProductsContext } from '../../Context.jsx';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 
 export default function styleSelector() {
-  const [styleName, setStyleName] = useState('');
   const { styleDetails, loading } = useProductsContext();
-  const { styleId, setStyleId } = useOverviewContext();
+  const {
+    styleId, setStyleId, styleName, setStyleName,
+  } = useOverviewContext();
 
   useEffect(() => {
     if (!loading && styleDetails) {
@@ -19,9 +20,6 @@ export default function styleSelector() {
     }
   });
 
-  // useEffect(() => {
-
-  // }, [styleId])
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
 
@@ -39,7 +37,6 @@ export default function styleSelector() {
         {!loading && styleDetails.results.map((style) => {
           return <StyleThumbsRender
             key={style.style_id}
-            setStyleName={setStyleName}
             image={style.photos[0].thumbnail_url}
             id={style.style_id}
           />;

@@ -1,14 +1,22 @@
 /* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
-
 import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
 import { useProductsContext } from '../../Context.jsx';
+import { useOverviewContext } from '../overviewContextWrapper.jsx';
 import * as Styled from './imageGalleryMain.styles.js';
 
 
 export default function ImageGalleryMain() {
-  const { productsInfo, styleDetails, state, setState, loading } = useProductsContext();
+  const { styleDetails, loading } = useProductsContext();
+  const { styleId, setStyleId } = useOverviewContext();
   const [mainPhoto, setMainPhoto] = useState('');
+
+  // useEffect(() => {
+  //   if (!loading && styleDetails) {
+  //     const def_styleID = styleDetails.results[0].style_id;
+  //     setStyleId(def_styleID);
+  //   }
+  // });
 
   const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
