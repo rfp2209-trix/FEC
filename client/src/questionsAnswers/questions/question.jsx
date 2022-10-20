@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import AnswerItem from '../answers/answerItem.jsx';
 import Helpful from './helpfulQuestion.jsx';
 import Report from './reportQuestion.jsx';
+import { objectSorter } from '../../../helpers.js';
 
 function Question(props) {
   const { data } = props;
   const [moreAnswers, setMoreAnswers] = useState(false);
+  const sortedAnswers = objectSorter(data.answers, 'helpfulness');
   const handleMoreAnswers = () => {
     setMoreAnswers(!moreAnswers);
   };
-  console.log('data answers: ', Object.values(data.answers).slice(0, 2));
 
   return (
-    <div key={data.question_id}>
+    <div>
       <b>Q: </b>
       {data.question_body}
       <Helpful questionID={data.question_id} helpVotes={data.question_helpfulness} />
@@ -20,11 +21,12 @@ function Question(props) {
       <br />
       <b>A: </b>
       { !moreAnswers ? (
-        Object.values(data.answers).slice(0, 1).map((each) => (<AnswerItem values={each} />))
+        Object.values(sortedAnswers).slice(0, 2)
+          .map((each) => (<AnswerItem values={each} key={each.id} />))
       ) : (
-        Object.values(data.answers).map((each) => (<AnswerItem values={each} />))
+        Object.values(sortedAnswers)
+          .map((each) => (<AnswerItem values={each} key={each.id} />))
       )}
-      {Object.values(data.answers).map((each) => (<AnswerItem values={each} />))}
       <button type="submit" onClick={handleMoreAnswers}>
         { !moreAnswers ? <span>Show More Answers</span> : <span>Collapse Answers</span> }
       </button>

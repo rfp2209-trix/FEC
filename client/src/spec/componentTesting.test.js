@@ -15,6 +15,7 @@ import * as Context from '../Context.jsx';
 import * as mockData from './mockContextData.js';
 import ImageGalleryThumbnails from '../overview/imageGallery/imageGallery_thumbnails.jsx';
 import RelatedProductList from '../related_comparison/RelatedProductList.jsx';
+import QA from '../questionsAnswers/qa.jsx';
 
 console.log(mockData);
 beforeEach(() => {
@@ -50,6 +51,16 @@ describe('Ratings & Reviews tests', () => {
     expect(avgReview).toBeInTheDocument();
   });
 });
+
+describe('Questions & Answers Tests', () => {
+  it('should exist on the page', () => {
+    render(<MockContext><QA /></MockContext>);
+    const heading = screen.getByText('Questions & Answers');
+    expect(heading).toBeInTheDocument();
+  });
+  // it('should display only 2 questions on render', () => {
+  //   render(<MockContext><QA /></MockContext>);
+});
 describe('Related & Comparison tests', () => {
   it('should contain related and comparison in a header', () => {
     const mockCopy = { ...mockData };
@@ -58,4 +69,5 @@ describe('Related & Comparison tests', () => {
     const heading = screen.getByText('Related Products');
     expect(heading).toBeInTheDocument();
   });
+  // })
 });

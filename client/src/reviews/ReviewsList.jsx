@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 
-function ReviewsList({ setAddForm }) {
+function ReviewsList({ setCurrentForm }) {
   const { reviews, totalReviews, setState, state, loading } = useProductsContext();
 
   if (loading) {
@@ -15,7 +15,7 @@ function ReviewsList({ setAddForm }) {
     <ReviewTile key={review.review_id} review={review} />
   ));
   return (
-    <div>
+    <div id="review_list">
       <label htmlFor="sort_by">
         {totalReviews}
         &nbsp;reviews, sorted by&nbsp;
@@ -47,7 +47,6 @@ function ReviewsList({ setAddForm }) {
         <button
           type="button"
           onClick={() => {
-            console.log(reviews.page)
             axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${document.getElementById('select_sort').value.toLowerCase()}&page=${reviews.page ? ((reviews.page / 2) + 2) : 2}`)
               .then((apiResponse) => {
                 reviews.page = apiResponse.data.page;
@@ -66,17 +65,11 @@ function ReviewsList({ setAddForm }) {
         type="button"
         onClick={(e) => {
           e.stopPropagation();
-          setAddForm('new review');
+          setCurrentForm('new review');
         }}
       >
         ADD REVIEW
       </button>
-      <div>
-        REMOVE ME!
-        <div>When the add review button is clicked</div>
-        <div>the whole page needs to locked out</div>
-        <div>and a modal form must be rendered</div>
-      </div>
     </div>
   );
 }

@@ -1,39 +1,58 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
-
 import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
+import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 import { useProductsContext } from '../../Context.jsx';
+import { useOverviewContext } from '../overviewContextWrapper.jsx';
 import * as Styled from './imageGalleryMain.styles.js';
 
-
 export default function ImageGalleryMain() {
-  const { productsInfo, styleDetails, state, setState, loading } = useProductsContext();
-  const [mainPhoto, setMainPhoto] = useState('');
+  const { styleDetails, loading } = useProductsContext();
+  const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
+  // const [images, setImages] = useState([]);
 
-  const photos = (styleDetails) ? styleDetails.results[0].photos : [];
+  useEffect(() => {
+    if (!loading && styleDetails) {
+      const def_styleID = styleDetails.results[0].style_id;
+      setStyleId(def_styleID);
+    }
+  });
 
-  if (!loading && mainPhoto === '') {
-    setMainPhoto(photos[0].url);
-  }
+  const styles = (!loading && styleDetails) ? styleDetails.results : [];
+  const filteredStyles = styles.filter((style) => style.style_id === styleId);
+  // const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
-  // const handleZoom = () => {
-  //   setZoom(!zoom);
-  // }
-  // const handleKeyZoom = (event) => {
-  //   if (event.key === '+') {
-  //     setZoom(true);
-  //   };
-  //   if (event.key === '-') {
-  //     setZoom(false);
-  //   }
-  // };
+  useEffect(() => {
+    if (filteredStyles.length > 0 && mainPhoto === '') {
+      const photo = filteredStyles[0].photos[0].url;
+      setMainPhoto(photo);
+    }
+  });
+
+  useEffect(() => {
+    if (filteredStyles.length > 0) {
+      const photo = filteredStyles[0].photos[photoIndex].url;
+      setMainPhoto(photo);
+    }
+  }, [photoIndex]);
+
+  const handleRight = () => {
+    setPhotoIndex((photoIndex) => photoIndex + 1);
+  };
+  console.log('photoIndex', photoIndex);
+  const handleLeft = () => {
+    setPhotoIndex((photoIndex) => photoIndex - 1);
+  };
 
   return (
-
-      <Styled.MainImage>
-        <HiMagnifyingGlassPlus className="mag" />
-        <img src={mainPhoto} className="mainPhoto "alt="should be a pic here" />
-      </Styled.MainImage>
-
+    <Styled.MainImage>
+      <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
+      <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
+      <HiMagnifyingGlassPlus className="mag" aria-label="magnifying glass" />
+      <img src={mainPhoto} className="mainPhoto" alt="should be a pic here" />
+    </Styled.MainImage>
   );
 }

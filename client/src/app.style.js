@@ -84,20 +84,21 @@ export const OutfitListContainer = styled(OutfitList)`
 // `;
 
 export const QuestionsContainer = styled(QA)`
-
+  justify-content: center;
   width: 100vw;
   padding: 20px;
   display: flex;
   flex-direction: row;
   background: white;
+  align-items: center;
 `;
 
-export const Footer = styled.footer`
- display: flex;
- left: 0;
- bottom: 0;
- position: fixed;
- background: lightgrey;
- width: 100vw;
- padding: 10px;
-`;
+// export const Footer = styled.footer`
+//  display: flex;
+//  left: 0;
+//  bottom: 0;
+//  position: fixed;
+//  background: lightgrey;
+//  width: 100vw;
+//  padding: 10px;
+// `;
