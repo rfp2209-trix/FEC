@@ -4,15 +4,16 @@ import { OverviewContextWrapper } from './overview/overviewContextWrapper.jsx';
 import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
+import QuestionModal from './questionsAnswers/questionForm.jsx';
 
 // import your react component to app.styles.js
 // follow the convention for creating styled.components
 // import your styled component here
 
 function App() {
-  const [addForm, setAddForm] = useState('none');
+  const [currentForm, setCurrentForm] = useState('none');
   return (
-    <Styled.Container onClick={() => setAddForm('none')}>
+    <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
         <h2>Header Goes Here</h2>
       </Styled.Header>
@@ -23,9 +24,10 @@ function App() {
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
       {/* <Styled.OutfitListContainer /> */}
-      <Styled.QuestionsContainer />
-      <Reviews setAddForm={setAddForm} />
-      {addForm === 'new review' && <WriteReview setAddForm={setAddForm} />}
+      <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+      <Reviews setCurrentForm={setCurrentForm} />
+      {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
       {/* <Styled.Footer>
         <h2>
           Footer Goes Here

@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
 import Question from './questions/question.jsx';
-import QuestionModal from './questionForm.jsx';
 import { useProductsContext } from '../Context.jsx';
 
-function QA() {
+function QA({ setCurrentForm }) {
   const [input, setInput] = useState('');
   const [moreQuestions, setMoreQuestions] = useState(false);
   const handleMoreQuestions = () => {
@@ -15,7 +14,7 @@ function QA() {
     console.log(`You tried to search for ${input}`);
   };
   const handleAsk = () => {
-    console.log('A modal window should pop-up, with form for question');
+    setCurrentForm('new question');
   };
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -41,9 +40,10 @@ function QA() {
 
       <ul>
         { !moreQuestions ? (
-          questionsData.results.slice(0, 4).map((each) => (<Question data={each} />))
+          questionsData.results.slice(0, 1)
+            .map((each) => (<Question data={each} key={each.question_id} />))
         ) : (
-          questionsData.results.map((each) => (<Question data={each} />))
+          questionsData.results.map((each) => (<Question data={each} key={each.question_id} />))
         )}
 
       </ul>
@@ -52,7 +52,6 @@ function QA() {
           : (<span>See More Questions</span>) }
       </button>
       <button type="submit" onClick={handleAsk} width="50">Ask A Question</button>
-      <QuestionModal productID={questionsData.product_id} />
     </div>
   );
 }
