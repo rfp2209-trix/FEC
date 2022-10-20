@@ -1,4 +1,5 @@
 // CLIENT HELPERS HERE
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 export function sumArray(numericStringArray) {
   return numericStringArray.reduce((memo, value) => Number(memo) + Number(value), 0);
@@ -21,4 +22,12 @@ export function objectSorter(unsortedObj, sortCriteria) {
     return 0;
   });
   return unsortedObj;
+}
+
+export function date(inputDate) {
+  const output = []; // [exact BRD date format, prettified date format]
+  const okDate = new Date(inputDate).toDateString('en-us');
+  output.push(okDate.substring(4, okDate.length));
+  output.push(`${formatDistanceToNow(new Date(inputDate))} ago`);
+  return output;
 }
