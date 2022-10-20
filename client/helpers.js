@@ -11,8 +11,6 @@ export function avgStarValue(starsBreakdown) {
 }
 
 export function objectSorter(unsortedObj, sortCriteria) {
-  const eachObjectsValues = Object.values(unsortedObj);
-  console.log('pre-sort', eachObjectsValues);
   Object.values(unsortedObj).sort((a, b) => {
     if (a[sortCriteria] > b[sortCriteria]) {
       return 1;
@@ -22,6 +20,5 @@ export function objectSorter(unsortedObj, sortCriteria) {
     }
     return 0;
   });
-  console.log(unsortedObj);
   return unsortedObj;
 }

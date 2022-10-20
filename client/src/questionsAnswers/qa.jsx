@@ -40,7 +40,7 @@ function QA({ setCurrentForm }) {
 
       <ul>
         { !moreQuestions ? (
-          questionsData.results.slice(0, 1)
+          questionsData.results.slice(0, 4)
             .map((each) => (<Question data={each} key={each.question_id} />))
         ) : (
           questionsData.results.map((each) => (<Question data={each} key={each.question_id} />))
