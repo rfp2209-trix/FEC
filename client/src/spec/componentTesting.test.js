@@ -14,6 +14,7 @@ import { MockContext, useMockContext, MockTestContext } from './mockContext.jsx'
 import * as Context from '../Context.jsx';
 import * as mockData from './mockContextData.js';
 import ImageGalleryThumbnails from '../overview/imageGallery/imageGallery_thumbnails.jsx';
+import QA from '../questionsAnswers/qa.jsx';
 
 console.log(mockData);
 beforeEach(() => {
@@ -47,5 +48,13 @@ describe('Ratings & Reviews tests', () => {
     render(<MockTestContext.Provider value={mockCopy}><RatingsBreakdown /></MockTestContext.Provider>);
     const avgReview = screen.getByText('3.6');
     expect(avgReview).toBeInTheDocument();
+  });
+});
+
+describe('Questions & Answers Tests', () => {
+  it('should exist on the page', () => {
+    render(<MockContext><QA /></MockContext>);
+    const heading = screen.getByText('Questions & Answers');
+    expect(heading).toBeInTheDocument();
   });
 });

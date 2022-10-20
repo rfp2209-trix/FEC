@@ -21,7 +21,7 @@ function Question(props) {
       <br />
       <b>A: </b>
       { !moreAnswers ? (
-        Object.values(sortedAnswers).slice(0, 4)
+        Object.values(sortedAnswers).slice(0, 2)
           .map((each) => (<AnswerItem values={each} key={each.id} />))
       ) : (
         Object.values(sortedAnswers)
