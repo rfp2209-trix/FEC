@@ -34,19 +34,16 @@ export default function ImageGalleryMain() {
 
   useEffect(() => {
     if (filteredStyles.length > 0) {
-      console.log('Photo index has changed', photoIndex);
       const photo = filteredStyles[0].photos[photoIndex].url;
       setMainPhoto(photo);
     }
   }, [photoIndex]);
 
   const handleRight = () => {
-    console.log('clicked right');
     setPhotoIndex((photoIndex) => photoIndex + 1);
   };
   console.log('photoIndex', photoIndex);
   const handleLeft = () => {
-    console.log('clicked left');
     setPhotoIndex((photoIndex) => photoIndex - 1);
   };
 

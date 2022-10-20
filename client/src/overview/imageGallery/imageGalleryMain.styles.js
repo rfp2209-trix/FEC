@@ -5,8 +5,6 @@ export const MainImage = styled.section`
 
 position: relative;
 overflow: hidden;
-
-
 @media only screen and (max-width: 601px) {
   height: 300px;
   width: 300px;
@@ -45,16 +43,20 @@ overflow: hidden;
     color: white;
   }
 
-
  .mainPhoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 1s linear;
     object-fit: cover;
     height: 100%;
     width: 100%;
-
     border-radius: 6px;
-    transition: all .2s ease-in-out;
+
   }
-  :hover .mainPhoto {
-    transform: scale(3.0)
-  }
+
+  // :hover .mainPhoto {
+  //   transform: scale(3.0)
+  // }
 `;
