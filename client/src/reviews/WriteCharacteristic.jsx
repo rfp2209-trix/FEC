@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function WriteCharacteristic({ char }) {
+function WriteCharacteristic({ char, charID, formData, setFormData }) {
+  const { characteristics } = formData;
   const charMeaning = {
     Size: ['A size too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
     Width: ['Too narrow', 'Slightly Narrow', 'Perfect', 'Slightly wide', 'Too Wide'],
@@ -19,7 +20,12 @@ function WriteCharacteristic({ char }) {
       <GridSpan justify="start" area="descriptor">
         {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value] : 'none selected'}
       </GridSpan>
-      <RadioGrid>
+      <RadioGrid
+        onChange={(e) => {
+          characteristics[charID] = Number(e.target.value) + 1;
+          setFormData({ ...formData });
+        }}
+      >
         <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="0" area="one" />
         <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="1" area="two" />
         <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="2" area="three" />

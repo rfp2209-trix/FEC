@@ -27,17 +27,17 @@ module.exports = {
   },
 
   postReview: (req, res) => {
+    console.log(req);
     axios({
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/reviews`,
       headers,
       method: 'post',
-      data: req.body
+      data: req.body,
     })
       .then(() => {
         res.sendStatus(201);
       })
       .catch((err) => {
-        console.log(err);
         res.sendStatus(500);
       });
   },

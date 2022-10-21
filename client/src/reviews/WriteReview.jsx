@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import { useProductsContext } from '../Context.jsx';
 import WriteCharacteristic from './WriteCharacteristic.jsx';
 
 function WriteReview({ setCurrentForm }) {
   const { reviewsMeta, state, setState } = useProductsContext();
   const { characteristics } = reviewsMeta;
+  const [photos, setPhotos] = useState([]);
   const [formData, setFormData] = useState({
+    product_id: Number(reviewsMeta.product_id),
     rating: null,
     recommend: null,
     summary: null,
     body: null,
-
+    characteristics: {},
+    name: null,
+    email: null,
+    photos: [],
   });
   return (
     <WriteReviewContainer
@@ -21,7 +27,7 @@ function WriteReview({ setCurrentForm }) {
     >
       <div
         onChange={(e) => {
-          setFormData({ ...formData, rating: Number(e.target.value) });
+          setFormData({ ...formData, rating: Numbdebuggerer(e.target.value) });
         }}
       >
         User Rating
@@ -61,13 +67,19 @@ function WriteReview({ setCurrentForm }) {
           no
         </label>
       </div>
-      <h3 style={{ margin: '0px' }}>How was the product?</h3>
+      <h4 style={{ margin: '0px' }}>How was the product?</h4>
       <CharacteristicsContainer>
-        {Object.keys(characteristics).map((key) => (
-          <WriteCharacteristic char={key} key={key} />
+        {Object.keys(characteristics).map((char) => (
+          <WriteCharacteristic
+            char={char}
+            charID={characteristics[char].id}
+            formData={formData}
+            setFormData={setFormData}
+            key={char}
+          />
         ))}
       </CharacteristicsContainer>
-      <label htmlFor="write_summary">
+      <label htmlFor="write_summary" style={{ display: 'block' }}>
         Review Summary:
         <br />
         <textarea
@@ -80,7 +92,7 @@ function WriteReview({ setCurrentForm }) {
           }}
         />
       </label>
-      <label htmlFor="write_body">
+      <label htmlFor="write_body" style={{ display: 'block' }}>
         Review:
         <br />
         <textarea
@@ -94,40 +106,91 @@ function WriteReview({ setCurrentForm }) {
           }}
         />
       </label>
-      <div> photo placeholder</div>
-      <label htmlFor="write_username">
+      {photos}
+      <button
+        type="button"
+        onClick={() => {
+          setPhotos(photos.concat(<PhotoInput
+            key={photos.length}
+            inputKey={photos.length}
+            formData={formData}
+            setFormData={setFormData}
+          />));
+        }}
+      >
+        Add Photo
+      </button>
+      <label htmlFor="write_username" style={{ display: 'block' }}>
         Username:
         <br />
-        <input type="text" maxLength="60" placeholder="Example: jackson11!" />
+        <input
+          type="text"
+          maxLength="60"
+          placeholder="Example: jackson11!"
+          onChange={(e) => {
+            setFormData({ ...formData, name: e.target.value === '' ? null : e.target.value });
+          }}
+        />
       </label>
       <div> For privacy reasons, do not use your full name or email address </div>
-      <label htmlFor="write_email">
+      <label htmlFor="write_email" style={{ display: 'block' }}>
         Email:
         <br />
-        <input id="write_email" type="text" maxLength="60" placeholder="Example: jackson11@email.com" />
+        <input
+          id="write_email"
+          type="text"
+          maxLength="60"
+          placeholder="Example: jackson11@email.com"
+          onChange={(e) => {
+            setFormData({ ...formData, email: e.target.value === '' ? null : e.target.value });
+          }}
+        />
       </label>
-      <br />
       <input
         type="submit"
         value="Submit Review"
         onClick={(e) => {
           e.preventDefault();
-          console.log("WE ARE HERE", document.querySelector('input[name="recommend"]:checked').value === 'true');
-          const reviewRating = document.querySelector('input[name="write_rating"]:checked').value;
-          const reviewRecommended = document.querySelector('input[name="recommend"]:checked').value === 'true';
-          //const
-          setCurrentForm('none');
+          const headers = { 'access-control-request-headers': 'content-type', 'Content-Type': 'application/json' };
+          const axiosReq = {
+            url: '/fec/reviews',
+            data: formData,
+            method: 'post',
+            headers,
+          }
+          debugger
+          console.log(axios);
+          axios(axiosReq)
+            .then(() => {
+              setCurrentForm('none');
+            })
+            .catch((err) => console.log(err));
         }}
       />
     </WriteReviewContainer>
   );
 }
 
+function PhotoInput({ inputKey, formData, setFormData }) {
+  const { photos } = formData;
+  return (
+    <input
+      type="text"
+      placeholder="photo URL here"
+      style={{ display: 'block' }}
+      onChange={(e) => {
+        photos[inputKey] = e.target.value;
+        setFormData({ ...formData });
+      }}
+    />
+  );
+}
+
 export default WriteReview;
 
 const WriteReviewContainer = styled.form`
-
-  width: 60vw;
+  box-sizing: border-box;
+  width: 380px;
   height: 60vh;
   left: 20%;
   top: 20%;
