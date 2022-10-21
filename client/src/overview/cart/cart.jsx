@@ -8,7 +8,12 @@ export default function Cart() {
   }
   return (
     <Styled.CartContainer>
-      <form onSubmit={handleSubmit}>
+
+      <div className="cart-title">
+        Checkout Cart
+      </div>
+      <div />
+      <div className="frm-container">
         <select name="size">
           <option label="---Select-Size---" value="--SelectSize--" />
           <option label="big" value="big" />
@@ -17,8 +22,10 @@ export default function Cart() {
           <option label="---Select-Quantity---" value="--SelectQuantity--" />
           <option label="1" value="1" />
         </select>
-        <button type="submit">Add to Cart</button>
-      </form>
+        <div className="btn-container">
+          <button className="addCart" type="button">Add to Cart</button>
+        </div>
+      </div>
     </Styled.CartContainer>
   );
 }
