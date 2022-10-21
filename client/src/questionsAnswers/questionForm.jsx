@@ -5,7 +5,7 @@ import { useProductsContext } from '../Context.jsx';
 
 function QuestionModal({ setCurrentForm }) {
   const { questionsData, loading } = useProductsContext();
-  const { productID } = questionsData.product_id;
+  const productID = JSON.parse(questionsData.product_id);
 
   if (loading) {
     return (
@@ -47,7 +47,8 @@ function QuestionModal({ setCurrentForm }) {
       >
         <form>
           <div name="modal-header">
-            <div>Form for Submitting Questions</div>
+            <div>Ask A Question</div>
+            <br />
             Your Nickname
             <br />
             <input name="name" id="askName" size="100" placeholder="Example: Boaty McBoatFace" required />

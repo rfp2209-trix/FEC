@@ -14,6 +14,7 @@ import AnswerModal from './questionsAnswers/answerQuestionForm.jsx';
 function App() {
   const [currentForm, setCurrentForm] = useState('none');
   const [currentQData, setCurrentQData] = useState([]);
+  console.log('current form: ', currentForm);
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
@@ -30,7 +31,7 @@ function App() {
         setCurrentForm={setCurrentForm}
         setCurrentQData={setCurrentQData}
       />
-      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+      {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
       {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
       <Reviews setCurrentForm={setCurrentForm} />
       {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
