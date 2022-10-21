@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function WriteReview({ setAddForm }) {
+function WriteReview({ setCurrentForm }) {
   return (
     <WriteReviewContainer
       onClick={(e) => {
@@ -57,7 +57,7 @@ function WriteReview({ setAddForm }) {
           value="Submit Review"
           onClick={(e) => {
             e.preventDefault();
-            setAddForm('none');
+            setCurrentForm('none');
           }}
         />
       </div>

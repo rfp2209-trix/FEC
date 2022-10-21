@@ -6,10 +6,17 @@ import { objectSorter } from '../../../helpers.js';
 
 function Question(props) {
   const { data } = props;
+  const { setCurrentQData, setCurrentForm } = props;
   const [moreAnswers, setMoreAnswers] = useState(false);
   const sortedAnswers = objectSorter(data.answers, 'helpfulness');
   const handleMoreAnswers = () => {
     setMoreAnswers(!moreAnswers);
+  };
+  console.log('DATA!!: ', data);
+  const handleAnswerQuestion = (e) => {
+    e.stopPropagation();
+    setCurrentQData([data.question_id, data.question_body]);
+    setCurrentForm('new answer');
   };
 
   return (
@@ -28,8 +35,9 @@ function Question(props) {
           .map((each) => (<AnswerItem values={each} key={each.id} />))
       )}
       <button type="submit" onClick={handleMoreAnswers}>
-        { !moreAnswers ? <span>Show More Answers</span> : <span>Collapse Answers</span> }
+        { !moreAnswers ? <small>Show More Answers</small> : <small>Collapse Answers</small> }
       </button>
+      <button type="submit" onClick={handleAnswerQuestion}>Answer Question</button>
     </div>
   );
 }

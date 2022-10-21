@@ -17,7 +17,7 @@ function Helpful({ answerID, helpfulness }) {
 
   return (
     <span>
-      {clicked ? <small> Thank You! </small> : <button type="submit" onClick={handleHelpfulAnswer}>{`Yes (${helpfulness})`}</button>}
+      {clicked ? <small> Thank You! </small> : <button type="submit" onClick={handleHelpfulAnswer}><small>{`Yes (${helpfulness})`}</small></button>}
     </span>
   );
 }

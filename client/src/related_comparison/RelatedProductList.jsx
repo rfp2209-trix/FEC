@@ -5,7 +5,6 @@ import { useProductsContext } from '../Context.jsx';
 
 export default function RelatedProductList() {
   const { loading, relatedProductsInfo } = useProductsContext();
-  console.log(relatedProductsInfo);
   if (loading) {
     return <div />;
   }
