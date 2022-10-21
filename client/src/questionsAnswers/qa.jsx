@@ -13,7 +13,9 @@ function QA({ setCurrentForm, setCurrentQData }) {
   const handleSearch = () => {
     console.log(`You tried to search for ${input}`);
   };
-  const handleAsk = () => {
+  const handleAsk = (e) => {
+    e.stopPropagation();
+    console.log('CLICKED!');
     setCurrentForm('new question');
   };
   const handleKeyDown = (e) => {

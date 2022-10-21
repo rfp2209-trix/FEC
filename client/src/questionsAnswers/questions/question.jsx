@@ -12,7 +12,6 @@ function Question(props) {
   const handleMoreAnswers = () => {
     setMoreAnswers(!moreAnswers);
   };
-  console.log('DATA!!: ', data);
   const handleAnswerQuestion = (e) => {
     e.stopPropagation();
     setCurrentQData([data.question_id, data.question_body]);

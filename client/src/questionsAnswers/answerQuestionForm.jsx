@@ -13,9 +13,7 @@ function AnswerModal({ setCurrentForm, currentQData }) {
   const handleSubmitAnswer = (e) => {
     e.preventDefault();
     const askBody = document.getElementById('answerAnswer').value;
-    console.log('ask body', askBody);
     const askName = document.getElementById('answerName').value;
-    console.log('askname: ', askName);
     const askEmail = document.getElementById('answerEmail').value;
     // const askPhotos = photoURLs;
     const askAnswerData = {
