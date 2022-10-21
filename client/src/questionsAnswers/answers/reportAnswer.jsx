@@ -17,7 +17,7 @@ function Report({ answerID }) {
   };
   return (
     <span>
-      {reported ? <small> Reported </small> : <button type="submit" onClick={handleReportAnswer}>Report</button> }
+      {reported ? <small> Reported </small> : <button type="submit" onClick={handleReportAnswer}><small>Report</small></button> }
     </span>
   );
 }

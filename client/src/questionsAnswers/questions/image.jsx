@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-const Image = (props) => {
-  const [enlarge, setEnlarged] = useState(false);
-};
+// const Image = (props) => {
+//   const [enlarge, setEnlarged] = useState(false);
+// };
 
-export default Image;
+// export default Image;

@@ -5,6 +5,7 @@ import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 import QuestionModal from './questionsAnswers/questionForm.jsx';
+import AnswerModal from './questionsAnswers/answerQuestionForm.jsx';
 
 // import your react component to app.styles.js
 // follow the convention for creating styled.components
@@ -12,6 +13,7 @@ import QuestionModal from './questionsAnswers/questionForm.jsx';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('none');
+  const [currentQData, setCurrentQData] = useState([]);
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
@@ -24,8 +26,12 @@ function App() {
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
       {/* <Styled.OutfitListContainer /> */}
-      <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+      <Styled.QuestionsContainer
+        setCurrentForm={setCurrentForm}
+        setCurrentQData={setCurrentQData}
+      />
       {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+      {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
       <Reviews setCurrentForm={setCurrentForm} />
       {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
       {/* <Styled.Footer>

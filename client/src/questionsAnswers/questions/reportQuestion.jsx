@@ -15,15 +15,15 @@ function Report({ questionID }) {
   };
 
   return (
-    <div>
+    <span>
       {!reported ? (
         <button type="submit" onClick={handleReportQuestion}>
-          Report
-          <br />
-          Question
+          <small>
+            Report Question
+          </small>
         </button>
       ) : <span>Reported</span> }
-    </div>
+    </span>
   );
 }
 

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Question from './questions/question.jsx';
 import { useProductsContext } from '../Context.jsx';
 
-function QA({ setCurrentForm }) {
+function QA({ setCurrentForm, setCurrentQData }) {
   const [input, setInput] = useState('');
   const [moreQuestions, setMoreQuestions] = useState(false);
   const handleMoreQuestions = () => {
@@ -23,7 +23,7 @@ function QA({ setCurrentForm }) {
   };
   const { questionsData, loading } = useProductsContext();
   if (loading) {
-    return <span />;
+    return <small />;
   }
 
   return (
@@ -41,17 +41,31 @@ function QA({ setCurrentForm }) {
       <ul>
         { !moreQuestions ? (
           questionsData.results.slice(0, 4)
-            .map((each) => (<Question data={each} key={each.question_id} />))
+            .map((each) => (
+              <Question
+                data={each}
+                key={each.question_id}
+                setCurrentForm={setCurrentForm}
+                setCurrentQData={setCurrentQData}
+              />
+            ))
         ) : (
-          questionsData.results.map((each) => (<Question data={each} key={each.question_id} />))
+          questionsData.results.map((each) => (
+            <Question
+              data={each}
+              setCurrentQData={setCurrentQData}
+              setCurrentForm={setCurrentForm}
+              key={each.question_id}
+            />
+          ))
         )}
 
       </ul>
       <button type="submit" onClick={handleMoreQuestions}>
-        { moreQuestions ? (<span>Collapse</span>)
-          : (<span>See More Questions</span>) }
+        { moreQuestions ? (<small>Collapse</small>)
+          : (<small>See More Questions</small>) }
       </button>
-      <button type="submit" onClick={handleAsk} width="50">Ask A Question</button>
+      <button type="submit" onClick={handleAsk} width="50"><small>Ask A Question</small></button>
     </div>
   );
 }
