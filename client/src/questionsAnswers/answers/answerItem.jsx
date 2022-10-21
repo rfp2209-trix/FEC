@@ -1,26 +1,26 @@
 import React from 'react';
 import Helpful from './helpfulAnswer.jsx';
 import Report from './reportAnswer.jsx';
+import { date } from '../../../helpers.js';
 
 function AnswerItem({ values }) {
   const { helpfulness } = values;
+  // console.log('type of value date is: ', typeof (new Date(values.date).toDateString('en-us')));
   return (
     <div>
-      {/* extract thumbs up, extract answer, extract username,
-      extract date posted, render dynamically */}
       {values.body}
+      <Helpful answerID={values.id} helpfulness={helpfulness} />
+      <Report answerID={values.id} />
       <div>
         <small>
           <b>
-            {values.answerer_name === 'Atelier' ? <span><b>Seller </b></span> : null}
+            {values.answerer_name === 'Atelier' ? <small><b>Seller </b></small> : null}
             {'     '}
             {values.answerer_name}
           </b>
           {'     '}
-          {values.date}
+          {date(values.date)[0]}
         </small>
-        <Helpful answerID={values.id} helpfulness={helpfulness} />
-        <Report answerID={values.id} />
       </div>
     </div>
   );

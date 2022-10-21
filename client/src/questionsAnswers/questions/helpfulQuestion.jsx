@@ -24,9 +24,11 @@ function Helpful(props) {
       {' Helpful?'}
       { !clicked ? (
         <button type="submit" onClick={handleHelpfulQuestion}>
-          Yes
-          {' '}
-          {` (${helpVotes})`}
+          <small>
+            Yes
+            {' '}
+            {` (${helpVotes})`}
+          </small>
         </button>
       )
         : <span>Thank you!</span> }

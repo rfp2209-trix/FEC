@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import ReviewsMeta from './ReviewsMeta.jsx';
 import ReviewsList from './ReviewsList.jsx';
 
-function Reviews({ setAddForm }) {
+function Reviews({ setCurrentForm }) {
   return (
     <ReviewsContainer>
       <h2>RATINGS & REVIEWS</h2>
       <ReviewsMeta />
-      <ReviewsList setAddForm={setAddForm} />
+      <ReviewsList setCurrentForm={setCurrentForm} />
     </ReviewsContainer>
   );
 }
@@ -23,4 +23,5 @@ const ReviewsContainer = styled.div`
   flex-direction: column;
   background: white;
   flex: 1;
+  margin: 0 0 80px 0;
 `;
