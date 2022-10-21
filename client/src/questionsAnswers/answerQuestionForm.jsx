@@ -13,7 +13,9 @@ function AnswerModal({ setCurrentForm, currentQData }) {
   const handleSubmitAnswer = (e) => {
     e.preventDefault();
     const askBody = document.getElementById('answerAnswer').value;
+    console.log('ask body', askBody);
     const askName = document.getElementById('answerName').value;
+    console.log('askname: ', askName);
     const askEmail = document.getElementById('answerEmail').value;
     // const askPhotos = photoURLs;
     const askAnswerData = {
@@ -22,7 +24,8 @@ function AnswerModal({ setCurrentForm, currentQData }) {
       email: askEmail,
     // photos: askPhotos,
     };
-    axios.post(`/qa/questions/${currentQData[0]}/answers`, askAnswerData)
+    console.log('post body: ', askAnswerData);
+    axios.post(`/fec/answer/${currentQData[0]}`, askAnswerData)
       .then(() => {
         console.log('Successfully uploaded answer!');
       })
@@ -43,19 +46,19 @@ function AnswerModal({ setCurrentForm, currentQData }) {
           </div>
           Your Nickname
           <br />
-          <input name="answerName" placeholder="Barack" />
+          <input id="answerName" placeholder="Barack" required />
           <br />
           Your Email
           <br />
-          <input name="answerEmail" placeholder="barack@google.com" />
+          <input id="answerEmail" placeholder="barack@google.com" required />
           <br />
           Your Answer
           <br />
-          <input name="answerAnswer" placeholder="The answer to this question is..." />
+          <input id="answerAnswer" placeholder="The answer to this question is..." required />
           <br />
           Photo URL Upload
           <br />
-          <input name="answerPhoto" placeholder="https://unsplash.com/photos/aopy8Hwom4s" />
+          <input id="answerPhoto" placeholder="https://unsplash.com/photos/aopy8Hwom4s" />
           <button type="submit">Upload Photo URL</button>
           <br />
           <button type="submit" onClick={handleSubmitAnswer}>Submit Answer</button>
@@ -78,7 +81,7 @@ const BackgroundOpacityDiv = styled.div`
   position: fixed;
 `;
 
-const AnswerModalContainer = styled.form`
+const AnswerModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
