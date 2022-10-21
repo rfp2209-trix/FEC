@@ -47,8 +47,7 @@ function QuestionModal({ setCurrentForm }) {
       >
         <form>
           <div name="modal-header">
-            <em>Form for Submitting Questions</em>
-            <br />
+            <div>Form for Submitting Questions</div>
             Your Nickname
             <br />
             <input name="name" id="askName" size="100" placeholder="Example: Boaty McBoatFace" required />

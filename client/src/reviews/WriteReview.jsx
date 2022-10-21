@@ -112,10 +112,10 @@ function WriteReview({ setCurrentForm }) {
         value="Submit Review"
         onClick={(e) => {
           e.preventDefault();
-          console.log("WE ARE HERE", document.querySelector('input[name="recommend"]:checked').value === 'true');
+          console.log('WE ARE HERE', document.querySelector('input[name="recommend"]:checked').value === 'true');
           const reviewRating = document.querySelector('input[name="write_rating"]:checked').value;
           const reviewRecommended = document.querySelector('input[name="recommend"]:checked').value === 'true';
-          //const
+          // const
           setCurrentForm('none');
         }}
       />
