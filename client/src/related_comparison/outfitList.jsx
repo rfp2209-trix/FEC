@@ -9,6 +9,10 @@ export default function OutfitList() {
   } = useProductsContext();
   const [OutfitStorage, setOutfitStorage] = useState([]);
   useEffect(() => {
+    const localListOnLoad = window.localStorage.getItem('OUTFIT_LIST');
+    setOutfitStorage(JSON.parse(localListOnLoad));
+  }, []);
+  useEffect(() => {
     let list = window.localStorage.getItem('OUTFIT_LIST');
     list = JSON.parse(list);
     if (!list) {
@@ -16,12 +20,8 @@ export default function OutfitList() {
       list = window.localStorage.getItem('OUTFIT_LIST');
       list = JSON.parse(list);
     }
-    window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([...list, ...OutfitStorage]));
+    window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([...OutfitStorage]));
   }, [OutfitStorage]);
-  useEffect(() => {
-    const localListOnLoad = window.localStorage.getItem('OUTFIT_LIST');
-    setOutfitStorage(JSON.parse(localListOnLoad));
-  }, []);
   if (loading) {
     return <div />;
   }
