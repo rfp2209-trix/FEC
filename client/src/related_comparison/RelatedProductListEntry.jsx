@@ -18,6 +18,9 @@ export default function RelatedProductListEntry({
         isOpen={isOpen}
         features={features}
         selectedProductFeatures={selectedProductInfo.features}
+        selectedProductName={selectedProductInfo.name}
+        comparedProductName={name}
+        toggleModal={toggleModal}
       />
       <Card
         img={img}

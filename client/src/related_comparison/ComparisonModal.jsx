@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import _ from 'underscore';
 
 export default function ComparisonModal({
-  children, isOpen, features, selectedProductFeatures,
+  children, isOpen, features, selectedProductFeatures, selectedProductName, comparedProductName, toggleModal,
 }) {
   const pullFeatures = (obj) => {
     let result = `${obj.feature} `;
@@ -38,38 +38,80 @@ export default function ComparisonModal({
     BothFeatures.combined = _.uniq(BothFeatures.combined);
     return BothFeatures;
   };
-  console.log('yeyeeyeyey', compareFeatures(selectedProductFeatures, features));
+  const BothFeatures = compareFeatures(selectedProductFeatures, features);
   return (
     isOpen
       ? (
-        <ModalContent>
-          <table>
-            <tr>
-              <th>current product</th>
-              <th>feature name</th>
-              <th>compared product</th>
-            </tr>
-            <tr>
-              <td />
-              <td />
-              <td />
-            </tr>
+        <>
+          <ModalOverlay onClick={toggleModal} />
+          <ModalContent>
+            <ModalTable>
+              <ModalTR>
+                <ModalTH>
+                  {selectedProductName}
+                </ModalTH>
+                <ModalTH> </ModalTH>
+                <ModalTH>
+                  {comparedProductName}
+                </ModalTH>
+              </ModalTR>
+              {BothFeatures.combined.map((currFeature) => (
+                <ModalTR align="center">
+                  <ModalTD>
+                    {BothFeatures.currentProduct.includes(currFeature) ? '✅' : '❌'}
+                  </ModalTD>
+                  <ModalTD>{currFeature}</ModalTD>
+                  <ModalTD>
+                    {BothFeatures.comparedProduct.includes(currFeature) ? '✅' : '❌'}
+                  </ModalTD>
+                </ModalTR>
+              ))}
 
-          </table>
-        </ModalContent>
+            </ModalTable>
+          </ModalContent>
+        </>
       )
       : null);
 }
 
 const ModalContent = styled.div`
-  position: absolute;
+  position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
+  z-index: 1;
+`;
+
+const ModalOverlay = styled.div`
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1;
+`;
+
+const ModalTable = styled.table`
+  text-align: center;
+  width: 500px;
+  padding: 10px;
+`;
+
+const ModalTH = styled.th`
+  width: 500px;
+`;
+
+const ModalTR = styled.tr`
+  width: 500px;
+`;
+
+const ModalTD = styled.td`
+  width: 500px;
 `;

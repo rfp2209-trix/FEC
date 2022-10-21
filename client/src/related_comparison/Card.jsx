@@ -16,16 +16,16 @@ export default function Card({
         <FavoriteButtonContainer onClick={() => { console.log('yo'); }}>
           <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" />
         </FavoriteButtonContainer>
-        <p>
+        <CardText>
           {category}
-        </p>
-        <p>
+        </CardText>
+        <CardTitle>
           {name}
-        </p>
-        <p>
+        </CardTitle>
+        <CardPrice>
           $
           {price}
-        </p>
+        </CardPrice>
         <div className="Stars" style={{ '--rating': rating, '--star-size': '20px' }} aria-label={rating}>
           <Stars />
         </div>
@@ -64,4 +64,18 @@ transform: translate(-50%, -50%);
 font-size: 16px;
 cursor: pointer;
 border-radius: 5px;
+`;
+
+const CardTitle = styled.div`
+  font-size: 24px;
+  padding-bottom: 15px;
+`;
+
+const CardText = styled.div`
+  font-size: 16px;
+`;
+
+const CardPrice = styled.div`
+  font-size: 14px;
+  padding-bottom: 6px;
 `;
