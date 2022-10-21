@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
@@ -13,7 +14,7 @@ export default function ImageGalleryMain() {
   const { styleDetails, loading } = useProductsContext();
   const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
   const ref = useRef(null);
-  const [zoom, setZoom] = useState(false);
+  const [zoom, setZoom] = useState(true);
   const [allowMove, setAllowMove] = useState(false);
   const [toggle, setToggle] = useState(false);
 
@@ -26,7 +27,6 @@ export default function ImageGalleryMain() {
 
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
-  // const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
   useEffect(() => {
     if (filteredStyles.length > 0 && mainPhoto === '') {
@@ -42,13 +42,6 @@ export default function ImageGalleryMain() {
     }
   }, [photoIndex]);
 
-  const handleRight = () => {
-    setPhotoIndex((photoIndex) => photoIndex + 1);
-  };
-  const handleLeft = () => {
-    setPhotoIndex((photoIndex) => photoIndex - 1);
-  };
-
   useEffect(() => {
     const element = ref.current;
     const listen = (event) => {
@@ -60,40 +53,24 @@ export default function ImageGalleryMain() {
     return () => {
       element.removeEventListener('mousemove', listen);
     };
-  }, []);
+  }, [zoom]);
 
-  // const element = ref.current;
-  // const listen = useCallback((event) => {
-  //   element.style.backgroundPositionX = `${-event.offsetX}px`;
-  //   element.style.backgroundPositionY = `${-event.offsetY}px`;
-  // }, []);
-
-  // const handleZoom = () => {
-  //   if (allowMove) {
-  //     console.log('true condition');
-  //     element.removeEventListener('mousemove', listen);
-  //     setAllowMove(!allowMove);
-  //   } else {
-  //     console.log('false condition');
-  //     element.addEventListener('mousemove', listen);
-  //     setAllowMove(!allowMove);
-  //   }
-  // };
-
-  const handleToggle = () => {
-    setToggle(!toggle);
+  const handleRight = () => {
+    setPhotoIndex((photoIndex) => photoIndex + 1);
+  };
+  const handleLeft = () => {
+    setPhotoIndex((photoIndex) => photoIndex - 1);
+  };
+  const handleZoom = () => {
+    setZoom(!zoom);
   };
 
   return (
     <Styled.MainImage>
       <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
       <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
-      <HiMagnifyingGlassPlus onClick={handleToggle} className="mag" aria-label="magnifying glass" />
-      <Styled.MainPhoto
-
-        photo={mainPhoto}
-        ref={ref}
-      />
+      <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" />
+      {!zoom ? <Styled.MainPhotoZoom photo={mainPhoto} ref={ref} /> : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
     </Styled.MainImage>
   );
 }

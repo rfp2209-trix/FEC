@@ -60,9 +60,7 @@ overflow: hidden;
   //   transform: scale(3.0)
   // }
 `;
-
-export const MainPhoto = styled.div`
-
+export const MainPhotoDefault = styled.div`
     background-image: url(${(props) => props.photo});
     position: absolute;
     top: 0;
@@ -74,10 +72,11 @@ export const MainPhoto = styled.div`
     width: 100%;
     border-radius: 6px;
     -webkit-transition: background-image 1s ease-in-out;
-    transition: background-image 1s ease-in-out;
+    transition: background-image 1s ease-in-out; */
+`;
 
+export const MainPhotoZoom = styled.div`
 
-  /* .zoom-in{
     background-image: url(${(props) => props.photo});
     position: absolute;
     top: 0;
@@ -88,10 +87,7 @@ export const MainPhoto = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 6px;
+    transform: scale(3);
     -webkit-transition: background-image 1s ease-in-out;
     transition: background-image 1s ease-in-out;
-    transform: scale(3.0);
-  } */
-
-
 `;
