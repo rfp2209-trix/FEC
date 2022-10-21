@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 import { useProductsContext } from '../../Context.jsx';
@@ -12,7 +13,10 @@ import * as Styled from './imageGalleryMain.styles.js';
 export default function ImageGalleryMain() {
   const { styleDetails, loading } = useProductsContext();
   const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
-  // const [images, setImages] = useState([]);
+  const ref = useRef(null);
+  const [zoom, setZoom] = useState(true);
+  const [allowMove, setAllowMove] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     if (!loading && styleDetails) {
@@ -23,7 +27,6 @@ export default function ImageGalleryMain() {
 
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
-  // const photos = (styleDetails) ? styleDetails.results[0].photos : [];
 
   useEffect(() => {
     if (filteredStyles.length > 0 && mainPhoto === '') {
@@ -39,20 +42,35 @@ export default function ImageGalleryMain() {
     }
   }, [photoIndex]);
 
+  useEffect(() => {
+    const element = ref.current;
+    const listen = (event) => {
+      element.style.backgroundPositionX = `${-event.offsetX}px`;
+      element.style.backgroundPositionY = `${-event.offsetY}px`;
+    };
+    element.addEventListener('mousemove', listen);
+    setAllowMove(!allowMove);
+    return () => {
+      element.removeEventListener('mousemove', listen);
+    };
+  }, [zoom]);
+
   const handleRight = () => {
     setPhotoIndex((photoIndex) => photoIndex + 1);
   };
-  console.log('photoIndex', photoIndex);
   const handleLeft = () => {
     setPhotoIndex((photoIndex) => photoIndex - 1);
+  };
+  const handleZoom = () => {
+    setZoom(!zoom);
   };
 
   return (
     <Styled.MainImage>
       <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
       <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
-      <HiMagnifyingGlassPlus className="mag" aria-label="magnifying glass" />
-      <img src={mainPhoto} className="mainPhoto" alt="should be a pic here" />
+      <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" />
+      {!zoom ? <Styled.MainPhotoZoom photo={mainPhoto} ref={ref} /> : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
     </Styled.MainImage>
   );
 }

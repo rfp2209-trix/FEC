@@ -1,21 +1,28 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const ThumbsDetail = styled.section`
-  // width: 100px;
-  // height: 75px;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  margin-right: 5px;
-  max-width: 100px;
-  max-height: 100px;
+export const ThumbsDetail = styled.div`
 
 
 `;
-export const ThumbImage = styled.img`
+export const ThumbImage = styled.div`
 
-object-fit: contain;
-
+/* @media only screen and (max-width: 601px) {
+display: flex;
+background-image: url(${(props) => props.photo});
+background-size: cover;
+width: 125px;
+height: 150px;
+background-position: center;
+margin: auto;
+border-radius: 6px; */
+}
+background-image: url(${(props) => props.photo});
+background-size: cover;
+width: 125px;
+height: 150px;
+background-position: center;
+margin: auto;
+border-radius: 6px;
 
 `;
