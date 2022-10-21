@@ -14,11 +14,9 @@ export default function StyleThumbsRender({ image, id }) {
     setStyleId(id);
   };
   return (
-    // <Styled.ThumbsDetail>
-      <Styled.ThumbImage
-        photo={image}
-        onClick={handleStyleClick}
-      />
-    // </Styled.ThumbsDetail>
+    <Styled.ThumbImage
+      photo={image}
+      onClick={handleStyleClick}
+    />
   );
 }
