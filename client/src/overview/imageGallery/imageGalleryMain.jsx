@@ -41,19 +41,20 @@ export default function ImageGalleryMain() {
       setMainPhoto(photo);
     }
   }, [photoIndex]);
-
-  useEffect(() => {
-    const element = ref.current;
-    const listen = (event) => {
-      element.style.backgroundPositionX = `${-event.offsetX}px`;
-      element.style.backgroundPositionY = `${-event.offsetY}px`;
-    };
-    element.addEventListener('mousemove', listen);
-    setAllowMove(!allowMove);
-    return () => {
-      element.removeEventListener('mousemove', listen);
-    };
-  }, [zoom]);
+  // TODO: Fix pan functionality -- removeEventListener not working
+  // TODO: Fix photos not displaying correctly -- not centered
+  // useEffect(() => {
+  //   const element = ref.current;
+  //   const listen = (event) => {
+  //     element.style.backgroundPositionX = `${-event.offsetX}px`;
+  //     element.style.backgroundPositionY = `${-event.offsetY}px`;
+  //   };
+  //   element.addEventListener('mousemove', listen);
+  //   setAllowMove(!allowMove);
+  //   return () => {
+  //     element.removeEventListener('mousemove', listen);
+  //   };
+  // }, [zoom]);
 
   const handleRight = () => {
     setPhotoIndex((photoIndex) => photoIndex + 1);

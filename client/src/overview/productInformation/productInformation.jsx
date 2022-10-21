@@ -17,3 +17,5 @@ export default function ProductInformation() {
     </Styled.ProductInformationContainer>
   );
 }
+
+// TODO: display features from productsInfo
