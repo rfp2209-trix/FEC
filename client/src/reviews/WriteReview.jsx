@@ -27,7 +27,7 @@ function WriteReview({ setCurrentForm }) {
     >
       <div
         onChange={(e) => {
-          setFormData({ ...formData, rating: Numbdebuggerer(e.target.value) });
+          setFormData({ ...formData, rating: Number(e.target.value) });
         }}
       >
         User Rating
@@ -150,22 +150,27 @@ function WriteReview({ setCurrentForm }) {
         type="submit"
         value="Submit Review"
         onClick={(e) => {
-          e.preventDefault();
-          const headers = { 'access-control-request-headers': 'content-type', 'Content-Type': 'application/json' };
-          const axiosReq = {
-            url: '/fec/reviews',
-            data: formData,
-            method: 'post',
-            headers,
-          }
-          debugger
-          console.log(axios);
-          axios(axiosReq)
+          axios.post('/fec/reviews', formData)
             .then(() => {
               setCurrentForm('none');
+              setFormData({
+                product_id: Number(reviewsMeta.product_id),
+                rating: null,
+                recommend: null,
+                summary: null,
+                body: null,
+                characteristics: {},
+                name: null,
+                email: null,
+                photos: [],
+              });
+              return axios.get(`/fec/reviews/meta?product_id=${reviewsMeta.product_id}`);
             })
+            .then((response) => setState({ ...state, reviewsMeta: response.data }))
             .catch((err) => console.log(err));
+          e.preventDefault();
         }}
+
       />
     </WriteReviewContainer>
   );

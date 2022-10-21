@@ -6,11 +6,9 @@ const app = express();
 require('dotenv').config();
 
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
+app.use(express.urlencoded({ extended: true }));
 const logger = (req, res, next) => {
   console.log(`A ${req.method} request was made to the ${req.url} endpoint`);
-  console.log(req.headers);
   if (req.body && Object.keys(req.body).length) {
     console.log(`with a payload of ${JSON.stringify(req.body)}`);
   }

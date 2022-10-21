@@ -21,6 +21,7 @@ function WriteCharacteristic({ char, charID, formData, setFormData }) {
         {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value] : 'none selected'}
       </GridSpan>
       <RadioGrid
+        id={`${char}_radio`}
         onChange={(e) => {
           characteristics[charID] = Number(e.target.value) + 1;
           setFormData({ ...formData });
