@@ -23,4 +23,5 @@ const ReviewsContainer = styled.div`
   flex-direction: column;
   background: white;
   flex: 1;
+  margin: 0 0 80px 0;
 `;

@@ -15,7 +15,7 @@ function ReviewsList({ setCurrentForm }) {
     <ReviewTile key={review.review_id} review={review} />
   ));
   return (
-    <div>
+    <div id="review_list">
       <label htmlFor="sort_by">
         {totalReviews}
         &nbsp;reviews, sorted by&nbsp;
@@ -47,7 +47,6 @@ function ReviewsList({ setCurrentForm }) {
         <button
           type="button"
           onClick={() => {
-            console.log(reviews.page)
             axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${document.getElementById('select_sort').value.toLowerCase()}&page=${reviews.page ? ((reviews.page / 2) + 2) : 2}`)
               .then((apiResponse) => {
                 reviews.page = apiResponse.data.page;
@@ -71,12 +70,6 @@ function ReviewsList({ setCurrentForm }) {
       >
         ADD REVIEW
       </button>
-      <div>
-        REMOVE ME!
-        <div>When the add review button is clicked</div>
-        <div>the whole page needs to locked out</div>
-        <div>and a modal form must be rendered</div>
-      </div>
     </div>
   );
 }
