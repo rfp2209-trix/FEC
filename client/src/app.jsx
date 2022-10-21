@@ -30,7 +30,7 @@ function App() {
         setCurrentForm={setCurrentForm}
         setCurrentQData={setCurrentQData}
       />
-      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+      {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
       {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
       <Reviews setCurrentForm={setCurrentForm} />
       {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
