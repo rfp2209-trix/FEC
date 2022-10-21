@@ -28,7 +28,10 @@ export const CartContainer = styled.div`
    padding-left: 6px;
    padding-right: 6px;
    padding-top: 6px;
+  }
 
+  select {
+    height: 25px;
   }
   .addCart {
     border: solid grey;
