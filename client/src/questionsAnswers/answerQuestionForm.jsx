@@ -1,29 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
+import { BackgroundOpacityDiv, QAModalContainer } from './questions/background.style.js';
 
 function AnswerModal({ setCurrentForm, currentQData }) {
   const { productsInfo, loading } = useProductsContext();
+  const [answer, setAnswer] = useState({
+    body: null,
+    name: null,
+    email: null,
+  });
+  // const [photoUrls, setPhotoUrls] = useState();
+  const handleChange = (e) => {
+    answer[e.target.name] = e.target.value;
+    setAnswer({ ...answer });
+  };
 
   if (loading) {
     return (<span />);
   }
 
   const handleSubmitAnswer = (e) => {
-    e.preventDefault();
-    const askBody = document.getElementById('answerAnswer').value;
-    const askName = document.getElementById('answerName').value;
-    const askEmail = document.getElementById('answerEmail').value;
-    // const askPhotos = photoURLs;
-    const askAnswerData = {
-      body: askBody,
-      name: askName,
-      email: askEmail,
-    // photos: askPhotos,
-    };
-    console.log('post body: ', askAnswerData);
-    axios.post(`/fec/answer/${currentQData[0]}`, askAnswerData)
+    console.log('post body: ', answer);
+    axios.post(`/fec/answer/${currentQData[0]}`, answer)
       .then(() => {
         console.log('Successfully uploaded answer!');
       })
@@ -31,11 +31,12 @@ function AnswerModal({ setCurrentForm, currentQData }) {
         console.log('Could not submit answer');
       });
     setCurrentForm('none');
+    e.preventDefault();
   };
 
   return (
     <BackgroundOpacityDiv onClick={() => { setCurrentForm('none'); }}>
-      <AnswerModalContainer onClick={(e) => { e.stopPropagation(); }}>
+      <QAModalContainer height="40vh" width="60vw" onClick={(e) => { e.stopPropagation(); }}>
         <form>
           <div name="answerModalHeader">
             <h1>Submit Your Answer</h1>
@@ -44,15 +45,15 @@ function AnswerModal({ setCurrentForm, currentQData }) {
           </div>
           Your Nickname
           <br />
-          <input id="answerName" placeholder="Barack" required />
+          <input name="name" placeholder="Barack" required onChange={(e) => { handleChange(e); }} />
           <br />
           Your Email
           <br />
-          <input id="answerEmail" placeholder="barack@google.com" required />
+          <input name="email" placeholder="barack@google.com" required onChange={(e) => { handleChange(e); }} />
           <br />
           Your Answer
           <br />
-          <input id="answerAnswer" placeholder="The answer to this question is..." required />
+          <input name="body" placeholder="The answer to this question is..." required onChange={(e) => { handleChange(e); }} />
           <br />
           Photo URL Upload
           <br />
@@ -61,32 +62,9 @@ function AnswerModal({ setCurrentForm, currentQData }) {
           <br />
           <button type="submit" onClick={handleSubmitAnswer}>Submit Answer</button>
         </form>
-      </AnswerModalContainer>
+      </QAModalContainer>
     </BackgroundOpacityDiv>
   );
 }
 
 export default AnswerModal;
-
-const BackgroundOpacityDiv = styled.div`
-  display: flex;
-  justify-content: center
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-`;
-
-const AnswerModalContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: #f0fff0;
-  height: 30vh;
-  width: 60vw;
-  min-height: 400px;
-  min-width: 800px;
-`;
