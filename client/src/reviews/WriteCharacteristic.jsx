@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function WriteCharacteristic({ char, charID, formData, setFormData }) {
   const { characteristics } = formData;
   const charMeaning = {
-    Size: ['A size too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
+    Size: ['A s,km ize too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
     Width: ['Too narrow', 'Slightly Narrow', 'Perfect', 'Slightly wide', 'Too Wide'],
     Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
     Quality: ['Poor', 'Below average', 'What i expected', 'Pretty great', 'Perfect'],
@@ -18,20 +18,20 @@ function WriteCharacteristic({ char, charID, formData, setFormData }) {
         :
       </GridSpan>
       <GridSpan justify="start" area="descriptor">
-        {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value] : 'none selected'}
+        {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value - 1] : 'none selected'}
       </GridSpan>
       <RadioGrid
         id={`${char}_radio`}
         onChange={(e) => {
-          characteristics[charID] = Number(e.target.value) + 1;
+          characteristics[charID] = Number(e.target.value);
           setFormData({ ...formData });
         }}
       >
-        <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="0" area="one" />
-        <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="1" area="two" />
-        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="2" area="three" />
-        <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="3" area="four" />
-        <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="4" area="five" />
+        <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="1" area="one" />
+        <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="2" area="two" />
+        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="3" area="three" />
+        <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="4" area="four" />
+        <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="5" area="five" />
         <GridSpan area="start" justify="start">
           {charMeaning[char][0]}
         </GridSpan>
