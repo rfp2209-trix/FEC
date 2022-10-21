@@ -14,12 +14,11 @@ export default function StyleThumbsRender({ image, id }) {
     setStyleId(id);
   };
   return (
-    <Styled.ThumbsDetail>
+    // <Styled.ThumbsDetail>
       <Styled.ThumbImage
-        src={image}
-        alt="cool scene"
+        photo={image}
         onClick={handleStyleClick}
       />
-    </Styled.ThumbsDetail>
+    // </Styled.ThumbsDetail>
   );
 }
