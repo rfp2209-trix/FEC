@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const axios = require('axios');
+const _ = require('underscore');
 
 module.exports = {
   getAllInfo: (req, res) => {
@@ -35,7 +36,8 @@ module.exports = {
     };
     axios.get(URL, config)
       .then((result) => {
-        const relatedProductIDs = result.data.slice();
+        let relatedProductIDs = result.data.slice();
+        relatedProductIDs = _.uniq(relatedProductIDs);
         for (let i = 0; i < relatedProductIDs.length; i += 1) {
           AxiosReq.push(axios.get(`http://localhost:3000/FEC/productinfo/${relatedProductIDs[i]}/getallinfo`));
         }
