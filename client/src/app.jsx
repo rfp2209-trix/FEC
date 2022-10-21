@@ -23,7 +23,7 @@ function App() {
       <br />
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
-      {/* <Styled.OutfitListContainer /> */}
+      <Styled.OutfitListContainer />
       <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
       {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       <Reviews setCurrentForm={setCurrentForm} />

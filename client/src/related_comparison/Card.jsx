@@ -13,9 +13,9 @@ export default function Card({
         <CompareButtonContainer onClick={toggleModal}>
           <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" />
         </CompareButtonContainer>
-        <FavoriteButtonContainer onClick={() => { console.log('yo'); }}>
+        <AddToOutfitButtonContainer onClick={() => { console.log('yo'); }}>
           <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" />
-        </FavoriteButtonContainer>
+        </AddToOutfitButtonContainer>
         <CardText>
           {category}
         </CardText>
@@ -53,7 +53,7 @@ cursor: pointer;
 border-radius: 5px;
 `;
 
-const FavoriteButtonContainer = styled.div`
+const AddToOutfitButtonContainer = styled.div`
 position: absolute;
 height: 25px;
 width: 25px;

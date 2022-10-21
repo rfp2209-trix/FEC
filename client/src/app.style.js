@@ -3,7 +3,7 @@ import ProductsOverview from './overview/productsOverview/productsOverview.jsx';
 // import Reviews from './reviews/Reviews.jsx';
 // import WriteReview from './reviews/WriteReview.jsx';
 import RelatedProductList from './related_comparison/RelatedProductList.jsx';
-import OutfitList from './related_comparison/outfitList.jsx';
+import OutfitList from './related_comparison/OutfitList.jsx';
 import QA from './questionsAnswers/qa.jsx';
 
 export const Container = styled.section`
@@ -50,7 +50,6 @@ export const RelatedProductListContainer = styled(RelatedProductList)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: white;
 
 `;
 
@@ -59,7 +58,6 @@ export const OutfitListContainer = styled(OutfitList)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: white;
 
 `;
 

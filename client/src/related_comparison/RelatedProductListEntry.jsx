@@ -4,7 +4,7 @@ import Card from './Card.jsx';
 import ComparisonModal from './ComparisonModal.jsx';
 
 export default function RelatedProductListEntry({
-  name, category, price, rating, imgs, features, selectedProductInfo
+  name, category, price, rating, imgs, features, selectedProductInfo,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => {
