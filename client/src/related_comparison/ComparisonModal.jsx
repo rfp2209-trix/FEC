@@ -45,27 +45,28 @@ export default function ComparisonModal({
       <ModalOverlay onClick={toggleModal} />
       <ModalContent>
         <ModalTable>
-          <ModalTR>
-            <ModalTH>
-              {selectedProductName}
-            </ModalTH>
-            <ModalTH> </ModalTH>
-            <ModalTH>
-              {comparedProductName}
-            </ModalTH>
-          </ModalTR>
-          {BothFeatures.combined.map((currFeature) => (
-            <ModalTR align="center">
-              <ModalTD>
-                {BothFeatures.currentProduct.includes(currFeature) ? '✅' : '❌'}
-              </ModalTD>
-              <ModalTD>{currFeature}</ModalTD>
-              <ModalTD>
-                {BothFeatures.comparedProduct.includes(currFeature) ? '✅' : '❌'}
-              </ModalTD>
+          <ModalTBody>
+            <ModalTR>
+              <ModalTH>
+                {selectedProductName}
+              </ModalTH>
+              <ModalTH> </ModalTH>
+              <ModalTH>
+                {comparedProductName}
+              </ModalTH>
             </ModalTR>
-          ))}
-
+            {BothFeatures.combined.map((currFeature) => (
+              <ModalTR align="center">
+                <ModalTD>
+                  {BothFeatures.currentProduct.includes(currFeature) ? '✅' : '❌'}
+                </ModalTD>
+                <ModalTD>{currFeature}</ModalTD>
+                <ModalTD>
+                  {BothFeatures.comparedProduct.includes(currFeature) ? '✅' : '❌'}
+                </ModalTD>
+              </ModalTR>
+            ))}
+          </ModalTBody>
         </ModalTable>
       </ModalContent>
     </>
@@ -113,4 +114,7 @@ const ModalTR = styled.tr`
 
 const ModalTD = styled.td`
   width: 500px;
+`;
+
+const ModalTBody = styled.tbody`
 `;

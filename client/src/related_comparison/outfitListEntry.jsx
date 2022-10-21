@@ -8,7 +8,7 @@ export default function OutfitListEntry({ currentProduct, styleDetails, avgRevie
       <aside>
         <img src={styleDetails.results[0].photos[0].url} width="258x" height="258px" alt="product img" />
         <RemoveFromOutfitButtonContainer onClick={() => { console.log('yo'); }}>
-          <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" />
+          <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" alt="star icon" />
         </RemoveFromOutfitButtonContainer>
         <OutfitEntryText>
           {currentProduct.category}

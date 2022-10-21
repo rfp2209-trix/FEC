@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
 import OutfitListEntry from './OutfitListEntry.jsx';
-import Card from './Card.jsx';
 
 export default function OutfitList() {
   const {
@@ -10,7 +9,18 @@ export default function OutfitList() {
   } = useProductsContext();
   const [OutfitStorage, setOutfitStorage] = useState([]);
   useEffect(() => {
-    setOutfitStorage(JSON.parse(window.localStorage.getItem('OUTFIT_LIST')));
+    let list = window.localStorage.getItem('OUTFIT_LIST');
+    list = JSON.parse(list);
+    if (!list) {
+      window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([]));
+      list = window.localStorage.getItem('OUTFIT_LIST');
+      list = JSON.parse(list);
+    }
+    window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([...list, ...OutfitStorage]));
+  }, [OutfitStorage]);
+  useEffect(() => {
+    const localListOnLoad = window.localStorage.getItem('OUTFIT_LIST');
+    setOutfitStorage(JSON.parse(localListOnLoad));
   }, []);
   if (loading) {
     return <div />;
