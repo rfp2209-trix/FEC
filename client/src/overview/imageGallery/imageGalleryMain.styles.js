@@ -43,7 +43,7 @@ overflow: hidden;
     color: white;
   }
 
- .mainPhoto {
+ /* .mainPhoto {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,9 +54,40 @@ overflow: hidden;
     width: 100%;
     border-radius: 6px;
 
-  }
+  } */
 
   // :hover .mainPhoto {
   //   transform: scale(3.0)
   // }
+`;
+export const MainPhotoDefault = styled.div`
+    background-image: url(${(props) => props.photo});
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 1s linear;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    -webkit-transition: background-image 1s ease-in-out;
+    transition: background-image 1s ease-in-out; */
+`;
+
+export const MainPhotoZoom = styled.div`
+
+    background-image: url(${(props) => props.photo});
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 1s linear;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    transform: scale(3);
+    -webkit-transition: background-image 1s ease-in-out;
+    transition: background-image 1s ease-in-out;
 `;

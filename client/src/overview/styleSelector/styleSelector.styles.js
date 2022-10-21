@@ -14,7 +14,16 @@ export const StyleContainerWrapper = styled.section`
   }
 `;
 export const StyleSelectorContainer = styled.section`
+
+/* @media only screen and (max-width: 601px) {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column; */
+}
+  display: grid;
+  grid-template-columns: repeat(4, 125px);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+
+
+
 `;
