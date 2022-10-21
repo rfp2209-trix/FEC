@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import _ from 'underscore';
 import { useProductsContext } from '../Context.jsx';
 import OutfitListEntry from './OutfitListEntry.jsx';
 
@@ -8,20 +9,40 @@ export default function OutfitList() {
     loading, productsInfo, styleDetails, avgReview,
   } = useProductsContext();
   const [OutfitStorage, setOutfitStorage] = useState([]);
+  const [OutfitStorageIndex, setOutfitStorageIndex] = useState({});
   useEffect(() => {
-    const localListOnLoad = window.localStorage.getItem('OUTFIT_LIST');
-    setOutfitStorage(JSON.parse(localListOnLoad));
+    let localOutfitOnLoad = window.localStorage.getItem('OUTFIT_LIST');
+    if (!JSON.parse(localOutfitOnLoad)) {
+      window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([]));
+      localOutfitOnLoad = window.localStorage.getItem('OUTFIT_LIST');
+      localOutfitOnLoad = JSON.parse(localOutfitOnLoad);
+    }
+    setOutfitStorage(JSON.parse(localOutfitOnLoad));
   }, []);
   useEffect(() => {
-    let list = window.localStorage.getItem('OUTFIT_LIST');
-    list = JSON.parse(list);
-    if (!list) {
-      window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([]));
-      list = window.localStorage.getItem('OUTFIT_LIST');
-      list = JSON.parse(list);
+    let localOutfitIndexOnLoad = window.localStorage.getItem('OUTFIT_LIST_INDEX');
+    if (!JSON.parse(localOutfitIndexOnLoad)) {
+      window.localStorage.setItem('OUTFIT_LIST_INDEX', JSON.stringify({}));
+      localOutfitIndexOnLoad = window.localStorage.getItem('OUTFIT_LIST_INDEX');
+      localOutfitIndexOnLoad = JSON.parse(localOutfitIndexOnLoad);
     }
+    setOutfitStorageIndex(JSON.parse(localOutfitIndexOnLoad));
+  }, []);
+  useEffect(() => {
     window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([...OutfitStorage]));
-  }, [OutfitStorage]);
+    window.localStorage.setItem('OUTFIT_LIST_INDEX', JSON.stringify(OutfitStorageIndex));
+  }, [OutfitStorage, OutfitStorageIndex]);
+
+  const addCurrentProductHandler = () => {
+    if (OutfitStorageIndex[productsInfo.id] === undefined) {
+      setOutfitStorage([...OutfitStorage, productsInfo]);
+      setOutfitStorageIndex(
+        OutfitStorageIndex,
+        OutfitStorageIndex[productsInfo.id] = OutfitStorage.length,
+      );
+    }
+  };
+
   if (loading) {
     return <div />;
   }
@@ -33,11 +54,7 @@ export default function OutfitList() {
       <OutfitListContainer>
         <AddCurrentProductToOutfitContainer>
           ADD TO OUTFIT
-          <AddCurrentProductButton onClick={() => setOutfitStorage([
-            ...OutfitStorage,
-            productsInfo,
-          ])}
-          >
+          <AddCurrentProductButton onClick={addCurrentProductHandler}>
             ➕
           </AddCurrentProductButton>
         </AddCurrentProductToOutfitContainer>
