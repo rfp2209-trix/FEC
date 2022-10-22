@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 
 function ReviewsList({ setCurrentForm }) {
   const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
+  const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   if (loading) {
     return (
       <div />
@@ -43,21 +44,20 @@ function ReviewsList({ setCurrentForm }) {
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
       <ol>
-        {reviewListComponents}
+        {reviewListComponents.slice(0, reviewsDisplayed)}
       </ol>
       {totalReviews > reviewListComponents.length && (
         <button
           type="button"
           onClick={() => {
-            axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${reviewsSort}&page=${reviews.page ? ((reviews.page / 2) + 2) : 2}`)
-              .then((apiResponse) => {
-                reviews.page = apiResponse.data.page;
-                reviews.results.push(...apiResponse.data.results);
-                setState({
-                  ...state,
-                });
-              })
-              .catch((err) => console.log(err));
+            if (reviewsDisplayed < reviewListComponents.length) {
+              const newDisplayedAmount = (reviewsDisplayed + 2) > reviewListComponents.length ? (
+                reviewListComponents.length
+              ) : (
+                reviewsDisplayed + 2
+              );
+              setReviewsDisplayed(newDisplayedAmount);
+            }
           }}
         >
           MORE REVIEWS
