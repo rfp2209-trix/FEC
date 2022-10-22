@@ -4,8 +4,7 @@ import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 
 function ReviewsList({ setCurrentForm }) {
-  const { reviews, totalReviews, setState, state, loading } = useProductsContext();
-
+  const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
   if (loading) {
     return (
       <div />
@@ -23,19 +22,22 @@ function ReviewsList({ setCurrentForm }) {
           id="select_sort"
           name="sort_by"
           onChange={(event) => {
-            axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${event.target.value.toLowerCase()}`)
+            const newSort = event.target.value;
+            axios.get(`/fec/reviews?product_id=${reviews.product}&count=${totalReviews}&sort=${newSort}`)
               .then((apiResponse) => {
                 setState({
                   ...state,
+                  reviewsSort: newSort,
                   reviews: apiResponse.data,
+
                 });
               })
               .catch((err) => console.log(err));
           }}
         >
-          <option value="Relevent">Relevent</option>
-          <option value="Helpful">Helpful</option>
-          <option value="Newest">Newest</option>
+          <option value="relevent">Relevent</option>
+          <option value="helpful">Helpful</option>
+          <option value="newest">Newest</option>
         </select>
       </label>
       <input type="text" placeholder="keyword search (low priority)" />
@@ -47,7 +49,7 @@ function ReviewsList({ setCurrentForm }) {
         <button
           type="button"
           onClick={() => {
-            axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${document.getElementById('select_sort').value.toLowerCase()}&page=${reviews.page ? ((reviews.page / 2) + 2) : 2}`)
+            axios.get(`/fec/reviews?product_id=${reviews.product}&count=2&sort=${reviewsSort}&page=${reviews.page ? ((reviews.page / 2) + 2) : 2}`)
               .then((apiResponse) => {
                 reviews.page = apiResponse.data.page;
                 reviews.results.push(...apiResponse.data.results);

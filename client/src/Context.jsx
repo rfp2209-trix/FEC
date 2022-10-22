@@ -12,7 +12,7 @@ export function Context({ children }) {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const product_id = 40351;
+  const product_id = 40346;
 
   const getNewProduct = () => {
     // set the loading date to true for each call
@@ -22,21 +22,25 @@ export function Context({ children }) {
 
     async function handleGetAllProductsInfo() {
       try {
-        const [productsInfoGet, styleDetailsGet,
-          relatedProductsInfoGet, reviewsMetaGet, reviewsGet, questionsGet] = await Promise.all([
+        const [productsInfoGet,
+          styleDetailsGet,
+          relatedProductsInfoGet,
+          reviewsMetaGet,
+          questionsGet,
+        ] = await Promise.all([
           axios.get(`/fec/product/${product_id}`),
           axios.get(`/fec/product/styles/${product_id}`),
           axios.get(`/fec/related/${product_id}`),
           axios.get(`/fec/reviews/meta?product_id=${product_id}`),
-          axios.get(`/fec/reviews?product_id=${product_id}&count=2`),
           axios.get(`/fec/questions/${product_id}`),
         ]);
+        const reviewsMeta = reviewsMetaGet.data;
+        const totalReviews = sumArray(Object.values(reviewsMeta.ratings));
+        const reviewsGet = await axios.get(`/fec/reviews?product_id=${product_id}&count=${totalReviews}`);
         const productsInfo = productsInfoGet.data;
         const styleDetails = styleDetailsGet.data;
-        const reviewsMeta = reviewsMetaGet.data;
         const reviews = reviewsGet.data;
         const relatedProductsInfo = relatedProductsInfoGet.data;
-        const totalReviews = sumArray(Object.values(reviewsMeta.ratings));
         const avgReview = avgStarValue(reviewsMeta.ratings).toFixed(1);
         const questionsData = questionsGet.data;
         tempState = {
@@ -48,6 +52,7 @@ export function Context({ children }) {
           totalReviews,
           relatedProductsInfo,
           questionsData,
+          reviewsSort: 'relevent',
         };
 
         console.log(tempState);
