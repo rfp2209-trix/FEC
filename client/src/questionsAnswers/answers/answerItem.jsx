@@ -14,7 +14,7 @@ function AnswerItem({ values }) {
       <div>
         <small>
           <b>
-            {values.answerer_name === 'Atelier' ? <span><b>Seller </b></span> : null}
+            {values.answerer_name === 'Atelier' ? <small><b>Seller </b></small> : null}
             {'     '}
             {values.answerer_name}
           </b>

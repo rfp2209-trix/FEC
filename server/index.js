@@ -7,7 +7,6 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 const logger = (req, res, next) => {
   console.log(`A ${req.method} request was made to the ${req.url} endpoint`);
   if (req.body && Object.keys(req.body).length) {

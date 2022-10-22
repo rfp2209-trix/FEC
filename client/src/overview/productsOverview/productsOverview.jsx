@@ -10,7 +10,6 @@ import * as Styled from './productsOverview.styles';
 import ImageGalleryThumbnailScroll from '../imageGallery/imageGallery_thumbnailScroll.jsx';
 import ImageGalleryMain from '../imageGallery/imageGalleryMain.jsx';
 
-
 export default function ProductsOverview() {
   return (
     <Styled.OverviewContent>
@@ -24,6 +23,7 @@ export default function ProductsOverview() {
           <StarRating />
           <ProductInformation />
           <StyleSelector />
+          <br />
           <Cart />
         </Styled.ProductActivityContainer>
       </Styled.OverviewColumns>
