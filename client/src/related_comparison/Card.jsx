@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Stars from '../reviews/Stars.jsx';
-import ComparisonModal from './ComparisonModal.jsx';
 
 export default function Card({
-  category, name, price, rating, img, toggleModal, isOpen,
+  category, name, price, rating, img, toggleModal, isOpen, currentProduct, imgs,
 }) {
+  const addToOutfitHandler = () => {
+    const localStorageOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST'));
+    const localStorageIndexOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST_INDEX'));
+    if (localStorageIndexOnLoad[currentProduct.id] === undefined) {
+      currentProduct['styleDetails'] = { results: imgs };
+      localStorageIndexOnLoad[currentProduct.id] = localStorageOnLoad.length;
+      localStorageOnLoad.push(currentProduct);
+      window.localStorage.setItem('OUTFIT_LIST', JSON.stringify(localStorageOnLoad));
+      window.localStorage.setItem('OUTFIT_LIST_INDEX', JSON.stringify(localStorageIndexOnLoad));
+      window.dispatchEvent(new Event('storage'));
+    }
+  };
   return (
     <CardContainer>
       <aside>
@@ -13,7 +24,7 @@ export default function Card({
         <CompareButtonContainer onClick={toggleModal}>
           <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" />
         </CompareButtonContainer>
-        <AddToOutfitButtonContainer onClick={() => { console.log('yo'); }}>
+        <AddToOutfitButtonContainer onClick={addToOutfitHandler}>
           <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" />
         </AddToOutfitButtonContainer>
         <CardText>

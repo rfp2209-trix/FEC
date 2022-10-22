@@ -2,13 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import Stars from '../reviews/Stars.jsx';
 
-export default function OutfitListEntry({ currentProduct, styleDetails, avgReview }) {
+export default function OutfitListEntry({
+  currentProduct, avgReview, OutfitStorage,
+  setOutfitStorage, OutfitStorageIndex, setOutfitStorageIndex,
+}) {
+  const removeOutfitHandlder = () => {
+    OutfitStorage.splice(OutfitStorageIndex[currentProduct.id], 1);
+    delete OutfitStorageIndex[currentProduct.id];
+    setOutfitStorage([...OutfitStorage]);
+    setOutfitStorageIndex({ ...OutfitStorageIndex });
+  };
+  window.onstorage = (event) => {
+    setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));
+    setOutfitStorageIndex(JSON.parse(event.target.localStorage.OUTFIT_LIST_INDEX))
+  };
+
   return (
     <OutfitListEntryContainer>
       <aside>
-        <img src={styleDetails.results[0].photos[0].url} width="258x" height="258px" alt="product img" />
-        <RemoveFromOutfitButtonContainer onClick={() => { console.log('yo'); }}>
-          <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" alt="star icon" />
+        <img src={currentProduct.styleDetails.results[0].photos[0].url ? currentProduct.styleDetails.results[0].photos[0].url : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png'} width="258x" height="258px" alt="product img" />
+        <RemoveFromOutfitButtonContainer onClick={removeOutfitHandlder}>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" />
         </RemoveFromOutfitButtonContainer>
         <OutfitEntryText>
           {currentProduct.category}
@@ -37,6 +51,7 @@ const OutfitListEntryContainer = styled.div`
   border: solid;
   margin-left: 15px;
   margin-right: 15px;
+  contain: content;
 `;
 
 const RemoveFromOutfitButtonContainer = styled.div`

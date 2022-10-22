@@ -4,7 +4,7 @@ import Card from './Card.jsx';
 import ComparisonModal from './ComparisonModal.jsx';
 
 export default function RelatedProductListEntry({
-  name, category, price, rating, imgs, features, selectedProductInfo,
+  name, category, price, rating, imgs, features, selectedProductInfo, currentProduct,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => {
@@ -24,6 +24,7 @@ export default function RelatedProductListEntry({
       />
       <Card
         img={img}
+        imgs={imgs}
         name={name}
         category={category}
         rating={rating}
@@ -31,6 +32,8 @@ export default function RelatedProductListEntry({
         toggleModal={toggleModal}
         isOpen={isOpen}
         features={features}
+        selectedProductInfo={selectedProductInfo}
+        currentProduct={currentProduct}
       />
     </RelatedProductListEntryContainer>
   );
@@ -46,5 +49,4 @@ const RelatedProductListEntryContainer = styled.div`
   border: solid;
   margin-left: 15px;
   margin-right: 15px;
-
 `;

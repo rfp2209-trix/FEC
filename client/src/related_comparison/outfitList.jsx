@@ -10,6 +10,11 @@ export default function OutfitList() {
   } = useProductsContext();
   const [OutfitStorage, setOutfitStorage] = useState([]);
   const [OutfitStorageIndex, setOutfitStorageIndex] = useState({});
+
+  window.onstorage = (event) => {
+    setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));
+  };
+
   useEffect(() => {
     let localOutfitOnLoad = window.localStorage.getItem('OUTFIT_LIST');
     if (!JSON.parse(localOutfitOnLoad)) {
@@ -34,11 +39,15 @@ export default function OutfitList() {
   }, [OutfitStorage, OutfitStorageIndex]);
 
   const addCurrentProductHandler = () => {
+    const localStorageOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST'));
+    const localStorageIndexOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST_INDEX'));
     if (OutfitStorageIndex[productsInfo.id] === undefined) {
-      setOutfitStorage([...OutfitStorage, productsInfo]);
+      productsInfo.styleDetails = styleDetails;
+      localStorageOnLoad.push(productsInfo);
+      setOutfitStorage([...localStorageOnLoad]);
+      localStorageIndexOnLoad[productsInfo.id] = OutfitStorage.length;
       setOutfitStorageIndex(
-        OutfitStorageIndex,
-        OutfitStorageIndex[productsInfo.id] = OutfitStorage.length,
+        localStorageIndexOnLoad,
       );
     }
   };
@@ -48,9 +57,9 @@ export default function OutfitList() {
   }
   return (
     <>
-      <div style={{ margin: '10px', 'font-size': '20px' }}>
+      <OutfitTitleText>
         Your Outfit
-      </div>
+      </OutfitTitleText>
       <OutfitListContainer>
         <AddCurrentProductToOutfitContainer>
           ADD TO OUTFIT
@@ -64,6 +73,11 @@ export default function OutfitList() {
             styleDetails={styleDetails}
             avgReview={avgReview}
             key={currentProduct.name}
+            OutfitStorage={OutfitStorage}
+            setOutfitStorage={setOutfitStorage}
+            OutfitStorageIndex={OutfitStorageIndex}
+            setOutfitStorageIndex={setOutfitStorageIndex}
+
           />
         ))}
       </OutfitListContainer>
@@ -97,4 +111,9 @@ const AddCurrentProductButton = styled.button`
   display: flex
   align-items: center;
   justify-content: center;
+`;
+
+const OutfitTitleText = styled.div`
+  font-size: 20px;
+  margin: 10px;
 `;
