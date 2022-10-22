@@ -18,7 +18,7 @@ export default function styleSelector() {
       const def_styleID = styleDetails.results[0].style_id;
       setStyleId(def_styleID);
     }
-  });
+  }, []);
 
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);

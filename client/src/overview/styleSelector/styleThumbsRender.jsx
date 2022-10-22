@@ -6,29 +6,27 @@ import { useOverviewContext } from '../overviewContextWrapper.jsx';
 
 export default function StyleThumbsRender({ image, id }) {
   const {
-    setStyleId, setStyleName, setMainPhoto, setSideScroll,
+    setStyleId, styleId, setStyleName, setMainPhoto, setSideScroll,
   } = useOverviewContext();
-  const [applyBadge, setApplyBadge] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-  const resetBadges = () => {
-    setApplyBadge(false);
-  };
+  useEffect(() => {
+    setChecked(id === styleId)
+  }, [styleId]);
 
   const handleStyleClick = () => {
-    resetBadges();
     setMainPhoto('');
     setStyleName('');
     setSideScroll('');
     setStyleId(id);
-    setApplyBadge(true);
   };
+
   return (
     <Styled.ThumbImage
       photo={image}
       onClick={handleStyleClick}
-      applyBadge={applyBadge}
     >
-      {applyBadge ? <HiOutlineCheckCircle className="checkCircle" /> : <div /> }
+      {checked ? <HiOutlineCheckCircle className="checkCircle" /> : <div /> }
     </Styled.ThumbImage>
   );
 }

@@ -19,7 +19,7 @@ export default function ImageGalleryMain() {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    if (!loading && styleDetails) {
+    if (!loading && styleDetails && styleId === 0) {
       const def_styleID = styleDetails.results[0].style_id;
       setStyleId(def_styleID);
     }
