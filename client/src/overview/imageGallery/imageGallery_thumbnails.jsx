@@ -10,6 +10,7 @@ export default function ImageGalleryThumbnails({ image, id, photoIdx }) {
     setMainPhoto('');
     setStyleId(id);
     setPhotoIndex(photoIdx);
+
     // console.log('photo-----', photoIndex)
   };
   return (
