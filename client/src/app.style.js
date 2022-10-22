@@ -14,7 +14,7 @@ export const Container = styled.section`
   // flex-wrap: wrap;
   width:100%;
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: honeydew;
+  background-color: white;
 `;
 
 export const Header = styled.header`

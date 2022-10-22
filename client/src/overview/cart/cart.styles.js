@@ -35,7 +35,7 @@ export const CartContainer = styled.div`
   }
   .addCart {
     border: solid grey;
-    border-radius: 12px;
+    border-radius: 100px;
     transition-duration: 0.4s;
     background-color: skyblue;
     text-align: center;
@@ -44,8 +44,9 @@ export const CartContainer = styled.div`
     align-self: bottom;
   }
   .addCart:hover {
-    background-color: steelblue;
-    transform: scale(1.2)
+    box-shadow: 10px 10px 50px grey;
+    cursor: grab
+
   }
 
   .btn-container {

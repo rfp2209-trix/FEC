@@ -50,7 +50,7 @@ export function Context({ children }) {
           questionsData,
         };
 
-        console.log(tempState);
+        // console.log(tempState);
         setState(tempState);
         setLoading(false);
       } catch (err) {

@@ -8,7 +8,7 @@ export const OverviewContent = styled.section`
     flex-direction: column;
   }
   margin-top: 90px;
-  background-color: honeydew;
+  background-color: white;
   width: 100vw;
 `;
 
@@ -27,7 +27,7 @@ flex-direction: row;
 export const ImageContainer = styled.section`
 
   // padding-top: 12px;
-  background-color: honeydew;
+  background-color: white;
   display: flex;
 
   // flex-direction: row;
@@ -52,5 +52,5 @@ export const AddInformationContainer = styled.section`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background-color: honeydew;
+  background-color: white;
 `;

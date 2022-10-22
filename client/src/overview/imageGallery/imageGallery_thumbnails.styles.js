@@ -3,31 +3,31 @@ import styled from 'styled-components';
 
 export const ThumbnailDetailScroll = styled.section`
 
-  @media only screen and (max-width: 601px){
-    display: flex;
-    transition: all .20s;
 
-  }
-
-  display: flex;
-  flex-direction: column;
-  // justify-content: flex-end;
-  background-color: honeydew;
+  display: grid;
+  grid-template-rows: repeat(5, 150px);
+  grid-row-gap: 5px;
 
 `;
 
 export const ThumbsDetail = styled.div`
-  // display: flex;
-  background-color: olive;
 
 `;
 
-export const ThumbImage = styled.img`
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-style: solid;
-  border-color: white;
-  object-fit: contain;
-  background-color: turquoise;
+export const ThumbImage = styled.div`
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  width: 100px;
+  height: 150px;
+  background-position: center;
+  margin: auto;
+  scroll-snap-align: start;
+  border-radius: 3px;
+
+  :hover {
+    -webkit-filter: brightness(75%);
+  }
+
+
+
 `;

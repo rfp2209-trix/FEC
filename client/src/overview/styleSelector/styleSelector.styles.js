@@ -18,7 +18,7 @@ export const StyleSelectorContainer = styled.section`
 /* @media only screen and (max-width: 601px) {
   display: flex;
   flex-direction: column; */
-}
+
   display: grid;
   grid-template-columns: repeat(4, 125px);
   grid-column-gap: 5px;
