@@ -2,10 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
+import { BackgroundOpacityDiv, QAModalContainer } from './questions/background.style.js';
 
 function QuestionModal({ setCurrentForm }) {
   const { questionsData, loading } = useProductsContext();
-  const { productID } = questionsData.product_id;
+  const productID = JSON.parse(questionsData.product_id);
 
   if (loading) {
     return (
@@ -40,14 +41,17 @@ function QuestionModal({ setCurrentForm }) {
     <BackgroundOpacityDiv
       onClick={() => setCurrentForm('none')}
     >
-      <QuestionModalContainer
+      <QAModalContainer
+        height="40vh"
+        width="60vw"
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
         <form>
           <div name="modal-header">
-            <div>Form for Submitting Questions</div>
+            <div>Ask A Question</div>
+            <br />
             Your Nickname
             <br />
             <input name="name" id="askName" size="100" placeholder="Example: Boaty McBoatFace" required />
@@ -65,32 +69,9 @@ function QuestionModal({ setCurrentForm }) {
             <button type="submit" onClick={handleSubmit}>Submit Question</button>
           </div>
         </form>
-      </QuestionModalContainer>
+      </QAModalContainer>
     </BackgroundOpacityDiv>
   );
 }
 
 export default QuestionModal;
-
-const BackgroundOpacityDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed
-`;
-
-const QuestionModalContainer = styled.form`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40vh;
-  min-heigth: 400px;
-  width:60vh;
-  min-width: 800px;
-  padding: 20px;
-  background: #f0fff0;
-`;

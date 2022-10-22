@@ -67,9 +67,9 @@ module.exports = {
         res.send('GREAT SUCCESS ANSWERING');
       })
       .catch((err) => {
-        console.log(err, 'Could not create answer in DB 😔');
-        res.status(400);
-        res.send('Could not create answer in DB');
+        console.log(err.data, 'Could not create answer in DB 😔');
+        res.body(err.data);
+        res.status(400).send('Could not submit answer: ');
       });
   },
 
