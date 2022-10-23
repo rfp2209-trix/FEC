@@ -13,14 +13,14 @@ export default function OutfitList() {
 
   window.onstorage = (event) => {
     setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));
+    setOutfitStorageIndex(JSON.parse(event.target.localStorage.OUTFIT_LIST_INDEX));
   };
 
   useEffect(() => {
     let localOutfitOnLoad = window.localStorage.getItem('OUTFIT_LIST');
     if (!JSON.parse(localOutfitOnLoad)) {
       window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([]));
-      localOutfitOnLoad = window.localStorage.getItem('OUTFIT_LIST');
-      localOutfitOnLoad = JSON.parse(localOutfitOnLoad);
+      localOutfitOnLoad = JSON.stringify([]);
     }
     setOutfitStorage(JSON.parse(localOutfitOnLoad));
   }, []);
@@ -28,8 +28,7 @@ export default function OutfitList() {
     let localOutfitIndexOnLoad = window.localStorage.getItem('OUTFIT_LIST_INDEX');
     if (!JSON.parse(localOutfitIndexOnLoad)) {
       window.localStorage.setItem('OUTFIT_LIST_INDEX', JSON.stringify({}));
-      localOutfitIndexOnLoad = window.localStorage.getItem('OUTFIT_LIST_INDEX');
-      localOutfitIndexOnLoad = JSON.parse(localOutfitIndexOnLoad);
+      localOutfitIndexOnLoad = JSON.stringify({});
     }
     setOutfitStorageIndex(JSON.parse(localOutfitIndexOnLoad));
   }, []);
@@ -41,6 +40,7 @@ export default function OutfitList() {
   const addCurrentProductHandler = () => {
     const localStorageOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST'));
     const localStorageIndexOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST_INDEX'));
+    console.log(productsInfo.id)
     if (OutfitStorageIndex[productsInfo.id] === undefined) {
       productsInfo.styleDetails = styleDetails;
       localStorageOnLoad.push(productsInfo);
