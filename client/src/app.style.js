@@ -30,6 +30,7 @@ export const Header = styled.header`
   height: 50px;
   border-bottom: solid;
   border-color: gray;
+
 `;
 
 export const OverviewContainer = styled(ProductsOverview)`

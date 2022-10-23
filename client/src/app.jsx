@@ -18,7 +18,7 @@ function App() {
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
-        <h2>Header Goes Here</h2>
+        <h1> header Here</h1>
       </Styled.Header>
       <OverviewContextWrapper>
         <Styled.OverviewContainer />

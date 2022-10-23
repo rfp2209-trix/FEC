@@ -5,6 +5,8 @@ export const MainImage = styled.section`
 display: flex;
 position: relative;
 overflow: hidden;
+border-radius: 8px;
+box-shadow: 10px 10px 50px grey;
 
 @media (max-width: 601px) {
   height: 300px;
@@ -51,25 +53,20 @@ export const MainPhotoDefault = styled.div`
   margin: auto;
   transition: all .7s;
 }
-    background-image: url(${(props) => props.photo});
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    transition: opacity 1s linear;
-    background-size: cover;
-    background-position: top center;
-    width: 100%;
-    height: 100%;å
-    border-radius: 6px;
-    -webkit-transition: background-image 1s ease-in-out;
-    transition: background-image 1s ease-in-out;
-
+  background-image: url(${(props) => props.photo});
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 1s linear;
+  background-size: cover;
+  background-position: top center;
+  width: 100%;
+  height: 100%;å
+  -webkit-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
 `;
-
-
-
 export const MainPhotoZoom = styled.div`
 
     background-image: url(${(props) => props.photo});

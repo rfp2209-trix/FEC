@@ -38,7 +38,7 @@ export const ImageContainer = styled.section`
 export const ProductActivityContainer = styled.section`
   padding-top: 25px;
   display: flex;
-  background-color: cyan;
+  background-color: white;
   flex-direction: column;
   flex:1;
   justify-content: flex-start;

@@ -15,6 +15,7 @@ export const ThumbImage = styled.div`
   background-position: center;
   margin: auto;
   border-radius: 6px;
+  box-shadow: 10px 10px 50px grey;
   :hover {
     -webkit-filter: brightness(75%);
   }

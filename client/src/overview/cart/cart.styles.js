@@ -37,7 +37,7 @@ export const CartContainer = styled.div`
     border: solid grey;
     border-radius: 100px;
     transition-duration: 0.4s;
-    background-color: skyblue;
+    background-color: white;
     text-align: center;
     padding: 15px 30px;
     font-size: 15px;

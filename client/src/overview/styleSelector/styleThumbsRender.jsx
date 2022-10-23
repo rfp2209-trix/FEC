@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import * as Styled from './styleSelectorThumbs.styles.js';
 import { HiOutlineCheckCircle } from 'react-icons/hi2';
+import * as Styled from './styleSelectorThumbs.styles.js';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
-
 
 export default function StyleThumbsRender({ image, id }) {
   const {
@@ -11,7 +10,7 @@ export default function StyleThumbsRender({ image, id }) {
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    setChecked(id === styleId)
+    setChecked(id === styleId);
   }, [styleId]);
 
   const handleStyleClick = () => {
