@@ -44,8 +44,9 @@ export const CartContainer = styled.div`
     align-self: bottom;
   }
   .addCart:hover {
-    box-shadow: 10px 10px 50px grey;
-    cursor: grab
+    background-color: #f2f2f2;
+    /* box-shadow: 5px 5px 50px lightgrey; */
+    cursor: grab;
 
   }
 

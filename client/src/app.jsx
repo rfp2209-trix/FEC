@@ -6,6 +6,7 @@ import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 import QuestionModal from './questionsAnswers/questionForm.jsx';
 import AnswerModal from './questionsAnswers/answerQuestionForm.jsx';
+import Header from './header.jsx';
 
 // import your react component to app.styles.js
 // follow the convention for creating styled.components
@@ -18,7 +19,7 @@ function App() {
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
-        <h1> header Here</h1>
+        <Header />
       </Styled.Header>
       <OverviewContextWrapper>
         <Styled.OverviewContainer />

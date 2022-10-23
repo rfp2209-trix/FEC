@@ -19,15 +19,13 @@ export const Container = styled.section`
 
 export const Header = styled.header`
   z-index: 100;
-  display: flex;
   padding-left: 20px;
   top: 0;
   left: 0;
   position: fixed;
-  background: lightgrey;
+  background: white;
   width: 100vw;
-  padding-top: 10px;
-  height: 50px;
+  min-height: 50px;
   border-bottom: solid;
   border-color: gray;
 
