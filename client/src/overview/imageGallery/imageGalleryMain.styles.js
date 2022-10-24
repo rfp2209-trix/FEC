@@ -49,8 +49,17 @@ z-index: 1000;
   .zoom-ar-right {
       font-size: 40px;
       z-index: 50;
-      /* position: absolute; */
-      right: 100;
+      position: fixed;
+      right: 0;
+      top: 50%;
+      text-align: right;
+      color: white;
+    }
+    .zoom-ar-left {
+      font-size: 40px;
+      z-index: 50;
+      position: fixed;
+      left: 0;
       top: 50%;
       text-align: right;
       color: white;

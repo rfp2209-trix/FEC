@@ -89,7 +89,8 @@ export default function ImageGalleryMain() {
       {!zoom ? <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" /> : null }
       {zoom ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} />
         : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
-      {zoom ? <FaArrowCircleRight className="zoom-ar-right" /> : null}
+      {zoom ? <FaArrowCircleRight onClick={handleRight} className="zoom-ar-right" /> : null}
+      {zoom ? <FaArrowCircleLeft onClick={handleLeft} className="zoom-ar-left" /> : null}
     </Styled.MainImage>
   );
 }
