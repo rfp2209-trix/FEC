@@ -22,7 +22,7 @@ function AnswerModal({ setCurrentForm, currentQData }) {
       email: askEmail,
     // photos: askPhotos,
     };
-    console.log('post body: ', askAnswerData);
+    // console.log('post body: ', askAnswerData);
     axios.post(`/fec/answer/${currentQData[0]}`, askAnswerData)
       .then(() => {
         console.log('Successfully uploaded answer!');

@@ -19,7 +19,7 @@ export default function Cart() {
   const { styleDetails, loading } = useProductsContext();
   const { styleId } = useOverviewContext();
   const [userSKU, setUserSKU] = useState('');
-  const [userSize, setUserSize] = useState('');
+  const [userSize, setUserSize] = useState(null);
   const [selectQuantity, setSelectQuantity] = useState(0);
   const [selectQuantityArray, setSelectQuantityArray] = useState([]);
 
@@ -38,7 +38,7 @@ export default function Cart() {
     };
   });
 
-  console.log(skuMap);
+  // console.log(skuMap);
 
   const handleSubmit = () => {
   };
@@ -54,33 +54,43 @@ export default function Cart() {
   const quantityList = [];
   useEffect(() => {
     for (let i = 1; i < selectQuantity + 1; i++) {
-      quantityList.push(i);
+      if (quantityList.length < 15) {
+        quantityList.push(i);
+      }
     }
     setSelectQuantityArray(quantityList);
-    // console.log('quantityList', quantityList);
   }, [selectQuantity]);
+
+  // TODO: disable quantity if not selected size;
+  // TODO: display user message above size if user
+  //       tries to sel quantity w/o selecting a size
+  // TODO: disable add to cart until user makes valid selections
 
   return (
     <Styled.CartContainer>
-
       <div className="cart-title">
-        Checkout Cart
+        Add Item
       </div>
-      <div />
-      <div className="frm-container">
-        <select onChange={handleSizeSelect} name="size">
-          <option label="Size" value="--SelectSize--" />
-          {skuMap?.map((sku) => {return (<option value={sku.skuKey} key={sku.skuKey}>{sku.details.size}</option>);})}
-        </select>
-        <select name="quantity">
-          <option label="Quantity" value="--SelectQuantity--" />
-          {selectQuantityArray?.map((num, index) => {return (<option value={num} key={index}>{num}</option>);})}
-        </select>
+      <div className="sel-container">
+        <div className="row">
+          <div>Select Size</div>
+          <select className="selSize" onChange={handleSizeSelect} name="size">
+            <option label="Size" value="--SelectSize--" />
+            {skuMap?.map((sku) => {return (<option value={sku.skuKey} key={sku.skuKey}>{sku.details.size}</option>);})}
+          </select>
+        </div>
+        <div className="row">
+          <div>Select Quantity</div>
+          <select className="selQual" name="quantity">
+            <option label="Quantity" value="--SelectQuantity--" />
+            {selectQuantityArray?.map((num, index) => {return (<option value={num} key={index}>{num}</option>);})}
+          </select>
+        </div>
         <div className="btn-container">
           <button className="addCart" type="button">Add to Cart</button>
         </div>
       </div>
+
     </Styled.CartContainer>
   );
 }
-

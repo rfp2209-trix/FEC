@@ -33,7 +33,6 @@ export default function styleSelector() {
       setStyleName(filteredStyles[0].name);
     }
   });
-  console.log('filteredStyles: ', filteredStyles);
   const originalPrice = (!loading && filteredStyles.length > 0) ? filteredStyles[0].original_price : '';
   const salePrice = (filteredStyles.length > 0 && (filteredStyles[0].sale_price !== null)) ? filteredStyles[0].sale_price : null;
 
