@@ -47,8 +47,8 @@ export default function ImageGalleryMain() {
   useEffect(() => {
     const element = ref.current;
     const listen = (event) => {
-      element.style.backgroundPositionX = `${-event.offsetX}px`;
-      element.style.backgroundPositionY = `${-event.offsetY}px`;
+      element.style.backgroundPositionX = `${-event.offsetX * 2.5}px`;
+      element.style.backgroundPositionY = `${-event.offsetY * 2.5}px`;
     };
     if (zoom === true) {
       element.addEventListener('mousemove', listen);
@@ -84,11 +84,12 @@ export default function ImageGalleryMain() {
   // TODO: move arrows to edge of screen on zoom, remove magnifying glass icon;
   return (
     <Styled.MainImage>
-      <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
-      <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
-      <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" />
-      {zoom === true ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} />
+      {!zoom ? <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" /> : null }ß
+      {!zoom ? <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" /> : null }
+      {!zoom ? <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" /> : null }
+      {zoom ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} />
         : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
+      {zoom ? <FaArrowCircleRight className="zoom-ar-right" /> : null}
     </Styled.MainImage>
   );
 }
