@@ -55,7 +55,7 @@ export function Context({ children }) {
           reviewsSort: 'relevent',
         };
 
-        console.log(tempState);
+        // console.log(tempState);
         setState(tempState);
         setLoading(false);
       } catch (err) {

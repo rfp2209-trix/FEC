@@ -7,22 +7,24 @@ export const ThumbsDetail = styled.div`
 `;
 export const ThumbImage = styled.div`
 
-/* @media only screen and (max-width: 601px) {
-display: flex;
-background-image: url(${(props) => props.photo});
-background-size: cover;
-width: 125px;
-height: 150px;
-background-position: center;
-margin: auto;
-border-radius: 6px; */
+  position: relative;
+  background-image: url(${(props) => props.photo});
+  background-size: cover;
+  width: 125px;
+  height: 150px;
+  background-position: center;
+  margin: auto;
+  border-radius: 6px;
+  box-shadow: 10px 10px 50px grey;
+  :hover {
+    -webkit-filter: brightness(75%);
+  }
+
+.checkCircle {
+  position: absolute;
+  opacity: .75;
+  color: white;
+  font-size: 25px;
 }
-background-image: url(${(props) => props.photo});
-background-size: cover;
-width: 125px;
-height: 150px;
-background-position: center;
-margin: auto;
-border-radius: 6px;
 
 `;

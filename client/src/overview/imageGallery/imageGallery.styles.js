@@ -7,13 +7,11 @@ export const ThumbnailContainer = styled.div`
   display: flex;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 455px;
+  max-height: 450px;
   ::-webkit-scrollbar {
     width: 0;
     background: transparent;
   }
-
-
   width: 100px;
 
 
