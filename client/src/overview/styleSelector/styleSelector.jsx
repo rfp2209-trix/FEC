@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable arrow-body-style */
@@ -13,6 +16,7 @@ export default function styleSelector() {
     styleId, setStyleId, styleName, setStyleName,
   } = useOverviewContext();
 
+
   useEffect(() => {
     if (!loading && styleDetails) {
       const def_styleID = styleDetails.results[0].style_id;
@@ -23,15 +27,27 @@ export default function styleSelector() {
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
 
+
   useEffect(() => {
     if (filteredStyles.length > 0 && styleName === '') {
       setStyleName(filteredStyles[0].name);
     }
   });
+  console.log('filteredStyles: ', filteredStyles);
+  const originalPrice = (!loading && filteredStyles.length > 0) ? filteredStyles[0].original_price : '';
+  const salePrice = (filteredStyles.length > 0 && (filteredStyles[0].sale_price !== null)) ? filteredStyles[0].sale_price : null;
 
   return (
     <Styled.StyleContainerWrapper>
-      <div>
+      <div className="price-render-container">
+        {!loading && salePrice
+          ? <div>
+            <span className="original-price-strike">{originalPrice}&nbsp;&nbsp;</span>
+            <span>{salePrice}</span>
+            </div>
+          : <span>{originalPrice}</span>}
+      </div>
+      <div className="style-type-container">
         <p>Style: &nbsp;</p>
         <p>{styleName}</p>
       </div>
