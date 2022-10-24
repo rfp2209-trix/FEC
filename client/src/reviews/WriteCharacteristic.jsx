@@ -20,20 +20,20 @@ function WriteCharacteristic({
         :
       </GridSpan>
       <GridSpan justify="start" area="descriptor">
-        {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value] : 'none selected'}
+        {document.querySelector(`input[name="write_${char}"]:checked`) ? charMeaning[char][document.querySelector(`input[name="write_${char}"]:checked`).value - 1] : 'none selected'}
       </GridSpan>
       <RadioGrid
         id={`${char}_radio`}
         onChange={(e) => {
-          characteristics[charID] = Number(e.target.value) + 1;
+          characteristics[charID] = Number(e.target.value);
           setFormData({ ...formData });
         }}
       >
-        <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="0" area="one" />
-        <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="1" area="two" />
-        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="2" area="three" />
-        <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="3" area="four" />
-        <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="4" area="five" />
+        <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="1" area="one" />
+        <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="2" area="two" />
+        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="3" area="three" />
+        <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="4" area="four" />
+        <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="5" area="five" />
         <GridSpan area="start" justify="start">
           {charMeaning[char][0]}
         </GridSpan>
@@ -44,9 +44,7 @@ function WriteCharacteristic({
     </ListGrid>
   );
 }
-
 export default WriteCharacteristic;
-
 const ListGrid = styled.li`
   display: grid;
   grid-template-columns: 70px 300px;
@@ -69,11 +67,9 @@ const RadioGrid = styled.div`
   justify-items: center;
   justify-content: start;
 `;
-
 const StyledRadio = styled.input`
   grid-area: ${(props) => props.area};
 `;
-
 const GridSpan = styled.span`
   grid-area: ${(props) => props.area};
   justify-self: ${(props) => (props.justify ? props.justify : 'center')};
