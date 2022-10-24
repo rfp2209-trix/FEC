@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useProductsContext } from '../Context.jsx';
 import WriteCharacteristic from './WriteCharacteristic.jsx';
+import WriteRating from './WriteRating.jsx';
 import { sumArray, avgStarValue } from '../../helpers.js';
 
 function WriteReview({ setCurrentForm }) {
@@ -26,33 +27,7 @@ function WriteReview({ setCurrentForm }) {
         e.stopPropagation();
       }}
     >
-      <div
-        onChange={(e) => {
-          setFormData({ ...formData, rating: Number(e.target.value) });
-        }}
-      >
-        User Rating
-        <label htmlFor="write_one_star">
-          <input id="write_one_star" type="radio" name="write_rating" value="1" />
-          1
-        </label>
-        <label htmlFor="write_two_star">
-          <input id="write_two_star" type="radio" name="write_rating" value="2" />
-          2
-        </label>
-        <label htmlFor="write_three_star">
-          <input id="write_three_star" type="radio" name="write_rating" value="3" />
-          3
-        </label>
-        <label htmlFor="write_four_star">
-          <input id="write_four_star" type="radio" name="write_rating" value="4" />
-          4
-        </label>
-        <label htmlFor="write_five_star">
-          <input id="write_five_star" type="radio" name="write_rating" value="5" />
-          5
-        </label>
-      </div>
+      <WriteRating formData={formData} setFormData={setFormData} />
       <div
         onChange={(e) => {
           setFormData({ ...formData, recommend: e.target.value === 'true' });
