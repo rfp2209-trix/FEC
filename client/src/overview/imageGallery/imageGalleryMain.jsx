@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-array-index-key */
@@ -15,8 +16,8 @@ export default function ImageGalleryMain() {
   const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
   const ref = useRef(null);
   const [zoom, setZoom] = useState(true);
-  const [allowMove, setAllowMove] = useState(false);
-  const [toggle, setToggle] = useState(false);
+  // const [allowMove, setAllowMove] = useState(false); //TODO: implement main photo pan-zoom
+  // const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     if (!loading && styleDetails && styleId === 0) {
@@ -27,6 +28,7 @@ export default function ImageGalleryMain() {
 
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
+  const numberOfPhotos = (filteredStyles.length > 0) ? filteredStyles[0].photos.length : 0;
 
   useEffect(() => {
     if (filteredStyles.length > 0 && mainPhoto === '') {
@@ -43,7 +45,7 @@ export default function ImageGalleryMain() {
   }, [photoIndex]);
   // TODO: Fix pan functionality -- removeEventListener not working
   // TODO: Fix photos not displaying correctly -- not centered
-  // TODO: Fix scroll of main photo, make infinite carousel
+
   // useEffect(() => {
   //   const element = ref.current;
   //   const listen = (event) => {
@@ -58,9 +60,16 @@ export default function ImageGalleryMain() {
   // }, [zoom]);
 
   const handleRight = () => {
+    if ((photoIndex + 1) > numberOfPhotos - 1) {
+      setPhotoIndex(0);
+      return;
+    }
     setPhotoIndex((photoIndex) => photoIndex + 1);
   };
   const handleLeft = () => {
+    if ((photoIndex - 1) < 0) {
+      setPhotoIndex(numberOfPhotos - 1);
+    }
     setPhotoIndex((photoIndex) => photoIndex - 1);
   };
   const handleZoom = () => {
