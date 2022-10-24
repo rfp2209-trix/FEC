@@ -6,7 +6,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
 import React, { useState, useEffect, useRef } from 'react';
-import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
+import { SlMagnifier } from 'react-icons/sl';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 import { useProductsContext } from '../../Context.jsx';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
@@ -17,7 +17,6 @@ export default function ImageGalleryMain() {
   const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
   const ref = useRef(null);
   const [zoom, setZoom] = useState(false);
-  const [allowMove, setAllowMove] = useState(false);
 
   useEffect(() => {
     if (!loading && styleDetails && styleId === 0) {
@@ -52,7 +51,6 @@ export default function ImageGalleryMain() {
     };
     if (zoom === true) {
       element.addEventListener('mousemove', listen);
-      setAllowMove(!allowMove);
     } else {
       return () => {
         const element = ref.current;
@@ -81,14 +79,14 @@ export default function ImageGalleryMain() {
   const handleZoom = () => {
     setZoom(true);
   };
-  // TODO: move arrows to edge of screen on zoom, remove magnifying glass icon;
+
   return (
     <Styled.MainImage>
-      {!zoom ? <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" /> : null }ß
+      {!zoom ? <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" /> : null }
       {!zoom ? <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" /> : null }
-      {!zoom ? <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" /> : null }
-      {zoom ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} />
-        : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
+      {!zoom ? <SlMagnifier onClick={handleZoom} className="mag" aria-label="magnifying glass" /> : null }
+      {zoom ? <Styled.MainPhotoZoom ref={ref} onClick={handleMainPhotoClick} photo={mainPhoto} />
+        : <Styled.MainPhotoDefault photo={mainPhoto} />}
       {zoom ? <FaArrowCircleRight onClick={handleRight} className="zoom-ar-right" /> : null}
       {zoom ? <FaArrowCircleLeft onClick={handleLeft} className="zoom-ar-left" /> : null}
     </Styled.MainImage>

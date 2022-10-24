@@ -90,7 +90,7 @@ export const MainPhotoZoom = styled.div`
     position: absolute;
     cursor: zoom-out;
     background-image: url(${(props) => props.photo});
-    /* background-repeat: no-repeat; */
+    background-repeat: 0;
     background-position: top-center;
     top: 0;
     left: 0;
@@ -103,5 +103,21 @@ export const MainPhotoZoom = styled.div`
     -webkit-transition: background-image 1s ease-in-out;
     transition: background-image 1s ease-in-out;
     transform: scale(2.5);
-
 `;
+//attempt to change to an img tag
+// export const MainPhotoZoom = styled.img`
+//     position: absolute;
+//      cursor: zoom-out;
+//      background-position: top-center;
+//      top: 0;
+//      left: 0;
+//      opacity: 1;
+//      transition: opacity 1s linear;
+//      object-position: cover;
+//      height: 100%;
+//      width: 100%;
+//      border-radius: 6px;
+//      -webkit-transition: background-image 1s ease-in-out;
+//      transition: background-image 1s ease-in-out;
+//     transform: scale(2.5);
+// `;

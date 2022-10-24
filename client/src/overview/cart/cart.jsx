@@ -22,6 +22,7 @@ export default function Cart() {
   const [userSize, setUserSize] = useState(null);
   const [selectQuantity, setSelectQuantity] = useState(0);
   const [selectQuantityArray, setSelectQuantityArray] = useState([]);
+  const [showNoSizeWarning, setShowNoSizeWarning] = useState(false);
 
   const results = (!loading && styleDetails) ? styleDetails.results : [];
   const skus = (!loading && styleDetails) ? results[0].skus : [];
@@ -50,7 +51,17 @@ export default function Cart() {
     setUserSKU(sku);
     setUserSize(size);
     setSelectQuantity(totalQuantity);
+    setShowNoSizeWarning(false);
   };
+  const handleQuanChange = (event) => {
+  };
+
+  const handleQuanFocus = () => {
+    if (userSize === null) {
+      setShowNoSizeWarning(true);
+    }
+  };
+
   const quantityList = [];
   useEffect(() => {
     for (let i = 1; i < selectQuantity + 1; i++) {
@@ -73,15 +84,16 @@ export default function Cart() {
       </div>
       <div className="sel-container">
         <div className="row">
+          {showNoSizeWarning ? <span className="user-warning">Please Enter a Size</span> : null}
           <div>Select Size</div>
+
           <select className="selSize" onChange={handleSizeSelect} name="size">
-            <option label="Size" value="--SelectSize--" />
             {skuMap?.map((sku) => {return (<option value={sku.skuKey} key={sku.skuKey}>{sku.details.size}</option>);})}
           </select>
         </div>
         <div className="row">
           <div>Select Quantity</div>
-          <select className="selQual" name="quantity">
+          <select className="selQuan" name="quantity" onChange={handleQuanChange} onFocus={handleQuanFocus}>
             <option label="Quantity" value="--SelectQuantity--" />
             {selectQuantityArray?.map((num, index) => {return (<option value={num} key={index}>{num}</option>);})}
           </select>

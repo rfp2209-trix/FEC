@@ -8,6 +8,10 @@ export const CartContainer = styled.div`
   box-shadow: 10px 10px 50px grey;
   max-width: 550px;
 
+  .user-warning {
+    color: red;
+  }
+
   .cart-title {
     text-align: center;
     font-size: 20px;
@@ -24,7 +28,7 @@ export const CartContainer = styled.div`
     min-width: 100px;
   }
 
-  .selQual {
+  .selQuan {
     margin-right: 10px;
   }
   select:hover {
