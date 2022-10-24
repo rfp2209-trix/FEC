@@ -4,9 +4,10 @@ import styled from 'styled-components';
 export const MainImage = styled.section`
 display: flex;
 position: relative;
-overflow: hidden;
+/* overflow: auto; */
 border-radius: 8px;
 box-shadow: 10px 10px 50px grey;
+z-index: 1000;
 
 @media (max-width: 601px) {
   height: 300px;
@@ -59,6 +60,7 @@ export const MainPhotoDefault = styled.div`
   top: 0;
   left: 0;
   opacity: 1;
+  border-radius: 6px;
   transition: opacity 1s linear;
   background-size: cover;
   background-position: top center;
@@ -68,14 +70,15 @@ export const MainPhotoDefault = styled.div`
   transition: background-image 1s ease-in-out;
 `;
 export const MainPhotoZoom = styled.div`
-
+    cursor: zoom-out;
+    overflow: visible;
     background-image: url(${(props) => props.photo});
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     opacity: 1;
     transition: opacity 1s linear;
-    object-fit: cover;
+    /* object-fit: cover; */
     height: 100%;
     width: 100%;
     border-radius: 6px;

@@ -81,13 +81,14 @@ export default function ImageGalleryMain() {
   const handleZoom = () => {
     setZoom(true);
   };
-  // TODO: add tooltip text to inform user how to exit zoom
+  // TODO: move arrows to edge of screen on zoom, remove magnifying glass icon;
   return (
     <Styled.MainImage>
       <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
       <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
       <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" />
-      {zoom === true ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} /> : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
+      {zoom === true ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} />
+        : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
     </Styled.MainImage>
   );
 }
