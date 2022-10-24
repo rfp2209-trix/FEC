@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function WriteCharacteristic({ char, charID, formData, setFormData }) {
+function WriteCharacteristic({
+  char, charID, formData, setFormData,
+}) {
   const { characteristics } = formData;
   const charMeaning = {
     Size: ['A size too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
@@ -42,9 +44,7 @@ function WriteCharacteristic({ char, charID, formData, setFormData }) {
     </ListGrid>
   );
 }
-
 export default WriteCharacteristic;
-
 const ListGrid = styled.li`
   display: grid;
   grid-template-columns: 70px 300px;
@@ -67,11 +67,9 @@ const RadioGrid = styled.div`
   justify-items: center;
   justify-content: start;
 `;
-
 const StyledRadio = styled.input`
   grid-area: ${(props) => props.area};
 `;
-
 const GridSpan = styled.span`
   grid-area: ${(props) => props.area};
   justify-self: ${(props) => (props.justify ? props.justify : 'center')};
