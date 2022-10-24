@@ -6,6 +6,7 @@ export const CartContainer = styled.div`
   flex-direction: column;
   border-radius: 6px;
   box-shadow: 10px 10px 50px grey;
+  max-width: 550px;
 
   .cart-title {
     text-align: center;

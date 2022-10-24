@@ -25,7 +25,7 @@ box-shadow: 10px 10px 50px grey;
       color: white;
       top: 10px;
       right: 10px;
-    }
+  }
 
   .ar {
     font-size: 40px;
@@ -79,7 +79,7 @@ export const MainPhotoZoom = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 6px;
-    transform: scale(3);
+    transform: scale(4);
     -webkit-transition: background-image 1s ease-in-out;
     transition: background-image 1s ease-in-out;
 `;

@@ -7,6 +7,10 @@ import OutfitList from './related_comparison/OutfitList.jsx';
 import QA from './questionsAnswers/qa.jsx';
 
 export const Container = styled.section`
+  @media (max-width: 601px) {
+    display: flex;
+    flex-direction: row;
+  }
   left: 0;
   display: flex;
   height: 100%;
