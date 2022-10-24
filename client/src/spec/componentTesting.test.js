@@ -2,14 +2,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/self-closing-comp */
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
+import axios from 'axios';
 import { expect, jest, test } from '@jest/globals';
 import renderer from 'react-test-renderer';
 import App from '../app.jsx';
 import Reviews from '../reviews/Reviews.jsx';
 import RatingsBreakdown from '../reviews/RatingsBreakdown.jsx';
 import ProductBreakdown from '../reviews/ProductBreakdown.jsx';
+import ReviewsList from '../reviews/ReviewsList.jsx';
 import ImageGalleryMain from '../overview/imageGallery/imageGalleryMain.jsx';
 import { MockContext, useMockContext, MockTestContext } from './mockContext.jsx';
 import * as Context from '../Context.jsx';
@@ -18,6 +20,7 @@ import ImageGalleryThumbnails from '../overview/imageGallery/imageGallery_thumbn
 import RelatedProductList from '../related_comparison/RelatedProductList.jsx';
 import QA from '../questionsAnswers/qa.jsx';
 
+jest.mock('axios');
 console.log(mockData);
 beforeEach(() => {
   // uncomment the next func if using App to render
@@ -67,6 +70,10 @@ describe('Ratings & Reviews tests', () => {
     const charsDisplayed = screen.getAllByText(/((\bSize\b)|(\bWidth\b)|(\bFit\b)|(\bComfort\b)|(\bLength\b)|(\bQuality\b))/);
     expect(charsDisplayed.length).toBe(2);
   });
+  it('should use the API to sort the reviews', () => {
+    render(<MockTestContext.Provider><ReviewsList /></MockTestContext.Provider>);
+    fireEvent
+  })
 });
 
 describe('Questions & Answers Tests', () => {

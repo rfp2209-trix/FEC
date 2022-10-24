@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import _ from 'underscore';
 import { useProductsContext } from '../Context.jsx';
 import OutfitListEntry from './OutfitListEntry.jsx';
 
@@ -40,7 +39,6 @@ export default function OutfitList() {
   const addCurrentProductHandler = () => {
     const localStorageOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST'));
     const localStorageIndexOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST_INDEX'));
-    console.log(productsInfo.id)
     if (OutfitStorageIndex[productsInfo.id] === undefined) {
       productsInfo.styleDetails = styleDetails;
       localStorageOnLoad.push(productsInfo);
