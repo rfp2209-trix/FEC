@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
@@ -15,9 +16,9 @@ export default function ImageGalleryMain() {
   const { styleDetails, loading } = useProductsContext();
   const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
   const ref = useRef(null);
-  const [zoom, setZoom] = useState(true);
-  // const [allowMove, setAllowMove] = useState(false); //TODO: implement main photo pan-zoom
-  // const [toggle, setToggle] = useState(false);
+  const [zoom, setZoom] = useState(false);
+  const [allowMove, setAllowMove] = useState(false); // TODO: implement main photo pan-zoom
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     if (!loading && styleDetails && styleId === 0) {
@@ -46,18 +47,26 @@ export default function ImageGalleryMain() {
   // TODO: Fix pan functionality -- removeEventListener not working
   // TODO: Fix photos not displaying correctly -- not centered
 
-  // useEffect(() => {
-  //   const element = ref.current;
-  //   const listen = (event) => {
-  //     element.style.backgroundPositionX = `${-event.offsetX}px`;
-  //     element.style.backgroundPositionY = `${-event.offsetY}px`;
-  //   };
-  //   element.addEventListener('mousemove', listen);
-  //   setAllowMove(!allowMove);
-  //   return () => {
-  //     element.removeEventListener('mousemove', listen);
-  //   };
-  // }, [zoom]);
+  useEffect(() => {
+    const element = ref.current;
+    const listen = (event) => {
+      element.style.backgroundPositionX = `${-event.offsetX}px`;
+      element.style.backgroundPositionY = `${-event.offsetY}px`;
+    };
+    if (zoom === true) {
+      element.addEventListener('mousemove', listen);
+      setAllowMove(!allowMove);
+    } else {
+      return () => {
+        const element = ref.current;
+        element.removeEventListener('mousemove', listen);
+      };
+    }
+  }, [zoom]);
+
+  const handleMainPhotoClick = () => {
+    setZoom(false);
+  };
 
   const handleRight = () => {
     if ((photoIndex + 1) > numberOfPhotos - 1) {
@@ -73,7 +82,7 @@ export default function ImageGalleryMain() {
     setPhotoIndex((photoIndex) => photoIndex - 1);
   };
   const handleZoom = () => {
-    setZoom(!zoom);
+    setZoom(true);
   };
 
   return (
@@ -81,7 +90,7 @@ export default function ImageGalleryMain() {
       <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
       <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
       <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" />
-      {!zoom ? <Styled.MainPhotoZoom photo={mainPhoto} ref={ref} /> : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
+      {zoom === true ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} /> : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
     </Styled.MainImage>
   );
 }

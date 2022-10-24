@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: solid grey;
   border-radius: 6px;
   box-shadow: 10px 10px 50px grey;
 
