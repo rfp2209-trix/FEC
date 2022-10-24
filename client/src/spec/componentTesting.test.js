@@ -9,6 +9,7 @@ import renderer from 'react-test-renderer';
 import App from '../app.jsx';
 import Reviews from '../reviews/Reviews.jsx';
 import RatingsBreakdown from '../reviews/RatingsBreakdown.jsx';
+import ProductBreakdown from '../reviews/ProductBreakdown.jsx';
 import ImageGalleryMain from '../overview/imageGallery/imageGalleryMain.jsx';
 import { MockContext, useMockContext, MockTestContext } from './mockContext.jsx';
 import * as Context from '../Context.jsx';
@@ -49,6 +50,22 @@ describe('Ratings & Reviews tests', () => {
     render(<MockTestContext.Provider value={mockCopy}><RatingsBreakdown /></MockTestContext.Provider>);
     const avgReview = screen.getByText('3.6');
     expect(avgReview).toBeInTheDocument();
+  });
+  it('should only render the characteristics in the data and nothing more', () => {
+    const mockCopy = { ...mockData };
+    mockCopy.reviewsMeta.characteristics = {
+      Size: {
+        id: 135244,
+        value: 3.122,
+      },
+      Width: {
+        id: 135245,
+        value: 3.097,
+      },
+    };
+    render(<MockTestContext.Provider value={mockCopy}><ProductBreakdown /></MockTestContext.Provider>);
+    const charsDisplayed = screen.getAllByText(/((\bSize\b)|(\bWidth\b)|(\bFit\b)|(\bComfort\b)|(\bLength\b)|(\bQuality\b))/);
+    expect(charsDisplayed.length).toBe(2);
   });
 });
 
