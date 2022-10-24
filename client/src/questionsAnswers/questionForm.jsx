@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
-import { BackgroundOpacityDiv, QAModalContainer } from './questions/background.style.js';
+import { BackgroundOpacityDiv, QAModalContainer } from './background.style.js';
 
 function QuestionModal({ setCurrentForm }) {
   const { questionsData, loading } = useProductsContext();
