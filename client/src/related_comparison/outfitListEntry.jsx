@@ -14,7 +14,7 @@ export default function OutfitListEntry({
   };
   window.onstorage = (event) => {
     setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));
-    setOutfitStorageIndex(JSON.parse(event.target.localStorage.OUTFIT_LIST_INDEX))
+    setOutfitStorageIndex(JSON.parse(event.target.localStorage.OUTFIT_LIST_INDEX));
   };
 
   return (
