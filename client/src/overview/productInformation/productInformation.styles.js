@@ -5,7 +5,7 @@ export const ProductInformationContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: top;
-  padding-left: 8px;
+
   flex-shrink: 1;
 
   > h2 {

@@ -19,7 +19,7 @@ export default function ImageGalleryThumbnailScroll() {
       const def_styleID = styleDetails.results[0].style_id;
       setStyleId(def_styleID);
     }
-  });
+  }, []);
 
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
@@ -29,8 +29,7 @@ export default function ImageGalleryThumbnailScroll() {
       const imageReel = filteredStyles[0].photos;
       setLocalStyleId(filteredStyles[0].style_id);
       setSideScroll(imageReel);
-
-    }
+}
   });
 
   // const photos = (styleDetails) ? styleDetails.results[0].photos : [];

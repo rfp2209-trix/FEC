@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import _ from 'underscore';
 
 export default function ComparisonModal({
-  children, isOpen, features, selectedProductFeatures, selectedProductName, comparedProductName, toggleModal,
+  isOpen, features, selectedProductFeatures, selectedProductName, comparedProductName, toggleModal,
 }) {
   const pullFeatures = (obj) => {
     let result = `${obj.feature} `;
@@ -40,38 +40,38 @@ export default function ComparisonModal({
   };
   const BothFeatures = compareFeatures(selectedProductFeatures, features);
   return (
-    isOpen
-      ? (
-        <>
-          <ModalOverlay onClick={toggleModal} />
-          <ModalContent>
-            <ModalTable>
-              <ModalTR>
-                <ModalTH>
-                  {selectedProductName}
-                </ModalTH>
-                <ModalTH> </ModalTH>
-                <ModalTH>
-                  {comparedProductName}
-                </ModalTH>
+    isOpen && (
+    <>
+      <ModalOverlay onClick={toggleModal} />
+      <ModalContent>
+        <ModalTable>
+          <ModalTBody>
+            <ModalTR>
+              <ModalTH>
+                {selectedProductName}
+              </ModalTH>
+              <ModalTH> </ModalTH>
+              <ModalTH>
+                {comparedProductName}
+              </ModalTH>
+            </ModalTR>
+            {BothFeatures.combined.map((currFeature) => (
+              <ModalTR align="center">
+                <ModalTD>
+                  {BothFeatures.currentProduct.includes(currFeature) ? '✅' : '❌'}
+                </ModalTD>
+                <ModalTD>{currFeature}</ModalTD>
+                <ModalTD>
+                  {BothFeatures.comparedProduct.includes(currFeature) ? '✅' : '❌'}
+                </ModalTD>
               </ModalTR>
-              {BothFeatures.combined.map((currFeature) => (
-                <ModalTR align="center">
-                  <ModalTD>
-                    {BothFeatures.currentProduct.includes(currFeature) ? '✅' : '❌'}
-                  </ModalTD>
-                  <ModalTD>{currFeature}</ModalTD>
-                  <ModalTD>
-                    {BothFeatures.comparedProduct.includes(currFeature) ? '✅' : '❌'}
-                  </ModalTD>
-                </ModalTR>
-              ))}
-
-            </ModalTable>
-          </ModalContent>
-        </>
-      )
-      : null);
+            ))}
+          </ModalTBody>
+        </ModalTable>
+      </ModalContent>
+    </>
+    )
+  );
 }
 
 const ModalContent = styled.div`
@@ -84,7 +84,7 @@ const ModalContent = styled.div`
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
-  z-index: 1;
+  z-index: 999;
 `;
 
 const ModalOverlay = styled.div`
@@ -114,4 +114,7 @@ const ModalTR = styled.tr`
 
 const ModalTD = styled.td`
   width: 500px;
+`;
+
+const ModalTBody = styled.tbody`
 `;

@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useProductsContext } from '../Context.jsx';
 import WriteCharacteristic from './WriteCharacteristic.jsx';
+import { sumArray, avgStarValue } from '../../helpers.js';
 
 function WriteReview({ setCurrentForm }) {
-  const { reviewsMeta, state, setState } = useProductsContext();
+  const { reviewsMeta, reviewsSort, state, setState } = useProductsContext();
   const { characteristics } = reviewsMeta;
   const [photos, setPhotos] = useState([]);
   const [formData, setFormData] = useState({
@@ -166,7 +167,19 @@ function WriteReview({ setCurrentForm }) {
               });
               return axios.get(`/fec/reviews/meta?product_id=${reviewsMeta.product_id}`);
             })
-            .then((response) => setState({ ...state, reviewsMeta: response.data }))
+            .then((reviewsMetaGet) => {
+              const newTotal = sumArray(Object.values(reviewsMetaGet.data.ratings));
+              const newAvg = avgStarValue(reviewsMetaGet.data.ratings).toFixed(1);
+              setState({
+                ...state,
+                reviewsMeta: reviewsMetaGet.data,
+                avgReview: newAvg,
+                totalReviews: newTotal,
+              });
+              return newTotal;
+            })
+            .then((total) => axios.get(`/fec/reviews/?product_id=${reviewsMeta.product_id}&sort=${reviewsSort}&count=${total}`))
+            .then((reviewsGet) => setState({ ...state, reviews: reviewsGet.data }))
             .catch((err) => console.log(err));
           e.preventDefault();
         }}

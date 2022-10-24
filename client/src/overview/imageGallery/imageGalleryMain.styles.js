@@ -2,18 +2,21 @@
 import styled from 'styled-components';
 
 export const MainImage = styled.section`
-
+display: flex;
 position: relative;
 overflow: hidden;
-@media only screen and (max-width: 601px) {
+border-radius: 8px;
+box-shadow: 10px 10px 50px grey;
+
+@media (max-width: 601px) {
   height: 300px;
   width: 300px;
   margin: auto;
   transition: all .7s;
 }
 
- height: 700px;
- width: 700px;
+ min-height: 50em; ;
+ min-width: 50em; ;
 
   .mag {
       z-index: 20;
@@ -42,39 +45,28 @@ overflow: hidden;
     text-align: right;
     color: white;
   }
-
- /* .mainPhoto {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    transition: opacity 1s linear;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    border-radius: 6px;
-
-  } */
-
-  // :hover .mainPhoto {
-  //   transform: scale(3.0)
-  // }
 `;
 export const MainPhotoDefault = styled.div`
-    background-image: url(${(props) => props.photo});
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    transition: opacity 1s linear;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    border-radius: 6px;
-    -webkit-transition: background-image 1s ease-in-out;
-    transition: background-image 1s ease-in-out; */
+  @media (max-width: 601px) {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  transition: all .7s;
+}
+  background-image: url(${(props) => props.photo});
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 1s linear;
+  background-size: cover;
+  background-position: top center;
+  width: 100%;
+  height: 100%;å
+  -webkit-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
 `;
-
 export const MainPhotoZoom = styled.div`
 
     background-image: url(${(props) => props.photo});
