@@ -27,6 +27,9 @@ function App() {
       <br />
       {/* <Styled.SectionBreakOne /> */}
       <Styled.RelatedProductListContainer />
+      <Styled.OutfitListContainer />
+      <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       {/* <Styled.OutfitListContainer /> */}
       <Styled.QuestionsContainer
         setCurrentForm={setCurrentForm}
