@@ -43,6 +43,7 @@ export default function ImageGalleryMain() {
   }, [photoIndex]);
   // TODO: Fix pan functionality -- removeEventListener not working
   // TODO: Fix photos not displaying correctly -- not centered
+  // TODO: Fix scroll of main photo, make infinite carousel
   // useEffect(() => {
   //   const element = ref.current;
   //   const listen = (event) => {
