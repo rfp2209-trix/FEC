@@ -93,7 +93,7 @@ module.exports = {
           }
         }
         average /= count;
-        average = average.toFixed(2);
+        average = average.toFixed(1);
         result.averageRating = average;
         res.status(200).json(result);
       })

@@ -10,9 +10,10 @@ export default function RelatedProductList() {
   }
   return (
     <div>
-      <div style={{ margin: '10px', 'font-size': '20px' }}>
+      <RelatedTitleText>
         Related Products
-      </div>
+      </RelatedTitleText>
+
       <RelatedProductListContainer>
         {relatedProductsInfo.map((currProduct) => (
           <RelatedProductListEntry
@@ -24,6 +25,7 @@ export default function RelatedProductList() {
             features={currProduct.features}
             selectedProductInfo={productsInfo}
             key={currProduct.name}
+            currentProduct={currProduct}
           />
         ))}
       </RelatedProductListContainer>
@@ -38,4 +40,9 @@ display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
 
+`;
+
+const RelatedTitleText = styled.div`
+  font-size: 20px;
+  margin: 10px;
 `;

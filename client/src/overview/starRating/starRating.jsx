@@ -8,9 +8,7 @@ export default function StarRating() {
 
   return (
     <Styled.StarDisplayContainer style={{ '--rating': avgReview }} aria-label={aria}>
-      <a href="">Read all reviews</a>
+      <a href="#review_list">Read all reviews</a>
     </Styled.StarDisplayContainer>
-
-
   );
 }
