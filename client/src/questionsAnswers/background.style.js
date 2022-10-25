@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-export const BackgroundOpacityDiv = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+export const DarkBG = styled.div`
+position: fixed;
 height: 100vh;
 width: 100vw;
-padding: 20px;
+top: 0%;
+left: 0%;
 background: rgba(0, 0, 0, 0.5);
-position: fixed
+z-index: 50;
 `;
 
 export const QAModalContainer = styled.form`
