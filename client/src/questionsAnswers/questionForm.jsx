@@ -4,7 +4,7 @@ import { useProductsContext } from '../Context.jsx';
 import { DarkBG, QAModalContainer } from './background.style.js';
 
 function QuestionModal({ setCurrentForm }) {
-  const { questionsData, loading } = useProductsContext();
+  const { questionsData, productsInfo, loading } = useProductsContext();
   const productID = JSON.parse(questionsData.product_id);
 
   if (loading) {
@@ -12,6 +12,7 @@ function QuestionModal({ setCurrentForm }) {
       <span />
     );
   }
+  console.log('productsInfo inside of questioNForm', productsInfo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +50,8 @@ function QuestionModal({ setCurrentForm }) {
       >
         <form>
           <div name="modal-header">
-            <div>Ask A Question</div>
+            <h1>Ask Your Question</h1>
+            <h3>{`About the ${productsInfo.name}`}</h3>
             <br />
             Your Nickname
             <br />
