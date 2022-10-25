@@ -21,3 +21,18 @@ export const QAModalContainer = styled.form`
   padding: 20px;
   background: #f0fff0;
 `;
+
+export const AnswerModalContainer = styled.div`
+  position: fixed;
+  z-index: 999;
+  top: 37.5%;
+  left: 25%;
+  height: 25%;
+  width: 50%;
+  min-height: 300px;
+  background: #f0fff0;
+  min-width: 450px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;

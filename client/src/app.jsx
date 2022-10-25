@@ -28,8 +28,6 @@ function App() {
       <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
       {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       {/* <Styled.OutfitListContainer /> */}
-      <Styled.QuestionsContainer />
-      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       <Reviews setCurrentForm={setCurrentForm} />
       {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
       {/* <Styled.Footer>

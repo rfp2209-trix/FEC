@@ -7,7 +7,6 @@ import { objectSorter } from '../../../helpers.js';
 
 function Question(props) {
   const { data } = props;
-  const [currentQData, setCurrentQData] = useState([]);
   const [moreAnswers, setMoreAnswers] = useState(false);
   const [answerQuestion, setAnswerQuestion] = useState(false);
   const sortedAnswers = objectSorter(data.answers, 'helpfulness');
@@ -18,8 +17,6 @@ function Question(props) {
     e.stopPropagation();
     setAnswerQuestion(true);
     console.log('answer question was clicked');
-    console.log(['actual output: ', data.question_id, data.question_body]);
-    setCurrentQData([data.question_id, data.question_body]);
   };
 
   return (
@@ -44,7 +41,7 @@ function Question(props) {
       {answerQuestion
         ? (
           <AnswerModal
-            currentQData={currentQData}
+            currentQData={[data.question_id, data.question_body]}
             setAnswerQuestion={setAnswerQuestion}
           />
         ) : null }

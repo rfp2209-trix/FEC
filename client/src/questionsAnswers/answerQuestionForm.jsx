@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
-import DarkBG from './background.style.js';
+import { DarkBG, AnswerModalContainer } from './background.style.js';
 
 function AnswerModal({ setAnswerQuestion, currentQData }) {
   const { productsInfo, loading } = useProductsContext();
@@ -36,7 +36,7 @@ function AnswerModal({ setAnswerQuestion, currentQData }) {
 
   return (
     <DarkBG onClick={() => { setAnswerQuestion(false); }}>
-      <QAModalContainer onClick={(e) => { e.stopPropagation(); }}>
+      <AnswerModalContainer onClick={(e) => { e.stopPropagation(); }}>
         <form>
           <div name="answerModalHeader">
             <h1>Submit Your Answer</h1>
@@ -62,24 +62,9 @@ function AnswerModal({ setAnswerQuestion, currentQData }) {
           <br />
           <button type="submit" onClick={handleSubmitAnswer}>Submit Answer</button>
         </form>
-      </QAModalContainer>
+      </AnswerModalContainer>
     </DarkBG>
   );
 }
 
 export default AnswerModal;
-
-const QAModalContainer = styled.div`
-  position: fixed;
-  z-index: 999;
-  top: 37.5%;
-  left: 25%;
-  height: 25%;
-  width: 50%;
-  min-height: 300px;
-  background: #f0fff0;
-  min-width: 450px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-`;
