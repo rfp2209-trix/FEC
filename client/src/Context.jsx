@@ -6,7 +6,7 @@ import React, {
 import axios from 'axios';
 import { sumArray, avgStarValue } from '../helpers.js';
 
-const ProductContext = createContext();
+export const ProductContext = createContext();
 
 export function Context({ children }) {
   const [state, setState] = useState({});
