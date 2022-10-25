@@ -10,7 +10,7 @@ export default function RelatedProductListEntry({
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-  const img = imgs[0].photos[0].thumbnail_url ? imgs[0].photos[0].thumbnail_url
+  const img = imgs[0].photos[0].url ? imgs[0].photos[0].url
     : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png';
   return (
     <RelatedProductListEntryContainer>

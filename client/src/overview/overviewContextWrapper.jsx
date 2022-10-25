@@ -10,6 +10,7 @@ export function OverviewContextWrapper({ children }) {
   const [mainPhoto, setMainPhoto] = useState('');
   const [sideScroll, setSideScroll] = useState('');
   const [photoIndex, setPhotoIndex] = useState(0);
+
   const values = {
     styleId,
     setStyleId,

@@ -5,8 +5,8 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
+import React, { useState, useEffect, useRef } from 'react';
+import { SlMagnifier } from 'react-icons/sl';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 import { useProductsContext } from '../../Context.jsx';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
@@ -17,8 +17,6 @@ export default function ImageGalleryMain() {
   const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
   const ref = useRef(null);
   const [zoom, setZoom] = useState(false);
-  const [allowMove, setAllowMove] = useState(false); // TODO: implement main photo pan-zoom
-  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     if (!loading && styleDetails && styleId === 0) {
@@ -44,18 +42,15 @@ export default function ImageGalleryMain() {
       setMainPhoto(photo);
     }
   }, [photoIndex]);
-  // TODO: Fix pan functionality -- removeEventListener not working
-  // TODO: Fix photos not displaying correctly -- not centered
 
   useEffect(() => {
     const element = ref.current;
     const listen = (event) => {
-      element.style.backgroundPositionX = `${-event.offsetX}px`;
-      element.style.backgroundPositionY = `${-event.offsetY}px`;
+      element.style.backgroundPositionX = `${-event.offsetX * 9}px`;
+      element.style.backgroundPositionY = `${-event.offsetY * 9}px`;
     };
     if (zoom === true) {
       element.addEventListener('mousemove', listen);
-      setAllowMove(!allowMove);
     } else {
       return () => {
         const element = ref.current;
@@ -87,10 +82,13 @@ export default function ImageGalleryMain() {
 
   return (
     <Styled.MainImage>
-      <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" />
-      <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" />
-      <HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" />
-      {zoom === true ? <Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} /> : <Styled.MainPhotoDefault photo={mainPhoto} ref={ref} />}
+      {!zoom ? <FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" /> : null }
+      {!zoom ? <FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" /> : null }
+      {!zoom ? <SlMagnifier onClick={handleZoom} className="mag" aria-label="magnifying glass" /> : null }
+      {zoom ? <Styled.MainPhotoZoom ref={ref} onClick={handleMainPhotoClick} photo={mainPhoto} />
+        : <Styled.MainPhotoDefault photo={mainPhoto} />}
+      {zoom ? <FaArrowCircleRight onClick={handleRight} className="zoom-ar-right" /> : null}
+      {zoom ? <FaArrowCircleLeft onClick={handleLeft} className="zoom-ar-left" /> : null}
     </Styled.MainImage>
   );
 }

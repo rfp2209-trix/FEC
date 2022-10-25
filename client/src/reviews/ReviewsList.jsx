@@ -20,6 +20,8 @@ function ReviewsList({ setCurrentForm }) {
         {totalReviews}
         &nbsp;reviews, sorted by&nbsp;
         <select
+          value={reviewsSort}
+          data-testid="sort-select"
           id="select_sort"
           name="sort_by"
           onChange={(event) => {
@@ -46,7 +48,7 @@ function ReviewsList({ setCurrentForm }) {
       <ol>
         {reviewListComponents.slice(0, reviewsDisplayed)}
       </ol>
-      {totalReviews > reviewListComponents.length && (
+      {reviewsDisplayed < reviewListComponents.length && (
         <button
           type="button"
           onClick={() => {
@@ -60,17 +62,18 @@ function ReviewsList({ setCurrentForm }) {
             }
           }}
         >
-          MORE REVIEWS
+          More Reviews
         </button>
       )}
       <button
+        data-testid="more-reviews"
         type="button"
         onClick={(e) => {
           e.stopPropagation();
           setCurrentForm('new review');
         }}
       >
-        ADD REVIEW
+        Add Review
       </button>
     </div>
   );
