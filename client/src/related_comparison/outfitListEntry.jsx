@@ -7,10 +7,14 @@ export default function OutfitListEntry({
   setOutfitStorage, OutfitStorageIndex, setOutfitStorageIndex,
 }) {
   const removeOutfitHandlder = () => {
+    // console.log('before', OutfitStorage)
+    // console.log('before', OutfitStorageIndex)
     OutfitStorage.splice(OutfitStorageIndex[currentProduct.id], 1);
     delete OutfitStorageIndex[currentProduct.id];
     setOutfitStorage([...OutfitStorage]);
     setOutfitStorageIndex({ ...OutfitStorageIndex });
+    // console.log('after', OutfitStorage)
+    // console.log('after', OutfitStorageIndex)
   };
   window.onstorage = (event) => {
     setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));
@@ -20,7 +24,7 @@ export default function OutfitListEntry({
   return (
     <OutfitListEntryContainer>
       <aside>
-        <img src={currentProduct.styleDetails.results[0].photos[0].url ? currentProduct.styleDetails.results[0].photos[0].url : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png'} width="258x" height="258px" alt="product img" />
+        <OutfitListEntryImg image={currentProduct.styleDetails.results[0].photos[0].url ? currentProduct.styleDetails.results[0].photos[0].url : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png'} alt="product img" />
         <RemoveFromOutfitButtonContainer onClick={removeOutfitHandlder}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" />
         </RemoveFromOutfitButtonContainer>
@@ -52,7 +56,17 @@ const OutfitListEntryContainer = styled.div`
   margin-left: 15px;
   margin-right: 15px;
   contain: content;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 `;
+
+const OutfitListEntryImg = styled.div`
+  background-image: url(${(props) => props.image});
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  width: 258px;
+  height: 258px;
+  `;
 
 const RemoveFromOutfitButtonContainer = styled.div`
 position: absolute;

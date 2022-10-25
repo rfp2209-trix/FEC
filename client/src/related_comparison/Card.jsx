@@ -20,7 +20,7 @@ export default function Card({
   return (
     <CardContainer>
       <aside>
-        <img src={img} width="258x" height="258px" alt="product img" />
+        <CardImg image={img} alt="product img" />
         <CompareButtonContainer onClick={toggleModal}>
           <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" alt="comparison arrow button" />
         </CompareButtonContainer>
@@ -49,7 +49,17 @@ const CardContainer = styled.div`
   margin: 0px;
   padding: 0px;
   object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 `;
+
+const CardImg = styled.div`
+  background-image: url(${(props) => props.image});
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  width: 258px;
+  height: 258px;
+  `;
 
 const CompareButtonContainer = styled.div`
 position: absolute;
