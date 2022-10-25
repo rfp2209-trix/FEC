@@ -4,16 +4,7 @@ import { useProductsContext } from '../Context.jsx';
 import Stars from './Stars.jsx';
 import { MetaList } from './meta.style.js';
 
-function RatingsBreakdown() {
-  return (
-    <div>
-      <RatingSummary />
-      <StarsBreakdown />
-    </div>
-  );
-}
-
-function RatingSummary() {
+export function RatingSummary() {
   const { avgReview, loading } = useProductsContext();
   if (loading) {
     return <div />;
@@ -27,7 +18,7 @@ function RatingSummary() {
   );
 }
 
-function StarsBreakdown() {
+export function StarsBreakdown() {
   const { reviewsMeta, totalReviews, loading } = useProductsContext();
   if (loading) {
     return <div />;
@@ -55,8 +46,6 @@ function StarsBreakdown() {
     </MetaList>
   );
 }
-
-export default RatingsBreakdown;
 
 const PercentageReviewBar = styled.div`
   display: inline-block;

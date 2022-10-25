@@ -1,6 +1,7 @@
 import React from 'react';
 import { useProductsContext } from '../Context.jsx';
 import { MetaList } from './meta.style.js';
+import {charMeaning} from '../../helpers.js';
 
 function ProductBreakdown() {
   const { reviewsMeta, loading } = useProductsContext();
@@ -21,3 +22,4 @@ function ProductBreakdown() {
 }
 
 export default ProductBreakdown;
+
