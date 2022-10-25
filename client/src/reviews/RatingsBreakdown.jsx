@@ -37,14 +37,15 @@ export function StarsBreakdown() {
           width: '250px',
         }}
       >
-        <Stars />
+        <Stars width="100px" />
         <PercentageReviewBar percent={`${percent}%`} />
       </li>
     );
   });
   const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
+  console.log('start here')
   return (
-    <MetaList>
+    <MetaList style={{fontSize: '16px'}}>
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
       {ratingsComponents}

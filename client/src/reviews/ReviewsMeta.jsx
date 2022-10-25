@@ -4,7 +4,7 @@ import ProductBreakdown from './ProductBreakdown.jsx';
 
 function ReviewsMeta() {
   return (
-    <div style={{ width: '250px' }}>
+    <div style={{ width: '260px' }}>
       <RatingSummary />
       <StarsBreakdown />
       <ProductBreakdown />
