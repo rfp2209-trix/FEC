@@ -2,22 +2,24 @@ import React, { useState } from 'react';
 import AnswerItem from '../answers/answerItem.jsx';
 import Helpful from './helpfulQuestion.jsx';
 import Report from './reportQuestion.jsx';
+import AnswerModal from '../answerQuestionForm.jsx';
 import { objectSorter } from '../../../helpers.js';
 
 function Question(props) {
   const { data } = props;
-  const { setCurrentQData, setCurrentForm } = props;
+  const [currentQData, setCurrentQData] = useState([]);
   const [moreAnswers, setMoreAnswers] = useState(false);
+  const [answerQuestion, setAnswerQuestion] = useState(false);
   const sortedAnswers = objectSorter(data.answers, 'helpfulness');
   const handleMoreAnswers = () => {
     setMoreAnswers(!moreAnswers);
   };
   const handleAnswerQuestion = (e) => {
     e.stopPropagation();
+    setAnswerQuestion(true);
     console.log('answer question was clicked');
-    console.log('setCurrentQData', setCurrentQData);
+    console.log(['actual output: ', data.question_id, data.question_body]);
     setCurrentQData([data.question_id, data.question_body]);
-    setCurrentForm('new answer');
   };
 
   return (
@@ -39,6 +41,13 @@ function Question(props) {
         { !moreAnswers ? <small>Show More Answers</small> : <small>Collapse Answers</small> }
       </button>
       <button type="submit" onClick={handleAnswerQuestion}>Answer Question</button>
+      {answerQuestion
+        ? (
+          <AnswerModal
+            currentQData={currentQData}
+            setAnswerQuestion={setAnswerQuestion}
+          />
+        ) : null }
     </div>
   );
 }

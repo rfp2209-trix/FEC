@@ -5,7 +5,6 @@ import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 import QuestionModal from './questionsAnswers/questionForm.jsx';
-import AnswerModal from './questionsAnswers/answerQuestionForm.jsx';
 import Header from './header.jsx';
 
 // import your react component to app.styles.js
@@ -14,7 +13,6 @@ import Header from './header.jsx';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('none');
-  const [currentQData, setCurrentQData] = useState([]);
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
@@ -30,12 +28,8 @@ function App() {
       <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
       {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       {/* <Styled.OutfitListContainer /> */}
-      <Styled.QuestionsContainer
-        setCurrentForm={setCurrentForm}
-        setCurrentQData={setCurrentQData}
-      />
-      {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
-      {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
+      <Styled.QuestionsContainer />
+      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
       <Reviews setCurrentForm={setCurrentForm} />
       {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
       {/* <Styled.Footer>

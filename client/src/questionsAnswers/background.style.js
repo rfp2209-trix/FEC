@@ -17,7 +17,7 @@ export const QAModalContainer = styled.form`
   height: ${(props) => props.height};
   min-heigth: 400px;
   width: ${(props) => props.width};
-  min-width: 800px;
+  min-width: 600px;
   padding: 20px;
   background: #f0fff0;
 `;

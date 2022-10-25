@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
-import { DarkBG, QAModalContainer } from './background.style.js';
+import DarkBG from './background.style.js';
 
-function AnswerModal({ setCurrentForm, currentQData }) {
+function AnswerModal({ setAnswerQuestion, currentQData }) {
   const { productsInfo, loading } = useProductsContext();
   const [answer, setAnswer] = useState({
     body: null,
@@ -29,17 +30,16 @@ function AnswerModal({ setCurrentForm, currentQData }) {
       .catch(() => {
         console.log('Could not submit answer');
       });
-    setCurrentForm('none');
+    setAnswerQuestion(false);
     e.preventDefault();
   };
 
   return (
-    <DarkBG onClick={() => { setCurrentForm('none'); }}>
-      <QAModalContainer height="40vh" width="60vw" onClick={(e) => { e.stopPropagation(); }}>
+    <DarkBG onClick={() => { setAnswerQuestion(false); }}>
+      <QAModalContainer onClick={(e) => { e.stopPropagation(); }}>
         <form>
           <div name="answerModalHeader">
             <h1>Submit Your Answer</h1>
-            <br />
             <h3>{`${productsInfo.name} : ${currentQData[1]}`}</h3>
           </div>
           Your Nickname
@@ -57,6 +57,7 @@ function AnswerModal({ setCurrentForm, currentQData }) {
           Photo URL Upload
           <br />
           <input id="answerPhoto" placeholder="https://unsplash.com/photos/aopy8Hwom4s" />
+          <br />
           <button type="submit">Upload Photo URL</button>
           <br />
           <button type="submit" onClick={handleSubmitAnswer}>Submit Answer</button>
@@ -67,3 +68,18 @@ function AnswerModal({ setCurrentForm, currentQData }) {
 }
 
 export default AnswerModal;
+
+const QAModalContainer = styled.div`
+  position: fixed;
+  z-index: 999;
+  top: 37.5%;
+  left: 25%;
+  height: 25%;
+  width: 50%;
+  min-height: 300px;
+  background: #f0fff0;
+  min-width: 450px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
