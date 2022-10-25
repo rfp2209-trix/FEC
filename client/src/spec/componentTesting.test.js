@@ -225,24 +225,17 @@ describe('Questions & Answers Tests', () => {
 describe('Related & Comparison tests', () => {
   it('should contain related and comparison in a header', () => {
     const mockCopy = { ...mockData };
-    mockCopy.relatedProductsInfo = [mockData.relatedProductsInfo];
-    console.log(mockCopy.relatedProductsInfo);
+    mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
     render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
     const heading = screen.getByText('Related Products');
     expect(heading).toBeInTheDocument();
+    // })
+    it('should contain related product cards', () => {
+      const mockCopy = { ...mockData };
+      mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
+      const Sandbox = render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
+      const relatedItems = Sandbox.container.querySelector('#related-items');
+      expect(relatedItems).toBeInTheDocument();
+    });
   });
-  it('should contain related product cards', () => {
-    const mockCopy = { ...mockData };
-    mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
-    const Sandbox = render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
-    const relatedItems = Sandbox.container.querySelector('#related-items');
-    expect(relatedItems).toBeInTheDocument();
-  });
-
-  // test adding to outfit and removing from outfit
-
-  // test adding to outfit from related items
-
-  // test local storage???
-  // })
 });
