@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for client/src/questionsAnswers/answers/reportAnswer.jsx</title>
+    <title>Code coverage report for client/src/reviews/WriteRating.jsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../../prettify.css" />
-    <link rel="stylesheet" href="../../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">client/src/questionsAnswers/answers</a> reportAnswer.jsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">client/src/reviews</a> WriteRating.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -87,14 +87,12 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -103,9 +101,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,31 +111,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
-import axios from 'axios';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { IoStarSharp } from 'react-icons/io5';
 &nbsp;
-function Report({ answerID }) {
-  const [reported, setReported] = useState(false);
-  const handleReportAnswer = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    console.log('You just tried to report something');</span>
-<span class="cstat-no" title="statement not covered" >    axios.put(`/fec/answer/report/${answerID}`)</span>
-      .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >        setReported(!reported);</span>
-<span class="cstat-no" title="statement not covered" >        console.log('Successfully Reported to Server');</span>
-      })
-      .catch(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log('Could not report to server');</span>
-      });
-<span class="cstat-no" title="statement not covered" >    setReported(true);</span>
+export default function <span class="fstat-no" title="function not covered" >WriteRating(</span>{ formData, setFormData }) {
+  const setRatingOnClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(u</span>serRating) =&gt; {</span>
+    // setRating(userRating);
+<span class="cstat-no" title="statement not covered" >    setFormData({ ...formData, rating: userRating });</span>
   };
-  return (
-    &lt;span&gt;
-      {reported ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;small&gt; Reported &lt;/small&gt; </span>: &lt;button type="submit" onClick={handleReportAnswer}&gt;&lt;small&gt;Report&lt;/small&gt;&lt;/button&gt; }
-    &lt;/span&gt;
+  const ratingButtons = <span class="cstat-no" title="statement not covered" >[1, 2, 3, 4, 5].map(<span class="fstat-no" title="function not covered" >(d</span>igit) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;IoStarSharp</span>
+      key={digit}
+      style={{ color: digit &lt;= formData.rating ? '#fc0' : 'rgb(180, 180, 180)' }}
+      onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setRatingOnClick(digit)}</span>
+    /&gt;
+  ));
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div&gt;
+      &lt;h4 style={{ margin: 0 }}&gt;How would you rate the Product?&lt;/h4&gt;
+      {ratingButtons}
+      &amp;nbsp;
+      {formData.rating &amp;&amp; [null, 'Poor', 'Fair', 'Average', 'Good', 'Great'][formData.rating]}
+    &lt;/div&gt;
   );
 }
-&nbsp;
-export default Report;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -147,14 +144,14 @@ export default Report;
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2022-10-25T02:03:47.096Z
             </div>
-        <script src="../../../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../../sorter.js"></script>
-        <script src="../../../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     
