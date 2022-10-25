@@ -4,8 +4,8 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable block-spacing */
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import * as Styled from './cart.styles.js';
-// import CartForm from './cartForm.jsx';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 import { useProductsContext } from '../../Context.jsx';
 
@@ -20,18 +20,16 @@ export default function Cart() {
   const { styleId } = useOverviewContext();
   const [userSKU, setUserSKU] = useState('');
   const [userSize, setUserSize] = useState(null);
-  const [selectQuantity, setSelectQuantity] = useState(0);
+  const [selectQuantity, setSelectQuantity] = useState(null);
   const [selectQuantityArray, setSelectQuantityArray] = useState([]);
   const [showNoSizeWarning, setShowNoSizeWarning] = useState(false);
+  const [userQuantity, setUserQuantity] = useState(0);
 
   const results = (!loading && styleDetails) ? styleDetails.results : [];
   const skus = (!loading && styleDetails) ? results[0].skus : [];
   // console.log('skus', skus);
 
   const skuArrayKeys = Object.keys(skus);
-  // console.log(skuArrayKeys);
-  // console.log(skus[skuArrayKeys[0]]);
-
   const skuMap = skuArrayKeys.map((key) => {
     return {
       skuKey: key,
@@ -39,9 +37,15 @@ export default function Cart() {
     };
   });
 
-  // console.log(skuMap);
-
-  const handleSubmit = () => {
+  const handleClick = () => {
+    const queryData = {
+      sku_id: userSKU,
+      count: userQuantity,
+    };
+    axios.post('/fec/cart', queryData)
+      .then(() => {
+      })
+      .catch(console.log);
   };
 
   const handleSizeSelect = (event) => {
@@ -54,6 +58,7 @@ export default function Cart() {
     setShowNoSizeWarning(false);
   };
   const handleQuanChange = (event) => {
+    setUserQuantity(event.target.value);
   };
 
   const handleQuanFocus = () => {
@@ -86,20 +91,20 @@ export default function Cart() {
         <div className="row">
           {showNoSizeWarning ? <span className="user-warning">Please Enter a Size</span> : null}
           <div>Select Size</div>
-
-          <select className="selSize" onChange={handleSizeSelect} name="size">
+          <select defaultValue="DEFAULT" className="selSize" onChange={handleSizeSelect} name="size">
+            <option value="DEFAULT" disabled hidden>Select Size</option>
             {skuMap?.map((sku) => {return (<option value={sku.skuKey} key={sku.skuKey}>{sku.details.size}</option>);})}
           </select>
         </div>
         <div className="row">
           <div>Select Quantity</div>
-          <select className="selQuan" name="quantity" onChange={handleQuanChange} onFocus={handleQuanFocus}>
-            <option label="Quantity" value="--SelectQuantity--" />
+          <select disabled={userSize === null} className="selQuan" name="quantity" onChange={handleQuanChange} onFocus={handleQuanFocus}>
+            {/* <option label="Quantity" value="" /> */}
             {selectQuantityArray?.map((num, index) => {return (<option value={num} key={index}>{num}</option>);})}
           </select>
         </div>
         <div className="btn-container">
-          <button className="addCart" type="button">Add to Cart</button>
+          <button disabled={userQuantity === null || userSize === null} onClick={handleClick} className="addCart" type="button">Add to Cart</button>
         </div>
       </div>
 

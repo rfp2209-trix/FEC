@@ -3,7 +3,7 @@ const axios = require('axios');
 
 module.exports = {
   getProduct(req, res) {
-    console.log('req received')
+    console.log('req received');
     const { product_id } = req.params;
     const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/products/${product_id}`;
 
@@ -60,8 +60,8 @@ module.exports = {
   },
 
   addToCart(req, res) {
-    console.log('body', req.body)
-    const queryData = req.body
+    console.log('body---------------------->', req.body);
+    const queryData = req.body;
 
     const URL = `https://app-hrsei-api.herokuapp.com/api/fec2/${process.env.CAMPUS_CODE}/cart`;
 
@@ -70,17 +70,15 @@ module.exports = {
         Authorization: process.env.AUTH_TOKEN,
       },
     };
-
+    console.log('querydata', queryData);
     axios.post(URL, queryData, config)
-      .then((cartContents) => {
-        res.status(201).send()
+      .then(() => {
+        console.log('successful post!');
+        res.status(201).send();
       })
       .catch((err) => {
-        console.log(err);
-        res.sendStatus(501)
+        console.log('from addtocart', err);
+        res.sendStatus(501);
       });
-
-  }
-
-
+  },
 };

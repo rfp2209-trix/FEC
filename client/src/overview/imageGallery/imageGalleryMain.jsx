@@ -46,8 +46,8 @@ export default function ImageGalleryMain() {
   useEffect(() => {
     const element = ref.current;
     const listen = (event) => {
-      element.style.backgroundPositionX = `${-event.offsetX * 2.5}px`;
-      element.style.backgroundPositionY = `${-event.offsetY * 2.5}px`;
+      element.style.backgroundPositionX = `${-event.offsetX * 9}px`;
+      element.style.backgroundPositionY = `${-event.offsetY * 9}px`;
     };
     if (zoom === true) {
       element.addEventListener('mousemove', listen);

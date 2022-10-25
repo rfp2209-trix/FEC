@@ -7,7 +7,7 @@ position: relative;
 /* overflow: auto; */
 border-radius: 8px;
 box-shadow: 10px 10px 50px grey;
-z-index: 1000;
+z-index: 20;
 
 @media (max-width: 601px) {
   height: 300px;
@@ -54,6 +54,7 @@ z-index: 1000;
       top: 50%;
       text-align: right;
       color: white;
+      z-index: 1001;
     }
     .zoom-ar-left {
       font-size: 40px;
@@ -63,6 +64,7 @@ z-index: 1000;
       top: 50%;
       text-align: right;
       color: white;
+      z-index: 1001;
     }
 `;
 export const MainPhotoDefault = styled.div`
@@ -87,13 +89,14 @@ export const MainPhotoDefault = styled.div`
   transition: background-image 1s ease-in-out;
 `;
 export const MainPhotoZoom = styled.div`
-    position: absolute;
+    z-index: 1000;
+    position: fixed;
     cursor: zoom-out;
     background-image: url(${(props) => props.photo});
-    background-repeat: 0;
-    background-position: top-center;
+
+    /* background-position: top-center;
     top: 0;
-    left: 0;
+    left: 0; */
     opacity: 1;
     transition: opacity 1s linear;
     background-size: cover;
@@ -102,7 +105,7 @@ export const MainPhotoZoom = styled.div`
     border-radius: 6px;
     -webkit-transition: background-image 1s ease-in-out;
     transition: background-image 1s ease-in-out;
-    transform: scale(2.5);
+    transform: scale(3.0);
 `;
 //attempt to change to an img tag
 // export const MainPhotoZoom = styled.img`
