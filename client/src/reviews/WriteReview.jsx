@@ -188,7 +188,7 @@ const WriteReviewContainer = styled.form`
   left: 20%;
   top: 20%;
   padding: 20px;
-  background: #FF0000;
+  background: #f0fff0;
   position: fixed
 `;
 
