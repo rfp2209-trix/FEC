@@ -17,7 +17,7 @@ export const ThumbsDetail = styled.div`
   opacity: .75;
   color: white;
   font-size: 25px;
-  z-index: 30;
+  z-index: 10;
   }
 `;
 

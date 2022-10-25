@@ -4,9 +4,10 @@ import styled from 'styled-components';
 export const MainImage = styled.section`
 display: flex;
 position: relative;
-overflow: hidden;
+/* overflow: auto; */
 border-radius: 8px;
 box-shadow: 10px 10px 50px grey;
+z-index: 20;
 
 @media (max-width: 601px) {
   height: 300px;
@@ -25,7 +26,7 @@ box-shadow: 10px 10px 50px grey;
       color: white;
       top: 10px;
       right: 10px;
-    }
+  }
 
   .ar {
     font-size: 40px;
@@ -45,6 +46,26 @@ box-shadow: 10px 10px 50px grey;
     text-align: right;
     color: white;
   }
+  .zoom-ar-right {
+      font-size: 40px;
+      z-index: 50;
+      position: fixed;
+      right: 0;
+      top: 50%;
+      text-align: right;
+      color: white;
+      z-index: 1001;
+    }
+    .zoom-ar-left {
+      font-size: 40px;
+      z-index: 50;
+      position: fixed;
+      left: 0;
+      top: 50%;
+      text-align: right;
+      color: white;
+      z-index: 1001;
+    }
 `;
 export const MainPhotoDefault = styled.div`
   @media (max-width: 601px) {
@@ -54,11 +75,11 @@ export const MainPhotoDefault = styled.div`
   transition: all .7s;
 }
   background-image: url(${(props) => props.photo});
-  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 1;
+  border-radius: 6px;
   transition: opacity 1s linear;
   background-size: cover;
   background-position: top center;
@@ -68,18 +89,38 @@ export const MainPhotoDefault = styled.div`
   transition: background-image 1s ease-in-out;
 `;
 export const MainPhotoZoom = styled.div`
-
+    z-index: 1000;
+    position: fixed;
+    cursor: zoom-out;
     background-image: url(${(props) => props.photo});
-    position: absolute;
+
+    /* background-position: top-center;
     top: 0;
-    left: 0;
+    left: 0; */
     opacity: 1;
     transition: opacity 1s linear;
-    object-fit: cover;
+    background-size: cover;
     height: 100%;
     width: 100%;
     border-radius: 6px;
-    transform: scale(3);
     -webkit-transition: background-image 1s ease-in-out;
     transition: background-image 1s ease-in-out;
+    transform: scale(3.0);
 `;
+//attempt to change to an img tag
+// export const MainPhotoZoom = styled.img`
+//     position: absolute;
+//      cursor: zoom-out;
+//      background-position: top-center;
+//      top: 0;
+//      left: 0;
+//      opacity: 1;
+//      transition: opacity 1s linear;
+//      object-position: cover;
+//      height: 100%;
+//      width: 100%;
+//      border-radius: 6px;
+//      -webkit-transition: background-image 1s ease-in-out;
+//      transition: background-image 1s ease-in-out;
+//     transform: scale(2.5);
+// `;

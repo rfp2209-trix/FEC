@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { HiOutlineCheckCircle } from 'react-icons/hi2';
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import * as Styled from './imageGallery_thumbnails.styles.js';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 
@@ -20,7 +20,7 @@ export default function ImageGalleryThumbnails({ image, id, photoIdx }) {
   return (
     <Styled.ThumbsDetail>
       <Styled.ThumbImage onClick={handleThumbClick} image={image} />
-      {checked ? <HiOutlineCheckCircle className="thumbScrollCheckCircle" /> : null }
+      {checked ? <IoIosCheckmarkCircleOutline className="thumbScrollCheckCircle" aria-label="checked-circle" /> : null }
     </Styled.ThumbsDetail>
   );
 }
