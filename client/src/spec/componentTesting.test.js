@@ -30,19 +30,6 @@ beforeEach(() => {
   const useContextSpy = jest.spyOn(Context, 'useProductsContext').mockImplementation(useMockContext);
 });
 
-// describe('App tests', () => {
-//   it('should contain alt text in an img tag', () => {
-//     render(<MockContext><ImageGalleryThumbnails /></MockContext>);
-//     const heading = screen.getByAltText('fashion pic');
-//     expect(heading).toBeInTheDocument();
-//   });
-//   it('should contain alt text', () => {
-//     render(<MockContext><ImageGalleryMain /></MockContext>);
-//     const text = screen.getByAltText('should be a pic here');
-//     expect(text).toBeInTheDocument();
-//   });
-// });
-
 describe('Ratings & Reviews tests', () => {
   it('should contain ratings and reviews in a header', () => {
     render(<MockContext><Reviews /></MockContext>);
