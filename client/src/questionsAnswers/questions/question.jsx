@@ -10,6 +10,8 @@ function Question(props) {
   const [moreAnswers, setMoreAnswers] = useState(false);
   const [answerQuestion, setAnswerQuestion] = useState(false);
   const sortedAnswers = objectSorter(data.answers, 'helpfulness');
+  const currAnswers = moreAnswers ? Object.values(sortedAnswers)
+    : Object.values(sortedAnswers).slice(0, 2);
   const handleMoreAnswers = () => {
     setMoreAnswers(!moreAnswers);
   };
@@ -18,6 +20,7 @@ function Question(props) {
     setAnswerQuestion(true);
     console.log('answer question was clicked');
   };
+  console.log('data keys', Object.keys(data.answers));
 
   return (
     <div>
@@ -27,17 +30,13 @@ function Question(props) {
       <Report questionID={data.question_id} />
       <br />
       <b>A: </b>
-      { !moreAnswers ? (
-        Object.values(sortedAnswers).slice(0, 2)
-          .map((each) => (<AnswerItem values={each} key={each.id} />))
-      ) : (
-        Object.values(sortedAnswers)
-          .map((each) => (<AnswerItem values={each} key={each.id} />))
-      )}
-      <button type="submit" onClick={handleMoreAnswers}>
-        { !moreAnswers ? <small>Show More Answers</small> : <small>Collapse Answers</small> }
-      </button>
-      <button type="submit" onClick={handleAnswerQuestion}>Answer Question</button>
+      {currAnswers.map((each) => <AnswerItem values={each} key={each.id} />)}
+      {Object.keys(data.answers).length > 2 ? (
+        <button type="submit" onClick={handleMoreAnswers}>
+          { !moreAnswers ? <small>Show More Answers</small> : <small>Collapse Answers</small> }
+        </button>
+      ) : null }
+      <button type="submit" onClick={handleAnswerQuestion}><small>Answer Question</small></button>
       {answerQuestion
         ? (
           <AnswerModal
