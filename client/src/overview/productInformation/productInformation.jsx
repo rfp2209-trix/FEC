@@ -11,7 +11,7 @@ export default function ProductInformation() {
 
   return (
 
-    <Styled.ProductInformationContainer>
+    <Styled.ProductInformationContainer data-testid="product-info-exists">
       <h2>{productsInfo.category}</h2>
       <h1>{productsInfo.name}</h1>
     </Styled.ProductInformationContainer>

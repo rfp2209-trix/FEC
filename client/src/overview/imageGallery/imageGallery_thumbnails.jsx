@@ -19,8 +19,8 @@ export default function ImageGalleryThumbnails({ image, id, photoIdx }) {
   };
   return (
     <Styled.ThumbsDetail>
-      <Styled.ThumbImage onClick={handleThumbClick} image={image} />
-      {checked ? <IoIosCheckmarkCircleOutline className="thumbScrollCheckCircle" aria-label="checked-circle" /> : null }
+      <Styled.ThumbImage data-testid="thumb-image" onClick={handleThumbClick} image={image} />
+      {checked ? <IoIosCheckmarkCircleOutline data-testid="thumb-check" className="thumbScrollCheckCircle" aria-label="checked-circle" /> : null }
     </Styled.ThumbsDetail>
   );
 }

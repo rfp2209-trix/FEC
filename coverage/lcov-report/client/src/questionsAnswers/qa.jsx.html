@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/18</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/18</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -142,30 +142,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -175,9 +168,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,27 +213,27 @@ import React, { useState } from 'react';
 import Question from './questions/question.jsx';
 import { useProductsContext } from '../Context.jsx';
 &nbsp;
-function QA({ setCurrentForm, setCurrentQData }) {
-  const [input, setInput] = useState('');
-  const [searching, setSearching] = useState(false);
-  const [moreQuestions, setMoreQuestions] = useState(false);
-  const { questionsData, loading } = useProductsContext();
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (loading) {
+function <span class="fstat-no" title="function not covered" >QA(</span>{ setCurrentForm, setCurrentQData }) {
+  const [input, setInput] = <span class="cstat-no" title="statement not covered" >useState('');</span>
+  const [searching, setSearching] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const [moreQuestions, setMoreQuestions] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const { questionsData, loading } = <span class="cstat-no" title="statement not covered" >useProductsContext();</span>
+<span class="cstat-no" title="statement not covered" >  if (loading) {</span>
 <span class="cstat-no" title="statement not covered" >    return &lt;small /&gt;;</span>
   }
-  const handleMoreQuestions = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const handleMoreQuestions = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setMoreQuestions(!moreQuestions);</span>
   };
-  const handleSearch = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const handleSearch = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     const questions = <span class="cstat-no" title="statement not covered" >questionsData.results;</span>
   };
-  const handleAsk = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+  const handleAsk = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    e.stopPropagation();</span>
 <span class="cstat-no" title="statement not covered" >    console.log('CLICKED!');</span>
 <span class="cstat-no" title="statement not covered" >    setCurrentForm('new question');</span>
   };
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div&gt;
       &lt;h3&gt;Questions &amp; Answers&lt;/h3&gt;
       &lt;input
@@ -243,13 +243,13 @@ function QA({ setCurrentForm, setCurrentQData }) {
         onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; { <span class="cstat-no" title="statement not covered" >handleSearch(e.target.value); </span>}}
       /&gt;
       &lt;button type="submit" onClick={handleSearch}&gt;Search&lt;/button&gt;
-      { searching ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;SearchResults /&gt;</span>
+      { searching ? &lt;SearchResults /&gt;
         : (
           &lt;ul&gt;
             { !moreQuestions ? (
               questionsData.results.slice(0, 4)
-                .map((each) =&gt; (
-                  &lt;Question
+                .map(<span class="fstat-no" title="function not covered" >(e</span>ach) =&gt; (
+<span class="cstat-no" title="statement not covered" >                  &lt;Question</span>
                     data={each}
                     key={each.question_id}
                     setCurrentForm={setCurrentForm}
@@ -257,7 +257,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
                   /&gt;
                 ))
             ) : (
-<span class="branch-1 cbranch-no" title="branch not covered" >              questionsData.results.map(<span class="fstat-no" title="function not covered" >(e</span>ach) =&gt; (</span>
+              questionsData.results.map(<span class="fstat-no" title="function not covered" >(e</span>ach) =&gt; (
 <span class="cstat-no" title="statement not covered" >                &lt;Question</span>
                   data={each}
                   setCurrentQData={setCurrentQData}
@@ -270,7 +270,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
         )}
 &nbsp;
       &lt;button type="submit" onClick={handleMoreQuestions}&gt;
-        { moreQuestions ? (<span class="branch-0 cbranch-no" title="branch not covered" >&lt;small&gt;Collapse&lt;/small&gt;)</span>
+        { moreQuestions ? (&lt;small&gt;Collapse&lt;/small&gt;)
           : (&lt;small&gt;See More Questions&lt;/small&gt;) }
       &lt;/button&gt;
       &lt;button type="submit" onClick={handleAsk} width="50"&gt;&lt;small&gt;Ask A Question&lt;/small&gt;&lt;/button&gt;
@@ -286,11 +286,7 @@ export default QA;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2022-10-25T16:07:59.062Z
-=======
-                at 2022-10-25T02:03:47.096Z
->>>>>>> main
+                at 2022-10-25T21:43:08.660Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

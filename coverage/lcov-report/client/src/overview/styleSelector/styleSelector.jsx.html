@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">84.61% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>22/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -140,35 +140,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,7 +178,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,37 +203,37 @@ import * as Styled from './styleSelector.styles.js';
 import { useProductsContext } from '../../Context.jsx';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >styleSelector(</span>) {
-  const { styleDetails, loading } = <span class="cstat-no" title="statement not covered" >useProductsContext();</span>
+export default function styleSelector() {
+  const { styleDetails, loading } = useProductsContext();
   const {
     styleId, setStyleId, styleName, setStyleName,
-  } = <span class="cstat-no" title="statement not covered" >useOverviewContext();</span>
+  } = useOverviewContext();
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!loading &amp;&amp; styleDetails) {</span>
-      const def_styleID = <span class="cstat-no" title="statement not covered" >styleDetails.results[0].style_id;</span>
-<span class="cstat-no" title="statement not covered" >      setStyleId(def_styleID);</span>
+  useEffect(() =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!loading &amp;&amp; styleDetails) {
+      const def_styleID = styleDetails.results[0].style_id;
+      setStyleId(def_styleID);
     }
   }, []);
 &nbsp;
-  const styles = <span class="cstat-no" title="statement not covered" >(!loading &amp;&amp; styleDetails) ? styleDetails.results : [];</span>
-  const filteredStyles = <span class="cstat-no" title="statement not covered" >styles.filter(<span class="fstat-no" title="function not covered" >(s</span>tyle) =&gt; <span class="cstat-no" title="statement not covered" >style.style_id === styleId)</span>;</span>
+  const styles = (!loading &amp;&amp; styleDetails) ? styleDetails.results : <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+  const filteredStyles = styles.filter((style) =&gt; style.style_id === styleId);
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (filteredStyles.length &gt; 0 &amp;&amp; styleName === '') {</span>
-<span class="cstat-no" title="statement not covered" >      setStyleName(filteredStyles[0].name);</span>
+  useEffect(() =&gt; {
+    if (filteredStyles.length &gt; 0 &amp;&amp; styleName === '') {
+      setStyleName(filteredStyles[0].name);
     }
   });
-  const originalPrice = <span class="cstat-no" title="statement not covered" >(!loading &amp;&amp; filteredStyles.length &gt; 0) ? filteredStyles[0].original_price : '';</span>
-  const salePrice = <span class="cstat-no" title="statement not covered" >(filteredStyles.length &gt; 0 &amp;&amp; (filteredStyles[0].sale_price !== null)) ? filteredStyles[0].sale_price : null;</span>
+  const originalPrice = (!loading &amp;&amp; filteredStyles.length &gt; 0) ? filteredStyles[0].original_price : '';
+  const salePrice = (filteredStyles.length &gt; 0 &amp;&amp; (filteredStyles[0].sale_price !== null)) ? <span class="branch-0 cbranch-no" title="branch not covered" >filteredStyles[0].sale_price </span>: null;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;Styled.StyleContainerWrapper&gt;
+  return (
+    &lt;Styled.StyleContainerWrapper data-testid="style-selector-exists"&gt;
       &lt;div className="price-render-container"&gt;
         {!loading &amp;&amp; salePrice
-          ? &lt;div&gt;
+          ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;div&gt;</span>
             &lt;span className="original-price-strike"&gt;{originalPrice}&amp;nbsp;&amp;nbsp;&lt;/span&gt;
             &lt;span&gt;{salePrice}&lt;/span&gt;
             &lt;/div&gt;
@@ -243,9 +243,9 @@ export default function <span class="fstat-no" title="function not covered" >sty
         &lt;p&gt;Style: &amp;nbsp;&lt;/p&gt;
         &lt;p&gt;{styleName}&lt;/p&gt;
       &lt;/div&gt;
-      &lt;Styled.StyleSelectorContainer&gt;
-        {!loading &amp;&amp; styleDetails.results.map(<span class="fstat-no" title="function not covered" >(s</span>tyle) =&gt; {
-<span class="cstat-no" title="statement not covered" >          return &lt;StyleThumbsRender</span>
+      &lt;Styled.StyleSelectorContainer data-testid="images-exist"&gt;
+        {!loading &amp;&amp; styleDetails.results.map((style) =&gt; {
+          return &lt;StyleThumbsRender
             key={style.style_id}
             image={style.photos[0].thumbnail_url}
             id={style.style_id}
@@ -262,11 +262,7 @@ export default function <span class="fstat-no" title="function not covered" >sty
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2022-10-25T16:07:59.062Z
-=======
-                at 2022-10-25T02:03:47.096Z
->>>>>>> main
+                at 2022-10-25T21:43:08.660Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

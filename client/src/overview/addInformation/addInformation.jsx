@@ -8,7 +8,7 @@ export default function AddInformation() {
   const productDescription = (productsInfo) ? productsInfo.description : '';
 
   return (
-    <div>
+    <div data-testid="add-info-exists">
       <h1>Additional Product Information</h1>
       <h2>{productSlogan}</h2>
       <h2>{productDescription}</h2>
