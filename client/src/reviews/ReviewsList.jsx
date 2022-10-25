@@ -20,6 +20,7 @@ function ReviewsList({ setCurrentForm }) {
         {totalReviews}
         &nbsp;reviews, sorted by&nbsp;
         <select
+          value={reviewsSort}
           id="select_sort"
           name="sort_by"
           onChange={(event) => {
