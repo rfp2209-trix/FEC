@@ -85,6 +85,7 @@ const ModalContent = styled.div`
   max-width: 600px;
   min-width: 300px;
   z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const ModalOverlay = styled.div`

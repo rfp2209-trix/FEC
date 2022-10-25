@@ -229,6 +229,13 @@ describe('Related & Comparison tests', () => {
     render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
     const heading = screen.getByText('Related Products');
     expect(heading).toBeInTheDocument();
+    // })
+    it('should contain related product cards', () => {
+      const mockCopy = { ...mockData };
+      mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
+      const Sandbox = render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
+      const relatedItems = Sandbox.container.querySelector('#related-items');
+      expect(relatedItems).toBeInTheDocument();
+    });
   });
-  // })
 });
