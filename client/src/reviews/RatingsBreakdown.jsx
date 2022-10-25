@@ -1,6 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
 import Stars from './Stars.jsx';
+import { MetaList } from './meta.style.js';
 
 function RatingsBreakdown() {
   return (
@@ -17,8 +19,9 @@ function RatingSummary() {
     return <div />;
   }
   return (
-    <div style={{ '--rating': avgReview, '--star-size': '60px' }}>
+    <div style={{ '--rating': avgReview, '--star-size': '44px', fontSize: '44px' }}>
       {avgReview}
+      &nbsp;
       <Stars />
     </div>
   );
@@ -29,21 +32,38 @@ function StarsBreakdown() {
   if (loading) {
     return <div />;
   }
-  const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) => (
-    <li key={resultArray[0]}>
-      {resultArray[0]}
-      &nbsp;stars (insert bar here showing relative amount of reviews)
-      {resultArray[1]}
-    </li>
-  ));
+  const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) => {
+    const percent = ((resultArray[1] / totalReviews) * 100).toFixed(2);
+    return (
+      <li
+        key={resultArray[0]}
+        style={{ '--rating': resultArray[0], '--star-size': '18px', fontSize: '18px' }}
+      >
+        <Stars />
+        <PercentageReviewBar percent={`${percent}%`} />
+        &nbsp;
+        {resultArray[1]}
+      </li>
+    );
+  });
   const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
   return (
-    <div>
+    <MetaList>
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
       {ratingsComponents}
-    </div>
+    </MetaList>
   );
 }
 
 export default RatingsBreakdown;
+
+const PercentageReviewBar = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid black;
+  height: 12px;
+  min-width 140px;
+  border-radius: 12px;
+  background: linear-gradient(to right, #536872 ${(props) => props.percent}, #ffffff ${(props) => props.percent});
+`;
