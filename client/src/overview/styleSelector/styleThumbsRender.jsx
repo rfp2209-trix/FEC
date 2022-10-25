@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HiOutlineCheckCircle } from 'react-icons/hi2';
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import * as Styled from './styleSelectorThumbs.styles.js';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 
@@ -25,7 +25,7 @@ export default function StyleThumbsRender({ image, id }) {
       photo={image}
       onClick={handleStyleClick}
     >
-      {checked ? <HiOutlineCheckCircle className="checkCircle" /> : <div /> }
+      {checked ? <IoIosCheckmarkCircleOutline className="checkCircle" aria-label="check-circle" /> : <div /> }
     </Styled.ThumbImage>
   );
 }

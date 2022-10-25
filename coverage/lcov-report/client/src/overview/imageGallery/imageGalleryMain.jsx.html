@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.34% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/49</span>
+                <span class='fraction'>2/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/46</span>
+                <span class='fraction'>2/43</span>
             </div>
         
             
@@ -157,9 +157,7 @@
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
 <a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,10 +172,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,15 +202,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,6 +240,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -262,20 +258,18 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { HiMagnifyingGlassPlus } from 'react-icons/hi2';
+import React, { useState, useEffect, useRef } from 'react';
+import { SlMagnifier } from 'react-icons/sl';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 import { useProductsContext } from '../../Context.jsx';
 import { useOverviewContext } from '../overviewContextWrapper.jsx';
 import * as Styled from './imageGalleryMain.styles.js';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >ImageGalleryMain(</span>) {
-  const { styleDetails, loading } = <span class="cstat-no" title="statement not covered" >useProductsContext();</span>
-  const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = <span class="cstat-no" title="statement not covered" >useOverviewContext();</span>
+export default function ImageGalleryMain() {
+  const { styleDetails, loading } = useProductsContext();
+  const { styleId, setStyleId, mainPhoto, setMainPhoto, photoIndex, setPhotoIndex } = useOverviewContext();
   const ref = <span class="cstat-no" title="statement not covered" >useRef(null);</span>
   const [zoom, setZoom] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-  const [allowMove, setAllowMove] = <span class="cstat-no" title="statement not covered" >useState(false);</span> // TODO: implement main photo pan-zoom
-  const [toggle, setToggle] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!loading &amp;&amp; styleDetails &amp;&amp; styleId === 0) {</span>
@@ -301,18 +295,15 @@ export default function <span class="fstat-no" title="function not covered" >Ima
 <span class="cstat-no" title="statement not covered" >      setMainPhoto(photo);</span>
     }
   }, [photoIndex]);
-  // TODO: Fix pan functionality -- removeEventListener not working
-  // TODO: Fix photos not displaying correctly -- not centered
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     const element = <span class="cstat-no" title="statement not covered" >ref.current;</span>
     const listen = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      element.style.backgroundPositionX = `${-event.offsetX}px`;</span>
-<span class="cstat-no" title="statement not covered" >      element.style.backgroundPositionY = `${-event.offsetY}px`;</span>
+<span class="cstat-no" title="statement not covered" >      element.style.backgroundPositionX = `${-event.offsetX * 9}px`;</span>
+<span class="cstat-no" title="statement not covered" >      element.style.backgroundPositionY = `${-event.offsetY * 9}px`;</span>
     };
 <span class="cstat-no" title="statement not covered" >    if (zoom === true) {</span>
 <span class="cstat-no" title="statement not covered" >      element.addEventListener('mousemove', listen);</span>
-<span class="cstat-no" title="statement not covered" >      setAllowMove(!allowMove);</span>
     } else {
 <span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
         const element = <span class="cstat-no" title="statement not covered" >ref.current;</span>
@@ -344,10 +335,13 @@ export default function <span class="fstat-no" title="function not covered" >Ima
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;Styled.MainImage&gt;
-      &lt;FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" /&gt;
-      &lt;FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" /&gt;
-      &lt;HiMagnifyingGlassPlus onClick={handleZoom} className="mag" aria-label="magnifying glass" /&gt;
-      {zoom === true ? &lt;Styled.MainPhotoZoom onClick={handleMainPhotoClick} photo={mainPhoto} ref={ref} /&gt; : &lt;Styled.MainPhotoDefault photo={mainPhoto} ref={ref} /&gt;}
+      {!zoom ? &lt;FaArrowCircleRight onClick={handleRight} name="right" className="ar" aria-label="arrow right" /&gt; : null }
+      {!zoom ? &lt;FaArrowCircleLeft onClick={handleLeft} className="al" name="left" aria-label="arrow left" /&gt; : null }
+      {!zoom ? &lt;SlMagnifier onClick={handleZoom} className="mag" aria-label="magnifying glass" /&gt; : null }
+      {zoom ? &lt;Styled.MainPhotoZoom ref={ref} onClick={handleMainPhotoClick} photo={mainPhoto} /&gt;
+        : &lt;Styled.MainPhotoDefault photo={mainPhoto} /&gt;}
+      {zoom ? &lt;FaArrowCircleRight onClick={handleRight} className="zoom-ar-right" /&gt; : null}
+      {zoom ? &lt;FaArrowCircleLeft onClick={handleLeft} className="zoom-ar-left" /&gt; : null}
     &lt;/Styled.MainImage&gt;
   );
 }
@@ -358,7 +352,15 @@ export default function <span class="fstat-no" title="function not covered" >Ima
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2022-10-24T23:37:49.168Z
+=======
+<<<<<<< HEAD
+                at 2022-10-25T16:07:59.062Z
+=======
+                at 2022-10-25T02:03:47.096Z
+>>>>>>> main
+>>>>>>> main
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

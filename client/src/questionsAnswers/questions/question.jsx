@@ -14,6 +14,8 @@ function Question(props) {
   };
   const handleAnswerQuestion = (e) => {
     e.stopPropagation();
+    console.log('answer question was clicked');
+    console.log('setCurrentQData', setCurrentQData);
     setCurrentQData([data.question_id, data.question_body]);
     setCurrentForm('new answer');
   };
