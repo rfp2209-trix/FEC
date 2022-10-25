@@ -7,13 +7,14 @@ import { objectSorter } from '../../../helpers.js';
 
 function Question(props) {
   const { data } = props;
-  const [moreAnswers, setMoreAnswers] = useState(false);
+  const [answerCount, setAnswerCount] = useState(2);
+  // const [moreAnswers, setMoreAnswers] = useState(false);
   const [answerQuestion, setAnswerQuestion] = useState(false);
   const sortedAnswers = objectSorter(data.answers, 'helpfulness');
-  const currAnswers = moreAnswers ? Object.values(sortedAnswers)
-    : Object.values(sortedAnswers).slice(0, 2);
+  const currAnswers = Object.values(sortedAnswers).slice(0, answerCount);
   const handleMoreAnswers = () => {
-    setMoreAnswers(!moreAnswers);
+    let currCount = answerCount;
+    setAnswerCount(currCount += 2);
   };
   const handleAnswerQuestion = (e) => {
     e.stopPropagation();
@@ -31,9 +32,9 @@ function Question(props) {
       <br />
       <b>A: </b>
       {currAnswers.map((each) => <AnswerItem values={each} key={each.id} />)}
-      {Object.keys(data.answers).length > 2 ? (
+      {Object.keys(data.answers).length > answerCount ? (
         <button type="submit" onClick={handleMoreAnswers}>
-          { !moreAnswers ? <small>Show More Answers</small> : <small>Collapse Answers</small> }
+          <small>Show More Answers</small>
         </button>
       ) : null }
       <button type="submit" onClick={handleAnswerQuestion}><small>Answer Question</small></button>
