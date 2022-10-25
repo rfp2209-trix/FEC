@@ -1,17 +1,18 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/prefer-default-export */
 import React, { useState, useContext, createContext } from 'react';
 
-const OverviewContext = createContext();
+const OverviewMockContext = createContext();
 
-export function OverviewContextWrapper({ children }) {
+export function OverviewMockContextWrapper({ children }) {
   const [styleId, setStyleId] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainPhoto, setMainPhoto] = useState('');
   const [sideScroll, setSideScroll] = useState('');
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  const values = {
+  const mockOverviewValues = {
     styleId,
     setStyleId,
     styleName,
@@ -24,13 +25,11 @@ export function OverviewContextWrapper({ children }) {
     setPhotoIndex,
   };
 
-  return <OverviewContext.Provider value={values}>{children}</OverviewContext.Provider>;
+  return <OverviewMockContext.Provider value={mockOverviewValues}>{children}</OverviewMockContext.Provider>;
 }
 
-export function useOverviewContext() {
-  const overviewCtx = useContext(OverviewContext);
-  if (!overviewCtx) {
-    throw new Error('Must use within Overview Container');
-  }
-  return overviewCtx;
+export function useMockOverviewContext() {
+  const context = useContext(OverviewMockContext);
+  return context;
 }
+

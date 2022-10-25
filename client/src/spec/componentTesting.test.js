@@ -28,7 +28,7 @@ beforeEach(() => {
   const useContextSpy = jest.spyOn(Context, 'useProductsContext').mockImplementation(useMockContext);
 });
 
-describe('App tests', () => {
+describe('Overview tests', () => {
   it('should contain alt text in an img tag', () => {
     render(<MockContext><ImageGalleryThumbnails /></MockContext>);
     const heading = screen.getByAltText('fashion pic');

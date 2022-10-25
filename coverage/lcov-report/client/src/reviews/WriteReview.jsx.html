@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.25% </span>
+                <span class="strong">6.45% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/32</span>
+                <span class='fraction'>2/31</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.25% </span>
+                <span class="strong">6.45% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/32</span>
+                <span class='fraction'>2/31</span>
             </div>
         
             
@@ -262,32 +262,8 @@
 <a name='L197'></a><a href='#L197'>197</a>
 <a name='L198'></a><a href='#L198'>198</a>
 <a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a>
-<a name='L201'></a><a href='#L201'>201</a>
-<a name='L202'></a><a href='#L202'>202</a>
-<a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a>
-<a name='L209'></a><a href='#L209'>209</a>
-<a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a>
-<a name='L212'></a><a href='#L212'>212</a>
-<a name='L213'></a><a href='#L213'>213</a>
-<a name='L214'></a><a href='#L214'>214</a>
-<a name='L215'></a><a href='#L215'>215</a>
-<a name='L216'></a><a href='#L216'>216</a>
-<a name='L217'></a><a href='#L217'>217</a>
-<a name='L218'></a><a href='#L218'>218</a>
-<a name='L219'></a><a href='#L219'>219</a>
-<a name='L220'></a><a href='#L220'>220</a>
-<a name='L221'></a><a href='#L221'>221</a>
-<a name='L222'></a><a href='#L222'>222</a>
-<a name='L223'></a><a href='#L223'>223</a>
-<a name='L224'></a><a href='#L224'>224</a>
-<a name='L225'></a><a href='#L225'>225</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L200'></a><a href='#L200'>200</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -313,32 +289,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -516,6 +466,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useProductsContext } from '../Context.jsx';
 import WriteCharacteristic from './WriteCharacteristic.jsx';
+import WriteRating from './WriteRating.jsx';
 import { sumArray, avgStarValue } from '../../helpers.js';
 &nbsp;
 function <span class="fstat-no" title="function not covered" >WriteReview(</span>{ setCurrentForm }) {
@@ -539,33 +490,7 @@ function <span class="fstat-no" title="function not covered" >WriteReview(</span
 <span class="cstat-no" title="statement not covered" >        e.stopPropagation();</span>
       }}
     &gt;
-      &lt;div
-        onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >          setFormData({ ...formData, rating: Number(e.target.value) });</span>
-        }}
-      &gt;
-        User Rating
-        &lt;label htmlFor="write_one_star"&gt;
-          &lt;input id="write_one_star" type="radio" name="write_rating" value="1" /&gt;
-          1
-        &lt;/label&gt;
-        &lt;label htmlFor="write_two_star"&gt;
-          &lt;input id="write_two_star" type="radio" name="write_rating" value="2" /&gt;
-          2
-        &lt;/label&gt;
-        &lt;label htmlFor="write_three_star"&gt;
-          &lt;input id="write_three_star" type="radio" name="write_rating" value="3" /&gt;
-          3
-        &lt;/label&gt;
-        &lt;label htmlFor="write_four_star"&gt;
-          &lt;input id="write_four_star" type="radio" name="write_rating" value="4" /&gt;
-          4
-        &lt;/label&gt;
-        &lt;label htmlFor="write_five_star"&gt;
-          &lt;input id="write_five_star" type="radio" name="write_rating" value="5" /&gt;
-          5
-        &lt;/label&gt;
-      &lt;/div&gt;
+      &lt;WriteRating formData={formData} setFormData={setFormData} /&gt;
       &lt;div
         onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
 <span class="cstat-no" title="statement not covered" >          setFormData({ ...formData, recommend: e.target.value === 'true' });</span>
@@ -742,7 +667,7 @@ const CharacteristicsContainer = styled.ul`
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-24T19:35:53.286Z
+                at 2022-10-25T16:07:59.062Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
