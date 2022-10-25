@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useProductsContext } from '../Context.jsx';
-import { BackgroundOpacityDiv, QAModalContainer } from './background.style.js';
+import { DarkBG, QAModalContainer } from './background.style.js';
 
 function AnswerModal({ setCurrentForm, currentQData }) {
   const { productsInfo, loading } = useProductsContext();
@@ -34,7 +34,7 @@ function AnswerModal({ setCurrentForm, currentQData }) {
   };
 
   return (
-    <BackgroundOpacityDiv onClick={() => { setCurrentForm('none'); }}>
+    <DarkBG onClick={() => { setCurrentForm('none'); }}>
       <QAModalContainer height="40vh" width="60vw" onClick={(e) => { e.stopPropagation(); }}>
         <form>
           <div name="answerModalHeader">
@@ -62,7 +62,7 @@ function AnswerModal({ setCurrentForm, currentQData }) {
           <button type="submit" onClick={handleSubmitAnswer}>Submit Answer</button>
         </form>
       </QAModalContainer>
-    </BackgroundOpacityDiv>
+    </DarkBG>
   );
 }
 

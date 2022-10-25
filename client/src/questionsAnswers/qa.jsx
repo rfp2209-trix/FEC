@@ -5,22 +5,43 @@ import Question from './questions/question.jsx';
 import { useProductsContext } from '../Context.jsx';
 
 function QA({ setCurrentForm, setCurrentQData }) {
-  const [input, setInput] = useState('');
   const [searching, setSearching] = useState(false);
   const [moreQuestions, setMoreQuestions] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   const { questionsData, loading } = useProductsContext();
+
   if (loading) {
-    return <small />;
+    return <span />;
   }
+
+  const handleQueryResults = (results) => {
+    console.log('searching? : ', searching);
+    setSearchResults(results);
+  };
+
   const handleMoreQuestions = () => {
     setMoreQuestions(!moreQuestions);
   };
-  const handleSearch = () => {
-    const questions = questionsData.results;
+
+  const mapTarget = searching ? searchResults : questionsData.results;
+
+  const handleSearch = (query) => {
+    if (query.length >= 3) {
+      setSearching(true);
+      const queryResults = questionsData.results.filter((each) => {
+        const answerList = each.answers;
+        return each.question_body.indexOf(query) !== -1
+        || Object.values(answerList).some((answer) => answer.body.indexOf(query) !== -1);
+      });
+      console.log('query results: ', queryResults);
+      handleQueryResults(queryResults);
+    } else {
+      setSearching(false);
+    }
   };
+  console.log('map target slice 4', mapTarget.slice(0, 4));
   const handleAsk = (e) => {
     e.stopPropagation();
-    console.log('CLICKED!');
     setCurrentForm('new question');
   };
 
@@ -33,32 +54,27 @@ function QA({ setCurrentForm, setCurrentQData }) {
         size="75"
         onChange={(e) => { handleSearch(e.target.value); }}
       />
-      <button type="submit" onClick={handleSearch}>Search</button>
-      { searching ? <SearchResults />
-        : (
-          <ul>
-            { !moreQuestions ? (
-              questionsData.results.slice(0, 4)
-                .map((each) => (
-                  <Question
-                    data={each}
-                    key={each.question_id}
-                    setCurrentForm={setCurrentForm}
-                    setCurrentQData={setCurrentQData}
-                  />
-                ))
-            ) : (
-              questionsData.results.map((each) => (
-                <Question
-                  data={each}
-                  setCurrentQData={setCurrentQData}
-                  setCurrentForm={setCurrentForm}
-                  key={each.question_id}
-                />
-              ))
-            )}
-          </ul>
-        )}
+      <ul>
+        { !moreQuestions
+          ? mapTarget.slice(0, 4)
+            .map((each) => (
+              <Question
+                data={each}
+                key={each.question_id}
+                setCurrentForm={setCurrentForm}
+                setCurrentQData={setCurrentQData}
+              />
+            )) : (
+            mapTarget.map((each) => (
+              <Question
+                data={each}
+                setCurrentQData={setCurrentQData}
+                setCurrentForm={setCurrentForm}
+                key={each.question_id}
+              />
+            ))
+          )}
+      </ul>
 
       <button type="submit" onClick={handleMoreQuestions}>
         { moreQuestions ? (<small>Collapse</small>)
