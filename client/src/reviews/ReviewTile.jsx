@@ -9,7 +9,7 @@ function ReviewTile({ review }) {
     return <div />;
   }
   return (
-    <li>
+    <li data-testid="review-tile">
       <div>{review.rating}</div>
       <div>{review.date}</div>
       <div>{review.summary}</div>
