@@ -10,7 +10,7 @@ export function RatingSummary() {
     return <div />;
   }
   return (
-    <div style={{ '--rating': avgReview, '--star-size': '44px', fontSize: '44px' }}>
+    <div style={{ '--rating': avgReview, '--star-size': '36px', fontSize: '44px' }}>
       {avgReview}
       &nbsp;
       <Stars />
@@ -23,17 +23,22 @@ export function StarsBreakdown() {
   if (loading) {
     return <div />;
   }
+  const mostStarRatings = Math.max(...Object.entries(reviewsMeta.ratings)
+    .map((nestedArray) => nestedArray[1]));
   const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) => {
-    const percent = ((resultArray[1] / totalReviews) * 100).toFixed(2);
+    const percent = ((resultArray[1] / mostStarRatings) * 100).toFixed(2);
     return (
       <li
         key={resultArray[0]}
-        style={{ '--rating': resultArray[0], '--star-size': '18px', fontSize: '18px' }}
+        style={{
+          '--rating': resultArray[0],
+          '--star-size': '18px',
+          fontSize: '18px',
+          width: '250px',
+        }}
       >
         <Stars />
         <PercentageReviewBar percent={`${percent}%`} />
-        &nbsp;
-        {resultArray[1]}
       </li>
     );
   });
@@ -50,9 +55,8 @@ export function StarsBreakdown() {
 const PercentageReviewBar = styled.div`
   display: inline-block;
   box-sizing: border-box;
-  border: 1px solid black;
   height: 12px;
-  min-width 140px;
-  border-radius: 12px;
+  min-width 150px;
+  border-radius: 2px;
   background: linear-gradient(to right, #536872 ${(props) => props.percent}, #ffffff ${(props) => props.percent});
 `;

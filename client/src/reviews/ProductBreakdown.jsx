@@ -14,9 +14,9 @@ function ProductBreakdown() {
       <GridSpan area="characteristic" justify="start">
         {indvChar[0]}
       </GridSpan>
-      <GridSpan area="low-desc">{charMeaning[indvChar[0]][0]}</GridSpan>
+      <GridSpan area="low-desc" justify="start">{charMeaning[indvChar[0]][0]}</GridSpan>
       <GridSpan area="mid-desc">{charMeaning[indvChar[0]][2]}</GridSpan>
-      <GridSpan area="high-desc">{charMeaning[indvChar[0]][4]}</GridSpan>
+      <GridSpan area="high-desc" justify="end">{charMeaning[indvChar[0]][4]}</GridSpan>
     </CharGrid>
   ));
   return (

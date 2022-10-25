@@ -8,11 +8,15 @@ export const MetaList = styled.ul`
 
 export const CharGrid = styled.li`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 50px);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
     "characteristic . . . ."
-    "one two three four five"
+    "1 2 3 4 5"
     "low-desc . mid-desc . high-desc"
 `;
 
+export const charDescribeBar = styled.div`
+  grid-area: ${(props) => props.area};
+
+`;

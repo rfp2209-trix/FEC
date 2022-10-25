@@ -13,6 +13,7 @@ const StyledStars = styled.div`
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
+  vertical-align: top;
 
   &::before {
     content: '★★★★★';
