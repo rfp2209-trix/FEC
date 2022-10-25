@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { charMeaning } from '../../helpers.js';
+import { GridSpan } from './reviews.style.js';
 
 function WriteCharacteristic({
   char, charID, formData, setFormData,
@@ -63,9 +64,4 @@ const RadioGrid = styled.div`
 const StyledRadio = styled.input`
   grid-area: ${(props) => props.area};
 `;
-const GridSpan = styled.span`
-  grid-area: ${(props) => props.area};
-  justify-self: ${(props) => (props.justify ? props.justify : 'center')};
-  white-space: nowrap;
-  overflow: visible;
-`;
+

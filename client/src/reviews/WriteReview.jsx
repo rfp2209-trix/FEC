@@ -82,7 +82,10 @@ function WriteReview({ setCurrentForm }) {
             rows="4"
             style={{ width: '380px', resize: 'none' }}
             onChange={(e) => {
-              setFormData({ ...formData, body: e.target.value.length <= 50 ? null : e.target.value });
+              setFormData({
+                ...formData,
+                body: e.target.value.length <= 50 ? null : e.target.value,
+              });
             }}
           />
         </label>
@@ -101,7 +104,7 @@ function WriteReview({ setCurrentForm }) {
           Add Photo
         </button>
         <label htmlFor="write_username" style={{ display: 'block' }}>
-        <h4 style={{ margin: '0px' }}>Username:</h4>
+          <h4 style={{ margin: '0px' }}>Username:</h4>
           <input
             type="text"
             maxLength="60"
