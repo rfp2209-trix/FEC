@@ -5,7 +5,6 @@ import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 import QuestionModal from './questionsAnswers/questionForm.jsx';
-import AnswerModal from './questionsAnswers/answerQuestionForm.jsx';
 import Header from './header.jsx';
 
 // import your react component to app.styles.js
