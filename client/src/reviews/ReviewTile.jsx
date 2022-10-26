@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useProductsContext } from '../Context.jsx';
+import { format } from 'date-fns';
+import Stars from './Stars.jsx';
 
 function ReviewTile({ review }) {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
@@ -9,10 +10,17 @@ function ReviewTile({ review }) {
     return <div />;
   }
   return (
-    <li data-testid="review-tile">
-      <div>{review.rating}</div>
-      <div>{review.date}</div>
-      <div>{review.summary}</div>
+    <li
+      data-testid="review-tile"
+      style={{
+        '--rating': review.rating,
+        '--star-size': '18px',
+        fontSize: '18px',
+      }}
+    >
+      <Stars />
+      <div>{format(new Date(review.date), 'MMMM dd, yyyy')}</div>
+      <b>{review.summary}</b>
       <div>{review.body}</div>
       <div>{review.recommend ? 'Recommended' : 'Not Recommended'}</div>
       <div>{review.reviewer_name}</div>

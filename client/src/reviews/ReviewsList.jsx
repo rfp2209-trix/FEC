@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
+import { MetaList } from './meta.style.js';
 
 function ReviewsList({ setCurrentForm }) {
   const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
@@ -45,9 +46,9 @@ function ReviewsList({ setCurrentForm }) {
       </label>
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
-      <ol>
+      <MetaList>
         {reviewListComponents.slice(0, reviewsDisplayed)}
-      </ol>
+      </MetaList>
       {reviewsDisplayed < reviewListComponents.length && (
         <button
           type="button"
