@@ -7,14 +7,10 @@ export default function OutfitListEntry({
   setOutfitStorage, OutfitStorageIndex, setOutfitStorageIndex,
 }) {
   const removeOutfitHandlder = () => {
-    // console.log('before', OutfitStorage)
-    // console.log('before', OutfitStorageIndex)
     OutfitStorage.splice(OutfitStorageIndex[currentProduct.id], 1);
     delete OutfitStorageIndex[currentProduct.id];
     setOutfitStorage([...OutfitStorage]);
     setOutfitStorageIndex({ ...OutfitStorageIndex });
-    // console.log('after', OutfitStorage)
-    // console.log('after', OutfitStorageIndex)
   };
   window.onstorage = (event) => {
     setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));

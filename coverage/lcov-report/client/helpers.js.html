@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.75% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/16</span>
+                <span class='fraction'>4/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>4/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>3/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -110,24 +110,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// CLIENT HELPERS HERE
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
@@ -142,25 +142,25 @@ export function avgStarValue(starsBreakdown) {
     / sumArray(Object.values(starsBreakdown));
 }
 &nbsp;
-export function objectSorter(unsortedObj, sortCriteria) {
-  Object.values(unsortedObj).sort((a, b) =&gt; {
-    if (a[sortCriteria] &gt; b[sortCriteria]) {
-      return 1;
+export function <span class="fstat-no" title="function not covered" >objectSorter(</span>unsortedObj, sortCriteria) {
+<span class="cstat-no" title="statement not covered" >  Object.values(unsortedObj).sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (a[sortCriteria] &gt; b[sortCriteria]) {</span>
+<span class="cstat-no" title="statement not covered" >      return 1;</span>
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (a[sortCriteria] &lt; b[sortCriteria]) {
-      return -1;
+<span class="cstat-no" title="statement not covered" >    if (a[sortCriteria] &lt; b[sortCriteria]) {</span>
+<span class="cstat-no" title="statement not covered" >      return -1;</span>
     }
 <span class="cstat-no" title="statement not covered" >    return 0;</span>
   });
-  return unsortedObj;
+<span class="cstat-no" title="statement not covered" >  return unsortedObj;</span>
 }
 &nbsp;
-export function date(inputDate) {
-  const output = []; // [exact BRD date format, prettified date format]
-  const okDate = new Date(inputDate).toDateString('en-us');
-  output.push(okDate.substring(4, okDate.length));
-  output.push(`${formatDistanceToNow(new Date(inputDate))} ago`);
-  return output;
+export function <span class="fstat-no" title="function not covered" >date(</span>inputDate) {
+  const output = <span class="cstat-no" title="statement not covered" >[];</span> // [exact BRD date format, prettified date format]
+  const okDate = <span class="cstat-no" title="statement not covered" >new Date(inputDate).toDateString('en-us');</span>
+<span class="cstat-no" title="statement not covered" >  output.push(okDate.substring(4, okDate.length));</span>
+<span class="cstat-no" title="statement not covered" >  output.push(`${formatDistanceToNow(new Date(inputDate))} ago`);</span>
+<span class="cstat-no" title="statement not covered" >  return output;</span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -169,7 +169,11 @@ export function date(inputDate) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
+                at 2022-10-25T21:43:08.660Z
+=======
                 at 2022-10-25T19:28:16.574Z
+>>>>>>> main
             </div>
         <script src="../prettify.js"></script>
         <script>
