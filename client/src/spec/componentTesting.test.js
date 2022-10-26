@@ -23,6 +23,8 @@ import RelatedProductList from '../related_comparison/RelatedProductList.jsx';
 import QA from '../questionsAnswers/qa.jsx';
 
 jest.mock('axios');
+
+axios = jestFn = function { mockResolvedValueOnce}
 console.log(mockData);
 beforeEach(() => {
   // uncomment the next func if using App to render
@@ -72,7 +74,7 @@ describe('Ratings & Reviews tests', () => {
     const charsDisplayed = screen.getAllByText(/((\bSize\b)|(\bWidth\b)|(\bFit\b)|(\bComfort\b)|(\bLength\b)|(\bQualityconst { getByTestId, getAllByTestId } = \b))/);
     expect(charsDisplayed.length).toBe(2);
   });
-  it('should use the API to sort the reviews', () => {
+  it('should use the API to sort the reviews', async () => {
     axios.get.mockResolvedValueOnce({
       product: '40346',
       page: 0,
@@ -155,9 +157,10 @@ describe('Ratings & Reviews tests', () => {
       ],
     });
     const { getByTestId, getAllByTestId } = render(<MockContext><ReviewsList /></MockContext>);
-    expect(axios.get).toHaveBeenCalledTimes(0);
-    fireEvent.change(getByTestId('sort-select'), { target: { value: 'newest' } });
-    expect(axios.get).toHaveBeenCalledWith(`/fec/reviews?product_id=${mockData.reviews.product}&count=161&sort=newest`);
+    const sortSelctor = await getByTestId('sort-select')
+    fireEvent.change(sortSelector, { target: { value: 'newest' } });
+    expect(axios.get).toHaveBeenLsstCalledWith(`/fec/reviews?product_id=${mockData.reviews.product}&count=161&sort=newest`);
+
   });
   it('should initially render 2 reviews to the screen', () => {
     const { queryByTestId, getByTestId, getAllByTestId } = render(<MockContext><ReviewsList /></MockContext>);
