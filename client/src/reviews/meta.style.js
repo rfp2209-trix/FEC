@@ -45,5 +45,4 @@ export const DownTriangle = styled.div`
 
 export const MetaContainer = styled.div`
   width: 260px;
-  margin-right: 30px;
 `;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 import { MetaList } from './meta.style.js';
-import { ReviewsListContainer } from './reviews.style.js';
+import { ReviewsListContainer, ReviewTileList } from './reviews.style.js';
 
 function ReviewsList({ setCurrentForm }) {
   const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
@@ -20,7 +20,7 @@ function ReviewsList({ setCurrentForm }) {
     <ReviewsListContainer id="review_list">
       <label htmlFor="sort_by">
         {totalReviews}
-        &nbsp;reviews, sorted by&nbspdiv;
+        &nbsp;reviews, sorted by&nbsp;
         <select
           value={reviewsSort}
           data-testid="sort-select"
@@ -47,9 +47,9 @@ function ReviewsList({ setCurrentForm }) {
       </label>
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
-      <MetaList>
+      <ReviewTileList>
         {reviewListComponents.slice(0, reviewsDisplayed)}
-      </MetaList>
+      </ReviewTileList>
       {reviewsDisplayed < reviewListComponents.length && (
         <button
           type="button"
