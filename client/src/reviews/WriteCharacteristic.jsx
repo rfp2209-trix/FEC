@@ -1,18 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { charMeaning } from '../../helpers.js';
+import { GridSpan } from './reviews.style.js';
 
 function WriteCharacteristic({
   char, charID, formData, setFormData,
 }) {
   const { characteristics } = formData;
-  const charMeaning = {
-    Size: ['A size too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
-    Width: ['Too narrow', 'Slightly Narrow', 'Perfect', 'Slightly wide', 'Too Wide'],
-    Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
-    Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
-    Length: ['Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
-    Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'runs long'],
-  };
   return (
     <ListGrid>
       <GridSpan justify="start" area="characteristic">
@@ -70,9 +64,4 @@ const RadioGrid = styled.div`
 const StyledRadio = styled.input`
   grid-area: ${(props) => props.area};
 `;
-const GridSpan = styled.span`
-  grid-area: ${(props) => props.area};
-  justify-self: ${(props) => (props.justify ? props.justify : 'center')};
-  white-space: nowrap;
-  overflow: visible;
-`;
+

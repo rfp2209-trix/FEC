@@ -9,7 +9,7 @@ export default function WriteRating({ formData, setFormData }) {
   const ratingButtons = [1, 2, 3, 4, 5].map((digit) => (
     <IoStarSharp
       key={digit}
-      style={{ color: digit <= formData.rating ? '#fc0' : 'rgb(180, 180, 180)' }}
+      style={{ color: digit <= formData.rating ? '#fc0' : 'rgb(180, 180, 180)', fontSize: '18px' }}
       onClick={() => setRatingOnClick(digit)}
     />
   ));

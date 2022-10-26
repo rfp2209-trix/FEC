@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const DarkBG = styled.div`
 position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
 height: 100vh;
 width: 100vw;
 top: 0%;
