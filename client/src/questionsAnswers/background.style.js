@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const DarkBG = styled.div`
 position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
 height: 100vh;
 width: 100vw;
 top: 0%;
@@ -17,7 +20,22 @@ export const QAModalContainer = styled.form`
   height: ${(props) => props.height};
   min-heigth: 400px;
   width: ${(props) => props.width};
-  min-width: 800px;
+  min-width: 600px;
   padding: 20px;
   background: #f0fff0;
+`;
+
+export const ModalContainer = styled.div`
+  position: fixed;
+  z-index: 999;
+  top: 37.5%;
+  left: 25%;
+  height: 25%;
+  width: 50%;
+  min-height: 300px;
+  background: #f0fff0;
+  min-width: 450px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 `;

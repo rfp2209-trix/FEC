@@ -6,8 +6,9 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "start-client": "npx webpack --watch",
-    "start-server": "npx nodemon server /server/index.js --watch"
+    "start-client": "npx webpack --mode development --watch",
+    "start-server": "npx nodemon server /server/index.js --watch",
+    "build-client": "npx webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "axios": "^1.1.2",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.5",
+    "cloudinary-core": "^2.13.0",
+    "compression": "^1.7.4",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

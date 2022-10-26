@@ -6,7 +6,6 @@ import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
 import WriteReview from './reviews/WriteReview.jsx';
 import QuestionModal from './questionsAnswers/questionForm.jsx';
-import AnswerModal from './questionsAnswers/answerQuestionForm.jsx';
 import Header from './header.jsx';
 
 // import your react component to app.styles.js
@@ -27,9 +26,9 @@ function App() {
       [clickDetails.widget] = [moduleClicked[0].id];
       clickDetails.time = new Date();
       clickDetails.element = e.target.nodeName;
-      console.log(clickDetails);
+      console.log('click details: ', clickDetails);
       axios.post('/fec/interactions', clickDetails)
-        .then((err) => {
+        .catch((err) => {
           if (err) {
             console.log('err', err)
           }

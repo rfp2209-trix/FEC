@@ -13,6 +13,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
   if (loading) {
     return <span />;
   }
+  console.log('questiosn Data: ', questionsData);
 
   const handleQueryResults = (results) => {
     console.log('searching? : ', searching);
@@ -21,6 +22,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
 
   const handleMoreQuestions = () => {
     setMoreQuestions(!moreQuestions);
+    console.log(`The user wants to see more questions: ${moreQuestions}`);
   };
 
   const mapTarget = searching ? searchResults : questionsData.results;
@@ -55,7 +57,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
       />
       <ul>
         { !moreQuestions
-          ? mapTarget.slice(0, 4)
+          ? (mapTarget.slice(0, 4)
             .map((each) => (
               <Question
                 data={each}
@@ -63,22 +65,24 @@ function QA({ setCurrentForm, setCurrentQData }) {
                 setCurrentForm={setCurrentForm}
                 setCurrentQData={setCurrentQData}
               />
-            )) : (
+            ))) : (
             mapTarget.map((each) => (
               <Question
                 data={each}
+                key={each.question_id}
                 setCurrentQData={setCurrentQData}
                 setCurrentForm={setCurrentForm}
-                key={each.question_id}
               />
             ))
           )}
       </ul>
 
-      <button type="submit" onClick={handleMoreQuestions}>
-        { moreQuestions ? (<small>Collapse</small>)
-          : (<small>See More Questions</small>) }
-      </button>
+      {questionsData.results.length > 4 ? (
+        <button type="submit" onClick={handleMoreQuestions}>
+          { moreQuestions ? (<small>Collapse</small>)
+            : (<small>See More Questions</small>) }
+        </button>
+      ) : null }
       <button type="submit" onClick={handleAsk} width="50"><small>Ask A Question</small></button>
     </div>
   );

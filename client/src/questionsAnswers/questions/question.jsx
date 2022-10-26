@@ -2,23 +2,26 @@ import React, { useState } from 'react';
 import AnswerItem from '../answers/answerItem.jsx';
 import Helpful from './helpfulQuestion.jsx';
 import Report from './reportQuestion.jsx';
+import AnswerModal from '../answerQuestionForm.jsx';
 import { objectSorter } from '../../../helpers.js';
 
 function Question(props) {
   const { data } = props;
-  const { setCurrentQData, setCurrentForm } = props;
-  const [moreAnswers, setMoreAnswers] = useState(false);
+  const [answerCount, setAnswerCount] = useState(2);
+  // const [moreAnswers, setMoreAnswers] = useState(false);
+  const [answerQuestion, setAnswerQuestion] = useState(false);
   const sortedAnswers = objectSorter(data.answers, 'helpfulness');
+  const currAnswers = Object.values(sortedAnswers).slice(0, answerCount);
   const handleMoreAnswers = () => {
-    setMoreAnswers(!moreAnswers);
+    let currCount = answerCount;
+    setAnswerCount(currCount += 2);
   };
   const handleAnswerQuestion = (e) => {
     e.stopPropagation();
+    setAnswerQuestion(true);
     console.log('answer question was clicked');
-    console.log('setCurrentQData', setCurrentQData);
-    setCurrentQData([data.question_id, data.question_body]);
-    setCurrentForm('new answer');
   };
+  console.log('data keys', Object.keys(data.answers));
 
   return (
     <div>
@@ -28,17 +31,20 @@ function Question(props) {
       <Report questionID={data.question_id} />
       <br />
       <b>A: </b>
-      { !moreAnswers ? (
-        Object.values(sortedAnswers).slice(0, 2)
-          .map((each) => (<AnswerItem values={each} key={each.id} />))
-      ) : (
-        Object.values(sortedAnswers)
-          .map((each) => (<AnswerItem values={each} key={each.id} />))
-      )}
-      <button type="submit" onClick={handleMoreAnswers}>
-        { !moreAnswers ? <small>Show More Answers</small> : <small>Collapse Answers</small> }
-      </button>
-      <button type="submit" onClick={handleAnswerQuestion}>Answer Question</button>
+      {currAnswers.map((each) => <AnswerItem values={each} key={each.id} />)}
+      {Object.keys(data.answers).length > answerCount ? (
+        <button type="submit" onClick={handleMoreAnswers}>
+          <small>Show More Answers</small>
+        </button>
+      ) : null }
+      <button type="submit" onClick={handleAnswerQuestion}><small>Answer Question</small></button>
+      {answerQuestion
+        ? (
+          <AnswerModal
+            currentQData={[data.question_id, data.question_body]}
+            setAnswerQuestion={setAnswerQuestion}
+          />
+        ) : null }
     </div>
   );
 }
