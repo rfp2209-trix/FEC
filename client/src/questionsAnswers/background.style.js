@@ -22,7 +22,7 @@ export const QAModalContainer = styled.form`
   background: #f0fff0;
 `;
 
-export const AnswerModalContainer = styled.div`
+export const ModalContainer = styled.div`
   position: fixed;
   z-index: 999;
   top: 37.5%;
