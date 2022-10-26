@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
 import { MetaList } from './meta.style.js';
+import { ReviewsListContainer } from './reviews.style.js';
 
 function ReviewsList({ setCurrentForm }) {
   const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
@@ -16,10 +17,10 @@ function ReviewsList({ setCurrentForm }) {
     <ReviewTile key={review.review_id} review={review} />
   ));
   return (
-    <div id="review_list">
+    <ReviewsListContainer id="review_list">
       <label htmlFor="sort_by">
         {totalReviews}
-        &nbsp;reviews, sorted by&nbsp;
+        &nbsp;reviews, sorted by&nbspdiv;
         <select
           value={reviewsSort}
           data-testid="sort-select"
@@ -76,7 +77,7 @@ function ReviewsList({ setCurrentForm }) {
       >
         Add Review
       </button>
-    </div>
+    </ReviewsListContainer>
   );
 }
 

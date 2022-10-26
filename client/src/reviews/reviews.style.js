@@ -11,3 +11,6 @@ export const ReviewsFlex = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+export const ReviewsListContainer = styled.div`
+`;

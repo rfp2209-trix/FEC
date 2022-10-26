@@ -42,3 +42,8 @@ export const DownTriangle = styled.div`
   border-right: 14px solid transparent;
   border-top:  14px solid #536872;
   `;
+
+export const MetaContainer = styled.div`
+  width: 260px;
+  margin-right: 30px;
+`;

@@ -21,6 +21,6 @@ export default Reviews;
 const ReviewsContainer = styled.div`
   width: 100vw;
   padding: 0px;
-  background: #f0fff0;
+  background: white;
   margin: 0px;
 `;
