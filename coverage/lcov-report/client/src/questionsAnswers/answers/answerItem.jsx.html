@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -111,12 +111,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,7 +127,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,7 +139,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,11 +150,11 @@ import Report from './reportAnswer.jsx';
 import { date } from '../../../helpers.js';
 import Photo from './photo.jsx';
 &nbsp;
-function <span class="fstat-no" title="function not covered" >AnswerItem(</span>{ values }) {
-  const { helpfulness } = <span class="cstat-no" title="statement not covered" >values;</span>
-  const { photos } = <span class="cstat-no" title="statement not covered" >values;</span> // returns an array with URLs
+function AnswerItem({ values }) {
+  const { helpfulness } = values;
+  const { photos } = values; // returns an array with URLs
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div&gt;
       {values.body}
       &lt;Helpful answerID={values.id} helpfulness={helpfulness} /&gt;
@@ -162,17 +162,17 @@ function <span class="fstat-no" title="function not covered" >AnswerItem(</span>
       &lt;div&gt;
         &lt;small&gt;
           &lt;b&gt;
-            {values.answerer_name === 'Atelier' ? &lt;small&gt;&lt;b&gt;Seller &lt;/b&gt;&lt;/small&gt; : null}
+            {values.answerer_name === 'Atelier' ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;small&gt;&lt;b&gt;Seller &lt;/b&gt;&lt;/small&gt; </span>: null}
             {values.answerer_name}
           &lt;/b&gt;
           {date(values.date)[0]}
         &lt;/small&gt;
       &lt;/div&gt;
-      { photos ? photos.map(<span class="fstat-no" title="function not covered" >(e</span>ach) =&gt; (
-<span class="cstat-no" title="statement not covered" >        &lt;PhotoContainer value={each} key={`photoKey: ${each}`}&gt;</span>
+      { photos ? photos.map((each) =&gt; (
+        &lt;PhotoContainer value={each} key={`photoKey: ${each}`}&gt;
           &lt;Photo URL={each} /&gt;
         &lt;/PhotoContainer&gt;
-      )) : null }
+      )) : <span class="branch-1 cbranch-no" title="branch not covered" >null </span>}
     &lt;/div&gt;
   );
 }
@@ -190,7 +190,7 @@ const PhotoContainer = styled.div`
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-25T22:38:20.059Z
+                at 2022-10-26T02:00:15.507Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

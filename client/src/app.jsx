@@ -17,19 +17,19 @@ function App() {
   const [currentQData, setCurrentQData] = useState([]);
   const [ClickData, setClickData] = useState([]);
 
-  const appElement = document.querySelector('#root');
-  appElement.addEventListener('click', (e) => {
-    const clickDetails = {};
-    const moduleClicked = e.path.filter((element) => element.id === 'OV'
-      || element.id === 'RIC'
-      || element.id === 'QA'
-      || element.id === 'REV');
-    [clickDetails.module] = [moduleClicked[0]];
-    clickDetails.time = new Date();
-    clickDetails.element = e.target;
-    setClickData([...ClickData, clickDetails]);
-  });
-  console.log('click tracker data: ', ClickData);
+  // const appElement = document.querySelector('#root');
+  // appElement.addEventListener('click', (e) => {
+  //   const clickDetails = {};
+  //   const moduleClicked = e.path.filter((element) => element.id === 'OV'
+  //     || element.id === 'RIC'
+  //     || element.id === 'QA'
+  //     || element.id === 'REV');
+  //   [clickDetails.module] = [moduleClicked[0]];
+  //   clickDetails.time = new Date();
+  //   clickDetails.element = e.target;
+  //   setClickData([...ClickData, clickDetails]);
+  // });
+  // console.log('click tracker data: ', ClickData);
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>

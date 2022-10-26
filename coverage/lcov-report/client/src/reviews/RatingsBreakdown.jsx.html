@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -117,20 +117,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,19 +139,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,8 +165,8 @@
 import { useProductsContext } from '../Context.jsx';
 import Stars from './Stars.jsx';
 &nbsp;
-function <span class="fstat-no" title="function not covered" >RatingsBreakdown(</span>) {
-<span class="cstat-no" title="statement not covered" >  return (</span>
+function RatingsBreakdown() {
+  return (
     &lt;div&gt;
       &lt;RatingSummary /&gt;
       &lt;StarsBreakdown /&gt;
@@ -174,12 +174,12 @@ function <span class="fstat-no" title="function not covered" >RatingsBreakdown(<
   );
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >RatingSummary(</span>) {
-  const { avgReview, loading } = <span class="cstat-no" title="statement not covered" >useProductsContext();</span>
-<span class="cstat-no" title="statement not covered" >  if (loading) {</span>
+function RatingSummary() {
+  const { avgReview, loading } = useProductsContext();
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (loading) {
 <span class="cstat-no" title="statement not covered" >    return &lt;div /&gt;;</span>
   }
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div style={{ '--rating': avgReview, '--star-size': '60px' }}&gt;
       {avgReview}
       &lt;Stars /&gt;
@@ -187,20 +187,20 @@ function <span class="fstat-no" title="function not covered" >RatingSummary(</sp
   );
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >StarsBreakdown(</span>) {
-  const { reviewsMeta, totalReviews, loading } = <span class="cstat-no" title="statement not covered" >useProductsContext();</span>
-<span class="cstat-no" title="statement not covered" >  if (loading) {</span>
+function StarsBreakdown() {
+  const { reviewsMeta, totalReviews, loading } = useProductsContext();
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (loading) {
 <span class="cstat-no" title="statement not covered" >    return &lt;div /&gt;;</span>
   }
-  const ratingsComponents = <span class="cstat-no" title="statement not covered" >Object.entries(reviewsMeta.ratings).reverse().map(<span class="fstat-no" title="function not covered" >(r</span>esultArray) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;li key={resultArray[0]}&gt;</span>
+  const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) =&gt; (
+    &lt;li key={resultArray[0]}&gt;
       {resultArray[0]}
       &amp;nbsp;stars (insert bar here showing relative amount of reviews)
       {resultArray[1]}
     &lt;/li&gt;
   ));
-  const percentRecomended = <span class="cstat-no" title="statement not covered" >(reviewsMeta.recommended.true / totalReviews) * 100;</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
+  return (
     &lt;div&gt;
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
@@ -217,7 +217,7 @@ export default RatingsBreakdown;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-25T22:38:20.059Z
+                at 2022-10-26T02:00:15.507Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
