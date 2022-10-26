@@ -6,3 +6,8 @@ export const GridSpan = styled.span`
   white-space: nowrap;
   overflow: visible;
 `;
+
+export const ReviewsFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
