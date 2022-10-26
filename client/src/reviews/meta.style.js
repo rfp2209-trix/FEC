@@ -8,15 +8,37 @@ export const MetaList = styled.ul`
 
 export const CharGrid = styled.li`
   display: grid;
+  width: 250px;
   grid-template-columns: repeat(5, 50px);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
     "characteristic . . . ."
-    "1 2 3 4 5"
+    "middle middle middle middle middle"
     "low-desc . mid-desc . high-desc"
 `;
 
-export const charDescribeBar = styled.div`
+export const CharDescribeBar = styled.div`
   grid-area: ${(props) => props.area};
-
+  display: inline-block;
+  justify-self: center;
+  height: 12px;
+  width: 60.5px;
+  border: 1px solid white;
+  border-radius:2px;
+  background: #acc8d7
 `;
+
+export const FullCharBar = styled.div`
+  grid-area: middle
+`;
+
+export const DownTriangle = styled.div`
+  position: absolute;
+  left: ${(props) => props.percentLeft};
+  width: 0;
+  height: 0;
+  transform: translate(-14px);
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top:  14px solid #536872;
+  `;

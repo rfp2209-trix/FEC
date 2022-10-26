@@ -59,5 +59,5 @@ const PercentageReviewBar = styled.div`
   height: 12px;
   min-width 150px;
   border-radius: 2px;
-  background: linear-gradient(to right, #536872 ${(props) => props.percent}, #ffffff ${(props) => props.percent});
+  background: linear-gradient(to right, #536872 ${(props) => props.percent}, #acc8d7 ${(props) => props.percent});
 `;
