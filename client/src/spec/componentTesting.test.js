@@ -15,6 +15,7 @@ import ProductBreakdown from '../reviews/ProductBreakdown.jsx';
 import ReviewsList from '../reviews/ReviewsList.jsx';
 import ImageGalleryMain from '../overview/imageGallery/imageGalleryMain.jsx';
 import { MockContext, useMockContext, MockTestContext } from './mockContext.jsx';
+import { OverviewMockContextWrapper, OverviewMockContext, useMockOverviewContext } from './mockOverviewContext.jsx';
 import * as Context from '../Context.jsx';
 import * as mockData from './mockContextData.js';
 import ImageGalleryThumbnails from '../overview/imageGallery/imageGallery_thumbnails.jsx';
@@ -232,6 +233,13 @@ describe('Related & Comparison tests', () => {
     render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
     const heading = screen.getByText('Related Products');
     expect(heading).toBeInTheDocument();
+    // })
+    it('should contain related product cards', () => {
+      const mockCopy = { ...mockData };
+      mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
+      const Sandbox = render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
+      const relatedItems = Sandbox.container.querySelector('#related-items');
+      expect(relatedItems).toBeInTheDocument();
+    });
   });
-  // })
 });

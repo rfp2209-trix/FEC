@@ -37,7 +37,7 @@ export default function styleSelector() {
   const salePrice = (filteredStyles.length > 0 && (filteredStyles[0].sale_price !== null)) ? filteredStyles[0].sale_price : null;
 
   return (
-    <Styled.StyleContainerWrapper>
+    <Styled.StyleContainerWrapper data-testid="style-selector-exists">
       <div className="price-render-container">
         {!loading && salePrice
           ? <div>
@@ -50,7 +50,7 @@ export default function styleSelector() {
         <p>Style: &nbsp;</p>
         <p>{styleName}</p>
       </div>
-      <Styled.StyleSelectorContainer>
+      <Styled.StyleSelectorContainer data-testid="images-exist">
         {!loading && styleDetails.results.map((style) => {
           return <StyleThumbsRender
             key={style.style_id}

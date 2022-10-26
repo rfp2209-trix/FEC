@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for client/src/related_comparison/outfitListEntry.jsx</title>
+    <title>Code coverage report for client/src/related_comparison/OutfitListEntry.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">client/src/related_comparison</a> outfitListEntry.jsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">client/src/related_comparison</a> OutfitListEntry.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>6/16</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>6/16</span>
             </div>
         
             
@@ -145,7 +145,21 @@
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,10 +168,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -194,6 +212,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -236,10 +264,14 @@ export default function <span class="fstat-no" title="function not covered" >Out
   setOutfitStorage, OutfitStorageIndex, setOutfitStorageIndex,
 }) {
   const removeOutfitHandlder = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    // console.log('before', OutfitStorage)
+    // console.log('before', OutfitStorageIndex)
 <span class="cstat-no" title="statement not covered" >    OutfitStorage.splice(OutfitStorageIndex[currentProduct.id], 1);</span>
 <span class="cstat-no" title="statement not covered" >    delete OutfitStorageIndex[currentProduct.id];</span>
 <span class="cstat-no" title="statement not covered" >    setOutfitStorage([...OutfitStorage]);</span>
 <span class="cstat-no" title="statement not covered" >    setOutfitStorageIndex({ ...OutfitStorageIndex });</span>
+    // console.log('after', OutfitStorage)
+    // console.log('after', OutfitStorageIndex)
   };
 <span class="cstat-no" title="statement not covered" >  window.onstorage = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));</span>
@@ -249,7 +281,7 @@ export default function <span class="fstat-no" title="function not covered" >Out
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;OutfitListEntryContainer&gt;
       &lt;aside&gt;
-        &lt;img src={currentProduct.styleDetails.results[0].photos[0].url ? currentProduct.styleDetails.results[0].photos[0].url : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png'} width="258x" height="258px" alt="product img" /&gt;
+        &lt;OutfitListEntryImg image={currentProduct.styleDetails.results[0].photos[0].url ? currentProduct.styleDetails.results[0].photos[0].url : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png'} alt="product img" /&gt;
         &lt;RemoveFromOutfitButtonContainer onClick={removeOutfitHandlder}&gt;
           &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" /&gt;
         &lt;/RemoveFromOutfitButtonContainer&gt;
@@ -281,7 +313,17 @@ const OutfitListEntryContainer = styled.div`
   margin-left: 15px;
   margin-right: 15px;
   contain: content;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 `;
+&nbsp;
+const OutfitListEntryImg = styled.div`
+  background-image: url(${<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; <span class="cstat-no" title="statement not covered" >props.image}</span>);
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  width: 258px;
+  height: 258px;
+  `;
 &nbsp;
 const RemoveFromOutfitButtonContainer = styled.div`
 position: absolute;
@@ -317,9 +359,9 @@ const OutfitEntryPrice = styled.div`
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
 <<<<<<< HEAD
-                at 2022-10-25T16:07:59.062Z
+                at 2022-10-25T21:43:08.660Z
 =======
-                at 2022-10-25T02:03:47.096Z
+                at 2022-10-25T19:28:16.574Z
 >>>>>>> main
             </div>
         <script src="../../../prettify.js"></script>

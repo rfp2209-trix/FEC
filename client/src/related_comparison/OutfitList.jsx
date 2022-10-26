@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
 import OutfitListEntry from './OutfitListEntry.jsx';
+import { CarouselButtons, CarouselIcons } from './Carousel.style.js';
 
 export default function OutfitList() {
   const {
@@ -9,11 +10,22 @@ export default function OutfitList() {
   } = useProductsContext();
   const [OutfitStorage, setOutfitStorage] = useState([]);
   const [OutfitStorageIndex, setOutfitStorageIndex] = useState({});
+  const [OutfitView, setOutfitView] = useState(OutfitStorage.slice(0, 4));
+  const [LowerIndex, setLowerIndex] = useState(0);
+  const [HigherIndex, setHigherIndex] = useState(4);
 
   window.onstorage = (event) => {
     setOutfitStorage(JSON.parse(event.target.localStorage.OUTFIT_LIST));
     setOutfitStorageIndex(JSON.parse(event.target.localStorage.OUTFIT_LIST_INDEX));
   };
+
+  useEffect(() => {
+    if (OutfitStorage && OutfitStorage.length >= HigherIndex) {
+      setOutfitView(OutfitStorage.slice(LowerIndex, HigherIndex));
+    } else {
+      setOutfitView(OutfitStorage);
+    }
+  }, [OutfitStorage, LowerIndex, HigherIndex]);
 
   useEffect(() => {
     let localOutfitOnLoad = window.localStorage.getItem('OUTFIT_LIST');
@@ -35,6 +47,16 @@ export default function OutfitList() {
     window.localStorage.setItem('OUTFIT_LIST', JSON.stringify([...OutfitStorage]));
     window.localStorage.setItem('OUTFIT_LIST_INDEX', JSON.stringify(OutfitStorageIndex));
   }, [OutfitStorage, OutfitStorageIndex]);
+
+  const forwardClickHandler = () => {
+    setLowerIndex(LowerIndex + 1);
+    setHigherIndex(HigherIndex + 1);
+  };
+
+  const backwardClickHandler = () => {
+    setLowerIndex(LowerIndex - 1);
+    setHigherIndex(HigherIndex - 1);
+  };
 
   const addCurrentProductHandler = () => {
     const localStorageOnLoad = JSON.parse(window.localStorage.getItem('OUTFIT_LIST'));
@@ -58,14 +80,22 @@ export default function OutfitList() {
       <OutfitTitleText>
         Your Outfit
       </OutfitTitleText>
-      <OutfitListContainer>
+      <OutfitListContainer id="OutfitList">
         <AddCurrentProductToOutfitContainer>
           ADD TO OUTFIT
           <AddCurrentProductButton onClick={addCurrentProductHandler}>
             ➕
           </AddCurrentProductButton>
         </AddCurrentProductToOutfitContainer>
-        {OutfitStorage.length > 0 && OutfitStorage.map((currentProduct) => (
+        {OutfitStorage[LowerIndex - 1]
+        && (
+        <CarouselButtons onClick={backwardClickHandler}>
+          <CarouselIcons className="material-symbols-outlined">
+            arrow_back
+          </CarouselIcons>
+        </CarouselButtons>
+        )}
+        {OutfitView.length > 0 && OutfitView.map((currentProduct) => (
           <OutfitListEntry
             currentProduct={currentProduct}
             styleDetails={styleDetails}
@@ -78,6 +108,14 @@ export default function OutfitList() {
 
           />
         ))}
+        {OutfitStorage[HigherIndex]
+          && (
+          <CarouselButtons onClick={forwardClickHandler}>
+            <CarouselIcons className="material-symbols-outlined">
+              arrow_right_alt
+            </CarouselIcons>
+          </CarouselButtons>
+          )}
       </OutfitListContainer>
     </>
   );

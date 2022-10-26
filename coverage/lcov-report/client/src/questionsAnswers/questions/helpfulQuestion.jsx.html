@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,23 +107,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -145,12 +145,12 @@
 import axios from 'axios';
 // import useProductsContext from '../../Context.jsx';
 &nbsp;
-function Helpful(props) {
-  const [clicked, setClicked] = useState(false);
-  const { questionID } = props;
-  const { helpVotes } = props;
+function <span class="fstat-no" title="function not covered" >Helpful(</span>props) {
+  const [clicked, setClicked] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const { questionID } = <span class="cstat-no" title="statement not covered" >props;</span>
+  const { helpVotes } = <span class="cstat-no" title="statement not covered" >props;</span>
 &nbsp;
-  const handleHelpfulQuestion = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const handleHelpfulQuestion = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    console.log('You tried to say this question was helpful');</span>
 <span class="cstat-no" title="statement not covered" >    axios.put(`/fec/question/helpful/${questionID}`)</span>
       .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
@@ -162,7 +162,7 @@ function Helpful(props) {
       });
   };
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;span&gt;
       {' Helpful?'}
       { !clicked ? (
@@ -174,7 +174,7 @@ function Helpful(props) {
           &lt;/small&gt;
         &lt;/button&gt;
       )
-        : <span class="branch-1 cbranch-no" title="branch not covered" >&lt;span&gt;Thank you!&lt;/span&gt; </span>}
+        : &lt;span&gt;Thank you!&lt;/span&gt; }
     &lt;/span&gt;
   );
 }
@@ -188,9 +188,9 @@ export default Helpful;
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
 <<<<<<< HEAD
-                at 2022-10-25T16:07:59.062Z
+                at 2022-10-25T21:43:08.660Z
 =======
-                at 2022-10-25T02:03:47.096Z
+                at 2022-10-25T19:28:16.574Z
 >>>>>>> main
             </div>
         <script src="../../../../prettify.js"></script>
