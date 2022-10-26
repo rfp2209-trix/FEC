@@ -18,13 +18,13 @@ export default function Card({
     }
   };
   return (
-    <CardContainer>
+    <CardContainer href={`?product_id=${currentProduct.id}`}>
       <aside>
         <CardImg image={img} alt="product img" />
-        <CompareButtonContainer onClick={toggleModal}>
+        <CompareButtonContainer onClick={(e) => { e.preventDefault(); toggleModal(); }}>
           <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" alt="comparison arrow button" />
         </CompareButtonContainer>
-        <AddToOutfitButtonContainer onClick={addToOutfitHandler}>
+        <AddToOutfitButtonContainer onClick={(e) => { e.preventDefault(); addToOutfitHandler(); }}>
           <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" alt="add to outfit star button" />
         </AddToOutfitButtonContainer>
         <CardText>
@@ -44,7 +44,7 @@ export default function Card({
     </CardContainer>
   );
 }
-const CardContainer = styled.div`
+const CardContainer = styled.a`
   contain: content;
   margin: 0px;
   padding: 0px;

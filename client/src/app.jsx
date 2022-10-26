@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { OverviewContextWrapper } from './overview/overviewContextWrapper.jsx';
 import * as Styled from './app.style.js';
 import Reviews from './reviews/Reviews.jsx';
@@ -15,21 +16,26 @@ import Header from './header.jsx';
 function App() {
   const [currentForm, setCurrentForm] = useState('none');
   const [currentQData, setCurrentQData] = useState([]);
-  const [ClickData, setClickData] = useState([]);
-
-  const appElement = document.querySelector('#root');
-  appElement.addEventListener('click', (e) => {
-    const clickDetails = {};
-    const moduleClicked = e.path.filter((element) => element.id === 'OV'
-      || element.id === 'RIC'
-      || element.id === 'QA'
-      || element.id === 'REV');
-    [clickDetails.module] = [moduleClicked[0]];
-    clickDetails.time = new Date();
-    clickDetails.element = e.target;
-    setClickData([...ClickData, clickDetails]);
-  });
-  console.log('click tracker data: ', ClickData);
+  useEffect(() => {
+    const appElement = document.querySelector('#root');
+    appElement.addEventListener('click', ((e) => {
+      const clickDetails = {};
+      const moduleClicked = e.path.filter((element) => element.id === 'OV'
+        || element.id === 'RIC'
+        || element.id === 'QA'
+        || element.id === 'REV');
+      [clickDetails.widget] = [moduleClicked[0].id];
+      clickDetails.time = new Date();
+      clickDetails.element = e.target.nodeName;
+      console.log(clickDetails);
+      axios.post('/fec/interactions', clickDetails)
+        .then((err) => {
+          if (err) {
+            console.log('err', err)
+          }
+        });
+    }));
+  }, []);
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>

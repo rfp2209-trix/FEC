@@ -39,7 +39,6 @@ function QA({ setCurrentForm, setCurrentQData }) {
       setSearching(false);
     }
   };
-  console.log('map target slice 4', mapTarget.slice(0, 4));
   const handleAsk = (e) => {
     e.stopPropagation();
     setCurrentForm('new question');

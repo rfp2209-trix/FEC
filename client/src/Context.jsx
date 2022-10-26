@@ -12,8 +12,8 @@ export function Context({ children }) {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const product_id = 40351;
-
+  const urlParams = new URLSearchParams(window.location.search);
+  const product_id = urlParams.get('product_id') || 40366;
   const getNewProduct = () => {
     // set the loading date to true for each call
     setLoading(true);
@@ -55,7 +55,6 @@ export function Context({ children }) {
           reviewsSort: 'relevent',
         };
 
-        // console.log(tempState);
         setState(tempState);
         setLoading(false);
       } catch (err) {
