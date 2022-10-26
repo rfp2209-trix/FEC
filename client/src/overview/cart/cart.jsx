@@ -77,11 +77,6 @@ export default function Cart() {
     setSelectQuantityArray(quantityList);
   }, [selectQuantity]);
 
-  // TODO: disable quantity if not selected size;
-  // TODO: display user message above size if user
-  //       tries to sel quantity w/o selecting a size
-
-
   return (
     <Styled.CartContainer>
       <div className="cart-title" data-testid="cart-exists">
