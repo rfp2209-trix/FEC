@@ -61,9 +61,9 @@ export default function Cart() {
     setUserQuantity(event.target.value);
   };
 
-  const handleQuanFocus = () => {
+  const handleQuanFocus = (event) => {
     if (userSize === null) {
-      setShowNoSizeWarning(true);
+      setShowNoSizeWarning(true)
     }
   };
 
@@ -77,34 +77,28 @@ export default function Cart() {
     setSelectQuantityArray(quantityList);
   }, [selectQuantity]);
 
-  // TODO: disable quantity if not selected size;
-  // TODO: display user message above size if user
-  //       tries to sel quantity w/o selecting a size
-  // TODO: disable add to cart until user makes valid selections
-
   return (
     <Styled.CartContainer>
-      <div className="cart-title">
+      <div className="cart-title" data-testid="cart-exists">
         Add Item
       </div>
       <div className="sel-container">
         <div className="row">
           {showNoSizeWarning ? <span className="user-warning">Please Enter a Size</span> : null}
           <div>Select Size</div>
-          <select defaultValue="DEFAULT" className="selSize" onChange={handleSizeSelect} name="size">
+          <select defaultValue="DEFAULT" data-testid="size-exists" className="selSize" onChange={handleSizeSelect} name="size">
             <option value="DEFAULT" disabled hidden>Select Size</option>
             {skuMap?.map((sku) => {return (<option value={sku.skuKey} key={sku.skuKey}>{sku.details.size}</option>);})}
           </select>
         </div>
         <div className="row">
           <div>Select Quantity</div>
-          <select disabled={userSize === null} className="selQuan" name="quantity" onChange={handleQuanChange} onFocus={handleQuanFocus}>
-            {/* <option label="Quantity" value="" /> */}
+          <select aria-disabled={userSize === null} data-testid="quantity-exists" className="selQuan" data-isdimmed={userSize === null} name="quantity" onChange={handleQuanChange} onClick={handleQuanFocus}>
             {selectQuantityArray?.map((num, index) => {return (<option value={num} key={index}>{num}</option>);})}
           </select>
         </div>
         <div className="btn-container">
-          <button disabled={userQuantity === null || userSize === null} onClick={handleClick} className="addCart" type="button">Add to Cart</button>
+          <button data-testid="button-exists" disabled={userQuantity === null || userSize === null} onClick={handleClick} className="addCart" type="button">Add to Cart</button>
         </div>
       </div>
 

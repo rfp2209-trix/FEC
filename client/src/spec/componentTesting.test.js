@@ -15,6 +15,7 @@ import ProductBreakdown from '../reviews/ProductBreakdown.jsx';
 import ReviewsList from '../reviews/ReviewsList.jsx';
 import ImageGalleryMain from '../overview/imageGallery/imageGalleryMain.jsx';
 import { MockContext, useMockContext, MockTestContext } from './mockContext.jsx';
+import { OverviewMockContextWrapper, OverviewMockContext, useMockOverviewContext } from './mockOverviewContext.jsx';
 import * as Context from '../Context.jsx';
 import * as mockData from './mockContextData.js';
 import ImageGalleryThumbnails from '../overview/imageGallery/imageGallery_thumbnails.jsx';
@@ -22,25 +23,14 @@ import RelatedProductList from '../related_comparison/RelatedProductList.jsx';
 import QA from '../questionsAnswers/qa.jsx';
 
 jest.mock('axios');
+
+axios = jestFn = function { mockResolvedValueOnce}
 console.log(mockData);
 beforeEach(() => {
   // uncomment the next func if using App to render
   // const spy = jest.spyOn(Context, 'Context').mockImplementation(({ children }) => <MockContext>{children}</MockContext>);
   const useContextSpy = jest.spyOn(Context, 'useProductsContext').mockImplementation(useMockContext);
 });
-
-// describe('App tests', () => {
-//   it('should contain alt text in an img tag', () => {
-//     render(<MockContext><ImageGalleryThumbnails /></MockContext>);
-//     const heading = screen.getByAltText('fashion pic');
-//     expect(heading).toBeInTheDocument();
-//   });
-//   it('should contain alt text', () => {
-//     render(<MockContext><ImageGalleryMain /></MockContext>);
-//     const text = screen.getByAltText('should be a pic here');
-//     expect(text).toBeInTheDocument();
-//   });
-// });
 
 describe('Ratings & Reviews tests', () => {
   it('should contain ratings and reviews in a header', () => {
@@ -71,7 +61,7 @@ describe('Ratings & Reviews tests', () => {
     const charsDisplayed = screen.getAllByText(/((\bSize\b)|(\bWidth\b)|(\bFit\b)|(\bComfort\b)|(\bLength\b)|(\bQualityconst { getByTestId, getAllByTestId } = \b))/);
     expect(charsDisplayed.length).toBe(2);
   });
-  it('should use the API to sort the reviews', () => {
+  it('should use the API to sort the reviews', async () => {
     axios.get.mockResolvedValueOnce({
       product: '40346',
       page: 0,
@@ -154,9 +144,10 @@ describe('Ratings & Reviews tests', () => {
       ],
     });
     const { getByTestId, getAllByTestId } = render(<MockContext><ReviewsList /></MockContext>);
-    expect(axios.get).toHaveBeenCalledTimes(0);
-    fireEvent.change(getByTestId('sort-select'), { target: { value: 'newest' } });
-    expect(axios.get).toHaveBeenCalledWith(`/fec/reviews?product_id=${mockData.reviews.product}&count=161&sort=newest`);
+    const sortSelctor = await getByTestId('sort-select')
+    fireEvent.change(sortSelector, { target: { value: 'newest' } });
+    expect(axios.get).toHaveBeenLsstCalledWith(`/fec/reviews?product_id=${mockData.reviews.product}&count=161&sort=newest`);
+
   });
   it('should initially render 2 reviews to the screen', () => {
     const { queryByTestId, getByTestId, getAllByTestId } = render(<MockContext><ReviewsList /></MockContext>);
@@ -229,6 +220,13 @@ describe('Related & Comparison tests', () => {
     render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
     const heading = screen.getByText('Related Products');
     expect(heading).toBeInTheDocument();
+    // })
+    it('should contain related product cards', () => {
+      const mockCopy = { ...mockData };
+      mockCopy.relatedProductsInfo = [mockCopy.relatedProductsInfo];
+      const Sandbox = render(<MockTestContext.Provider value={mockCopy}><RelatedProductList /></MockTestContext.Provider>);
+      const relatedItems = Sandbox.container.querySelector('#related-items');
+      expect(relatedItems).toBeInTheDocument();
+    });
   });
-  // })
 });

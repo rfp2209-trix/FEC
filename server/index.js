@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const compression = require('compression');
 const router = require('./router');
 
 const app = express();
@@ -16,6 +17,8 @@ const logger = (req, res, next) => {
 };
 app.use(logger);
 app.use('/fec', router);
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 

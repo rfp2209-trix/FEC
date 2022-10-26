@@ -31,3 +31,12 @@ export function date(inputDate) {
   output.push(`${formatDistanceToNow(new Date(inputDate))} ago`);
   return output;
 }
+
+export const charMeaning = {
+  Size: ['A size too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
+  Width: ['Too narrow', 'Slightly Narrow', 'Perfect', 'Slightly wide', 'Too Wide'],
+  Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
+  Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
+  Length: ['Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
+  Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'runs long'],
+};
