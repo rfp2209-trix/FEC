@@ -19,9 +19,6 @@ const ReviewsContainer = styled.div`
 
   width: 100vw;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
   background: white;
-  flex: 1;
-  margin: 0 0 80px 0;
+  margin: 0px;
 `;
