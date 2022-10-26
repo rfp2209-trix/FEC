@@ -15,29 +15,51 @@ import Header from './header.jsx';
 function App() {
   const [currentForm, setCurrentForm] = useState('none');
   const [currentQData, setCurrentQData] = useState([]);
+  const [ClickData, setClickData] = useState([]);
+
+  const appElement = document.querySelector('#root');
+  appElement.addEventListener('click', (e) => {
+    const clickDetails = {};
+    const moduleClicked = e.path.filter((element) => element.id === 'OV'
+      || element.id === 'RIC'
+      || element.id === 'QA'
+      || element.id === 'REV');
+    [clickDetails.module] = [moduleClicked[0]];
+    clickDetails.time = new Date();
+    clickDetails.element = e.target;
+    setClickData([...ClickData, clickDetails]);
+  });
+  console.log('click tracker data: ', ClickData);
   return (
     <Styled.Container onClick={() => setCurrentForm('none')}>
       <Styled.Header>
         <Header />
       </Styled.Header>
       <OverviewContextWrapper>
-        <Styled.OverviewContainer />
+        <div id="OV">
+          <Styled.OverviewContainer />
+        </div>
       </OverviewContextWrapper>
       <br />
       {/* <Styled.SectionBreakOne /> */}
-      <Styled.RelatedProductListContainer />
-      <Styled.OutfitListContainer />
-      <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
-      {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
-      {/* <Styled.OutfitListContainer /> */}
-      <Styled.QuestionsContainer
-        setCurrentForm={setCurrentForm}
-        setCurrentQData={setCurrentQData}
-      />
-      {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
-      {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
-      <Reviews setCurrentForm={setCurrentForm} />
-      {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
+      <div id="RIC">
+        <Styled.RelatedProductListContainer />
+        <Styled.OutfitListContainer />
+      </div>
+      <div id="QA">
+        <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+        {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+        <Styled.QuestionsContainer
+          setCurrentForm={setCurrentForm}
+          setCurrentQData={setCurrentQData}
+        />
+        {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
+        {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
+      </div>
+      <div id="REV">
+        <Reviews setCurrentForm={setCurrentForm} />
+        {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
+      </div>
       {/* <Styled.Footer>
         <h2>
           Footer Goes Here
