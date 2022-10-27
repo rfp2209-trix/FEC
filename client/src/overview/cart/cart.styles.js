@@ -30,7 +30,18 @@ export const CartContainer = styled.div`
 
   .selQuan {
     margin-right: 10px;
+
   }
+  .selQuan[data-isdimmed=true] {
+    opacity: .2;
+  }
+
+  .selQual[data-isdimmed=false] {
+    opacity: 0;
+  }
+
+
+
   select:hover {
     background-color: #f2f2f2;
     /* box-shadow: 5px 5px 50px lightgrey; */

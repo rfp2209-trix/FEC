@@ -61,9 +61,9 @@ export default function Cart() {
     setUserQuantity(event.target.value);
   };
 
-  const handleQuanFocus = () => {
+  const handleQuanFocus = (event) => {
     if (userSize === null) {
-      setShowNoSizeWarning(true);
+      setShowNoSizeWarning(true)
     }
   };
 
@@ -76,11 +76,6 @@ export default function Cart() {
     }
     setSelectQuantityArray(quantityList);
   }, [selectQuantity]);
-
-  // TODO: disable quantity if not selected size;
-  // TODO: display user message above size if user
-  //       tries to sel quantity w/o selecting a size
-  // TODO: disable add to cart until user makes valid selections
 
   return (
     <Styled.CartContainer>
@@ -98,8 +93,7 @@ export default function Cart() {
         </div>
         <div className="row">
           <div>Select Quantity</div>
-          <select disabled={userSize === null} data-testid="quantity-exists" className="selQuan" name="quantity" onChange={handleQuanChange} onFocus={handleQuanFocus}>
-            {/* <option label="Quantity" value="" /> */}
+          <select aria-disabled={userSize === null} data-testid="quantity-exists" className="selQuan" data-isdimmed={userSize === null} name="quantity" onChange={handleQuanChange} onClick={handleQuanFocus}>
             {selectQuantityArray?.map((num, index) => {return (<option value={num} key={index}>{num}</option>);})}
           </select>
         </div>
