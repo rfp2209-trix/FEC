@@ -93,7 +93,7 @@ export const MainPhotoZoom = styled.div`
     position: fixed;
     cursor: zoom-out;
     background-image: url(${(props) => props.photo});
-
+    background-repeat: no-repeat;
     /* background-position: top-center;
     top: 0;
     left: 0; */
