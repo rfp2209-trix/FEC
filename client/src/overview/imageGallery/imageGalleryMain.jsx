@@ -44,16 +44,20 @@ export default function ImageGalleryMain() {
   }, [photoIndex]);
 
   useEffect(() => {
-    const element = ref.current;
-    const listen = (event) => {
-      element.style.backgroundPositionX = `${-event.offsetX * 9}px`;
-      element.style.backgroundPositionY = `${-event.offsetY * 9}px`;
-    };
     if (zoom === true) {
+      const element = ref.current;
+      const listen = (event) => {
+        element.style.backgroundPositionX = `${-event.offsetX * 10}px`;
+        element.style.backgroundPositionY = `${-event.offsetY * 10}px`;
+      };
       element.addEventListener('mousemove', listen);
     } else {
       return () => {
         const element = ref.current;
+        const listen = (event) => {
+          element.style.backgroundPositionX = `${-event.offsetX * 9}px`;
+          element.style.backgroundPositionY = `${-event.offsetY * 9}px`;
+        };
         element.removeEventListener('mousemove', listen);
       };
     }

@@ -30,7 +30,7 @@ function App() {
       axios.post('/fec/interactions', clickDetails)
         .catch((err) => {
           if (err) {
-            console.log('err', err)
+            console.log('err', err);
           }
         });
     }));

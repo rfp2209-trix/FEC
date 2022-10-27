@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const MainImage = styled.section`
 display: flex;
 position: relative;
-/* overflow: auto; */
+overflow: hidden;
 border-radius: 8px;
 box-shadow: 10px 10px 50px grey;
 z-index: 20;
@@ -89,17 +89,16 @@ export const MainPhotoDefault = styled.div`
   transition: background-image 1s ease-in-out;
 `;
 export const MainPhotoZoom = styled.div`
-    z-index: 1000;
-    position: fixed;
+    position: absolute;
     cursor: zoom-out;
     background-image: url(${(props) => props.photo});
-    background-repeat: no-repeat;
-    /* background-position: top-center;
+    background-position: center-center;
+    /* background-repeat: no-repeat; */
     top: 0;
-    left: 0; */
+    left: 0;
     opacity: 1;
     transition: opacity 1s linear;
-    background-size: cover;
+    background-size: contain;
     height: 100%;
     width: 100%;
     border-radius: 6px;
