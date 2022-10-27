@@ -48,3 +48,23 @@ export const DownTriangle = styled.div`
 export const MetaContainer = styled.div`
   width: 260px;
 `;
+
+export const PercentageReviewBar = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
+  height: 12px;
+  min-width 100px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #536872 ${(props) => props.percent}, #acc8d7 ${(props) => props.percent});
+`;
+
+export const StyledRatingBreakdown = styled.li`
+  --rating: ${(props) => props.starRating};
+  font-size: 18px;
+  width: 250px;
+
+    &:hover{
+      color: #acc8d7;
+      --star-color: #536872;
+    }
+`;

@@ -1,8 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
 import Stars from './Stars.jsx';
-import { MetaList } from './meta.style.js';
+import {
+  MetaList,
+  PercentageReviewBar,
+  StyledRatingBreakdown,
+} from './meta.style.js';
 
 export function RatingSummary() {
   const { avgReview, loading } = useProductsContext();
@@ -23,28 +26,24 @@ export function StarsBreakdown() {
   if (loading) {
     return <div />;
   }
-  const mostStarRatings = Math.max(...Object.entries(reviewsMeta.ratings)
-    .map((nestedArray) => nestedArray[1]));
+  // const mostStarRatings = Math.max(...Object.entries(reviewsMeta.ratings)
+  //   .map((nestedArray) => nestedArray[1]));
   const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) => {
-    const percent = ((resultArray[1] / mostStarRatings) * 100).toFixed(2);
+    const percent = ((resultArray[1] / totalReviews) * 100).toFixed(2);
     return (
-      <li
+      <StyledRatingBreakdown
         key={resultArray[0]}
-        style={{
-          '--rating': resultArray[0],
-          '--star-size': '18px',
-          fontSize: '18px',
-          width: '250px',
-        }}
+        starRating={resultArray[0]}
       >
         <Stars width="100px" />
         <PercentageReviewBar percent={`${percent}%`} />
-      </li>
+        {` (${resultArray[1]})`}
+      </StyledRatingBreakdown>
     );
   });
   const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
   return (
-    <MetaList style={{fontSize: '16px'}}>
+    <MetaList style={{ fontSize: '16px' }}>
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
       {ratingsComponents}
@@ -52,11 +51,4 @@ export function StarsBreakdown() {
   );
 }
 
-const PercentageReviewBar = styled.div`
-  display: inline-block;
-  box-sizing: border-box;
-  height: 12px;
-  min-width 150px;
-  border-radius: 2px;
-  background: linear-gradient(to right, #536872 ${(props) => props.percent}, #acc8d7 ${(props) => props.percent});
-`;
+

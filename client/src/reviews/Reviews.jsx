@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReviewsMeta from './ReviewsMeta.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import { ReviewsFlex } from './reviews.style.js';
 
 function Reviews({ setCurrentForm }) {
+  const [ ratingsFilter, setRatingsFilter ] = useState([]);
   return (
     <ReviewsContainer>
       <h2>RATINGS & REVIEWS</h2>
       <ReviewsFlex gap="30px">
-        <ReviewsMeta />
+        <ReviewsMeta
+          ratingsFilter={ratingsFilter}
+          setRatingsFilter={setRatingsFilter}
+        />
         <ReviewsList setCurrentForm={setCurrentForm} />
       </ReviewsFlex>
     </ReviewsContainer>
