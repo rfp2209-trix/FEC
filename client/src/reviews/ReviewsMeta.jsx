@@ -1,14 +1,15 @@
 import React from 'react';
 import { RatingSummary, StarsBreakdown } from './RatingsBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
+import { MetaContainer } from './meta.style.js';
 
 function ReviewsMeta() {
   return (
-    <div style={{ width: '260px' }}>
+    <MetaContainer>
       <RatingSummary />
       <StarsBreakdown />
       <ProductBreakdown />
-    </div>
+    </MetaContainer>
   );
 }
 

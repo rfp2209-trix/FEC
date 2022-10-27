@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useProductsContext } from '../Context.jsx';
+import { format } from 'date-fns';
+import Stars from './Stars.jsx';
+import {
+  StyledTile,
+  TileFlex,
+  SummaryDiv,
+  StyledButton,
+  ReviewImg,
+} from './ReviewTile.styles.js';
 
 function ReviewTile({ review }) {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
@@ -8,54 +16,78 @@ function ReviewTile({ review }) {
   if (reportClicked) {
     return <div />;
   }
+  const photoElements = review.photos.map((photo) => <ReviewImg key={photo.id} src={photo.url} alt="[Review]" />);
   return (
-    <li data-testid="review-tile">
-      <div>{review.rating}</div>
-      <div>{review.date}</div>
-      <div>{review.summary}</div>
+    <StyledTile
+      rating={review.rating}
+      starSize="28px"
+      data-testid="review-tile"
+    >
+      <TileFlex styleFontSize="14px">
+        <Stars />
+        <div>
+          {review.reviewer_name}
+          ,&nbsp;
+          {format(new Date(review.date), 'MMMM dd, yyyy')}
+        </div>
+      </TileFlex>
+      <SummaryDiv>{review.summary}</SummaryDiv>
       <div>{review.body}</div>
-      <div>{review.recommend ? 'Recommended' : 'Not Recommended'}</div>
-      <div>{review.reviewer_name}</div>
-      <div>{!!review.response && review.response}</div>
-      {helpfulClicked ? (
-        <span>
-          helpful
-          &#40;
-          {review.helpfulness + 1}
-          &#41;
-        </span>
-      ) : (
-        <button
+      <div>
+        {photoElements}
+      </div>
+      {review.recommend && <div>✓ I recommended this product</div>}
+      {!!review.response && <div>{review.response}</div>}
+      <TileFlex
+        justify="start"
+        styleFontSize="14px"
+        gap="20px"
+      >
+        {helpfulClicked ? (
+          <span>
+            Helpful?&nbsp;
+            <u>Yes</u>
+            &nbsp;&#40;
+            {review.helpfulness + 1}
+            &#41;
+          </span>
+        ) : (
+          <span>
+            Helpful?&nbsp;
+            <StyledButton
+              type="button"
+              onClick={() => {
+                axios.put(`/fec/reviews/${review.review_id}/helpful`)
+                  .then(() => {
+                    console.log('success');
+                    setHelpfulClicked(true);
+                  })
+                  .catch((err) => console.log(err));
+              }}
+            >
+              Yes
+            </StyledButton>
+            &nbsp;&#40;
+            {review.helpfulness}
+            &#41;
+          </span>
+        )}
+        <span>&#124;</span>
+        <StyledButton
           type="button"
           onClick={() => {
-            axios.put(`/fec/reviews/${review.review_id}/helpful`)
+            axios.put(`/fec/reviews/${review.review_id}/report`)
               .then(() => {
                 console.log('success');
-                setHelpfulClicked(true);
+                setReportClicked(true);
               })
               .catch((err) => console.log(err));
           }}
         >
-          helpful
-          &#40;
-          {review.helpfulness}
-          &#41;
-        </button>
-      )}
-      <button
-        type="button"
-        onClick={() => {
-          axios.put(`/fec/reviews/${review.review_id}/report`)
-            .then(() => {
-              console.log('success');
-              setReportClicked(true);
-            })
-            .catch((err) => console.log(err));
-        }}
-      >
-        report
-      </button>
-    </li>
+          report
+        </StyledButton>
+      </TileFlex>
+    </StyledTile>
   );
 }
 

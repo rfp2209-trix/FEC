@@ -25,7 +25,8 @@ export const CharDescribeBar = styled.div`
   width: 60.5px;
   border: 1px solid white;
   border-radius:2px;
-  background: #acc8d7
+  background: #acc8d7;
+  vertical-align: baseline;
 `;
 
 export const FullCharBar = styled.div`
@@ -42,3 +43,7 @@ export const DownTriangle = styled.div`
   border-right: 14px solid transparent;
   border-top:  14px solid #536872;
   `;
+
+export const MetaContainer = styled.div`
+  width: 260px;
+`;

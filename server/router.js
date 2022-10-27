@@ -13,6 +13,7 @@ router.get('/productinfo/:product_id', controllers.relatedComparison.getProductI
 router.get('/productinfo/:product_id/styles', controllers.relatedComparison.getProductStyle);
 router.get('/averageReview/:product_id', controllers.relatedComparison.getAverageReviewRating);
 router.get('/productinfo/:product_id/getallinfo', controllers.relatedComparison.getAllInfo);
+router.post('/interactions', controllers.relatedComparison.storeInteraction);
 
 // QA ROUTES
 router.get('/questions/:productID', controllers.QAControls.getQuestions);
