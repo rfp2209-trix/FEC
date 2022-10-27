@@ -74,7 +74,7 @@ export const MainPhotoDefault = styled.div`
   margin: auto;
   transition: all .7s;
 }
-  background-image: url(${(props) => props.photo});
+  background: gray url(${(props) => props.photo});
   position: absolute;
   top: 0;
   left: 0;

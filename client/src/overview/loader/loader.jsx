@@ -3,7 +3,6 @@ import * as Styled from './loader.styles.js';
 
 export default function Loader() {
 
-
   return (
     <Styled.LoaderContainer>
       <div>
