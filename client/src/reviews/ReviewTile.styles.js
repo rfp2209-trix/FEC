@@ -6,7 +6,7 @@ export const StyledTile = styled.li`
   font-size: 18px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   border-bottom: 1px solid black;
   padding: 5px 5px 20px 5px;
 `;
@@ -50,4 +50,9 @@ export const ReviewImg = styled.img`
 export const StyledResponse = styled.div`
   padding: 10px;
   background: #DEDEDE;
+`;
+
+export const ModalImg = styled.img`
+  max-height: 50vh;
+  max-width: 75vw;
 `;

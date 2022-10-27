@@ -55,4 +55,3 @@ export const StyledSortSelect = styled.select`
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px
 `;
-

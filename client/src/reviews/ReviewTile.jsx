@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { DarkBG } from '../questionsAnswers/background.style.js';
 import Stars from './Stars.jsx';
 import {
   StyledTile,
@@ -9,15 +10,24 @@ import {
   StyledButton,
   ReviewImg,
   StyledResponse,
+  ModalImg,
 } from './ReviewTile.styles.js';
 
 function ReviewTile({ review }) {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [reportClicked, setReportClicked] = useState(false);
+  const [pictureClicked, setPictureClicked] = useState(null);
   if (reportClicked) {
     return <div />;
   }
-  const photoElements = review.photos.map((photo) => <ReviewImg key={photo.id} src={photo.url} alt="[Review]" />);
+  const photoElements = review.photos.map((photo) => (
+    <ReviewImg
+      key={photo.id}
+      src={photo.url}
+      alt="[Nothing Here]"
+      onClick={() => setPictureClicked(photo.url)}
+    />
+  ));
   return (
     <StyledTile
       rating={review.rating}
@@ -53,7 +63,7 @@ function ReviewTile({ review }) {
       >
         {helpfulClicked ? (
           <span>
-            Helpful?&nbsp;
+            Helpful?&nbsp;ictureClicked.length
             <u>Yes</u>
             &nbsp;&#40;
             {review.helpfulness + 1}
@@ -95,6 +105,13 @@ function ReviewTile({ review }) {
           report
         </StyledButton>
       </TileFlex>
+      {pictureClicked !== null && (
+      <DarkBG
+        onClick={() => setPictureClicked(null)}
+      >
+        <ModalImg src={pictureClicked} alt="[Nothing Here]" />
+      </DarkBG>
+      )}
     </StyledTile>
   );
 }

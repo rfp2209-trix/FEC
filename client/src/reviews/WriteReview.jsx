@@ -193,7 +193,9 @@ const WriteReviewContainer = styled.form`
   width: 420px;
   height: auto;
   padding: 20px;
-  background: #f0fff0;
+  background: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   position: fixed
 `;
 
