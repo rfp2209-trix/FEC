@@ -43,7 +43,6 @@ export function StarsBreakdown() {
     );
   });
   const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
-  console.log('start here')
   return (
     <MetaList style={{fontSize: '16px'}}>
       {percentRecomended.toFixed(0)}

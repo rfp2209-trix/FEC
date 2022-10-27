@@ -16,7 +16,6 @@ function ProductBreakdown() {
     return <div />;
   }
   const characteristicBar = ['one', 'two', 'three', 'four'].map((digit) => <CharDescribeBar key={digit} area={digit} />);
-  console.log(characteristicBar);
   const characteristicComponents = Object.entries(reviewsMeta.characteristics).map((indvChar) => {
     const charPercent = ((indvChar[1].value / 5) * 100).toFixed(2);
     return (
