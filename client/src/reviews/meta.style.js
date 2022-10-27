@@ -14,7 +14,8 @@ export const CharGrid = styled.li`
   grid-template-areas:
     "characteristic . . . ."
     "middle middle middle middle middle"
-    "low-desc . mid-desc . high-desc"
+    "low-desc . mid-desc . high-desc";
+  margin-bottom: 8px
 `;
 
 export const CharDescribeBar = styled.div`
@@ -46,4 +47,25 @@ export const DownTriangle = styled.div`
 
 export const MetaContainer = styled.div`
   width: 260px;
+`;
+
+export const PercentageReviewBar = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
+  height: 12px;
+  min-width 100px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #536872 ${(props) => props.percent}, #acc8d7 ${(props) => props.percent});
+`;
+
+export const StyledRatingBreakdown = styled.li`
+  --rating: ${(props) => props.starRating};
+  --star-size: 18px;
+  font-size: 18px;
+  width: 250px;
+
+    &:hover{
+      color: #acc8d7;
+      --star-color: #536872;
+    }
 `;
