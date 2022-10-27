@@ -29,7 +29,7 @@ export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
       filterCopy[rating] = false;
       setRatingsFilter(filterCopy);
     } else {
-      filterCopy[rating] = true;
+      filterCopy[rating] = Number(rating);
       setRatingsFilter(filterCopy);
     }
   };
@@ -52,12 +52,7 @@ export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
   });
   const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
   const writeFilters = () => {
-    const filters = ratingsFilter.map((isFiltered, key) => {
-      if (isFiltered) {
-        return key;
-      }
-      return isFiltered;
-    })
+    const filters = ratingsFilter
       .filter((isFiltered) => !!isFiltered);
     if (filters.length === 5) {
       return 'all';
