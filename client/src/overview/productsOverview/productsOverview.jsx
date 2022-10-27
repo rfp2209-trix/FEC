@@ -3,17 +3,18 @@ import React, { lazy, Suspense } from 'react';
 import ProductInformation from '../productInformation/productInformation.jsx';
 import AddInformation from '../addInformation/addInformation.jsx';
 import * as Styled from './productsOverview.styles';
+import Loader from '../loader/loader.jsx';
 
 const StarRating = lazy(() => import('../starRating/starRating.jsx'));
 const ImageGalleryMain = lazy(() => import('../imageGallery/imageGalleryMain.jsx'));
 const StyleSelector = lazy(() => import('../styleSelector/styleSelector.jsx'));
 const Cart = lazy(() => import('../cart/cart.jsx'));
 const ImageGalleryThumbnailScroll = lazy(() => import('../imageGallery/imageGallery_thumbnailScroll.jsx'));
-const renderLoader = () => <div>Loading...</div>;
+// const renderLoader = () => <div>Loading...</div>;
 
 export default function ProductsOverview() {
   return (
-    <Suspense fallback={renderLoader()}>
+    <Suspense fallback={<Loader />}>
       <Styled.OverviewContent>
         <Styled.OverviewColumns>
           <Styled.ImageContainer>
