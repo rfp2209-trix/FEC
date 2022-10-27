@@ -16,18 +16,14 @@ import {
 
 function ReviewTile({ review }) {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
-  const [reportClicked, setReportClicked] = useState(false);
   const [pictureClicked, setPictureClicked] = useState(null);
   const {
     reviewsSort,
     totalReviews,
     reviewsMeta,
     state,
-    setState
+    setState,
   } = useProductsContext();
-  if (reportClicked) {
-    return <div />;
-  }
   const photoElements = review.photos.map((photo) => (
     <ReviewImg
       key={photo.id}
@@ -61,6 +57,7 @@ function ReviewTile({ review }) {
           <b>
             Response:
           </b>
+          <br />
           {review.response}
         </StyledResponse>
       )}
