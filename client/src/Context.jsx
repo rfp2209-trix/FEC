@@ -4,7 +4,11 @@ import React, {
   useState, useEffect, useContext, createContext,
 } from 'react';
 import axios from 'axios';
-import { sumArray, avgStarValue } from '../helpers.js';
+import {
+  sumArray,
+  avgStarValue,
+  roundedAvgStar,
+} from '../helpers.js';
 
 export const ProductContext = createContext();
 
@@ -41,7 +45,8 @@ export function Context({ children }) {
         const styleDetails = styleDetailsGet.data;
         const reviews = reviewsGet.data;
         const relatedProductsInfo = relatedProductsInfoGet.data;
-        const avgReview = avgStarValue(reviewsMeta.ratings).toFixed(1);
+        const avgReviewActual = avgStarValue(reviewsMeta.ratings).toFixed(1);
+        const avgReview = roundedAvgStar(avgReviewActual);
         const questionsData = questionsGet.data;
         tempState = {
           productsInfo,
@@ -49,6 +54,7 @@ export function Context({ children }) {
           reviewsMeta,
           reviews,
           avgReview,
+          avgReviewActual,
           totalReviews,
           relatedProductsInfo,
           questionsData,

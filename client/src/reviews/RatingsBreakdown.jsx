@@ -8,13 +8,13 @@ import {
 } from './meta.style.js';
 
 export function RatingSummary() {
-  const { avgReview, loading } = useProductsContext();
+  const { avgReviewActual, avgReview, loading } = useProductsContext();
   if (loading) {
     return <div />;
   }
   return (
     <div style={{ '--rating': avgReview, '--star-size': '36px', fontSize: '44px' }}>
-      {avgReview}
+      {avgReviewActual}
       &nbsp;
       <Stars />
     </div>
@@ -66,7 +66,7 @@ export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
   };
   const currentFilters = writeFilters();
   return (
-    <MetaList style={{ fontSize: '16px' }}>
+    <MetaList style={{ fontSize: '14px' }}>
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
       {ratingsFilter.some((isFiltered) => isFiltered) && (
@@ -80,5 +80,3 @@ export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
     </MetaList>
   );
 }
-
-
