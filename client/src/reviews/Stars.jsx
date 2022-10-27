@@ -19,7 +19,7 @@ const StyledStars = styled.div`
   &::before {
     content: '★★★★★';
     letter-spacing: 3px;
-    background: linear-gradient(90deg, #fc0 var(--percent), rgba(180, 180, 180) var(--percent));
+    background: linear-gradient(90deg, var(--star-color) var(--percent), var(--off-star-color) var(--percent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

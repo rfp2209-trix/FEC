@@ -6,9 +6,9 @@ export const StyledTile = styled.li`
   font-size: 18px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   border-bottom: 1px solid black;
-  padding-bottom: 20px;
+  padding: 5px 5px 20px 5px;
 `;
 
 export const TileFlex = styled.div`
@@ -36,11 +36,27 @@ export const StyledButton = styled.button`
   margin; 0;
   font-size: 14px;
   font-family: 'Roboto Condensed', sans-serif;
+
+    &:hover{
+      color: #acc8d7;
+    }
 `;
 
 export const ReviewImg = styled.img`
   width: 75px;
   height: 50px;
   display: inline-block;
-  padding-right: 5px;
+  margin: 0px 4px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+`;
+
+export const StyledResponse = styled.div`
+  padding: 10px;
+  background: #DEDEDE;
+`;
+
+export const ModalImg = styled.img`
+  max-height: 50vh;
+  max-width: 75vw;
 `;
