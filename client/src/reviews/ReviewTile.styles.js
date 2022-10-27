@@ -36,6 +36,10 @@ export const StyledButton = styled.button`
   margin; 0;
   font-size: 14px;
   font-family: 'Roboto Condensed', sans-serif;
+
+    &:hover{
+      color: #acc8d7;
+    }
 `;
 
 export const ReviewImg = styled.img`

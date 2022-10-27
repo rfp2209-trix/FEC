@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { DarkBG } from '../questionsAnswers/background.style.js';
+import { useProductsContext } from '../Context.jsx';
 import Stars from './Stars.jsx';
 import {
   StyledTile,
@@ -17,6 +18,13 @@ function ReviewTile({ review }) {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [reportClicked, setReportClicked] = useState(false);
   const [pictureClicked, setPictureClicked] = useState(null);
+  const {
+    reviewsSort,
+    totalReviews,
+    reviewsMeta,
+    state,
+    setState
+  } = useProductsContext();
   if (reportClicked) {
     return <div />;
   }
@@ -63,10 +71,10 @@ function ReviewTile({ review }) {
       >
         {helpfulClicked ? (
           <span>
-            Helpful?&nbsp;ictureClicked.length
+            Helpful?&nbsp;
             <u>Yes</u>
             &nbsp;&#40;
-            {review.helpfulness + 1}
+            {review.helpfulness}
             &#41;
           </span>
         ) : (
@@ -78,6 +86,10 @@ function ReviewTile({ review }) {
                 axios.put(`/fec/reviews/${review.review_id}/helpful`)
                   .then(() => {
                     console.log('success');
+                    return axios.get(`/fec/reviews/?product_id=${reviewsMeta.product_id}&count=${totalReviews}&sort=${reviewsSort}`);
+                  })
+                  .then((getResponse) => {
+                    setState({ ...state, reviews: getResponse.data });
                     setHelpfulClicked(true);
                   })
                   .catch((err) => console.log(err));
@@ -95,10 +107,10 @@ function ReviewTile({ review }) {
           type="button"
           onClick={() => {
             axios.put(`/fec/reviews/${review.review_id}/report`)
-              .then(() => {
-                console.log('success');
-                setReportClicked(true);
-              })
+              .then(() => (
+                axios.get(`/fec/reviews/?product_id=${reviewsMeta.product_id}&count=${totalReviews}&sort=${reviewsSort}`)
+              ))
+              .then((getResponse) => setState({ ...state, reviews: getResponse.data }))
               .catch((err) => console.log(err));
           }}
         >
