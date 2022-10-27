@@ -12,10 +12,23 @@ flex-direction: column;
   height: 20px;
   margin-top: 10px;
   margin-bottom: 0;
+  margin-left: 100px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: row;
+
+> div {
+  min-width: 100px;
 }
 .basic-text {
   margin-top: 10px;
-  line-height: 12pt;
+
   font-size: 12pt;
 }
+}
+
+
+
 `;

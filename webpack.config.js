@@ -1,6 +1,5 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: './client/index.jsx',
@@ -18,6 +17,18 @@ module.exports = {
         },
       },
       {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: {
+          loader: 'file-loader',
+        },
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+      {
         test: /\.css$/,
         use: {
           loader: 'style-loader',
@@ -28,16 +39,4 @@ module.exports = {
   plugins: [
     new CompressionPlugin(),
   ],
-  optimization: {
-    minimizer: [
-      new OptimizeCssAssetsPlugin({
-        cssProccesorOptions: {
-          map: {
-            inline: false,
-            annotation: true,
-          },
-        },
-      }),
-    ],
-  },
 };

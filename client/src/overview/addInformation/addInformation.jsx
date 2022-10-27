@@ -11,11 +11,14 @@ export default function AddInformation() {
 
     <Styled.AdditionalInfoContainer data-testid="add-info-exists">
       <h1>Additional Product Information</h1>
-      <p className="basic-text">
-        {productSlogan}
-        <br />
-        {productDescription}
-      </p>
+      <div className="rows">
+        <div />
+        <p className="basic-text">
+          {productSlogan}
+          <br />
+          {productDescription}
+        </p>
+      </div>
     </Styled.AdditionalInfoContainer>
   );
 }
