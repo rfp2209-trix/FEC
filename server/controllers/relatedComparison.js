@@ -9,9 +9,9 @@ module.exports = {
     const { product_id } = req.params;
     let allInfo = {};
     allReqs.push(
-      axios.get(`http://localhost:3000/FEC/productinfo/${product_id}`),
-      axios.get(`http://localhost:3000/FEC/averagereview/${product_id}`),
-      axios.get(`http://localhost:3000/FEC/productinfo/${product_id}/styles`),
+      axios.get(`http://localhost:3000/fec/productinfo/${product_id}`),
+      axios.get(`http://localhost:3000/fec/averagereview/${product_id}`),
+      axios.get(`http://localhost:3000/fec/productinfo/${product_id}/styles`),
     );
     Promise.all(allReqs)
       .then((allReqsResponse) => {

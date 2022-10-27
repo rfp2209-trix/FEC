@@ -50,6 +50,7 @@ const CardContainer = styled.a`
   padding: 0px;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius: 3px;
 `;
 
 const CardImg = styled.div`
