@@ -8,7 +8,7 @@ function Reviews({ setCurrentForm }) {
   return (
     <ReviewsContainer>
       <h2>RATINGS & REVIEWS</h2>
-      <ReviewsFlex>
+      <ReviewsFlex gap="30px">
         <ReviewsMeta />
         <ReviewsList setCurrentForm={setCurrentForm} />
       </ReviewsFlex>

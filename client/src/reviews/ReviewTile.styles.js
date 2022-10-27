@@ -11,7 +11,7 @@ export const StyledTile = styled.li`
   padding-bottom: 20px;
 `;
 
-export const FlexDiv = styled.div`
+export const TileFlex = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: ${(props) => props.justify || 'space-between'};
@@ -36,4 +36,11 @@ export const StyledButton = styled.button`
   margin; 0;
   font-size: 14px;
   font-family: 'Roboto Condensed', sans-serif;
+`;
+
+export const ReviewImg = styled.img`
+  width: 75px;
+  haight: 75px;
+  display: inline-block;
+  padding-right: 5px;
 `;

@@ -4,9 +4,10 @@ import { format } from 'date-fns';
 import Stars from './Stars.jsx';
 import {
   StyledTile,
-  FlexDiv,
+  TileFlex,
   SummaryDiv,
   StyledButton,
+  ReviewImg,
 } from './ReviewTile.styles.js';
 
 function ReviewTile({ review }) {
@@ -15,25 +16,29 @@ function ReviewTile({ review }) {
   if (reportClicked) {
     return <div />;
   }
+  const photoElements = review.photos.map((photo) => <ReviewImg key={photo.id} src={photo.url} alt="[Review]" />);
   return (
     <StyledTile
       rating={review.rating}
       starSize="28px"
       data-testid="review-tile"
     >
-      <FlexDiv styleFontSize="14px">
+      <TileFlex styleFontSize="14px">
         <Stars />
         <div>
           {review.reviewer_name}
           ,&nbsp;
           {format(new Date(review.date), 'MMMM dd, yyyy')}
         </div>
-      </FlexDiv>
+      </TileFlex>
       <SummaryDiv>{review.summary}</SummaryDiv>
       <div>{review.body}</div>
+      <div>
+        {photoElements}
+      </div>
       {review.recommend && <div>✓ I recommended this product</div>}
-      {!!review.response && <div>review.response</div>}
-      <FlexDiv
+      {!!review.response && <div>{review.response}</div>}
+      <TileFlex
         justify="start"
         styleFontSize="14px"
         gap="20px"
@@ -81,7 +86,7 @@ function ReviewTile({ review }) {
         >
           report
         </StyledButton>
-      </FlexDiv>
+      </TileFlex>
     </StyledTile>
   );
 }

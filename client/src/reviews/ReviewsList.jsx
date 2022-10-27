@@ -2,11 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
-import { MetaList } from './meta.style.js';
-import { ReviewsListContainer, ReviewTileList } from './reviews.style.js';
+import {
+  ReviewsListContainer,
+  ReviewTileList,
+  ReviewsListButton,
+  ReviewsFlex,
+  StyledSortSelect,
+} from './reviews.style.js';
 
 function ReviewsList({ setCurrentForm }) {
-  const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
+  const {
+    reviews,
+    totalReviews,
+    reviewsSort,
+    setState,
+    state,
+    loading,
+  } = useProductsContext();
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   if (loading) {
     return (
@@ -19,9 +31,11 @@ function ReviewsList({ setCurrentForm }) {
   return (
     <ReviewsListContainer id="review_list">
       <label htmlFor="sort_by">
-        {totalReviews}
-        &nbsp;reviews, sorted by&nbsp;
-        <select
+        <b style={{ fontSize: '18px' }}>
+          {totalReviews}
+          &nbsp;reviews, sorted by&nbsp;
+        </b>
+        <StyledSortSelect
           value={reviewsSort}
           data-testid="sort-select"
           id="select_sort"
@@ -43,15 +57,16 @@ function ReviewsList({ setCurrentForm }) {
           <option value="relevent">Relevent</option>
           <option value="helpful">Helpful</option>
           <option value="newest">Newest</option>
-        </select>
+        </StyledSortSelect>
       </label>
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
       <ReviewTileList>
         {reviewListComponents.slice(0, reviewsDisplayed)}
       </ReviewTileList>
-      {reviewsDisplayed < reviewListComponents.length && (
-        <button
+      <ReviewsFlex>
+        {reviewsDisplayed < reviewListComponents.length && (
+        <ReviewsListButton
           type="button"
           onClick={() => {
             if (reviewsDisplayed < reviewListComponents.length) {
@@ -64,19 +79,20 @@ function ReviewsList({ setCurrentForm }) {
             }
           }}
         >
-          More Reviews
-        </button>
-      )}
-      <button
-        data-testid="more-reviews"
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          setCurrentForm('new review');
-        }}
-      >
-        Add Review
-      </button>
+          MORE REVIEWS
+        </ReviewsListButton>
+        )}
+        <ReviewsListButton
+          data-testid="more-reviews"
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setCurrentForm('new review');
+          }}
+        >
+          ADD A REVIEW ＋
+        </ReviewsListButton>
+      </ReviewsFlex>
     </ReviewsListContainer>
   );
 }

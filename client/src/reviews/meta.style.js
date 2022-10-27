@@ -25,7 +25,8 @@ export const CharDescribeBar = styled.div`
   width: 60.5px;
   border: 1px solid white;
   border-radius:2px;
-  background: #acc8d7
+  background: #acc8d7;
+  vertical-align: baseline;
 `;
 
 export const FullCharBar = styled.div`
