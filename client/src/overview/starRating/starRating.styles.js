@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const StarDisplayContainer = styled.div`
 
-  --star-size: 50px;
+  --star-size: 25px;
   --star-color: rgba(180,180,180);
   --star-background: #fc0;
 
@@ -23,7 +23,7 @@ export const StarDisplayContainer = styled.div`
     -webkit-text-fill-color: transparent;
   }
 
-  > a{
+  > div a{
     font-size: 12pt;
   }
 `;

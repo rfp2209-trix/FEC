@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
@@ -10,7 +10,7 @@ import {
   StyledSortSelect,
 } from './reviews.style.js';
 
-function ReviewsList({ setCurrentForm }) {
+function ReviewsList({ setCurrentForm, ratingsFilter }) {
   const {
     reviews,
     totalReviews,
@@ -19,15 +19,26 @@ function ReviewsList({ setCurrentForm }) {
     state,
     loading,
   } = useProductsContext();
-  const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
+  const [nReviewsDisplayed, setnReviewsDisplayed] = useState(2);
+  const [reviewsDisplayed, setReviewsDisplayed] = useState([]);
+  let reviewListComponents = [];
+  if (!loading) {
+    if (ratingsFilter.some((isFiltered) => !!isFiltered)) {
+      reviewListComponents = reviews.results.filter((review) => !!ratingsFilter[review.rating])
+        .map((review) => <ReviewTile key={review.review_id} review={review} />);
+    } else {
+      reviewListComponents = reviews.results.map((review) => (
+        <ReviewTile key={review.review_id} review={review} />
+      ));
+    }
+  }
+  useEffect(() => setReviewsDisplayed(reviewListComponents), [loading]);
+  useEffect(() => setReviewsDisplayed(reviewListComponents), [ratingsFilter]);
   if (loading) {
     return (
       <div />
     );
   }
-  const reviewListComponents = reviews.results.map((review) => (
-    <ReviewTile key={review.review_id} review={review} />
-  ));
   return (
     <ReviewsListContainer id="review_list">
       <label htmlFor="sort_by">
@@ -62,20 +73,20 @@ function ReviewsList({ setCurrentForm }) {
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
       <ReviewTileList>
-        {reviewListComponents.slice(0, reviewsDisplayed)}
+        {reviewsDisplayed.slice(0, nReviewsDisplayed)}
       </ReviewTileList>
       <ReviewsFlex>
-        {reviewsDisplayed < reviewListComponents.length && (
+        {nReviewsDisplayed < reviewsDisplayed.length && (
         <ReviewsListButton
           type="button"
           onClick={() => {
-            if (reviewsDisplayed < reviewListComponents.length) {
-              const newDisplayedAmount = (reviewsDisplayed + 2) > reviewListComponents.length ? (
-                reviewListComponents.length
+            if (nReviewsDisplayed < reviewsDisplayed.length) {
+              const newDisplayedAmount = (nReviewsDisplayed + 2) > reviewsDisplayed.length ? (
+                reviewsDisplayed.length
               ) : (
-                reviewsDisplayed + 2
+                nReviewsDisplayed + 2
               );
-              setReviewsDisplayed(newDisplayedAmount);
+              setnReviewsDisplayed(newDisplayedAmount);
             }
           }}
         >
