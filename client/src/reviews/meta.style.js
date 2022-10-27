@@ -53,7 +53,7 @@ export const PercentageReviewBar = styled.div`
   display: inline-block;
   box-sizing: border-box;
   height: 12px;
-  min-width 100px;
+  min-width 105px;
   border-radius: 2px;
   background: linear-gradient(to right, #536872 ${(props) => props.percent}, #acc8d7 ${(props) => props.percent});
 `;
@@ -61,7 +61,7 @@ export const PercentageReviewBar = styled.div`
 export const StyledRatingBreakdown = styled.li`
   --rating: ${(props) => props.starRating};
   --star-size: 18px;
-  font-size: 18px;
+  font-size: 14px;
   width: 250px;
 
     &:hover{

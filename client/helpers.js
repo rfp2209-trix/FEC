@@ -6,9 +6,22 @@ export function sumArray(numericStringArray) {
 }
 
 export function avgStarValue(starsBreakdown) {
-  return sumArray(Object.entries(starsBreakdown)
+  return (sumArray(Object.entries(starsBreakdown)
     .map((ratingArray) => ratingArray[0] * ratingArray[1]))
-    / sumArray(Object.values(starsBreakdown));
+    / sumArray(Object.values(starsBreakdown)));
+}
+
+export function roundedAvgStar(avgValue) {
+  let returnMe = Math.floor(avgValue);
+  const roundedFloat = (Math.round(avgValue * 4) / 4).toFixed(2) % 1;
+  if (roundedFloat === 0.25) {
+    returnMe += 0.35;
+  } else if (roundedFloat === 0.5) {
+    returnMe += 0.475;
+  } else if (roundedFloat === 0.75) {
+    returnMe += 0.6;
+  }
+  return returnMe;
 }
 
 export function objectSorter(unsortedObj, sortCriteria) {
