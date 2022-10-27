@@ -60,6 +60,7 @@ export const PercentageReviewBar = styled.div`
 
 export const StyledRatingBreakdown = styled.li`
   --rating: ${(props) => props.starRating};
+  --star-size: 18px;
   font-size: 18px;
   width: 250px;
 

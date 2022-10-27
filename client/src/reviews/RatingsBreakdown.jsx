@@ -21,19 +21,28 @@ export function RatingSummary() {
   );
 }
 
-export function StarsBreakdown() {
+export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
   const { reviewsMeta, totalReviews, loading } = useProductsContext();
+  const breakdownClick = (rating) => {
+    const filterCopy = [...ratingsFilter];
+    if (ratingsFilter[rating]) {
+      filterCopy[rating] = false;
+      setRatingsFilter(filterCopy);
+    } else {
+      filterCopy[rating] = true;
+      setRatingsFilter(filterCopy);
+    }
+  };
   if (loading) {
     return <div />;
   }
-  // const mostStarRatings = Math.max(...Object.entries(reviewsMeta.ratings)
-  //   .map((nestedArray) => nestedArray[1]));
   const ratingsComponents = Object.entries(reviewsMeta.ratings).reverse().map((resultArray) => {
     const percent = ((resultArray[1] / totalReviews) * 100).toFixed(2);
     return (
       <StyledRatingBreakdown
         key={resultArray[0]}
         starRating={resultArray[0]}
+        onClick={() => breakdownClick(resultArray[0])}
       >
         <Stars width="100px" />
         <PercentageReviewBar percent={`${percent}%`} />
@@ -42,10 +51,36 @@ export function StarsBreakdown() {
     );
   });
   const percentRecomended = (reviewsMeta.recommended.true / totalReviews) * 100;
+  const writeFilters = () => {
+    const filters = ratingsFilter.map((isFiltered, key) => {
+      if (isFiltered) {
+        return key;
+      }
+      return isFiltered;
+    })
+      .filter((isFiltered) => !!isFiltered);
+    if (filters.length === 5) {
+      return 'all';
+    }
+    if (filters.length > 1 && filters.length < 5) {
+      const editString = filters.join(', ');
+      const returnME = `${editString.slice(0, -2)} and  ${editString.slice(-2)} star`;
+      return returnME;
+    }
+    return `${filters[0]} star`;
+  };
+  const currentFilters = writeFilters();
   return (
     <MetaList style={{ fontSize: '16px' }}>
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
+      {ratingsFilter.some((isFiltered) => isFiltered) && (
+        <div>
+          Now showing&nbsp;
+          {currentFilters}
+          &nbsp;Reviews
+        </div>
+      )}
       {ratingsComponents}
     </MetaList>
   );

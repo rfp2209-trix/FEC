@@ -5,7 +5,7 @@ import ReviewsList from './ReviewsList.jsx';
 import { ReviewsFlex } from './reviews.style.js';
 
 function Reviews({ setCurrentForm }) {
-  const [ ratingsFilter, setRatingsFilter ] = useState([]);
+  const [ratingsFilter, setRatingsFilter] = useState([null, false, false, false, false, false]);
   return (
     <ReviewsContainer>
       <h2>RATINGS & REVIEWS</h2>
@@ -14,7 +14,11 @@ function Reviews({ setCurrentForm }) {
           ratingsFilter={ratingsFilter}
           setRatingsFilter={setRatingsFilter}
         />
-        <ReviewsList setCurrentForm={setCurrentForm} />
+        <ReviewsList
+          setCurrentForm={setCurrentForm}
+          ratingsFilter={ratingsFilter}
+          setRatingsFilter={setRatingsFilter}
+        />
       </ReviewsFlex>
     </ReviewsContainer>
   );
