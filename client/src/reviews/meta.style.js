@@ -14,7 +14,8 @@ export const CharGrid = styled.li`
   grid-template-areas:
     "characteristic . . . ."
     "middle middle middle middle middle"
-    "low-desc . mid-desc . high-desc"
+    "low-desc . mid-desc . high-desc";
+  margin-bottom: 8px
 `;
 
 export const CharDescribeBar = styled.div`

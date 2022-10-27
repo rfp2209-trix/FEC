@@ -8,6 +8,7 @@ import {
   SummaryDiv,
   StyledButton,
   ReviewImg,
+  StyledResponse,
 } from './ReviewTile.styles.js';
 
 function ReviewTile({ review }) {
@@ -37,7 +38,14 @@ function ReviewTile({ review }) {
         {photoElements}
       </div>
       {review.recommend && <div>✓ I recommended this product</div>}
-      {!!review.response && <div>{review.response}</div>}
+      {!!review.response && (
+        <StyledResponse>
+          <b>
+            Response:
+          </b>
+          {review.response}
+        </StyledResponse>
+      )}
       <TileFlex
         justify="start"
         styleFontSize="14px"
