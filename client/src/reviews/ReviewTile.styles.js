@@ -40,7 +40,7 @@ export const StyledButton = styled.button`
 
 export const ReviewImg = styled.img`
   width: 75px;
-  haight: 75px;
+  height: 50px;
   display: inline-block;
   padding-right: 5px;
 `;
