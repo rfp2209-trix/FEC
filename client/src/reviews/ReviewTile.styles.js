@@ -10,7 +10,6 @@ export const StyledTile = styled.li`
   border-bottom: 1px solid black;
   padding: 5px 5px 20px 5px;
   min-width: 350px;
-  width: 65vw;
 `;
 
 export const TileFlex = styled.div`

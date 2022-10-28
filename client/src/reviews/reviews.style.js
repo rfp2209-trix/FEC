@@ -14,7 +14,8 @@ export const ReviewsFlex = styled.div`
 `;
 
 export const ReviewsListContainer = styled.div`
-  width: 50%;
+  width: 50vw;
+  padding: 5px;
 `;
 
 export const ReviewTileList = styled.ul`
