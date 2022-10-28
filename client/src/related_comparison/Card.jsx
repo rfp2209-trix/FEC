@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { MdCompareArrows, MdAddCircleOutline } from 'react-icons/md';
 import Stars from '../reviews/Stars.jsx';
 
 export default function Card({
@@ -22,10 +23,12 @@ export default function Card({
       <aside>
         <CardImg image={img} alt="product img" />
         <CompareButtonContainer onClick={(e) => { e.preventDefault(); toggleModal(); }}>
-          <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" alt="comparison arrow button" />
+          <MdCompareArrows className="compare-icon" />
+          {/* <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" alt="comparison arrow button" /> */}
         </CompareButtonContainer>
         <AddToOutfitButtonContainer onClick={(e) => { e.preventDefault(); addToOutfitHandler(); }}>
-          <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" alt="add to outfit star button" />
+          <MdAddCircleOutline className="add-icon" />
+          {/* <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" alt="add to outfit star button" /> */}
         </AddToOutfitButtonContainer>
         <CardText>
           {category}
@@ -51,6 +54,9 @@ const CardContainer = styled.a`
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   border-radius: 6px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
 `;
 
 const CardImg = styled.div`
@@ -60,14 +66,26 @@ const CardImg = styled.div`
   margin: auto;
   width: 258px;
   height: 258px;
+  border-radius: 6px;
+  :hover {
+    -webkit-filter: brightness(75%);
+  }
   `;
 
 const CompareButtonContainer = styled.div`
+.compare-icon {
+  font-size: 24pt;
+  color: gray;
+  opacity: .8;
+}
+.compare-icon:hover {
+  font-size: 26pt;
+}
 position: absolute;
 height: 25px;
 width: 25px;
-top: 5%;
-right 0%;
+top: 25px;
+right: 15px;
 transform: translate(-50%, -50%);
 -ms-transform: translate(-50%, -50%);
 font-size: 16px;
@@ -76,16 +94,25 @@ border-radius: 6px;
 `;
 
 const AddToOutfitButtonContainer = styled.div`
+.add-icon {
+  font-size: 24pt;
+  color: gray;
+  opacity: .8;
+}
+.add-icon:hover {
+  font-size: 26pt;
+}
 position: absolute;
 height: 25px;
 width: 25px;
-top: 3%;
-left 5%;
+top: 25px;
+left: 25px;
 transform: translate(-50%, -50%);
 -ms-transform: translate(-50%, -50%);
 font-size: 16px;
 cursor: pointer;
 border-radius: 6px;
+
 `;
 
 const CardTitle = styled.div`

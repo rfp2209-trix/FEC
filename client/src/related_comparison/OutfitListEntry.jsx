@@ -1,4 +1,5 @@
 import React from 'react';
+import { TiDelete } from 'react-icons/ti';
 import styled from 'styled-components';
 import Stars from '../reviews/Stars.jsx';
 
@@ -25,7 +26,8 @@ export default function OutfitListEntry({
           e.preventDefault(); removeOutfitHandlder();
         }}
         >
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" />
+          <TiDelete className="remove-icon" />
+          {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" /> */}
         </RemoveFromOutfitButtonContainer>
         <OutfitEntryText>
           {currentProduct.category}
@@ -56,6 +58,9 @@ const OutfitListEntryContainer = styled.a`
   contain: content;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   border-radius: 6px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
 `;
 
 const OutfitListEntryImg = styled.div`
@@ -65,9 +70,18 @@ const OutfitListEntryImg = styled.div`
   margin: auto;
   width: 258px;
   height: 258px;
+  border-radius: 6px;
+  :hover {
+    -webkit-filter: brightness(75%);
+  }
   `;
 
 const RemoveFromOutfitButtonContainer = styled.div`
+.remove-icon {
+  font-size: 24pt;
+  color: white;
+  opacity: .8;
+}
 position: absolute;
 height: 25px;
 width: 25px;
