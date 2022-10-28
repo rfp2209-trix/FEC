@@ -26,9 +26,10 @@ export const ReviewTileList = styled.ul`
   gap: 30px;
   max-height: 75vh;
   overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
 
     &::-webkit-scrollbar {
       display: none;
@@ -45,6 +46,11 @@ export const ReviewsListButton = styled.button`
   border: none;
   margin: 0px 8px 0px 0px;
   box-sizing: border-box;
+
+  &:hover{
+    box-shadow: #acc8d7 0px 0px 0px 1px inset, #acc8d7 0px 0px 0px 1px;
+    color: #acc8d7;
+  }
 `;
 
 export const StyledSortSelect = styled.select`
