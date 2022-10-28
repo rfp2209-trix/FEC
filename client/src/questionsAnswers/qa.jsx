@@ -48,7 +48,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
 
   return (
     <div>
-      <h3>Questions & Answers</h3>
+      <h2>QUESTIONS & ANSWERS</h2>
       <input
         type="text"
         placeholder="Does this make me a better software engineer?"

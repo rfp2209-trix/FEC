@@ -78,7 +78,9 @@ export default function OutfitList() {
   return (
     <>
       <OutfitTitleText>
-        Your Outfit
+        <h2>
+          YOUR OUTFIT
+        </h2>
       </OutfitTitleText>
       <OutfitListContainer id="OutfitList">
         <AddCurrentProductToOutfitContainer>
@@ -150,6 +152,5 @@ const AddCurrentProductButton = styled.button`
 `;
 
 const OutfitTitleText = styled.div`
-  font-size: 20px;
   margin: 10px;
 `;
