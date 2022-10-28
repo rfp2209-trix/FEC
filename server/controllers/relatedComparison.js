@@ -9,9 +9,9 @@ module.exports = {
     const { product_id } = req.params;
     let allInfo = {};
     allReqs.push(
-      axios.get(`http://localhost:3000/FEC/productinfo/${product_id}`),
-      axios.get(`http://localhost:3000/FEC/averagereview/${product_id}`),
-      axios.get(`http://localhost:3000/FEC/productinfo/${product_id}/styles`),
+      axios.get(`http://localhost:3000/fec/productinfo/${product_id}`),
+      axios.get(`http://localhost:3000/fec/averagereview/${product_id}`),
+      axios.get(`http://localhost:3000/fec/productinfo/${product_id}/styles`),
     );
     Promise.all(allReqs)
       .then((allReqsResponse) => {
@@ -120,5 +120,21 @@ module.exports = {
         res.sendStatus(500);
       });
   },
-  // COOKIES TO SAVE OUTFIT LIST PER USER??? local storage ~~~~
+  storeInteraction: (req, res) => {
+    const URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/interactions';
+    const config = {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    };
+    axios.post(URL, req.body, config)
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        if (err) {
+          console.log('err', err);
+        }
+      });
+  },
 };

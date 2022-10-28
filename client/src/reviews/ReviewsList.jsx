@@ -1,25 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import { useProductsContext } from '../Context.jsx';
+import {
+  ReviewsListContainer,
+  ReviewTileList,
+  ReviewsListButton,
+  ReviewsFlex,
+  StyledSortSelect,
+} from './reviews.style.js';
 
-function ReviewsList({ setCurrentForm }) {
-  const { reviews, totalReviews, reviewsSort, setState, state, loading } = useProductsContext();
-  const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
+function ReviewsList({ setCurrentForm, ratingsFilter }) {
+  const {
+    reviews,
+    totalReviews,
+    reviewsSort,
+    setState,
+    state,
+    loading,
+  } = useProductsContext();
+  const [nReviewsDisplayed, setnReviewsDisplayed] = useState(2);
+  const [reviewsDisplayed, setReviewsDisplayed] = useState([]);
+  let reviewListComponents = [];
+  if (!loading) {
+    if (ratingsFilter.some((isFiltered) => !!isFiltered)) {
+      reviewListComponents = reviews.results.filter((review) => !!ratingsFilter[review.rating])
+        .map((review) => <ReviewTile key={review.review_id} review={review} />);
+    } else {
+      reviewListComponents = reviews.results.map((review) => (
+        <ReviewTile key={review.review_id} review={review} />
+      ));
+    }
+  }
+  useEffect(() => setReviewsDisplayed(reviewListComponents), [loading]);
+  useEffect(() => setReviewsDisplayed(reviewListComponents), [ratingsFilter]);
   if (loading) {
     return (
       <div />
     );
   }
-  const reviewListComponents = reviews.results.map((review) => (
-    <ReviewTile key={review.review_id} review={review} />
-  ));
   return (
-    <div id="review_list">
+    <ReviewsListContainer id="review_list">
       <label htmlFor="sort_by">
-        {totalReviews}
-        &nbsp;reviews, sorted by&nbsp;
-        <select
+        <b style={{ fontSize: '18px' }}>
+          {totalReviews}
+          &nbsp;reviews, sorted by&nbsp;
+        </b>
+        <StyledSortSelect
           value={reviewsSort}
           data-testid="sort-select"
           id="select_sort"
@@ -41,41 +68,43 @@ function ReviewsList({ setCurrentForm }) {
           <option value="relevent">Relevent</option>
           <option value="helpful">Helpful</option>
           <option value="newest">Newest</option>
-        </select>
+        </StyledSortSelect>
       </label>
       <input type="text" placeholder="keyword search (low priority)" />
       <button type="button">Search!</button>
-      <ol>
-        {reviewListComponents.slice(0, reviewsDisplayed)}
-      </ol>
-      {reviewsDisplayed < reviewListComponents.length && (
-        <button
+      <ReviewTileList>
+        {reviewsDisplayed.slice(0, nReviewsDisplayed)}
+      </ReviewTileList>
+      <ReviewsFlex>
+        {nReviewsDisplayed < reviewsDisplayed.length && (
+        <ReviewsListButton
           type="button"
           onClick={() => {
-            if (reviewsDisplayed < reviewListComponents.length) {
-              const newDisplayedAmount = (reviewsDisplayed + 2) > reviewListComponents.length ? (
-                reviewListComponents.length
+            if (nReviewsDisplayed < reviewsDisplayed.length) {
+              const newDisplayedAmount = (nReviewsDisplayed + 2) > reviewsDisplayed.length ? (
+                reviewsDisplayed.length
               ) : (
-                reviewsDisplayed + 2
+                nReviewsDisplayed + 2
               );
-              setReviewsDisplayed(newDisplayedAmount);
+              setnReviewsDisplayed(newDisplayedAmount);
             }
           }}
         >
-          More Reviews
-        </button>
-      )}
-      <button
-        data-testid="more-reviews"
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          setCurrentForm('new review');
-        }}
-      >
-        Add Review
-      </button>
-    </div>
+          MORE REVIEWS
+        </ReviewsListButton>
+        )}
+        <ReviewsListButton
+          data-testid="more-reviews"
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setCurrentForm('new review');
+          }}
+        >
+          ADD A REVIEW ＋
+        </ReviewsListButton>
+      </ReviewsFlex>
+    </ReviewsListContainer>
   );
 }
 

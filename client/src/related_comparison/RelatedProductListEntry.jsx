@@ -4,7 +4,7 @@ import Card from './Card.jsx';
 import ComparisonModal from './ComparisonModal.jsx';
 
 export default function RelatedProductListEntry({
-  name, category, price, rating, imgs, features, selectedProductInfo, currentProduct,
+  name, category, price, rating, imgs, features, selectedProductInfo, currentProduct, styleDetails
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => {
@@ -34,6 +34,7 @@ export default function RelatedProductListEntry({
         features={features}
         selectedProductInfo={selectedProductInfo}
         currentProduct={currentProduct}
+        styleDetails={styleDetails}
       />
     </RelatedProductListEntryContainer>
   );
@@ -46,7 +47,6 @@ const RelatedProductListEntryContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  border: solid;
   margin-left: 15px;
   margin-right: 15px;
 `;

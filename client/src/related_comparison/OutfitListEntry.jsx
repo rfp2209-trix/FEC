@@ -18,10 +18,13 @@ export default function OutfitListEntry({
   };
 
   return (
-    <OutfitListEntryContainer>
+    <OutfitListEntryContainer href={`?product_id=${currentProduct.id}`}>
       <aside>
         <OutfitListEntryImg image={currentProduct.styleDetails.results[0].photos[0].url ? currentProduct.styleDetails.results[0].photos[0].url : 'https://cdn.discordapp.com/attachments/1029469898327466074/1031996114372665495/could_not_find_image.png'} alt="product img" />
-        <RemoveFromOutfitButtonContainer onClick={removeOutfitHandlder}>
+        <RemoveFromOutfitButtonContainer onClick={(e) => {
+          e.preventDefault(); removeOutfitHandlder();
+        }}
+        >
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" />
         </RemoveFromOutfitButtonContainer>
         <OutfitEntryText>
@@ -42,17 +45,17 @@ export default function OutfitListEntry({
   );
 }
 
-const OutfitListEntryContainer = styled.div`
+const OutfitListEntryContainer = styled.a`
   width:258px;
   height:385px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  border: solid;
   margin-left: 15px;
   margin-right: 15px;
   contain: content;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius: 6px;
 `;
 
 const OutfitListEntryImg = styled.div`
@@ -68,13 +71,13 @@ const RemoveFromOutfitButtonContainer = styled.div`
 position: absolute;
 height: 25px;
 width: 25px;
-top: 3%;
-left 5%;
+top: 5%;
+left 7%;
 transform: translate(-50%, -50%);
 -ms-transform: translate(-50%, -50%);
 font-size: 16px;
 cursor: pointer;
-border-radius: 5px;
+border-radius: 6px;
 `;
 
 const OutfitEntryTitle = styled.div`
