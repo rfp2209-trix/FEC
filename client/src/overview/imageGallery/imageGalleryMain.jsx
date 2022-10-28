@@ -23,7 +23,7 @@ export default function ImageGalleryMain() {
       const def_styleID = styleDetails.results[0].style_id;
       setStyleId(def_styleID);
     }
-  });
+  }, [styleDetails]);
 
   const styles = (!loading && styleDetails) ? styleDetails.results : [];
   const filteredStyles = styles.filter((style) => style.style_id === styleId);
@@ -34,7 +34,7 @@ export default function ImageGalleryMain() {
       const photo = filteredStyles[0].photos[0].url;
       setMainPhoto(photo);
     }
-  });
+  }, [styleId]);
 
   useEffect(() => {
     if (filteredStyles.length > 0) {
