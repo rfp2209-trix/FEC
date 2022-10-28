@@ -66,7 +66,7 @@ export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
   };
   const currentFilters = writeFilters();
   return (
-    <MetaList style={{ fontSize: '14px' }}>
+    <div style={{ fontSize: '14px' }}>
       {percentRecomended.toFixed(0)}
       % of reviews recommend this product
       {ratingsFilter.some((isFiltered) => isFiltered) && (
@@ -76,7 +76,9 @@ export function StarsBreakdown({ ratingsFilter, setRatingsFilter }) {
           &nbsp;Reviews
         </div>
       )}
-      {ratingsComponents}
-    </MetaList>
+      <MetaList style={{ fontSize: '14px' }}>
+        {ratingsComponents}
+      </MetaList>
+    </div>
   );
 }

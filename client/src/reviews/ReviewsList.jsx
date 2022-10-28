@@ -54,6 +54,7 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
     reviewsSort,
     ratingsFilter,
     searchString,
+    reviews,
   ]);
   if (loading) {
     return (
