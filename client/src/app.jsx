@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -15,6 +16,7 @@ import Header from './header.jsx';
 function App() {
   const [currentForm, setCurrentForm] = useState('none');
   const [currentQData, setCurrentQData] = useState([]);
+  const [theme, setTheme] = useState('light');
   useEffect(() => {
     const appElement = document.querySelector('#root');
     appElement.addEventListener('click', ((e) => {
@@ -35,40 +37,45 @@ function App() {
         });
     }));
   }, []);
+
+  const toggleTheme = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
   return (
-    <Styled.Container onClick={() => setCurrentForm('none')}>
-      <Styled.Header>
-        <Header />
-      </Styled.Header>
-      <OverviewContextWrapper>
-        <div id="OV">
-          <Styled.OverviewContainer />
+      <Styled.Container onClick={() => setCurrentForm('none')}>
+        <Styled.Header>
+          <Header />
+        </Styled.Header>
+        <OverviewContextWrapper>
+          <div id="OV">
+            <Styled.OverviewContainer />
+          </div>
+        </OverviewContextWrapper>
+        <br />
+        {/* <Styled.SectionBreakOne /> */}
+        <div id="RIC">
+          <Styled.RelatedProductListContainer />
+          <Styled.OutfitListContainer />
         </div>
-      </OverviewContextWrapper>
-      <br />
-      {/* <Styled.SectionBreakOne /> */}
-      <div id="RIC">
-        <Styled.RelatedProductListContainer />
-        <Styled.OutfitListContainer />
-      </div>
-      <div id="QA">
-        {/* <Styled.QuestionsContainer setCurrentForm={setCurrentForm} /> */}
-        {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
-        <Styled.QuestionsContainer
-          setCurrentForm={setCurrentForm}
-          setCurrentQData={setCurrentQData}
-        />
-      </div>
-      <div id="REV">
-        <Reviews setCurrentForm={setCurrentForm} />
-        {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
-      </div>
-      {/* <Styled.Footer>
-        <h2>
-          Footer Goes Here
-        </h2>
-      </Styled.Footer> */}
-    </Styled.Container>
+        <div id="QA">
+          {/* <Styled.QuestionsContainer setCurrentForm={setCurrentForm} /> */}
+          {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+          <Styled.QuestionsContainer
+            setCurrentForm={setCurrentForm}
+            setCurrentQData={setCurrentQData}
+          />
+        </div>
+        <div id="REV">
+          <Reviews setCurrentForm={setCurrentForm} />
+          {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
+        </div>
+        {/* <Styled.Footer>
+          <h2>
+            Footer Goes Here
+          </h2>
+        </Styled.Footer> */}
+      </Styled.Container>
   );
 }
 
