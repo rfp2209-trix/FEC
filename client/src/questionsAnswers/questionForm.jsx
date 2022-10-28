@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
 import { DarkBG, ModalContainer } from './background.style.js';
+import { BigButton } from './qa-style.js';
 
 function QuestionModal({ setCurrentForm }) {
   const { questionsData, productsInfo, loading } = useProductsContext();
@@ -21,22 +23,19 @@ function QuestionModal({ setCurrentForm }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('databody: ', dataBody);
     const warning = Object.keys(dataBody).filter((each) => dataBody[each] === null);
-    if (warning[0] === 'body') {
-      alert('You did not write a question');
-    } else if (warning[0] === 'name') {
-      alert('Nickname is required');
-    } else if (warning[0] === 'email') {
-      alert('Email is required');
+    if (warning) {
+      console.log('incomplete form');
     } else {
       axios.post('/fec/ask', dataBody)
         .then(() => {
           console.log('Successfully submitted question');
+          setCurrentForm('none');
         })
         .catch(() => {
           console.log('Could not submit question to server');
         });
-      setCurrentForm('none');
     }
   };
 
@@ -49,28 +48,29 @@ function QuestionModal({ setCurrentForm }) {
           e.stopPropagation();
         }}
       >
-        <form>
-          <div name="modal-header">
-            <h1>Ask Your Question</h1>
-            <h3>{`About the ${productsInfo.name}`}</h3>
-            <br />
+        <form onSubmit={handleSubmit}>
+          <QuestionModalContainer name="modal-header">
+            <div name="questionModal">
+              <h1>Ask Your Question</h1>
+              <h3>{`About the ${productsInfo.name}`}</h3>
+            </div>
             Your Nickname
             <br />
-            <input name="name" id="askName" size="100" placeholder="Example: Boaty McBoatFace" maxLength="60" required />
+            <input name="name" type="text" id="askName" size="85" placeholder="Example: Boaty McBoatFace" maxLength="60" required />
             <br />
             <br />
             Your Email
+            <small> (For authentication reasons, you will not be emailed)</small>
             <br />
-            <input name="email" id="askEmail" size="100" placeholder="boatymcboatface@google.com" maxLength="60" required />
+            <input name="email" type="text" id="askEmail" size="85" placeholder="boatymcboatface@google.com" maxLength="60" required />
             <br />
-            <small>For authentication reasons, you will not be emailed</small>
             <br />
             Your Question
             <br />
-            <input name="question" id="askQuestion" size="100" placeholder="How long does it take to put together this product?" required />
+            <textarea name="question" type="text" id="askQuestion" rows="8" cols="73" placeholder="How long does it take to put together this product?" required />
             <br />
-            <button type="submit" onClick={handleSubmit}>Submit Question</button>
-          </div>
+            <BigButton type="submit">Submit Question</BigButton>
+          </QuestionModalContainer>
         </form>
       </ModalContainer>
     </DarkBG>
@@ -78,3 +78,8 @@ function QuestionModal({ setCurrentForm }) {
 }
 
 export default QuestionModal;
+
+const QuestionModalContainer = styled.div`
+  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+`;

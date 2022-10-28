@@ -14,7 +14,8 @@ export const ReviewsFlex = styled.div`
 `;
 
 export const ReviewsListContainer = styled.div`
-  width: 50%;
+  width: 50vw;
+  padding: 5px;
 `;
 
 export const ReviewTileList = styled.ul`
@@ -26,9 +27,10 @@ export const ReviewTileList = styled.ul`
   gap: 30px;
   max-height: 75vh;
   overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
 
     &::-webkit-scrollbar {
       display: none;
@@ -41,10 +43,13 @@ export const ReviewsListButton = styled.button`
   background: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
-  border: none;
+  border: 2px solid black;
   margin: 0px 8px 0px 0px;
   box-sizing: border-box;
+
+  &:active{
+    box-shadow: rgba(255, 255, 255, 0.2) -3px -3px 6px 0px inset, rgba(0, 0, 0, 0.9) 3px 3px 6px 1px inset;
+  }
 `;
 
 export const StyledSortSelect = styled.select`
@@ -54,4 +59,11 @@ export const StyledSortSelect = styled.select`
   border-bottom: 1px solid black;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px
+`;
+
+export const StyledSearch = styled.input`
+  border: none;
+  margin-left: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  height: 18px;
 `;

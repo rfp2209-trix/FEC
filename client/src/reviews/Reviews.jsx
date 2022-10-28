@@ -8,18 +8,20 @@ function Reviews({ setCurrentForm }) {
   const [ratingsFilter, setRatingsFilter] = useState([null, false, false, false, false, false]);
   return (
     <ReviewsContainer>
-      <h2>RATINGS & REVIEWS</h2>
-      <ReviewsFlex gap="30px">
-        <ReviewsMeta
-          ratingsFilter={ratingsFilter}
-          setRatingsFilter={setRatingsFilter}
-        />
-        <ReviewsList
-          setCurrentForm={setCurrentForm}
-          ratingsFilter={ratingsFilter}
-          setRatingsFilter={setRatingsFilter}
-        />
-      </ReviewsFlex>
+      <div>
+        <h2>RATINGS & REVIEWS</h2>
+        <ReviewsFlex gap="30px">
+          <ReviewsMeta
+            ratingsFilter={ratingsFilter}
+            setRatingsFilter={setRatingsFilter}
+          />
+          <ReviewsList
+            setCurrentForm={setCurrentForm}
+            ratingsFilter={ratingsFilter}
+            setRatingsFilter={setRatingsFilter}
+          />
+        </ReviewsFlex>
+      </div>
     </ReviewsContainer>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { LittleButton } from '../qa-style.js';
 
 function Helpful({ answerID, helpfulness }) {
   const [clicked, setClicked] = useState(false);
@@ -17,7 +18,7 @@ function Helpful({ answerID, helpfulness }) {
 
   return (
     <span>
-      {clicked ? <small> Thank You! </small> : <button type="submit" onClick={handleHelpfulAnswer}><small>{`Yes (${helpfulness})`}</small></button>}
+      {clicked ? <small> Thank You! </small> : <LittleButton type="submit" onClick={handleHelpfulAnswer}><small>{`Yes (${helpfulness})`}</small></LittleButton>}
     </span>
   );
 }
