@@ -14,12 +14,13 @@ z-index: 50;
 `;
 
 export const QAModalContainer = styled.form`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  z-index: 999;
+  top: 37.5%;
+  left: 25%;
   height: ${(props) => props.height};
-  min-heigth: 400px;
   width: ${(props) => props.width};
+  min-heigth: 400px;
   min-width: 600px;
   padding: 20px;
   background: #f0fff0;
@@ -32,7 +33,7 @@ export const ModalContainer = styled.div`
   left: 25%;
   height: 25%;
   width: 50%;
-  min-height: 300px;
+  min-height: 500px;
   background: #f0fff0;
   min-width: 450px;
   justify-content: center;

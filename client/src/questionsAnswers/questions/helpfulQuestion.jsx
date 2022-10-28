@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { LittleButton } from '../qa-style.js';
 // import useProductsContext from '../../Context.jsx';
 
 function Helpful(props) {
@@ -20,19 +21,19 @@ function Helpful(props) {
   };
 
   return (
-    <span>
+    <div>
       {' Helpful?'}
       { !clicked ? (
-        <button type="submit" onClick={handleHelpfulQuestion}>
+        <LittleButton type="submit" onClick={handleHelpfulQuestion}>
           <small>
             Yes
             {' '}
             {` (${helpVotes})`}
           </small>
-        </button>
+        </LittleButton>
       )
         : <span>Thank you!</span> }
-    </span>
+    </div>
   );
 }
 
