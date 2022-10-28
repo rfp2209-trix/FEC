@@ -60,3 +60,15 @@ export const ModalImg = styled.img`
   max-height: 50vh;
   max-width: 75vw;
 `;
+
+export const NoStyleButton = styled.button`
+  border: none;
+  background: white;
+  font-size: 14px;
+  font-style: italic;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  &:hover{
+    color: #acc8d7;
+  }
+`;
