@@ -42,14 +42,12 @@ export const ReviewsListButton = styled.button`
   background: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
-  border: none;
+  border: 2px solid black;
   margin: 0px 8px 0px 0px;
   box-sizing: border-box;
 
-  &:hover{
-    box-shadow: #acc8d7 0px 0px 0px 1px inset, #acc8d7 0px 0px 0px 1px;
-    color: #acc8d7;
+  &:active{
+    box-shadow: rgba(255, 255, 255, 0.2) -3px -3px 6px 0px inset, rgba(0, 0, 0, 0.9) 3px 3px 6px 1px inset;
   }
 `;
 

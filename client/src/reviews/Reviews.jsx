@@ -8,18 +8,20 @@ function Reviews({ setCurrentForm }) {
   const [ratingsFilter, setRatingsFilter] = useState([null, false, false, false, false, false]);
   return (
     <ReviewsContainer>
-      <h2>RATINGS & REVIEWS</h2>
-      <ReviewsFlex gap="30px">
-        <ReviewsMeta
-          ratingsFilter={ratingsFilter}
-          setRatingsFilter={setRatingsFilter}
-        />
-        <ReviewsList
-          setCurrentForm={setCurrentForm}
-          ratingsFilter={ratingsFilter}
-          setRatingsFilter={setRatingsFilter}
-        />
-      </ReviewsFlex>
+      <div>
+        <h2>RATINGS & REVIEWS</h2>
+        <ReviewsFlex gap="30px">
+          <ReviewsMeta
+            ratingsFilter={ratingsFilter}
+            setRatingsFilter={setRatingsFilter}
+          />
+          <ReviewsList
+            setCurrentForm={setCurrentForm}
+            ratingsFilter={ratingsFilter}
+            setRatingsFilter={setRatingsFilter}
+          />
+        </ReviewsFlex>
+      </div>
     </ReviewsContainer>
   );
 }
@@ -31,4 +33,7 @@ const ReviewsContainer = styled.div`
   padding: 0px;
   background: white;
   margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 `;
