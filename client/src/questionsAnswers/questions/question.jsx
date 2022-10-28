@@ -62,13 +62,15 @@ export default Question;
 const BigQuestionContainer = styled.div`
   border: 1px solid grey;
   border-radius: 5px;
+  box-shadow: 10px 10px 50px grey;
 `;
 
 const QuestionContainer = styled.div`
   display: flex;
   align-items: center;
   padding: .5em;
-  background: honeydew;
+
+
 `;
 
 const QContainer = styled.div`
@@ -90,6 +92,7 @@ const QuestionAnswerContainer = styled.div`
 
 const AnswerListContainer = styled.div`
   flex-grow: 1;
+  margin-right: 10px;
 `;
 
 const AContainer = styled.div`

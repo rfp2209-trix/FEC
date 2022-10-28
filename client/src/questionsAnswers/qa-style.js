@@ -21,12 +21,22 @@ export const LittleButton = styled.button`
   border: 1px solid gray;
   margin: 0px 8px 0px 8px;
   box-sizing: border-box;
+  border-radius: 6px;
+:hover {
+    opacity: .8;
+    cursor: grab;
+  }
 `;
 
 export const ReportButton = styled(LittleButton)`
 color: tomato;
 border: 1px solid gray;
 height: 50px;
+border-radius: 12px;
+:hover {
+    opacity: .8;
+    cursor: grab;
+  }
 `;
 
 export const LittleReportButton = styled(ReportButton)`
@@ -34,6 +44,12 @@ color: tomato;
 border: 1px solid gray;
 height: 30px;
 width: 70px;
+border-radius: 6px;
+:hover {
+    opacity: .8;
+    cursor: grab;
+  }
+
 `;
 
 export const AnswerButton = styled.button`
@@ -43,7 +59,12 @@ export const AnswerButton = styled.button`
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
-  border: 1px solid honeydew;
+  border: 1px solid;
   margin: 0px 8px 0px 8px;
   box-sizing: border-box;
+  border-radius: 12px;
+  :hover {
+    opacity: .8;
+    cursor: grab;
+  }
 `;

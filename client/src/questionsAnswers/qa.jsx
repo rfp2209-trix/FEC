@@ -51,12 +51,15 @@ function QA({ setCurrentForm, setCurrentQData }) {
   return (
     <div>
       <h3>Questions & Answers</h3>
-      <input
-        type="text"
-        placeholder="Does this make me a better software engineer?"
-        size="75"
-        onChange={(e) => { handleSearch(e.target.value); }}
-      />
+      <InputContainer>
+        <p>Enter Question to Search for...</p>
+        <input
+          type="text"
+          placeholder="Does this make me a better software engineer?"
+          size="75"
+          onChange={(e) => { handleSearch(e.target.value); }}
+        />
+      </InputContainer>
       <br />
       <QAContainer>
         { !moreQuestions
@@ -93,10 +96,15 @@ function QA({ setCurrentForm, setCurrentQData }) {
 }
 
 export default QA;
-
+const InputContainer = styled.div`
+  > input {
+    font-size: 14pt;
+  }
+`;
 const QAContainer = styled.div`
   width: 75vw;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  border-radius: 6px;
 `;

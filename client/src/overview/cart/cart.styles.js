@@ -66,7 +66,6 @@ export const CartContainer = styled.div`
 
   .addCart:hover {
     background-color: #f2f2f2;
-    /* box-shadow: 5px 5px 50px lightgrey; */
     cursor: grab;
   }
 
