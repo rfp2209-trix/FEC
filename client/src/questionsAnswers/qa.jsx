@@ -104,7 +104,7 @@ const QAContainer = styled.div`
 `;
 
 const SearchContainer = styled.input`
-  width: 75vw;
+  width: 72vw;
   font-size: 1em;
   padding: 15px;
 `;

@@ -40,7 +40,8 @@ export default AnswerItem;
 
 const PhotoContainer = styled.div`
   display: table-cell;
-  padding: 2px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 `;
 
 const UserDetailsRowContainer = styled.div`
@@ -65,4 +66,5 @@ const TopRowContainer = styled.div`
 const AnswerTextContainer = styled.div`
   flex-grow: 1;
   padding: 5px;
+  font-size: 14px;
 `;

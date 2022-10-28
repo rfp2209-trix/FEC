@@ -17,9 +17,7 @@ function Photo({ URL }) {
       { !!clicked
         && (
         <DarkBG onClick={() => { handleClick(false); }}>
-          <PicModalContainer onClick={() => { handleClick(false); }}>
-            <img name="picModal" src={URL} alt={`Full-size: ${URL}`} />
-          </PicModalContainer>
+          <PicModalContainer name="picModal" src={URL} alt={`Full-size: ${URL}`} />
         </DarkBG>
         )}
     </>
@@ -28,14 +26,10 @@ function Photo({ URL }) {
 
 export default Photo;
 
-const PicModalContainer = styled.div`
-position: fixed;
-z-index: 999;
-top: 50%;
-left: 50%;
-`;
-
 const DarkBG = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 position: fixed;
 height: 100vh;
 width: 100vw;
@@ -43,4 +37,12 @@ top: 0%;
 left: 0%;
 background: rgba(0, 0, 0, 0.5);
 z-index: 50;
+`;
+
+const PicModalContainer = styled.img`
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 75vw;
+max-height: 80vh;
 `;
