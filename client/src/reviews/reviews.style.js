@@ -29,6 +29,7 @@ export const ReviewTileList = styled.ul`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  border-radius: 6px;
 
 
     &::-webkit-scrollbar {
@@ -42,9 +43,15 @@ export const ReviewsListButton = styled.button`
   background: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
-  border: 2px solid black;
+  border: 2px solid lightgray;
   margin: 0px 8px 0px 0px;
   box-sizing: border-box;
+  border-radius: 6px;
+  :hover {
+    opacity: .8;
+    cursor: grab;
+    background: lightgrey;
+  }
 
   &:active{
     box-shadow: rgba(255, 255, 255, 0.2) -3px -3px 6px 0px inset, rgba(0, 0, 0, 0.9) 3px 3px 6px 1px inset;

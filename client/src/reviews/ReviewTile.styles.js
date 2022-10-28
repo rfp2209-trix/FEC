@@ -7,10 +7,11 @@ export const StyledTile = styled.li`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  border-bottom: 1px solid black;
-  padding: 5px 5px 20px 5px;
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
   min-width: 350px;
-  width: 65vw;
+  margin-right: 10px;
+  margin-left: 10px;
 `;
 
 export const TileFlex = styled.div`
@@ -19,12 +20,12 @@ export const TileFlex = styled.div`
   justify-content: ${(props) => props.justify || 'space-between'};
   font-size: ${(props) => props.styleFontSize};
   gap: ${(props) => props.gap || '0px'};
+
 `;
 
 export const SummaryDiv = styled.div`
   overflow-wrap: break-word;
   font-size: 22px;
-
   &::first-line{
     font-weight: bold;
   }
@@ -39,7 +40,7 @@ export const StyledButton = styled.button`
   font-size: 14px;
   font-family: 'Roboto Condensed', sans-serif;
 
-    &:hover{
+    :hover{
       color: #acc8d7;
     }
 `;
@@ -51,6 +52,7 @@ export const ReviewImg = styled.img`
   margin: 0px 4px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 6px;
 `;
 
 export const StyledResponse = styled.div`

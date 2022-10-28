@@ -86,7 +86,7 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
               .catch((err) => console.log(err));
           }}
         >
-          <option value="relevent">Relevent</option>
+          <option value="relevent">Relevant</option>
           <option value="helpful">Helpful</option>
           <option value="newest">Newest</option>
         </StyledSortSelect>
