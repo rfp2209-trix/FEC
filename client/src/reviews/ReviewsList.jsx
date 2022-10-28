@@ -93,7 +93,7 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
       </label>
       <StyledSearch
         type="text"
-        placeholder="keyword search (low priority)"
+        placeholder="keyword search"
         value={searchString}
         onChange={(e) => setSearchString(e.target.value.toLowerCase())}
       />
