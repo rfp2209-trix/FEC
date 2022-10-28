@@ -28,11 +28,12 @@ function Photo({ URL }) {
 
 export default Photo;
 
-const PicModalContainer = styled.div`
-position: fixed;
-z-index: 999;
-top: 50%;
-left: 50%;
+const PicModalContainer = styled.img`
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 75vw;
+max-height: 80vh;
 `;
 
 const DarkBG = styled.div`
