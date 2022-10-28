@@ -25,18 +25,20 @@ export default function OutfitListEntry({
           e.preventDefault(); removeOutfitHandlder();
         }}
         >
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Black_close_x.svg/1024px-Black_close_x.svg.png" width="30px" height="30px" alt="star icon" />
+          <span className="material-symbols-outlined">
+            close
+          </span>
         </RemoveFromOutfitButtonContainer>
         <OutfitEntryText>
           {currentProduct.category}
+          <OutfitEntryTitle>
+            {currentProduct.name}
+          </OutfitEntryTitle>
+          <OutfitEntryPrice>
+            $
+            {currentProduct.default_price}
+          </OutfitEntryPrice>
         </OutfitEntryText>
-        <OutfitEntryTitle>
-          {currentProduct.name}
-        </OutfitEntryTitle>
-        <OutfitEntryPrice>
-          $
-          {currentProduct.default_price}
-        </OutfitEntryPrice>
         <div className="Stars" style={{ '--rating': avgReview, '--star-size': '20px' }} aria-label={avgReview}>
           <Stars />
         </div>
@@ -45,18 +47,25 @@ export default function OutfitListEntry({
   );
 }
 
-const OutfitListEntryContainer = styled.a`
-  width:258px;
-  height:385px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin-left: 15px;
-  margin-right: 15px;
-  contain: content;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-  border-radius: 6px;
+const OutfitEntryTitle = styled.div`
+  font-size: 20px;
+  padding-bottom: 5px;
 `;
+
+const OutfitEntryPrice = styled.div`
+  font-size: 14px;
+  padding-bottom: 14px;
+`;
+
+const OutfitEntryText = styled.div`
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 8px;
+  margin-left: 3px;
+  :hover {
+     color: #c9620b;
+    }
+    `;
 
 const OutfitListEntryImg = styled.div`
   background-image: url(${(props) => props.image});
@@ -65,31 +74,43 @@ const OutfitListEntryImg = styled.div`
   margin: auto;
   width: 258px;
   height: 258px;
+  transition: 0.3s;
+  &:hover ${OutfitEntryText} {
+      color: #c9620b;
+    }
   `;
 
+const OutfitListEntryContainer = styled.a`
+  color: black;
+  text-decoration: none;
+  width:258px;
+  height:370px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: 15px;
+  margin-right: 15px;
+  contain: content;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius: 6px;
+  :hover ${OutfitListEntryImg} {
+      -webkit-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+      zoom: scale(1.03);
+      transition: 0.25s ease;
+    }
+`;
+
 const RemoveFromOutfitButtonContainer = styled.div`
-position: absolute;
-height: 25px;
-width: 25px;
-top: 5%;
-left 7%;
-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-font-size: 16px;
-cursor: pointer;
-border-radius: 6px;
-`;
-
-const OutfitEntryTitle = styled.div`
-  font-size: 24px;
-  padding-bottom: 15px;
-`;
-
-const OutfitEntryText = styled.div`
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 3%;
+  left 3%;
   font-size: 16px;
-`;
-
-const OutfitEntryPrice = styled.div`
-  font-size: 14px;
-  padding-bottom: 6px;
+    cursor: pointer;
+    border-radius: 6px;
+    :hover {
+      color: #c9620b;
+    }
 `;

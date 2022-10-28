@@ -82,7 +82,7 @@ export default function OutfitList() {
       </OutfitTitleText>
       <OutfitListContainer id="OutfitList">
         <AddCurrentProductToOutfitContainer>
-          ADD TO OUTFIT
+          ADD CURRENT PRODUCT
           <AddCurrentProductButton onClick={addCurrentProductHandler}>
             ➕
           </AddCurrentProductButton>
