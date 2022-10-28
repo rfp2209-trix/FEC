@@ -15,7 +15,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
   if (loading) {
     return <span />;
   }
-  console.log('questiosn Data: ', questionsData);
+  console.log('questions Data: ', questionsData);
 
   const handleQueryResults = (results) => {
     console.log('searching? : ', searching);
@@ -26,13 +26,13 @@ function QA({ setCurrentForm, setCurrentQData }) {
     setMoreQuestions(!moreQuestions);
     console.log(`The user wants to see more questions: ${moreQuestions}`);
   };
-
-  const mapTarget = searching ? searchResults : questionsData.results;
+  const answers = questionsData.results;
+  const mapTarget = searching ? searchResults : answers;
 
   const handleSearch = (query) => {
     if (query.length >= 3) {
       setSearching(true);
-      const queryResults = questionsData.results.filter((each) => {
+      const queryResults = answers.filter((each) => {
         const answerList = each.answers;
         return each.question_body.indexOf(query) !== -1
         || Object.values(answerList).some((answer) => answer.body.indexOf(query) !== -1);
@@ -50,13 +50,15 @@ function QA({ setCurrentForm, setCurrentQData }) {
 
   return (
     <div>
-      <h3>Questions & Answers</h3>
-      <input
-        type="text"
-        placeholder="Does this make me a better software engineer?"
-        size="75"
-        onChange={(e) => { handleSearch(e.target.value); }}
-      />
+      <h2>QUESTIONS & ANSWERS</h2>
+      {answers.length !== 0 ? (
+        <SearchContainer
+          type="text"
+          placeholder="Does this make me a better software engineer?"
+          size="75"
+          onChange={(e) => { handleSearch(e.target.value); }}
+        />
+      ) : <div>No Questions Yet</div>}
       <br />
       <QAContainer>
         { !moreQuestions
@@ -80,7 +82,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
           )}
       </QAContainer>
 
-      {questionsData.results.length > 4 ? (
+      {answers.length > 4 ? (
         <BigButton type="submit" onClick={handleMoreQuestions}>
           { moreQuestions ? (<span>Collapse</span>)
             : (<span>SEE MORE QUESTIONS</span>) }
@@ -99,4 +101,10 @@ const QAContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+`;
+
+const SearchContainer = styled.input`
+  width: 75vw;
+  font-size: 1em;
+  padding: 15px;
 `;

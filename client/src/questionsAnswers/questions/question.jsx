@@ -7,8 +7,7 @@ import AnswerModal from '../answerQuestionForm.jsx';
 import { objectSorter } from '../../../helpers.js';
 import { BigButton, AnswerButton } from '../qa-style.js';
 
-function Question(props) {
-  const { data } = props;
+function Question({ data }) {
   const [answerCount, setAnswerCount] = useState(2);
   // const [moreAnswers, setMoreAnswers] = useState(false);
   const [answerQuestion, setAnswerQuestion] = useState(false);
@@ -33,7 +32,7 @@ function Question(props) {
       </QuestionContainer>
       <br />
       <QuestionAnswerContainer>
-        <AContainer><b>A: </b></AContainer>
+        <AContainer>{Object.keys(data.answers).length ? (<b>A: </b>) : null }</AContainer>
         <AnswerListContainer>
           {currAnswers.map((each) => <AnswerItem values={each} key={each.id} />)}
         </AnswerListContainer>
@@ -60,15 +59,14 @@ function Question(props) {
 export default Question;
 
 const BigQuestionContainer = styled.div`
-  border: 1px solid grey;
-  border-radius: 5px;
 `;
 
 const QuestionContainer = styled.div`
   display: flex;
   align-items: center;
   padding: .5em;
-  background: honeydew;
+  border-radius: 5px;
+  background: #acc8d7;
 `;
 
 const QContainer = styled.div`

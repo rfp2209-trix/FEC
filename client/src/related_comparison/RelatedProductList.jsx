@@ -5,7 +5,9 @@ import { useProductsContext } from '../Context.jsx';
 import { CarouselButtons, CarouselIcons } from './Carousel.style.js';
 
 export default function RelatedProductList() {
-  const { loading, relatedProductsInfo, productsInfo, styleDetails } = useProductsContext();
+  const {
+    loading, relatedProductsInfo, productsInfo, styleDetails,
+  } = useProductsContext();
   const [RelatedProductsView, setRelatedProductsView] = useState([]);
   const [LowerIndex, setLowerIndex] = useState(0);
   const [HigherIndex, setHigherIndex] = useState(4);
@@ -32,7 +34,7 @@ export default function RelatedProductList() {
   return (
     <div>
       <RelatedTitleText>
-        Related Products
+        <h2>RELATED PRODUCTS</h2>
       </RelatedTitleText>
 
       <RelatedProductListContainer id="related-items">
@@ -82,6 +84,5 @@ flex-wrap: nowrap;
 `;
 
 const RelatedTitleText = styled.div`
-  font-size: 20px;
   margin: 10px;
 `;
