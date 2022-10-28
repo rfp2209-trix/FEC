@@ -15,6 +15,7 @@ function AnswerItem({ values }) {
         <AnswerTextContainer>{values.body}</AnswerTextContainer>
         Helpful?
         <Helpful answerID={values.id} helpfulness={helpfulness} />
+        <Report answerID={values.id} />
       </TopRowContainer>
       <div>
         <small>
@@ -23,7 +24,6 @@ function AnswerItem({ values }) {
           </b>
           <UserDetailsRowContainer>
             <UserDetailsContainer>{`${values.answerer_name}  |  ${date(values.date)[0]}`}</UserDetailsContainer>
-            <Report answerID={values.id} />
           </UserDetailsRowContainer>
         </small>
       </div>
@@ -50,6 +50,7 @@ const UserDetailsRowContainer = styled.div`
 const UserDetailsContainer = styled.div`
   flex-grow: 1;
   padding: 5px;
+  color: grey;
 `;
 
 const AnswerContainer = styled.div`

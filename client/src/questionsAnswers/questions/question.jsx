@@ -5,6 +5,7 @@ import Helpful from './helpfulQuestion.jsx';
 import Report from './reportQuestion.jsx';
 import AnswerModal from '../answerQuestionForm.jsx';
 import { objectSorter } from '../../../helpers.js';
+import { BigButton, AnswerButton } from '../qa-style.js';
 
 function Question(props) {
   const { data } = props;
@@ -26,8 +27,8 @@ function Question(props) {
     <BigQuestionContainer>
       <QuestionContainer>
         <QContainer><b>Q: </b></QContainer>
-        <QBodyContainer>{data.question_body}</QBodyContainer>
-        <button type="submit" onClick={handleAnswerQuestion}><small>Answer Question</small></button>
+        <QBodyContainer><b>{data.question_body}</b></QBodyContainer>
+        <AnswerButton type="submit" onClick={handleAnswerQuestion}>Answer Question</AnswerButton>
         <Helpful questionID={data.question_id} helpVotes={data.question_helpfulness} />
       </QuestionContainer>
       <br />
@@ -39,9 +40,9 @@ function Question(props) {
       </QuestionAnswerContainer>
       <QInteractContainer>
         {Object.keys(data.answers).length > answerCount ? (
-          <button type="submit" onClick={handleMoreAnswers}>
-            <small>Show More Answers</small>
-          </button>
+          <BigButton type="submit" onClick={handleMoreAnswers}>
+            <small>SHOW MORE ANSWERS</small>
+          </BigButton>
         ) : null }
         <Report questionID={data.question_id} />
       </QInteractContainer>
@@ -65,6 +66,7 @@ const BigQuestionContainer = styled.div`
 
 const QuestionContainer = styled.div`
   display: flex;
+  align-items: center;
   padding: .5em;
   background: honeydew;
 `;
@@ -72,13 +74,13 @@ const QuestionContainer = styled.div`
 const QContainer = styled.div`
   width: 20px;
   padding: 5px;
-  font-size: 1em;
+  font-size: 1.25em;
 `;
 
 const QBodyContainer = styled.div`
   flex-grow: 9;
   padding: 5px;
-  font-size: 1em;
+  font-size: 1.25em;
 `;
 
 const QuestionAnswerContainer = styled.div`
@@ -91,15 +93,14 @@ const AnswerListContainer = styled.div`
 `;
 
 const AContainer = styled.div`
-  display: flex;
-  justify-content: center;
   width: 20px;
-  padding: 5px;
-  font-size: 1em;
+  padding: 5px 12px;
+  font-size: 1.25em;
 `;
 
 const QInteractContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 5px 30px;
+  padding: 8px 20px;
 `;

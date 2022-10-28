@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Question from './questions/question.jsx';
 import { useProductsContext } from '../Context.jsx';
+import { BigButton } from './qa-style.js';
 
 function QA({ setCurrentForm, setCurrentQData }) {
   const [searching, setSearching] = useState(false);
@@ -80,13 +81,13 @@ function QA({ setCurrentForm, setCurrentQData }) {
       </QAContainer>
 
       {questionsData.results.length > 4 ? (
-        <button type="submit" onClick={handleMoreQuestions}>
-          { moreQuestions ? (<small>Collapse</small>)
-            : (<small>See More Questions</small>) }
-        </button>
+        <BigButton type="submit" onClick={handleMoreQuestions}>
+          { moreQuestions ? (<span>Collapse</span>)
+            : (<span>SEE MORE QUESTIONS</span>) }
+        </BigButton>
       ) : null }
       <br />
-      <button type="submit" onClick={handleAsk} width="50"><small>Ask A Question</small></button>
+      <BigButton type="submit" onClick={handleAsk} width="50"><small>ASK A QUESTION</small></BigButton>
     </div>
   );
 }
@@ -94,6 +95,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
 export default QA;
 
 const QAContainer = styled.div`
+  width: 75vw;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
