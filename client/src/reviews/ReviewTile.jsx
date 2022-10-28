@@ -47,7 +47,7 @@ function ReviewTile({ review }) {
         </div>
       </TileFlex>
       <SummaryDiv>{review.summary}</SummaryDiv>
-      <div>{review.body}</div>
+      <div style={{ overflowWrap: 'break-word' }}>{review.body}</div>
       <div>
         {photoElements}
       </div>

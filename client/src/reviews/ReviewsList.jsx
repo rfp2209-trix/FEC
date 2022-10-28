@@ -8,6 +8,7 @@ import {
   ReviewsListButton,
   ReviewsFlex,
   StyledSortSelect,
+  StyledSearch,
 } from './reviews.style.js';
 
 function ReviewsList({ setCurrentForm, ratingsFilter }) {
@@ -21,10 +22,26 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
   } = useProductsContext();
   const [nReviewsDisplayed, setnReviewsDisplayed] = useState(2);
   const [reviewsDisplayed, setReviewsDisplayed] = useState([]);
+  const [searchString, setSearchString] = useState('');
   let reviewListComponents = [];
   if (!loading) {
-    if (ratingsFilter.some((isFiltered) => !!isFiltered)) {
+    if (searchString.length > 3 && ratingsFilter.some((isFiltered) => !!isFiltered)) {
+      reviewListComponents = reviews.results.filter((review) => (
+        !!ratingsFilter[review.rating]
+        && (
+          review.body.toLowerCase().includes(searchString)
+          || review.summary.toLowerCase().includes(searchString)
+        )
+      ))
+        .map((review) => <ReviewTile key={review.review_id} review={review} />);
+    } else if (ratingsFilter.some((isFiltered) => !!isFiltered)) {
       reviewListComponents = reviews.results.filter((review) => !!ratingsFilter[review.rating])
+        .map((review) => <ReviewTile key={review.review_id} review={review} />);
+    } else if (searchString.length > 3) {
+      reviewListComponents = reviews.results.filter((review) => (
+        review.body.toLowerCase().includes(searchString)
+        || review.summary.toLowerCase().includes(searchString)
+      ))
         .map((review) => <ReviewTile key={review.review_id} review={review} />);
     } else {
       reviewListComponents = reviews.results.map((review) => (
@@ -32,8 +49,12 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
       ));
     }
   }
-  useEffect(() => setReviewsDisplayed(reviewListComponents), [loading, reviewsSort, ratingsFilter]);
-  // useEffect(() => setReviewsDisplayed(reviewListComponents), [ratingsFilter]);
+  useEffect(() => setReviewsDisplayed(reviewListComponents), [
+    loading,
+    reviewsSort,
+    ratingsFilter,
+    searchString,
+  ]);
   if (loading) {
     return (
       <div />
@@ -70,8 +91,13 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
           <option value="newest">Newest</option>
         </StyledSortSelect>
       </label>
-      <input type="text" placeholder="keyword search (low priority)" />
-      <button type="button">Search!</button>
+      <StyledSearch
+        type="text"
+        placeholder="keyword search (low priority)"
+        value={searchString}
+        onChange={(e) => setSearchString(e.target.value.toLowerCase())}
+      />
+      {/* <button type="button">Search!</button> */}
       <ReviewTileList>
         {reviewsDisplayed.slice(0, nReviewsDisplayed)}
       </ReviewTileList>
