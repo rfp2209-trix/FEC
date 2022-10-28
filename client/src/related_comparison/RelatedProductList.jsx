@@ -5,7 +5,7 @@ import { useProductsContext } from '../Context.jsx';
 import { CarouselButtons, CarouselIcons } from './Carousel.style.js';
 
 export default function RelatedProductList() {
-  const { loading, relatedProductsInfo, productsInfo } = useProductsContext();
+  const { loading, relatedProductsInfo, productsInfo, styleDetails } = useProductsContext();
   const [RelatedProductsView, setRelatedProductsView] = useState([]);
   const [LowerIndex, setLowerIndex] = useState(0);
   const [HigherIndex, setHigherIndex] = useState(4);
@@ -56,6 +56,7 @@ export default function RelatedProductList() {
             selectedProductInfo={productsInfo}
             key={currProduct.name}
             currentProduct={currProduct}
+            styleDetails={styleDetails}
           />
         ))
           : <h1> NO RELATED ITEMS </h1>}

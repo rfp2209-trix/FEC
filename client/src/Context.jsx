@@ -4,7 +4,11 @@ import React, {
   useState, useEffect, useContext, createContext,
 } from 'react';
 import axios from 'axios';
-import { sumArray, avgStarValue } from '../helpers.js';
+import {
+  sumArray,
+  avgStarValue,
+  roundedAvgStar,
+} from '../helpers.js';
 
 export const ProductContext = createContext();
 
@@ -13,7 +17,7 @@ export function Context({ children }) {
   const [loading, setLoading] = useState(true);
 
   const urlParams = new URLSearchParams(window.location.search);
-  const product_id = urlParams.get('product_id') || 40366;
+  const product_id = urlParams.get('product_id') || 40344;
   const getNewProduct = () => {
     // set the loading date to true for each call
     setLoading(true);
@@ -41,7 +45,8 @@ export function Context({ children }) {
         const styleDetails = styleDetailsGet.data;
         const reviews = reviewsGet.data;
         const relatedProductsInfo = relatedProductsInfoGet.data;
-        const avgReview = avgStarValue(reviewsMeta.ratings).toFixed(1);
+        const avgReviewActual = avgStarValue(reviewsMeta.ratings).toFixed(1);
+        const avgReview = roundedAvgStar(avgReviewActual);
         const questionsData = questionsGet.data;
         tempState = {
           productsInfo,
@@ -49,6 +54,7 @@ export function Context({ children }) {
           reviewsMeta,
           reviews,
           avgReview,
+          avgReviewActual,
           totalReviews,
           relatedProductsInfo,
           questionsData,
