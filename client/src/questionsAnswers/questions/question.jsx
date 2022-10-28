@@ -60,15 +60,14 @@ function Question(props) {
 export default Question;
 
 const BigQuestionContainer = styled.div`
-  border: 1px solid grey;
-  border-radius: 5px;
 `;
 
 const QuestionContainer = styled.div`
   display: flex;
   align-items: center;
   padding: .5em;
-  background: honeydew;
+  border-radius: 5px;
+  background: #ACC8D7;
 `;
 
 const QContainer = styled.div`
