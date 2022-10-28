@@ -30,7 +30,7 @@ function App() {
       axios.post('/fec/interactions', clickDetails)
         .catch((err) => {
           if (err) {
-            console.log('err', err)
+            console.log('err', err);
           }
         });
     }));
@@ -52,14 +52,12 @@ function App() {
         <Styled.OutfitListContainer />
       </div>
       <div id="QA">
-        <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+        {/* <Styled.QuestionsContainer setCurrentForm={setCurrentForm} /> */}
         {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
         <Styled.QuestionsContainer
           setCurrentForm={setCurrentForm}
           setCurrentQData={setCurrentQData}
         />
-        {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
-        {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
       </div>
       <div id="REV">
         <Reviews setCurrentForm={setCurrentForm} />

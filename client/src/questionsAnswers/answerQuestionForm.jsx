@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
 import { DarkBG, ModalContainer } from './background.style.js';
+import FileUpload from '../../fileUpload.jsx';
 
 function AnswerModal({ setAnswerQuestion, currentQData }) {
   const { productsInfo, loading } = useProductsContext();
@@ -10,6 +10,7 @@ function AnswerModal({ setAnswerQuestion, currentQData }) {
     body: null,
     name: null,
     email: null,
+    photos: [],
   });
   // const [photoUrls, setPhotoUrls] = useState();
   const handleChange = (e) => {
@@ -21,8 +22,13 @@ function AnswerModal({ setAnswerQuestion, currentQData }) {
     return (<span />);
   }
 
+  const handlePhotoSubmit = (input) => {
+    answer.photos.push(input);
+    setAnswer({ ...answer });
+    console.log('URL generated, pushed to photo array');
+  };
+
   const handleSubmitAnswer = (e) => {
-    console.log('post body: ', answer);
     axios.post(`/fec/answer/${currentQData[0]}`, answer)
       .then(() => {
         console.log('Successfully uploaded answer!');
@@ -37,30 +43,27 @@ function AnswerModal({ setAnswerQuestion, currentQData }) {
   return (
     <DarkBG onClick={() => { setAnswerQuestion(false); }}>
       <ModalContainer onClick={(e) => { e.stopPropagation(); }}>
-        <form>
+        <form onSubmit={handleSubmitAnswer}>
           <div name="answerModalHeader">
             <h1>Submit Your Answer</h1>
             <h3>{`${productsInfo.name} : ${currentQData[1]}`}</h3>
           </div>
           Your Nickname
           <br />
-          <input name="name" placeholder="Barack" required onChange={(e) => { handleChange(e); }} />
+          <input name="name" size="85" placeholder="Psyduck" required onChange={(e) => { handleChange(e); }} />
           <br />
           Your Email
+          <small> (For authentication reasons, you will not be emailed)</small>
           <br />
-          <input name="email" placeholder="barack@google.com" required onChange={(e) => { handleChange(e); }} />
+          <input name="email" size="85" placeholder="barack@google.com" required onChange={(e) => { handleChange(e); }} />
           <br />
           Your Answer
           <br />
-          <input name="body" placeholder="The answer to this question is..." required onChange={(e) => { handleChange(e); }} />
+          <textarea name="body" rows="8" cols="73" placeholder="The answer to this question is..." required onChange={(e) => { handleChange(e); }} />
           <br />
-          Photo URL Upload
+          <FileUpload stateUpdaterFn={handlePhotoSubmit} />
           <br />
-          <input id="answerPhoto" placeholder="https://unsplash.com/photos/aopy8Hwom4s" />
-          <br />
-          <button type="submit">Upload Photo URL</button>
-          <br />
-          <button type="submit" onClick={handleSubmitAnswer}>Submit Answer</button>
+          <button type="submit">Submit Answer</button>
         </form>
       </ModalContainer>
     </DarkBG>

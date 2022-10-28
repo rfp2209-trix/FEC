@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ReportButton } from '../qa-style.js';
 
 function Report({ questionID }) {
   const [reported, setReported] = useState(false);
@@ -17,11 +18,11 @@ function Report({ questionID }) {
   return (
     <span>
       {!reported ? (
-        <button type="submit" onClick={handleReportQuestion}>
+        <ReportButton type="submit" height="120px" onClick={handleReportQuestion}>
           <small>
             Report Question
           </small>
-        </button>
+        </ReportButton>
       ) : <span>Reported</span> }
     </span>
   );
