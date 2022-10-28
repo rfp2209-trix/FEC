@@ -33,7 +33,4 @@ const ReviewsContainer = styled.div`
   padding: 0px;
   background: white;
   margin: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 `;

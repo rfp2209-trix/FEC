@@ -45,7 +45,7 @@ export const StyledButton = styled.button`
 
 export const ReviewImg = styled.img`
   width: 75px;
-  height: 50px;
+  height: 75px;
   display: inline-block;
   margin: 0px 4px;
   border-radius: 4px;
@@ -58,7 +58,7 @@ export const StyledResponse = styled.div`
 `;
 
 export const ModalImg = styled.img`
-  max-height: 50vh;
+  max-height: 80vh;
   max-width: 75vw;
 `;
 
