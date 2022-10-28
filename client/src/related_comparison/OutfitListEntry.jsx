@@ -51,11 +51,11 @@ const OutfitListEntryContainer = styled.a`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  border: solid black;
   margin-left: 15px;
   margin-right: 15px;
   contain: content;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius: 6px;
 `;
 
 const OutfitListEntryImg = styled.div`
@@ -71,13 +71,13 @@ const RemoveFromOutfitButtonContainer = styled.div`
 position: absolute;
 height: 25px;
 width: 25px;
-top: 3%;
-left 5%;
+top: 5%;
+left 7%;
 transform: translate(-50%, -50%);
 -ms-transform: translate(-50%, -50%);
 font-size: 16px;
 cursor: pointer;
-border-radius: 5px;
+border-radius: 6px;
 `;
 
 const OutfitEntryTitle = styled.div`

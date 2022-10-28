@@ -81,7 +81,7 @@ const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  border-radius: 3px;
+  border-radius: 6px;
   max-width: 600px;
   min-width: 300px;
   z-index: 999;
