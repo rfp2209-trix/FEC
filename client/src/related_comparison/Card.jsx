@@ -22,21 +22,25 @@ export default function Card({
       <aside>
         <CardImg image={img} alt="product img" />
         <CompareButtonContainer onClick={(e) => { e.preventDefault(); toggleModal(); }}>
-          <img src="https://static.thenounproject.com/png/141961-200.png" width="25px" height="25px" alt="comparison arrow button" />
+          <span className="material-symbols-outlined">
+            compare_arrows
+          </span>
         </CompareButtonContainer>
         <AddToOutfitButtonContainer onClick={(e) => { e.preventDefault(); addToOutfitHandler(); }}>
-          <img src="https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png" width="40px" height="40px" alt="add to outfit star button" />
+          <span className="material-symbols-outlined">
+            add
+          </span>
         </AddToOutfitButtonContainer>
         <CardText>
           {category}
+          <CardTitle>
+            {name}
+          </CardTitle>
+          <CardPrice>
+            $
+            {price}
+          </CardPrice>
         </CardText>
-        <CardTitle>
-          {name}
-        </CardTitle>
-        <CardPrice>
-          $
-          {price}
-        </CardPrice>
         <div className="Stars" style={{ '--rating': rating, '--star-size': '20px' }} aria-label={rating}>
           <Stars />
         </div>
@@ -44,14 +48,52 @@ export default function Card({
     </CardContainer>
   );
 }
-const CardContainer = styled.a`
-  contain: content;
-  margin: 0px;
-  padding: 0px;
-  object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+const CardTitle = styled.div`
+  font-size: 20px;
+  padding-bottom: 5px;
+  `;
+
+const CardPrice = styled.div`
+  font-size: 14px;
+  padding-bottom: 14px;
+    `;
+
+const CardText = styled.div`
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 8px;
+  margin-left: 3px;
+  :hover {
+     color: #c9620b;
+    }
+  `;
+const CompareButtonContainer = styled.div`
+  position: absolute;
+  color: black;
+  height: 25px;
+  width: 25px;
+  top: 3%;
+  right 8%;
+  cursor: pointer;
   border-radius: 6px;
-`;
+  :hover {
+    color: #c9620b;
+  }
+  `;
+const AddToOutfitButtonContainer = styled.div`
+  position: absolute;
+  color: black;
+  height: 25px;
+  width: 25px;
+  top: 3%;
+  left 3%;
+  font-size: 34px;
+  cursor: pointer;
+  border-radius: 6px;
+  :hover {
+    color: #c9620b;
+  }
+  `;
 
 const CardImg = styled.div`
   background-image: url(${(props) => props.image});
@@ -60,44 +102,22 @@ const CardImg = styled.div`
   margin: auto;
   width: 258px;
   height: 258px;
+  transition: 0.3s;
+  :hover ${CardTitle}, &:hover ${CardPrice} &:hover ${CardText} {
+    color: #c9620b;
+  }
   `;
-
-const CompareButtonContainer = styled.div`
-position: absolute;
-height: 25px;
-width: 25px;
-top: 5%;
-right 0%;
-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-font-size: 16px;
-cursor: pointer;
-border-radius: 6px;
-`;
-
-const AddToOutfitButtonContainer = styled.div`
-position: absolute;
-height: 25px;
-width: 25px;
-top: 3%;
-left 5%;
-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-font-size: 16px;
-cursor: pointer;
-border-radius: 6px;
-`;
-
-const CardTitle = styled.div`
-  font-size: 24px;
-  padding-bottom: 15px;
-`;
-
-const CardText = styled.div`
-  font-size: 16px;
-`;
-
-const CardPrice = styled.div`
-  font-size: 14px;
-  padding-bottom: 6px;
-`;
+const CardContainer = styled.a`
+    color: black;
+    text-decoration: none;
+    contain: content;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    border-radius: 6px;
+    :hover ${CardImg} {
+      -webkit-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+      zoom: scale(1.03);
+      transition: 0.25s ease;
+    }
+  `;
