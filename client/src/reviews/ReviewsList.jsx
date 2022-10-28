@@ -32,8 +32,8 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
       ));
     }
   }
-  useEffect(() => setReviewsDisplayed(reviewListComponents), [loading]);
-  useEffect(() => setReviewsDisplayed(reviewListComponents), [ratingsFilter]);
+  useEffect(() => setReviewsDisplayed(reviewListComponents), [loading, reviewsSort, ratingsFilter]);
+  // useEffect(() => setReviewsDisplayed(reviewListComponents), [ratingsFilter]);
   if (loading) {
     return (
       <div />
@@ -97,8 +97,8 @@ function ReviewsList({ setCurrentForm, ratingsFilter }) {
           data-testid="more-reviews"
           type="button"
           onClick={(e) => {
-            e.stopPropagation();
             setCurrentForm('new review');
+            e.stopPropagation();
           }}
         >
           ADD A REVIEW ＋

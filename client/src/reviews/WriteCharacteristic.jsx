@@ -18,6 +18,7 @@ function WriteCharacteristic({
       </GridSpan>
       <RadioGrid
         id={`${char}_radio`}
+        value={characteristics[charID]}
         onChange={(e) => {
           characteristics[charID] = Number(e.target.value);
           setFormData({ ...formData });
@@ -25,7 +26,7 @@ function WriteCharacteristic({
       >
         <StyledRadio id={`${char}1`} type="radio" name={`write_${char}`} value="1" area="one" />
         <StyledRadio id={`${char}2`} type="radio" name={`write_${char}`} value="2" area="two" />
-        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="3" area="three" />
+        <StyledRadio id={`${char}3`} type="radio" name={`write_${char}`} value="3" area="three" required />
         <StyledRadio id={`${char}4`} type="radio" name={`write_${char}`} value="4" area="four" />
         <StyledRadio id={`${char}5`} type="radio" name={`write_${char}`} value="5" area="five" />
         <GridSpan area="start" justify="start">
