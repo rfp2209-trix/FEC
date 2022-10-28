@@ -15,7 +15,6 @@ function App() {
   const [currentForm, setCurrentForm] = useState('none');
   const [currentQData, setCurrentQData] = useState([]);
   const [ClickData, setClickData] = useState([]);
-
   // const appElement = document.querySelector('#root');
   // appElement.addEventListener('click', (e) => {
   //   const clickDetails = {};
@@ -46,14 +45,13 @@ function App() {
         <Styled.OutfitListContainer />
       </div>
       <div id="QA">
-        <Styled.QuestionsContainer setCurrentForm={setCurrentForm} />
+        {/* <Styled.QuestionsContainer setCurrentForm={setCurrentForm} /> */}
         {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
         <Styled.QuestionsContainer
           setCurrentForm={setCurrentForm}
           setCurrentQData={setCurrentQData}
         />
-        {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null}
-        {currentForm === 'new answer' ? <AnswerModal setCurrentForm={setCurrentForm} currentQData={currentQData} /> : null }
+        {/* {currentForm === 'new question' ? <QuestionModal setCurrentForm={setCurrentForm} /> : null} */}
       </div>
       <div id="REV">
         <Reviews setCurrentForm={setCurrentForm} />

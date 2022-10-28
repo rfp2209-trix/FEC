@@ -10,17 +10,21 @@ function AnswerItem({ values }) {
   const { photos } = values; // returns an array with URLs
 
   return (
-    <div>
-      {values.body}
-      <Helpful answerID={values.id} helpfulness={helpfulness} />
-      <Report answerID={values.id} />
+    <AnswerContainer>
+      <TopRowContainer>
+        <AnswerTextContainer>{values.body}</AnswerTextContainer>
+        Helpful?
+        <Helpful answerID={values.id} helpfulness={helpfulness} />
+      </TopRowContainer>
       <div>
         <small>
           <b>
             {values.answerer_name === 'Atelier' ? <small><b>Seller </b></small> : null}
-            {values.answerer_name}
           </b>
-          {date(values.date)[0]}
+          <UserDetailsRowContainer>
+            <UserDetailsContainer>{`${values.answerer_name}  |  ${date(values.date)[0]}`}</UserDetailsContainer>
+            <Report answerID={values.id} />
+          </UserDetailsRowContainer>
         </small>
       </div>
       { photos ? photos.map((each) => (
@@ -28,7 +32,7 @@ function AnswerItem({ values }) {
           <Photo URL={each} />
         </PhotoContainer>
       )) : null }
-    </div>
+    </AnswerContainer>
   );
 }
 
@@ -37,4 +41,27 @@ export default AnswerItem;
 const PhotoContainer = styled.div`
   display: table-cell;
   padding: 2px;
-  `;
+`;
+
+const UserDetailsRowContainer = styled.div`
+  display: flex;
+`;
+
+const UserDetailsContainer = styled.div`
+  flex-grow: 1;
+  padding: 5px;
+`;
+
+const AnswerContainer = styled.div`
+  padding: 8px;
+  border: 1px solid #D3D3D3;
+`;
+
+const TopRowContainer = styled.div`
+  display: flex;
+`;
+
+const AnswerTextContainer = styled.div`
+  flex-grow: 1;
+  padding: 5px;
+`;

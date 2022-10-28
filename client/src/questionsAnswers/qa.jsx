@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 // import axios from 'axios';
+import styled from 'styled-components';
 import Question from './questions/question.jsx';
 import { useProductsContext } from '../Context.jsx';
 
@@ -55,7 +56,8 @@ function QA({ setCurrentForm, setCurrentQData }) {
         size="75"
         onChange={(e) => { handleSearch(e.target.value); }}
       />
-      <ul>
+      <br />
+      <QAContainer>
         { !moreQuestions
           ? (mapTarget.slice(0, 4)
             .map((each) => (
@@ -75,7 +77,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
               />
             ))
           )}
-      </ul>
+      </QAContainer>
 
       {questionsData.results.length > 4 ? (
         <button type="submit" onClick={handleMoreQuestions}>
@@ -83,9 +85,16 @@ function QA({ setCurrentForm, setCurrentQData }) {
             : (<small>See More Questions</small>) }
         </button>
       ) : null }
+      <br />
       <button type="submit" onClick={handleAsk} width="50"><small>Ask A Question</small></button>
     </div>
   );
 }
 
 export default QA;
+
+const QAContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
