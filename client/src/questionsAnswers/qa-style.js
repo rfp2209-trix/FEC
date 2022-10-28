@@ -6,10 +6,20 @@ export const BigButton = styled.button`
   background: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
   border: none;
   margin: 0px 8px 0px 0px;
-  box-sizing: border-box;
+  border-radius: 6px;
+  border: lightgrey solid;
+  :hover {
+    opacity: .8;
+    cursor: grab;
+    background: lightgrey;
+  }
+  .ask-button {
+    backgound-color: lightgrey;
+    opacity: .6;
+    border: gray solid;
+  }
 `;
 
 export const LittleButton = styled.button`
@@ -18,36 +28,39 @@ export const LittleButton = styled.button`
   background: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
-  border: 1px solid gray;
+  border: none;
   margin: 0px 8px 0px 8px;
   box-sizing: border-box;
   border-radius: 6px;
-:hover {
+  :hover {
     opacity: .8;
     cursor: grab;
+    background: lightgrey;
   }
 `;
 
 export const ReportButton = styled(LittleButton)`
 color: tomato;
-border: 1px solid gray;
+border: none;
 height: 50px;
 border-radius: 12px;
 :hover {
     opacity: .8;
     cursor: grab;
+    background: lightgrey;
   }
 `;
 
 export const LittleReportButton = styled(ReportButton)`
 color: tomato;
-border: 1px solid gray;
+border: none;
 height: 30px;
 width: 70px;
 border-radius: 6px;
 :hover {
     opacity: .8;
     cursor: grab;
+    background: lightgrey;
   }
 
 `;
@@ -59,12 +72,13 @@ export const AnswerButton = styled.button`
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
-  border: 1px solid;
+  border: none;
   margin: 0px 8px 0px 8px;
   box-sizing: border-box;
   border-radius: 12px;
   :hover {
     opacity: .8;
     cursor: grab;
+    background: lightgrey;
   }
 `;

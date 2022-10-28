@@ -49,7 +49,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
   };
 
   return (
-    <div>
+    <WidgetContainer>
       <h3>Questions & Answers</h3>
       <InputContainer>
         <p>Enter Question to Search for...</p>
@@ -90,16 +90,21 @@ function QA({ setCurrentForm, setCurrentQData }) {
         </BigButton>
       ) : null }
       <br />
-      <BigButton type="submit" onClick={handleAsk} width="50"><small>ASK A QUESTION</small></BigButton>
-    </div>
+      <BigButton className="ask-button" style={{marginLeft: '20px'}} type="submit" onClick={handleAsk} width="50"><small>ASK A QUESTION</small></BigButton>
+    </WidgetContainer>
   );
 }
 
 export default QA;
+
+const WidgetContainer = styled.div`
+  margin: 8px;
+`;
 const InputContainer = styled.div`
   > input {
     font-size: 14pt;
   }
+
 `;
 const QAContainer = styled.div`
   width: 75vw;

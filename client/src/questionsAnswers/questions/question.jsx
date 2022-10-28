@@ -60,7 +60,7 @@ function Question(props) {
 export default Question;
 
 const BigQuestionContainer = styled.div`
-  border: 1px solid grey;
+
   border-radius: 5px;
   box-shadow: 10px 10px 50px grey;
 `;
