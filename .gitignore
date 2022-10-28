@@ -1,6 +1,7 @@
 node_modules
 .env
 bundle.js
+bundle.js.gz
 coverage
 RFP-student.pem
 Cole-Student.pem
