@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { DarkBG } from '../questionsAnswers/background.style.js';
@@ -12,11 +12,13 @@ import {
   ReviewImg,
   StyledResponse,
   ModalImg,
+  NoStyleButton,
 } from './ReviewTile.styles.js';
 
 function ReviewTile({ review }) {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [pictureClicked, setPictureClicked] = useState(null);
+  const [moreReview, setMoreReview] = useState(false);
   const {
     reviewsSort,
     totalReviews,
@@ -32,6 +34,11 @@ function ReviewTile({ review }) {
       onClick={() => setPictureClicked(photo.url)}
     />
   ));
+  useEffect(() => {
+    if (review.body.length > 250) {
+      setMoreReview(true);
+    }
+  }, []);
   return (
     <StyledTile
       rating={review.rating}
@@ -47,7 +54,11 @@ function ReviewTile({ review }) {
         </div>
       </TileFlex>
       <SummaryDiv>{review.summary}</SummaryDiv>
-      <div>{review.body}</div>
+      <div style={{ overflowWrap: 'break-word' }}>
+        {moreReview && review.body.slice(0, 250)}
+        {moreReview && <NoStyleButton type="button" onClick={() => setMoreReview(false)}>show more...</NoStyleButton>}
+        {!moreReview && review.body}
+      </div>
       <div>
         {photoElements}
       </div>
