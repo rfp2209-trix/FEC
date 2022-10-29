@@ -7,7 +7,7 @@ export default function Header() {
     <Styled.PageHeader>
       <div className="header-inner-wrapper">
         <img src={logo} alt="logo" />
-        <h2>Atlier Designs</h2>
+        <h2>Atelier Designs</h2>
         <div className="search">
           <label>Search </label>
           <input type="search" />

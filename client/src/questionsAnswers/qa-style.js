@@ -43,7 +43,7 @@ export const AnswerButton = styled.button`
   color: white;
   font-family: ‘Roboto Condensed’, sans-serif;
   font-size: 15px;
-  border: 1px solid #ACC8D7;
+  border: 1px solid #acc8d7;
   margin: 0px 8px 0px 8px;
   box-sizing: border-box;
 `;
