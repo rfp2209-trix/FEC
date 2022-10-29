@@ -66,7 +66,7 @@ const QuestionContainer = styled.div`
   align-items: center;
   padding: .5em;
   border-radius: 5px;
-  background: #acc8d7;
+  background: #ACC8D7;
 `;
 
 const QContainer = styled.div`

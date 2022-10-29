@@ -43,7 +43,7 @@ export default function RelatedProductListEntry({
 const RelatedProductListEntryContainer = styled.div`
 
   width:258px;
-  height:385px;
+  height:370px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

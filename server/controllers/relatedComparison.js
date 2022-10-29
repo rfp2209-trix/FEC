@@ -1,9 +1,20 @@
 require('dotenv').config();
-
 const axios = require('axios');
 const _ = require('underscore');
 
 module.exports = {
+  roundedAvgStar(avgValue) {
+    let returnMe = Math.floor(avgValue);
+    const roundedFloat = (Math.round(avgValue * 4) / 4).toFixed(2) % 1;
+    if (roundedFloat === 0.25) {
+      returnMe += 0.35;
+    } else if (roundedFloat === 0.5) {
+      returnMe += 0.475;
+    } else if (roundedFloat === 0.75) {
+      returnMe += 0.6;
+    }
+    return returnMe;
+  },
   getAllInfo: (req, res) => {
     const allReqs = [];
     const { product_id } = req.params;
@@ -94,7 +105,7 @@ module.exports = {
         }
         average /= count;
         average = average.toFixed(1);
-        result.averageRating = average;
+        result.averageRating = module.exports.roundedAvgStar(average);
         res.status(200).json(result);
       })
       .catch((err) => {

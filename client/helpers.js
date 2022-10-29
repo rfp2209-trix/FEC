@@ -46,7 +46,7 @@ export function date(inputDate) {
 }
 
 export const charMeaning = {
-  Size: ['A size too small', 'half a size too small', 'Perfect', 'half a size too big', 'A size to big'],
+  Size: ['A size small', 'half a size small', 'Perfect', 'half a size big', 'A size big'],
   Width: ['Too narrow', 'Slightly Narrow', 'Perfect', 'Slightly wide', 'Too Wide'],
   Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
   Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],

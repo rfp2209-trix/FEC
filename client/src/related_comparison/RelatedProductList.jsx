@@ -34,7 +34,9 @@ export default function RelatedProductList() {
   return (
     <div>
       <RelatedTitleText>
-        <h2>RELATED PRODUCTS</h2>
+        <h2>
+          RELATED PRODUCTS
+        </h2>
       </RelatedTitleText>
 
       <RelatedProductListContainer id="related-items">

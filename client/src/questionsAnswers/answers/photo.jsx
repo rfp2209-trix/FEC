@@ -26,6 +26,14 @@ function Photo({ URL }) {
 
 export default Photo;
 
+const PicModalContainer = styled.img`
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 75vw;
+max-height: 80vh;
+`;
+
 const DarkBG = styled.div`
 display: flex;
 justify-content: center;

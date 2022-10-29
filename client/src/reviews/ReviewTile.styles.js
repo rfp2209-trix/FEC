@@ -9,6 +9,7 @@ export const StyledTile = styled.li`
   gap: 15px;
   border-bottom: 1px solid black;
   padding: 5px 5px 20px 5px;
+  min-width: 350px;
 `;
 
 export const TileFlex = styled.div`
@@ -44,7 +45,7 @@ export const StyledButton = styled.button`
 
 export const ReviewImg = styled.img`
   width: 75px;
-  height: 50px;
+  height: 75px;
   display: inline-block;
   margin: 0px 4px;
   border-radius: 4px;
@@ -57,6 +58,18 @@ export const StyledResponse = styled.div`
 `;
 
 export const ModalImg = styled.img`
-  max-height: 50vh;
+  max-height: 80vh;
   max-width: 75vw;
+`;
+
+export const NoStyleButton = styled.button`
+  border: none;
+  background: white;
+  font-size: 14px;
+  font-style: italic;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  &:hover{
+    color: #acc8d7;
+  }
 `;
