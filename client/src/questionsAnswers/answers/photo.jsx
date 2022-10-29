@@ -46,11 +46,3 @@ left: 0%;
 background: rgba(0, 0, 0, 0.5);
 z-index: 50;
 `;
-
-const PicModalContainer = styled.img`
-display: flex;
-align-items: center;
-justify-content: center;
-max-width: 75vw;
-max-height: 80vh;
-`;
