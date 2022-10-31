@@ -6,8 +6,7 @@ import { date } from '../../../helpers.js';
 import Photo from './photo.jsx';
 
 function AnswerItem({ values }) {
-  const { helpfulness } = values;
-  const { photos } = values; // returns an array with URLs
+  const { helpfulness, photos } = values;
 
   return (
     <AnswerContainer>

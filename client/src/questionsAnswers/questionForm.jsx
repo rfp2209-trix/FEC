@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useProductsContext } from '../Context.jsx';
@@ -8,35 +8,33 @@ import { BigButton } from './qa-style.js';
 function QuestionModal({ setCurrentForm }) {
   const { questionsData, productsInfo, loading } = useProductsContext();
   const productID = JSON.parse(questionsData.product_id);
+  const [dataBody, setBodyData] = useState({
+    body: null,
+    name: null,
+    email: null,
+    product_id: productID,
+  });
 
   if (loading) {
     return (
       <span />
     );
   }
-  console.log('productsInfo inside of questioNForm', productsInfo);
-  const dataBody = {
-    body: null,
-    name: null,
-    email: null,
-    product_id: productID,
+  const handleChange = (value, key) => {
+    dataBody[key] = value;
+    setBodyData({ ...dataBody });
   };
   const handleSubmit = (e) => {
+    console.log(dataBody);
+    axios.post('/fec/ask', dataBody)
+      .then(() => {
+        console.log('Successfully submitted question');
+        setCurrentForm('none');
+      })
+      .catch(() => {
+        console.log('Could not submit question to server');
+      });
     e.preventDefault();
-    console.log('databody: ', dataBody);
-    const warning = Object.keys(dataBody).filter((each) => dataBody[each] === null);
-    if (warning) {
-      console.log('incomplete form');
-    } else {
-      axios.post('/fec/ask', dataBody)
-        .then(() => {
-          console.log('Successfully submitted question');
-          setCurrentForm('none');
-        })
-        .catch(() => {
-          console.log('Could not submit question to server');
-        });
-    }
   };
 
   return (
@@ -56,18 +54,48 @@ function QuestionModal({ setCurrentForm }) {
             </div>
             Your Nickname
             <br />
-            <input name="name" type="text" id="askName" size="85" placeholder="Example: Boaty McBoatFace" maxLength="60" required />
+            <input
+              name="name"
+              type="text"
+              id="askName"
+              size="85"
+              placeholder="Example: Boaty McBoatFace"
+              maxLength="60"
+              autoComplete="off"
+              required
+              onChange={(e) => { handleChange(e.target.value, 'name'); }}
+            />
             <br />
             <br />
             Your Email
             <small> (For authentication reasons, you will not be emailed)</small>
             <br />
-            <input name="email" type="text" id="askEmail" size="85" placeholder="boatymcboatface@google.com" maxLength="60" required />
+            <input
+              name="email"
+              type="text"
+              id="askEmail"
+              size="85"
+              placeholder="boatymcboatface@google.com"
+              maxLength="60"
+              autoComplete="off"
+              required
+              onChange={(e) => { handleChange(e.target.value, 'email'); }}
+            />
             <br />
             <br />
             Your Question
             <br />
-            <textarea name="question" type="text" id="askQuestion" rows="8" cols="73" placeholder="How long does it take to put together this product?" required />
+            <textarea
+              name="question"
+              type="text"
+              id="askQuestion"
+              rows="8"
+              cols="73"
+              placeholder="How long does it take to put together this product?"
+              autoComplete="off"
+              required
+              onChange={(e) => { handleChange(e.target.value, 'body'); }}
+            />
             <br />
             <BigButton type="submit">Submit Question</BigButton>
           </QuestionModalContainer>

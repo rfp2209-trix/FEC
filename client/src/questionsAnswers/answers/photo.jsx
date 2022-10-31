@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// import { BackgroundOpacityDiv } from '../background.style.js';
 
 function Photo({ URL }) {
   const [clicked, setClicked] = useState(false);
@@ -45,12 +44,4 @@ top: 0%;
 left: 0%;
 background: rgba(0, 0, 0, 0.5);
 z-index: 50;
-`;
-
-const PicModalContainer = styled.img`
-display: flex;
-align-items: center;
-justify-content: center;
-max-width: 75vw;
-max-height: 80vh;
 `;
