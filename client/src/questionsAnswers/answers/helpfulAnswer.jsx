@@ -5,7 +5,6 @@ import { LittleButton } from '../qa-style.js';
 function Helpful({ answerID, helpfulness }) {
   const [clicked, setClicked] = useState(false);
   const handleHelpfulAnswer = () => {
-    console.log('You said this answer was helpful');
     axios.put(`/fec/answer/helpful/${answerID}`)
       .then(() => {
         setClicked(true);

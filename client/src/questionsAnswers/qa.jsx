@@ -24,7 +24,6 @@ function QA({ setCurrentForm, setCurrentQData }) {
 
   const handleMoreQuestions = () => {
     setMoreQuestions(!moreQuestions);
-    console.log(`The user wants to see more questions: ${moreQuestions}`);
   };
   const answers = questionsData.results;
   const mapTarget = searching ? searchResults : answers;
@@ -37,7 +36,6 @@ function QA({ setCurrentForm, setCurrentQData }) {
         return each.question_body.indexOf(query) !== -1
         || Object.values(answerList).some((answer) => answer.body.indexOf(query) !== -1);
       });
-      console.log('query results: ', queryResults);
       handleQueryResults(queryResults);
     } else {
       setSearching(false);
@@ -58,7 +56,7 @@ function QA({ setCurrentForm, setCurrentQData }) {
           size="75"
           onChange={(e) => { handleSearch(e.target.value); }}
         />
-      ) : <div>No Questions Yet</div>}
+      ) : <h3>No Questions Yet</h3>}
       <br />
       <QAContainer>
         { !moreQuestions
@@ -81,15 +79,16 @@ function QA({ setCurrentForm, setCurrentQData }) {
             ))
           )}
       </QAContainer>
-
-      {answers.length > 4 ? (
-        <BigButton type="submit" onClick={handleMoreQuestions}>
-          { moreQuestions ? (<span>Collapse</span>)
-            : (<span>SEE MORE QUESTIONS</span>) }
-        </BigButton>
-      ) : null }
-      <br />
-      <BigButton type="submit" onClick={handleAsk} width="50"><small>ASK A QUESTION</small></BigButton>
+      <BottomQAContainer>
+        {answers.length > 4 ? (
+          <BigButton type="submit" onClick={handleMoreQuestions}>
+            { moreQuestions ? (<span>Collapse</span>)
+              : (<small>SEE MORE QUESTIONS</small>) }
+          </BigButton>
+        ) : null }
+        <br />
+        <BigButton type="submit" onClick={handleAsk} width="50"><small>ASK A QUESTION</small></BigButton>
+      </BottomQAContainer>
     </div>
   );
 }
@@ -107,4 +106,10 @@ const SearchContainer = styled.input`
   width: 72vw;
   font-size: 1em;
   padding: 15px;
+`;
+
+const BottomQAContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 20px;
 `;

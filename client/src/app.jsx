@@ -38,44 +38,33 @@ function App() {
     }));
   }, []);
 
-  const toggleTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
-
   return (
-      <Styled.Container onClick={() => setCurrentForm('none')}>
-        <Styled.Header>
-          <Header />
-        </Styled.Header>
-        <OverviewContextWrapper>
-          <div id="OV">
-            <Styled.OverviewContainer />
-          </div>
-        </OverviewContextWrapper>
-        <br />
-        {/* <Styled.SectionBreakOne /> */}
-        <div id="RIC">
-          <Styled.RelatedProductListContainer />
-          <Styled.OutfitListContainer />
+    <Styled.Container onClick={() => setCurrentForm('none')}>
+      <Styled.Header>
+        <Header />
+      </Styled.Header>
+      <OverviewContextWrapper>
+        <div id="OV">
+          <Styled.OverviewContainer />
         </div>
-        <div id="QA">
-          {/* <Styled.QuestionsContainer setCurrentForm={setCurrentForm} /> */}
-          {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
-          <Styled.QuestionsContainer
-            setCurrentForm={setCurrentForm}
-            setCurrentQData={setCurrentQData}
-          />
-        </div>
-        <div id="REV">
-          <Reviews setCurrentForm={setCurrentForm} />
-          {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
-        </div>
-        {/* <Styled.Footer>
-          <h2>
-            Footer Goes Here
-          </h2>
-        </Styled.Footer> */}
-      </Styled.Container>
+      </OverviewContextWrapper>
+      <br />
+      <div id="RIC">
+        <Styled.RelatedProductListContainer />
+        <Styled.OutfitListContainer />
+      </div>
+      <div id="QA">
+        {currentForm === 'new question' && <QuestionModal setCurrentForm={setCurrentForm} />}
+        <Styled.QuestionsContainer
+          setCurrentForm={setCurrentForm}
+          setCurrentQData={setCurrentQData}
+        />
+      </div>
+      <div id="REV">
+        <Reviews setCurrentForm={setCurrentForm} />
+        {currentForm === 'new review' && <WriteReview setCurrentForm={setCurrentForm} />}
+      </div>
+    </Styled.Container>
   );
 }
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// import { BackgroundOpacityDiv } from '../background.style.js';
 
 function Photo({ URL }) {
   const [clicked, setClicked] = useState(false);
